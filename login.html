@@ -67,11 +67,24 @@
     </header>
 
     <!-----------------------------
-      Introduction Section
+      LOGIN Section
 -------------------------------->
 
     <main>
-      <p id="blank"></p>
+      <div class="login">
+        <h2>Log In to Chrystalis!</h2>
+        <form method="post" action="login.php">
+          <p>Username: <input type="text" name="username" required /></p>
+          <p>Password: <input type="password" name="password" required /></p>
+
+          <input type="submit" value="Log In" /> <br /><br />
+          <input type="hidden" name="submitted" value="true" />
+        </form>
+
+        <p>
+          Thinking of creating an account? <a href="register.php"> Register </a>
+        </p>
+      </div>
     </main>
 
     <!-----------------------------
