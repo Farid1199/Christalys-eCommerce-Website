@@ -94,6 +94,7 @@ Catalogue Webpage
 
 
 .card-img-top {
-  height: 20px; /* Adjust the height as needed */
+  width: 100%;
+  height: auto; /* Adjust the height as needed */
   object-fit: cover; /* Ensures the image covers the specified height without stretching */
 }
