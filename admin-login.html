@@ -70,10 +70,28 @@
       LOGIN Section
 -------------------------------->
 
-    <main class="main-selection">
-      <div class="button-container">
-        <a href="login.html" class="styled-button">Log In as User</a>
-        <a href="admin-login.html" class="styled-button">Log In as Admin</a>
+    <main>
+      <div class="login">
+        <h2>Log In to Chrystalis!</h2>
+        <form method="post" action="login.html">
+          <p>
+            Email Address:
+            <input
+              type="email"
+              name="email"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              required
+            />
+          </p>
+
+          <p>
+            Password:
+            <input type="password" name="password" required />
+          </p>
+
+          <input type="submit" value="Log In" /> <br /><br />
+          <input type="hidden" name="submitted" value="true" />
+        </form>
       </div>
     </main>
 
