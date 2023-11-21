@@ -22,10 +22,72 @@ MAIN HEADER
 }
 
 #blank {
-  padding: 215px;
+  padding: 115px;
 }
 
 #conclusion {
   background-color: #f8f9fa;
   padding: 20px;
+}
+/* Contact Form Styles */
+.Contact-us {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: grid;
+  gap: 5px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Submit Button Styles */
+input[type="submit"] {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+}
+
+/* Copyright Styles */
+marquee {
+  font-size: 14px;
+  color: #6c757d;
+  padding: 5px 0;
 }
