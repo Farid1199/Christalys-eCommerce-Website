@@ -58,7 +58,7 @@
                 <a class="nav-link" href="#">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Log In</a>
+                <a class="nav-link" href="#">Register</a>
               </li>
             </ul>
           </div>
@@ -73,13 +73,47 @@
     <main>
       <div class="register">
         <h2>Sign Up to Chrystalis!</h2>
-        <form method="post" action="login.php">
-          <p>Your Name: <input type="name" name="name" required /></p>
-          <p>Mobile (Optional): <input type="phone" name="phone" /></p>
-          <p>Email Address: <input type="email" name="email" required /></p>
-          <p>Email Address: <input type="email" name="email" required /></p>
+        <form method="post" action="register.html">
+          <p>
+            Your Name:
+            <input type="name" name="name" required />
+          </p>
+          <p>
+            Mobile (Optional):
+            <input
+              type="phone"
+              name="phone"
+              pattern="[0]{1}[0-9]{10}"
+              title="Please enter a valid phone number in format 0XXXXXXXXXX"
+            />
+          </p>
+          <p>
+            Email Address:
+            <input
+              type="email"
+              name="email"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              required
+            />
+          </p>
+          <p>
+            Password:
+            <input
+              type="password"
+              name="password"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$"
+              title="Password must be at least 8 characters with 1 uppercase letter and a special character"
+              required
+            />
+          </p>
 
-          <input type="submit" value="Log In" /> <br /><br />
+          <p>
+            <input type="checkbox" required />
+            I have read and understood the
+            <a href="img/privacyp.png">Privacy Policy</a>
+          </p>
+
+          <input type="submit" value="Sign Up" /> <br /><br />
           <input type="hidden" name="submitted" value="true" />
         </form>
 

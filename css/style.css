@@ -106,7 +106,7 @@ main {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  max-width: 400px;
+  max-width: 600px;
   width: 90%;
 }
 
@@ -118,14 +118,20 @@ main {
   margin-top: 20px;
 }
 
+.register input[type="name"],
+.register input[type="phone"],
 .register input[type="email"],
 .register input[type="password"],
 .register input[type="submit"] {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
   border-radius: 4px;
   border: 1px solid #ccc;
+}
+
+.register input[type="checkbox"] {
+  align-items: center;
 }
 
 .register input[type="submit"] {
@@ -141,5 +147,5 @@ main {
 
 .register p {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 5px;
 }
