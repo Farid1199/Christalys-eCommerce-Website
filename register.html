@@ -13,6 +13,7 @@
       href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script defer src="js/main.js"></script>
   </head>
 
   <body>
@@ -69,7 +70,6 @@
     <!-----------------------------
       LOGIN Section
 -------------------------------->
-
     <main>
       <div class="register">
         <h2>Sign Up to Chrystalis!</h2>
@@ -81,7 +81,7 @@
           <p>
             Mobile (Optional):
             <input
-              type="phone"
+              type="tel"
               name="phone"
               pattern="[0]{1}[0-9]{10}"
               title="Please enter a valid phone number in format 0XXXXXXXXXX"
@@ -101,10 +101,24 @@
             <input
               type="password"
               name="password"
+              id="password"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$"
               title="Password must be at least 8 characters with 1 uppercase letter and a special character"
               required
             />
+          </p>
+          <p>
+            Confirm Password:
+            <input
+              type="password"
+              name="confirm_password"
+              id="confirm_password"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$"
+              title="Please enter the same password as above"
+              required
+              oninput="checkPasswordMatch();"
+            />
+            <span id="password_match"></span>
           </p>
 
           <p>
@@ -123,6 +137,8 @@
         </p>
       </div>
     </main>
+
+    <script></script>
 
     <!-----------------------------
       LAST SECTION  
