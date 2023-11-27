@@ -93,6 +93,14 @@ REGISTER PAGE CSS
 
 */
 
+.main-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  background-color: #f0f0f0;
+}
+
 .register {
   background-color: #fff;
   padding: 20px;
@@ -100,6 +108,7 @@ REGISTER PAGE CSS
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   max-width: 500px;
   width: 90%;
+  margin: 30px;
 }
 
 .register h2 {
@@ -111,9 +120,9 @@ REGISTER PAGE CSS
 }
 
 .register input[type="name"],
-.register input[type="phone"],
 .register input[type="email"],
 .register input[type="password"],
+.register input[type="confirm_password"],
 .register input[type="submit"] {
   width: 100%;
   padding: 5px;
