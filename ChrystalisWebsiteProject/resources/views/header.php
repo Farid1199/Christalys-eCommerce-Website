@@ -1,7 +1,7 @@
 <?php
 echo "hello";
 ?>
-
+ <link rel="stylesheet" href="ChrystalisWebsiteProject\resources\css\navbar-footer.css">
 <header>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
