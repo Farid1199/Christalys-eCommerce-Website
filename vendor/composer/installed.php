@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '3abb3328660ed7d94cc4c421ff4bd1afc9831f2a',
+        'reference' => '1c7a26223f27f35c500afea51c1c7d84f810a52e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '3abb3328660ed7d94cc4c421ff4bd1afc9831f2a',
+            'reference' => '1c7a26223f27f35c500afea51c1c7d84f810a52e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -457,6 +457,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'open-admin-ext/helpers' => array(
+            'pretty_version' => 'v1.0.3',
+            'version' => '1.0.3.0',
+            'reference' => 'e08009cc67de7109db327d39ee58d67ae31c016d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../open-admin-ext/helpers',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'open-admin-org/open-admin' => array(
             'pretty_version' => 'v1.0.27',
             'version' => '1.0.27.0',
@@ -541,8 +550,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(

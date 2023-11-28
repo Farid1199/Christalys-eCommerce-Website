@@ -1,5 +1,6 @@
 {
     "require": {
-        "open-admin-org/open-admin": "^1.0"
+        "open-admin-org/open-admin": "^1.0",
+        "open-admin-ext/helpers": "^1.0"
     }
 }

@@ -47,6 +47,7 @@ return array(
     'Psr\\Clock\\' => array($vendorDir . '/psr/clock/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
+    'OpenAdmin\\Admin\\Helpers\\' => array($vendorDir . '/open-admin-ext/helpers/src'),
     'OpenAdmin\\Admin\\' => array($vendorDir . '/open-admin-org/open-admin/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\MimeTypeDetection\\' => array($vendorDir . '/league/mime-type-detection/src'),

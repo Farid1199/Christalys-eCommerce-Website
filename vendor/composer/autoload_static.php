@@ -92,6 +92,7 @@ class ComposerStaticInit53aa44dce1f5c2fc13c3e8da6eab8020
         ),
         'O' => 
         array (
+            'OpenAdmin\\Admin\\Helpers\\' => 24,
             'OpenAdmin\\Admin\\' => 16,
         ),
         'M' => 
@@ -312,6 +313,10 @@ class ComposerStaticInit53aa44dce1f5c2fc13c3e8da6eab8020
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'OpenAdmin\\Admin\\Helpers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/open-admin-ext/helpers/src',
         ),
         'OpenAdmin\\Admin\\' => 
         array (
