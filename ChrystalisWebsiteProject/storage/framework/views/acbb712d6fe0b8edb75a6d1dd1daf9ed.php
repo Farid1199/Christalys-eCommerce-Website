@@ -24,6 +24,17 @@
 <?php unset($__componentOriginal7c1bf3a9346f208f66ee83b06b607fb5); ?>
 <?php endif; ?>
 
+    <style>
+
+        #flex items-center justify-end mt-4{
+
+            margin: 5px;
+
+
+
+        }
+    </style>
+
     <form method="POST" action="<?php echo e(route('login'), false); ?>">
         <?php echo csrf_field(); ?>
 
@@ -136,13 +147,22 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <?php if(Route::has('password.request')): ?>
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('password.request'), false); ?>">
-                    <?php echo e(__('Forgot your password?'), false); ?>
+            <?php if(Route::has('register')): ?>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('register'), false); ?>">
+                    <?php echo e(__('Register  '), false); ?>
 
                 </a>
+
             <?php endif; ?>
 
+            <div  class="flex items-center justify-end mt-4">
+                <?php if(Route::has('password.request')): ?>
+<a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('password.request'), false); ?>">
+    <?php echo e(__('Forgot your password?'), false); ?>
+
+</a> 
+            </div>
+                    
             <?php if (isset($component)) { $__componentOriginald411d1792bd6cc877d687758b753742c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => ['class' => 'ms-3']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('primary-button'); ?>
@@ -168,4 +188,6 @@
 <?php $component = $__componentOriginal69dc84650370d1d4dc1b42d016d7226b; ?>
 <?php unset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b); ?>
 <?php endif; ?>
-<?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/auth/login.blade.php ENDPATH**/ ?>
+
+
+<?php endif; ?>   <?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/auth/login.blade.php ENDPATH**/ ?>
