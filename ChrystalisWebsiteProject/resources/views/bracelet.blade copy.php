@@ -1,13 +1,21 @@
-@extends('layouts.mainnavbar')
-
+@extends('layouts.default')
 @section('content')
 
 
-    
-      
 
 
-
+<body>
+    <div class="container">
+        <header>
+            <h1>Chrystalis Jewelry</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
         <main>
             <!-- Bracelet 1 -->
@@ -116,9 +124,9 @@
         <footer>
             <p>&copy; 2023 Chrystalis Jewelry</p>
         </footer>
-   
+    </div>
 
+    <script src="bracelet.js"></script>
+</body>
 
-
-@endsection
-
+</html>
