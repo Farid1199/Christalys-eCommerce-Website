@@ -22,6 +22,43 @@ Route::get('/loginAdmin', function () {
     return view('loginUserAdmin');
 });
 
+#When you clcikc on the Home page, it will redirect to Home Page
+Route::get('/', function () {
+    return view('welcome');
+});
+
+# I used <'/products'> from the a tag in the welcome page, and then used the name of the catalogue page.
+Route::get('/products', function () {
+    return view('productCatalogue');
+})->name('products');
+
+# Product Catalogue to Rings Webpage
+Route::get('/rings', function () {
+    return view('ring');
+})->name('rings');
+
+
+# Product Catalogue to Necklace Webpage
+Route::get('/necklaces', function () {
+    return view('necklace');
+})->name('necklaces');
+
+# Product Catalogue to Bracelet Webpage
+Route::get('/bracelets', function () {
+    return view('bracelet');
+})->name('bracelets');
+
+# Product Catalogue to Earring Webpage
+Route::get('/earrings', function () {
+    return view('earring');
+})->name('earrings');
+
+# Product Catalogue to Watches Webpage
+Route::get('/watches', function () {
+    return view('watch');
+})->name('watches');
+
+
 
 
 

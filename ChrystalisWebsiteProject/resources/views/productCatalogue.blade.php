@@ -88,7 +88,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Ring</h5>
                   <p class="card-text">Description of the ring product.</p>
-                  <a href="#" class="btn btn-primary">Visit</a>
+                  <a href="{{ route('rings') }}" class="btn btn-primary">Visit</a>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Necklace</h5>
                   <p class="card-text">Description of the necklace product.</p>
-                  <a href="#" class="btn btn-primary">Visit</a>
+                  <a href="{{ route('necklaces') }}" class="btn btn-primary">Visit</a>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Bracelet</h5>
                   <p class="card-text">Description of the bracelet product.</p>
-                  <a href="#" class="btn btn-primary">Visit</a>
+                  <a href="{{ route('bracelets') }}" class="btn btn-primary">Visit</a>
                 </div>
               </div>
             </div>
@@ -138,7 +138,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Earrings</h5>
                   <p class="card-text">Description of the earrings product.</p>
-                  <a href="#" class="btn btn-primary">Visit</a>
+                  <a href="{{ route('earrings') }}" class="btn btn-primary">Visit</a>
                 </div>
               </div>
             </div>
@@ -155,7 +155,7 @@
               <div class="card-body">
                 <h5 class="card-title">Watches</h5>
                 <p class="card-text">Description of the watch product.</p>
-                <a href="#" class="btn btn-primary">Visit</a>
+                <a href="{{ route('watches') }}" class="btn btn-primary">Visit</a>
               </div>
             </div>
           </div>
