@@ -20,7 +20,98 @@ MAIN CONTENT
 
 */
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
 
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #e3bbbb;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+}
+
+#basket-container {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.basket-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  color: #555;
+}
+
+#total-container {
+  text-align: right;
+  color: #333;
+}
+
+/*
+
+MAIN HEADER
+
+*/
+
+#main-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 50px 50px 30px;
+  padding-bottom: 15px;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  background-color: #fff8e7;
+}
+
+#top-nav {
+  color: red;
+  padding-left: 150px;
+}
+
+#blank {
+  padding: 215px;
+}
+
+#conclusion {
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+
+/* Add more styles as needed */
+
+
+
+/*
+
+#######################################################################################################################################
+Catalogue Webpage
+
+#######################################################################################################################################
+*/
+
+
+
+.card-img-top {
+width: 100%;
+height: auto; /* Adjust the height as needed */
+object-fit: cover; /* Ensures the image covers the specified height without stretching */
+}
 
 
 
