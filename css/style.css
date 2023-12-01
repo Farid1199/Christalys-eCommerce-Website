@@ -91,3 +91,17 @@ marquee {
   color: #6c757d;
   padding: 5px 0;
 }
+.watches {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.watches img {
+  max-width: 100%;
+  height: auto;
+}
+
+.watches1 {
+  margin: 0 20px;
+}
+
