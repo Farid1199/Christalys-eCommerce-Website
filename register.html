@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-----------------------------
+          TITLE HEAD
+-------------------------------->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chrystalis</title>
+    <link rel="icon" href="img/favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script defer src="js/main.js"></script>
+  </head>
+
+  <body>
+    <!-----------------------------
+        HEADER NAVBAR 
+-------------------------------->
+
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <div id="logo" style="padding-bottom: 10px">
+            <img
+              src="img/logo.png"
+              alt="TopLeft Logo"
+              style="padding-left: 50px; width: 35%; height: 35%"
+            />
+          </div>
+
+          <form class="d-flex flex-grow-1 mx-auto" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul id="top-nav" class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="register.html">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-----------------------------
+      LOGIN Section
+-------------------------------->
+    <main class="main-register">
+      <div class="register">
+        <h2>Sign Up to Chrystalis!</h2>
+        <form method="post" action="register.html">
+          <p>
+            Your Name:
+            <input type="name" name="name" required />
+          </p>
+          <p>
+            Email Address:
+            <input
+              type="email"
+              name="email"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              required
+            />
+          </p>
+          <p>
+            Password:
+            <input
+              type="password"
+              name="password"
+              id="password"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$"
+              title="Password must be at least 8 characters with 1 uppercase letter and a special character"
+              required
+            />
+          </p>
+          <p>
+            Confirm Password:
+            <input
+              type="password"
+              name="confirm_password"
+              id="confirm_password"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$"
+              title="Please enter the same password as above"
+              required
+              oninput="checkPasswordMatch();"
+            />
+            <span id="password_match"></span>
+          </p>
+
+          <p>
+            <input type="checkbox" required />
+            I have read and understood the
+            <a href="img/privacyp.png">Privacy Policy</a>
+          </p>
+
+          <input type="submit" value="Sign Up" /> <br /><br />
+          <input type="hidden" name="submitted" value="true" />
+        </form>
+
+        <p>
+          Already have an account?
+          <a href="login.html"> Log In </a>
+        </p>
+      </div>
+    </main>
+
+    <script></script>
+
+    <!-----------------------------
+      LAST SECTION  
+-------------------------------->
+
+    <footer>
+      <section id="conclusion">
+        <div class="copyright-bottom">
+          <marquee>Copyright © 2023 Polaris. All rights reserved</marquee>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>
