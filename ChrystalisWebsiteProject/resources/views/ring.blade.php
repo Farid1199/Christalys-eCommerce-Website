@@ -2,6 +2,10 @@
 
 @section('title', 'Ring')
 
+
+
+@section('content')
+
   <main>
       <!-- Ring 1 -->
       <section class="product">
@@ -106,10 +110,12 @@
 
       <!-- Add more rings following the same structure -->
 
+            
+          
  
     </main>
 
 
-@section('content')
+@endsection
 
 
