@@ -3,7 +3,7 @@
 @section('title', 'Bracelets')
 
 
-@section('header')
+
 @section('content')
 
         
