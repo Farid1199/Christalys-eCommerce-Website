@@ -1,15 +1,16 @@
-@extends('layouts.mainnavbar')
+@extends('mainLayout.layout')
 
+@section('title', 'Bracelets')
+
+
+@section('header')
 @section('content')
 
-
-    
-      
+        
 
 
 
-
-        <main>
+<div class="bracelet">
             <!-- Bracelet 1 -->
             <section class="product">
                 <img src="bracelet1.jpg" alt="Bracelet 1 Image">
@@ -43,7 +44,10 @@
                 </div>
             </section>
 
-            <!-- Bracelet 3 -->
+        </div>
+        
+
+             <!-- Bracelet 3 -->
             <section class="product">
                 <img src="bracelet3.jpg" alt="Bracelet 3 Image">
                 <div class="product-info">
@@ -107,18 +111,7 @@
                     <p class="description">A beautiful pearl charm bracelet that complements any outfit.</p>
                     <button onclick="addToCart()">Add to Cart</button>
                 </div>
-            </section>
+            </section> 
 
-            <!-- Add more bracelets following the same structure -->
-
-        </main>
-
-        <footer>
-            <p>&copy; 2023 Chrystalis Jewelry</p>
-        </footer>
-   
-
-
-
+             
 @endsection
-

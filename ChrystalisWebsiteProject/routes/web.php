@@ -22,11 +22,9 @@ Route::get('/loginAdmin', function () {
     return view('loginUserAdmin');
 });
 
-#When you clcikc on the Home page, it will redirect to Home Page
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/layout', function () {
+    return view('mainLayout.layout');
 });
-
 # I used <'/products'> from the a tag in the welcome page, and then used the name of the catalogue page.
 Route::get('/products', function () {
     return view('productCatalogue');
