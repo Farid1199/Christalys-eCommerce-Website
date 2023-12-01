@@ -9,7 +9,7 @@
         
 
 
-
+ <main>
 
             <!-- Bracelet 1 -->
             <section class="product">
@@ -44,7 +44,6 @@
                 </div>
             </section>
 
-        </div>
         
 
              <!-- Bracelet 3 -->
@@ -113,5 +112,5 @@
                 </div>
             </section> 
 
-             
+    </main>
 @endsection

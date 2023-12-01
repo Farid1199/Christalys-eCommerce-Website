@@ -19,7 +19,6 @@ MAIN CONTENT
 ###########################     Bracelet Page      ############################################
 
 */
-
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -38,8 +37,6 @@ header {
   align-items: center;
   padding: 20px 0;
 }
-
-
 
 main {
   margin-top: 20px;
@@ -85,6 +82,11 @@ button:hover {
   color: #ff6600;
   font-size: 1.2em;
   margin-bottom: 10px;
+}
+
+/* Apply specific styles to every third child */
+.product:nth-child(3n) {
+  margin-right: 0; /* Remove right margin on every third item */
 }
 
 button {
