@@ -7,10 +7,13 @@
     <title>
         @yield('title', 'Chrystalis')
     </title>
+ 
+    <link rel="stylesheet" href="{{ asset('assets\css/main.css')}}">
     <link
-    rel="stylesheet"
-  />
-    <link rel="stylesheet" href="{{ asset('css/main.css')}}">
+      rel="stylesheet"
+      href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+
 </head>
 <body>
 
@@ -64,21 +67,20 @@
             </div>
           </div>
 
-
-          <div class="container">
-            @yield('content')
-          </div>
         </nav>
       </header>
     </div>
 
 
+    
 
-      <div class="main">
-        @yield('content')
-      </div>
+    <div class="main">
+      @yield('content')
+    </div>
 
-            <footer>
+    
+
+      <footer>
         @yield('footer')
         <footer>
             <section id="conclusion">

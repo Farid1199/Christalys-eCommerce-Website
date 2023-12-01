@@ -3,14 +3,14 @@
 @section('title', 'Bracelets')
 
 
-@section('header')
+
 @section('content')
 
         
 
 
 
-<div class="bracelet">
+
             <!-- Bracelet 1 -->
             <section class="product">
                 <img src="bracelet1.jpg" alt="Bracelet 1 Image">
