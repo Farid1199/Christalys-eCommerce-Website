@@ -105,3 +105,13 @@ marquee {
   margin: 0 20px;
 }
 
+/* Custom styles for carousel control arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: brightness(0.5); /* Adjust brightness to make arrows grey */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    color: grey; /* Set arrow color to grey */
+}
