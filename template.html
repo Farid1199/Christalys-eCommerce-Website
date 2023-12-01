@@ -25,9 +25,19 @@
         <img
           src="img/logo.png"
           alt="TopLeft Logo"
-          style="width: 20%; height: 20%"
+          style="width: 30%; height: 20%"
         />
       </div>
+
+      <form role="search">
+        <input
+          class="submit-form"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button type="submit" class="button-style">Search</button>
+      </form>
 
       <nav class="navigation-container">
         <ul class="navigation">
@@ -57,3 +67,266 @@
     </footer>
   </body>
 </html>
+
+<!-- 
+
+PUT THIS CODE FOR YOUR CSS FILE 
+
+
+/*
+
+MAIN HEADER
+
+*/
+
+#main-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 50px 50px 30px;
+  padding-bottom: 15px;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  background-color: #faf6f5;
+}
+
+#top-nav {
+  color: red;
+  padding-left: 150px;
+}
+
+#blank {
+  padding: 215px;
+}
+
+#conclusion {
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.navigation,
+.navigation * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation ul {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+  top: 0;
+  left: 100%;
+  margin: 4px 0 0 0;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.navigation li {
+  position: relative;
+  white-space: nowrap;
+  float: left;
+  margin-left: 8px;
+}
+
+.navigation li:hover > ul,
+.navigation ul li:hover > a,
+.navigation li.sfHover > ul {
+  color: black;
+  background-color: #e7e7e7;
+  display: block;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+
+.navigation a {
+  padding: 5px;
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.navigation .menu-active a,
+.navigation a:hover {
+  color: black;
+  background-color: #e7e7e7;
+  display: block;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+
+.navigation > li > a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  transition: all 1s ease-in-out 0s;
+  visibility: visible;
+  width: 100%;
+}
+
+.navigation ul li a {
+  padding: 10px;
+  transition: 0.1s;
+  display: block;
+  text-transform: none;
+  border-radius: 3px;
+  min-width: 180px;
+}
+
+.submit-form {
+  border-radius: 10px;
+  border-color: #ffffff;
+  background: #ffffff;
+  padding: 5px 10px;
+  margin: 1px;
+}
+
+.button-style {
+  border-radius: 10px;
+  border-color: green;
+  background: #ffffff;
+  padding: 5px 10px;
+  margin: 4px;
+  color: green;
+}
+
+.button-style:hover {
+  background-color: green;
+  color: white;
+  transition-duration: 0.4s;
+}
+
+/* 
+
+LOGIN PAGE CSS
+
+*/
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.login {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  width: 90%;
+}
+
+.login h2 {
+  text-align: center;
+}
+
+.login form {
+  margin-top: 20px;
+}
+
+.login input[type="email"],
+.login input[type="password"],
+.login input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.login input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+.login p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* 
+
+REGISTER PAGE CSS
+
+*/
+
+.main-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  background-color: #f0f0f0;
+}
+
+.register {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+  margin: 30px;
+}
+
+.register h2 {
+  text-align: center;
+}
+
+.register form {
+  margin-top: 20px;
+}
+
+.register input[type="name"],
+.register input[type="email"],
+.register input[type="password"],
+.register input[type="confirm_password"],
+.register input[type="submit"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.register input[type="checkbox"] {
+  align-items: center;
+}
+
+.register input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+.register p {
+  text-align: center;
+  margin-top: 5px;
+}
+
+
+
+-->
