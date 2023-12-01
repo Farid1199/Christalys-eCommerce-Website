@@ -1,5 +1,3 @@
-
-
 #main-header {
   display: flex;
   align-items: center;
@@ -25,6 +23,7 @@
   background-color: #f8f9fa;
   padding: 20px;
 }
+
 /* Contact form styles */
 .Contact-us {
   max-width: 600px;
@@ -80,6 +79,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #555;
 }
+
 /* Footer Styles */
 footer {
   background-color: #f8f9fa;
@@ -92,42 +92,50 @@ marquee {
   color: #6c757d;
   padding: 5px 0;
 }
+
+/* Watches Section Styles */
 .watches {
   display: flex;
+  justify-content: space-between;
   margin-bottom: 30px;
 }
 
 .watches img {
-  border-radius: 8px; 
-  transition: transform 0.3s ease-in-out; 
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .watches img:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .watches1 {
-  margin: 0 20px; /
+  flex: 0 0 48%;
+  margin: 0 20px;
+}
+
+.watch-image {
+  width: 100%;
+  height: 400;
 }
 
 .btn-success {
-  background-color: #28a745; 
-  border-color: #28a745; /
+  background-color: #28a745;
+  border-color: #28a745;
 }
 
 .btn-success:hover {
-  background-color: #218838; 
+  background-color: #218838;
   border-color: #218838;
 }
-
 
 /* Custom styles for carousel control arrows */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    filter: brightness(0.5); /* Adjust brightness to make arrows grey */
+  filter: brightness(0.5);
 }
 
 .carousel-control-prev,
 .carousel-control-next {
-    color: grey; /* Set arrow color to grey */
+  color: grey;
 }
