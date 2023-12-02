@@ -1,29 +1,33 @@
+/* Header Styles */
 #main-header {
   display: flex;
   align-items: center;
-  padding: 15px 30px; /* Adjusted padding */
   justify-content: space-between;
+  padding: 15px 30px;
   width: 100%;
   flex-wrap: wrap;
   margin: 0 auto;
   background-color: #fff8e7;
 }
 
+/* Top Navigation Styles */
 #top-nav {
   color: red;
-  padding-left: 15px; /* Adjusted padding */
+  padding-left: 15px;
 }
 
+/* Blank Space Styles */
 #blank {
-  padding: 15px 0; /* Adjusted padding */
+  padding: 15px 0;
 }
 
+/* Conclusion Section Styles */
 #conclusion {
   background-color: #f8f9fa;
   padding: 20px;
 }
 
-/* Contact form styles */
+/* Contact Form Styles */
 .Contact-us {
   max-width: 600px;
   margin: 20px auto;
@@ -33,17 +37,20 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Form Styles */
 form {
   display: grid;
   gap: 15px;
 }
 
+/* Label Styles */
 label {
   font-weight: bold;
   margin-bottom: 5px;
   color: #333;
 }
 
+/* Input and Textarea Styles */
 input,
 textarea {
   width: 100%;
@@ -59,12 +66,12 @@ textarea:focus {
   border-color: #555;
 }
 
-/* Contact Preferences */
+/* Contact Preferences Styles */
 input[type="checkbox"] {
   margin-right: 5px;
 }
 
-/* Submit button styles */
+/* Submit Button Styles */
 input[type="submit"] {
   background-color: #333;
   color: #fff;
@@ -106,22 +113,29 @@ marquee {
   width: 100%;
 }
 
+.watch-image {
+  width: 100%;
+  height: auto;
+}
+
 .watches img:hover {
   transform: scale(1.1);
 }
 
+/* Watches Item Styles */
 .watches1 {
   flex: 0 0 calc(48% - 20px);
   margin-bottom: 20px;
 }
 
-/* Adjust the width for smaller screens */
+/* Adjust the Width for Smaller Screens */
 @media (max-width: 768px) {
   .watches1 {
     flex: 0 0 100%;
   }
 }
 
+/* Button Success Styles */
 .btn-success {
   background-color: #28a745;
   border-color: #28a745;
@@ -132,7 +146,7 @@ marquee {
   border-color: #218838;
 }
 
-
+/* Carousel Control Styles */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   filter: brightness(0.5);
@@ -142,4 +156,3 @@ marquee {
 .carousel-control-next {
   color: grey;
 }
-
