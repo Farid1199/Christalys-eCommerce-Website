@@ -20,7 +20,7 @@
         <div class="card-body">
           <h5 class="card-title">Ring</h5>
           <p class="card-text">Description of the ring product.</p>
-          <a href="#" class="btn btn-primary">Visit</a>
+          <a href="rings" class="btn btn-primary">Visit</a>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         <div class="card-body">
           <h5 class="card-title">Necklace</h5>
           <p class="card-text">Description of the necklace product.</p>
-          <a href="#" class="btn btn-primary">Visit</a>
+          <a href="necklaces" class="btn btn-primary">Visit</a>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
         <div class="card-body">
           <h5 class="card-title">Bracelet</h5>
           <p class="card-text">Description of the bracelet product.</p>
-          <a href="#" class="btn btn-primary">Visit</a>
+          <a href="bracelets" class="btn btn-primary">Visit</a>
         </div>
       </div>
     </div>
@@ -70,11 +70,28 @@
         <div class="card-body">
           <h5 class="card-title">Earrings</h5>
           <p class="card-text">Description of the earrings product.</p>
-          <a href="#" class="btn btn-primary">Visit</a>
+          <a href="{{ route('earrings') }}" class="btn btn-primary">Visit</a>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Product 5: Watches -->
+  <div class="col-md-6">
+    <div class="card mb-4">
+      <img
+        src="Images\earrings - 1.jpg"
+        class="card-img-top"
+        alt="Watches"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Watches</h5>
+        <p class="card-text">Description of the earrings product.</p>
+        <a href="{{ route('watches') }}" class="btn btn-primary">Visit</a>
+      </div>
+    </div>
+  </div>
+</div>
 
   
 </main>
