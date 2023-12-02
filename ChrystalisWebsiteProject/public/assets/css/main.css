@@ -93,7 +93,46 @@ MAIN HEADER
 }
 
 
-/* Add more styles as needed */
+/* ##########################################################################################################
+Account selection Page (User or Admin) 
+
+############################################################################################################*/
+
+
+
+
+
+.main-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  background-color: #f0f0f0;
+}
+
+/* Basic styles for the buttons */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.styled-button {
+  display: inline-block;
+  padding: 40px 100px;
+  margin: 5px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  font-size: larger;
+  transition: all 0.3s ease;
+}
+
+.styled-button:hover {
+  background-color: #b8b8b8;
+  color: #fff;
+}
 
 
 
