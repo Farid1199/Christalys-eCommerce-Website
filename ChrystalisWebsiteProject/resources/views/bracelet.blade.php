@@ -18,6 +18,7 @@
                     <h2>Sparkling Crystal Bracelet</h2>
                     <p class="price">$299.99</p>
                     <p class="description">This sparkling crystal bracelet is the perfect accessory for any occasion.</p>
+                    <button>View Details</button>
                     <button onclick="addToCart()">Add to Cart</button>
                 </div>
             </section>

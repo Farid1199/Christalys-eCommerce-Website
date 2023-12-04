@@ -147,7 +147,7 @@ Catalogue Webpage
 
 
 .card-img-top {
-width: 100%;
+width: 50%;
 height: auto; /* Adjust the height as needed */
 object-fit: cover; /* Ensures the image covers the specified height without stretching */
 }
@@ -181,7 +181,6 @@ header {
 main {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
   gap: 20px;
 }
 
@@ -240,6 +239,16 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create three equal columns */
+  gap: 20px; /* Add gap between products */
+}
+
+
+
+
 
 footer {
   margin-top: 20px;

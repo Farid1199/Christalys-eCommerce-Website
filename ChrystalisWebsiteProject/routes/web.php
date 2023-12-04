@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,12 +61,28 @@ Route::get('/watches', function () {
 
 
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
+// This is for the products of each product webpage
+Route::get('/detail', [ProfileController::class, 'detail']);
+
+
+// Ring Controller ---- Model and Details Page
+
+Route::get('/rings', [RingController::class, 'index']);
+Route::get('/rings/{id}', [RingController::class, 'detail'])->name('rings.detail');
+
+
+
+
+
+// This is for the details of the products
+Route::get('/detail', [ProfileController::class, 'detail']);
 
 
 Route::middleware('auth')->group(function () {
