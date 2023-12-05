@@ -2,37 +2,24 @@
 
 @section('title', 'Ring')
 
-
-
 @section('content')
 
-  <main>
-      <!-- Ring 1 -->
-      <section class="product-container">
-        @foreach ($rings as $item)
-            
-                <div class="item {{ $item->id == 1 ? 'active' : '' }}">
-                    <a href="{{ route('rings.detail', ['id' => $item->id]) }}">
-                    <img class="card-img-top" src="{{$item['gallery']}}">
+<h1>Rings</h1>
+<main>
+    <!-- Ring 1 -->
+    <section class="product-container">
+        @foreach ($products as $ring)
+            <div class="item {{ $ring['id'] == 1 ? 'active' : '' }}">
+                <a href="detail/{{$ring['id']}}">
+                    <img class="card-img-top" src="{{ $ring['gallery'] }}">
                     <div class="product-info">
-                        <h3>{{$item['name']}}</h3>
-                        <p>{{$item['description']}}</p>
+                        <h3>{{ $ring->name }}</h3>
+                        <p>{{ $ring->description }}</p>
                     </div>
-                </a>
-                </div>
-                @endforeach
-      </section>
- 
-      
-
-      <!-- Add more rings following the same structure -->
-
-            
-          
- 
-    </main>
-
+                  </a>
+            </div>
+        @endforeach
+    </section>
+</main>
 
 @endsection
-
-

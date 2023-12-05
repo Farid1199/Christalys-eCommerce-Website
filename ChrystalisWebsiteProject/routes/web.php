@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RingController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/loginAdmin', function () {
     return view('loginUserAdmin');
@@ -71,13 +72,32 @@ Route::get('/dashboard', function () {
 // This is for the products of each product webpage
 Route::get('/detail', [ProfileController::class, 'detail']);
 
-
-// Ring Controller ---- Model and Details Page
-
-Route::get('/rings', [RingController::class, 'index']);
-Route::get('/rings/{id}', [RingController::class, 'detail'])->name('rings.detail');
+Route::get('/product', [ProductController::class, 'index']);
 
 
+
+
+
+
+//  #############################################################################################################################
+//  #############################################################################################################################
+// Abu Video
+
+Route::get('/rings', [ProductController::class, 'index'])->name('rings.index');
+
+// Route for the product details page
+
+Route::get("detail/{id}", [ProductController::class, 'detail']);
+
+
+
+
+
+
+
+//  #############################################################################################################################
+
+//  #############################################################################################################################
 
 
 
