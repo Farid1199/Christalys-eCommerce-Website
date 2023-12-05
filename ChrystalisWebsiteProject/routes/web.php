@@ -83,7 +83,20 @@ Route::get('/product', [ProductController::class, 'index']);
 //  #############################################################################################################################
 // Abu Video
 
+// Route for the product details page for Rings
 Route::get('/rings', [ProductController::class, 'index'])->name('rings.index');
+
+// Route for the product details page for bracelets
+Route::get('/bracelets', [ProductController::class, 'index1'])->name('bracelets.index');
+
+// Route for the product details page for necklaces
+Route::get('/necklaces', [ProductController::class, 'index2'])->name('necklaces.index');
+
+// Route for the product details page for earrings
+Route::get('/earrings', [ProductController::class, 'index3'])->name('earrings.index');
+
+// Route for the product details page for watches
+Route::get('/watches', [ProductController::class, 'index4'])->name('watches.index');
 
 // Route for the product details page
 

@@ -10,8 +10,7 @@
 
     <main class="main-selection">
       <div class="button-container">
-        <a href="<?php echo e(route('login'), false); ?>" class="styled-button">Log In as User</a>
-        <a href="admin-login.html" class="styled-button">Log In as Admin</a>
+        <a href="<?php echo e(route('login'), false); ?>" class="styled-button">Log In</a>
       </div>
     </main>
 

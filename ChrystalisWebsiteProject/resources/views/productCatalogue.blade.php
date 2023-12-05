@@ -54,7 +54,7 @@
         <div class="card-body">
           <h5 class="card-title">Earrings</h5>
           <p class="card-text">Description of the earrings product.</p>
-          <a href="{{ route('earrings') }}" class="btn btn-primary">Visit</a>
+          <a href="earrings" class="btn btn-primary">Visit</a>
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@
         <div class="card-body">
           <h5 class="card-title">Watches</h5>
           <p class="card-text">Description of the watches product.</p>
-          <a href="{{ route('watches') }}" class="btn btn-primary">Visit</a>
+          <a href="watches" class="btn btn-primary">Visit</a>
         </div>
       </div>
     </div>
