@@ -4,6 +4,12 @@ MAIN HEADER
 
 */
 
+:root {
+  animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s;
+  --animate-delay: 2s;
+}
+
 #main-header {
   display: flex;
   align-items: center;
