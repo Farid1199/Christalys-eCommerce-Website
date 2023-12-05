@@ -13,7 +13,7 @@ MAIN HEADER
     width: 100%;
     flex-wrap: wrap;
     margin: 0 auto;
-    background-color: #faf6f5;
+    background-color: rgb(196, 196, 196);
   }
   
   #top-nav {
