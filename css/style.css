@@ -86,64 +86,19 @@ input[type="submit"]:hover {
   background-color: #555;
 }
 
-/* Footer Styles */
+
 footer {
-  background-color: #f8f9fa;
-  padding: 20px 0;
-}
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+  }
+  
 
 /* Copyright Styles */
 marquee {
   font-size: 14px;
   color: #6c757d;
   padding: 5px 0;
-}
-
-/* Watches Section Styles */
-.watches {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-
-.watches img {
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out;
-  width: 100%;
-}
-
-.watch-image {
-  width: 100%;
-  height: auto;
-}
-
-.watches img:hover {
-  transform: scale(1.1);
-}
-
-/* Watches Item Styles */
-.watches1 {
-  flex: 0 0 calc(48% - 20px);
-  margin-bottom: 20px;
-}
-
-/* Adjust the Width for Smaller Screens */
-@media (max-width: 768px) {
-  .watches1 {
-    flex: 0 0 100%;
-  }
-}
-
-/* Button Success Styles */
-.btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
-}
-
-.btn-success:hover {
-  background-color: #218838;
-  border-color: #218838;
 }
 
 /* Carousel Control Styles */
@@ -156,3 +111,103 @@ marquee {
 .carousel-control-next {
   color: grey;
 }
+
+.container {
+  max-width: 1200px;
+}
+
+/* Style for Watches */
+.watches {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.watches1 {
+  flex: 1;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.watches1:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.watch-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.watches1:hover .watch-image {
+  transform: scale(1.05);
+}
+
+
+.btn-success {
+  background-color: #333; /* Set the background color to grey */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  background-color: #555; /* Change the hover color to a slightly darker grey */
+}
+.seperate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.carousel {
+  max-width: 50%; /* Adjust the width of the carousel as needed */
+}
+
+.carousel img {
+  max-width: 100%;
+  height: auto;
+}
+
+.watchesSeperate {
+  max-width: 45%; /* Adjust the width of the text section as needed */
+}
+
+#product-details h2 {
+  color: #333;
+}
+
+#product-details p {
+  color: #555;
+}
+
+#product-details ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+#product-details button {
+  margin-top: 20px;
+}
+
+#conclusion marquee {
+  font-size: 14px;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
