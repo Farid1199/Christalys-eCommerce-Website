@@ -5,433 +5,435 @@ MAIN HEADER
 */
 
 #main-header {
-    display: flex;
-    align-items: center;
-    padding: 15px 50px 50px 30px;
-    padding-bottom: 15px;
-    justify-content: space-between;
-    width: 100%;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    background-color: rgb(196, 196, 196);
-  }
-  
-  #top-nav {
-    color: red;
-    padding-left: 150px;
-  }
-  
-  #blank {
-    padding: 215px;
-  }
-  
-  #conclusion {
-    background-color: #f8f9fa;
-    padding: 20px;
-  }
-  
-  .navigation,
-  .navigation * {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .navigation ul {
-    position: absolute;
-    display: none;
-    top: 100%;
-    left: 0;
-    z-index: 99;
-    top: 0;
-    left: 100%;
-    margin: 4px 0 0 0;
-    padding: 10px;
-    border-radius: 3px;
-  }
-  
-  .navigation li {
-    position: relative;
-    white-space: nowrap;
-    float: left;
-    margin-left: 8px;
-  }
-  
-  .navigation li:hover > ul,
-  .navigation ul li:hover > a,
-  .navigation li.sfHover > ul {
-    color: black;
-    background-color: #e7e7e7;
-    display: block;
-    border-radius: 10px;
-    transition-duration: 0.5s;
-  }
-  
-  .navigation a {
-    padding: 5px;
-    text-decoration: none;
-    display: inline-block;
-    color: black;
-    font-family: "Raleway", sans-serif;
-    font-size: 15px;
-    outline: none;
-  }
-  
-  .navigation .menu-active a,
-  .navigation a:hover {
-    color: black;
-    background-color: #e7e7e7;
-    display: block;
-    border-radius: 10px;
-    transition-duration: 0.5s;
-  }
-  
-  .navigation > li > a:before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    visibility: hidden;
-    transition: all 1s ease-in-out 0s;
-    visibility: visible;
-    width: 100%;
-  }
-  
-  .navigation ul li a {
-    padding: 10px;
-    transition: 0.1s;
-    display: block;
-    text-transform: none;
-    border-radius: 3px;
-    min-width: 180px;
-  }
-  
-  .submit-form {
-    border-radius: 10px;
-    border-color: #ffffff;
-    background: #ffffff;
-    padding: 5px 10px;
-    margin: 1px;
-  }
-  
-  .button-style {
-    border-radius: 10px;
-    border-color: green;
-    background: #ffffff;
-    padding: 5px 10px;
-    margin: 4px;
-    color: green;
-  }
-  
-  .button-style:hover {
-    background-color: green;
-    color: white;
-    transition-duration: 0.4s;
-  }
-  
-  /* 
+  display: flex;
+  align-items: center;
+  padding: 15px 50px 50px 30px;
+  padding-bottom: 15px;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  background-color: rgb(196, 196, 196);
+}
+
+#top-nav {
+  color: red;
+  padding-left: 150px;
+}
+
+#blank {
+  padding: 215px;
+}
+
+#conclusion {
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.navigation,
+.navigation * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation ul {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+  top: 0;
+  left: 100%;
+  margin: 4px 0 0 0;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.navigation li {
+  position: relative;
+  white-space: nowrap;
+  float: left;
+  margin-left: 8px;
+}
+
+.navigation li:hover > ul,
+.navigation ul li:hover > a,
+.navigation li.sfHover > ul {
+  color: black;
+  background-color: #e7e7e7;
+  display: block;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+
+.navigation a {
+  padding: 5px;
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  outline: none;
+  text-decoration: none;
+}
+
+.navigation .menu-active a,
+.navigation a:hover {
+  color: black;
+  background-color: #e7e7e7;
+  display: block;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+  text-decoration: none;
+}
+
+.navigation > li > a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  transition: all 1s ease-in-out 0s;
+  visibility: visible;
+  width: 100%;
+}
+
+.navigation ul li a {
+  padding: 10px;
+  transition: 0.1s;
+  display: block;
+  text-transform: none;
+  border-radius: 3px;
+  min-width: 180px;
+  text-decoration: none;
+}
+
+.submit-form {
+  border-radius: 10px;
+  border-color: #ffffff;
+  background: #ffffff;
+  padding: 5px 10px;
+  margin: 1px;
+}
+
+.button-style {
+  border-radius: 10px;
+  border-color: green;
+  background: #ffffff;
+  padding: 5px 10px;
+  margin: 4px;
+  color: green;
+}
+
+.button-style:hover {
+  background-color: green;
+  color: white;
+  transition-duration: 0.4s;
+}
+
+/* 
   
   LOGIN PAGE CSS
   
   */
-  
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-  }
-  
-  .login {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 400px;
-    width: 90%;
-  }
-  
-  .login h2 {
-    text-align: center;
-  }
-  
-  .login form {
-    margin-top: 20px;
-  }
-  
-  .login input[type="email"],
-  .login input[type="password"],
-  .login input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .login input[type="submit"] {
-    background-color: #3498db;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login input[type="submit"]:hover {
-    background-color: #2980b9;
-  }
-  
-  .login p {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  /* 
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.login {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  width: 90%;
+}
+
+.login h2 {
+  text-align: center;
+}
+
+.login form {
+  margin-top: 20px;
+}
+
+.login input[type="email"],
+.login input[type="password"],
+.login input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.login input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+.login p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* 
   
   REGISTER PAGE CSS
   
   */
-  
-  .main-register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: max-content;
-    background-color: #f0f0f0;
-  }
-  
-  .register {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 500px;
-    width: 90%;
-    margin: 30px;
-  }
-  
-  .register h2 {
-    text-align: center;
-  }
-  
-  .register form {
-    margin-top: 20px;
-  }
-  
-  .register input[type="name"],
-  .register input[type="email"],
-  .register input[type="password"],
-  .register input[type="confirm_password"],
-  .register input[type="submit"] {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .register input[type="checkbox"] {
-    align-items: center;
-  }
-  
-  .register input[type="submit"] {
-    background-color: #3498db;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .register input[type="submit"]:hover {
-    background-color: #2980b9;
-  }
-  
-  .register p {
-    text-align: center;
-    margin-top: 5px;
-  }
-  
-  /* 
+
+.main-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  background-color: #f0f0f0;
+}
+
+.register {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+  margin: 30px;
+}
+
+.register h2 {
+  text-align: center;
+}
+
+.register form {
+  margin-top: 20px;
+}
+
+.register input[type="name"],
+.register input[type="email"],
+.register input[type="password"],
+.register input[type="confirm_password"],
+.register input[type="submit"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.register input[type="checkbox"] {
+  align-items: center;
+}
+
+.register input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+.register p {
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* 
   
   SELECTION PAGE
   
   */
-  
-  .main-selection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
-    background-color: #f0f0f0;
-  }
-  
-  /* Basic styles for the buttons */
-  .button-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .styled-button {
-    display: inline-block;
-    padding: 40px 100px;
-    margin: 5px;
-    border: 2px solid #000000;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #000000;
-    font-weight: bold;
-    font-size: larger;
-    transition: all 0.3s ease;
-  }
-  
-  .styled-button:hover {
-    background-color: #b8b8b8;
-    color: #fff;
-  }
-  
-  /* 
+
+.main-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  background-color: #f0f0f0;
+}
+
+/* Basic styles for the buttons */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.styled-button {
+  display: inline-block;
+  padding: 40px 100px;
+  margin: 5px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  font-size: larger;
+  transition: all 0.3s ease;
+}
+
+.styled-button:hover {
+  background-color: #b8b8b8;
+  color: #fff;
+}
+
+/* 
   
   USER ACCOUNT PAGE 
   
   */
-  
-  .user-main {
-    align-items: center;
-    position: relative;
-    text-align: center;
-    display: flex;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
-  }
-  
-  #founders-profile {
-    align-items: center;
-    position: relative;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .founder-container {
-    margin: 100px;
-  }
-  
-  #founders-profile h2 {
-    font-size: 40px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #046380;
-    padding-bottom: 30px;
-  }
-  .text-founder1 {
-    display: flex;
-  }
-  
-  .text-founder1 ul {
-    list-style-type: none;
-  }
-  
-  .text-founder1 .founder-box2 {
-    margin: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background: #f5f5f5;
-    text-align: center;
-    padding: 20px;
-    width: 600px;
-    height: auto;
-    position: relative;
-  }
-  
-  .text-founder1 .founder-box2 h3 {
-    padding-bottom: 10px;
-  }
-  
-  .text-founder1 .founder-box2 h4 {
-    font-size: 20px;
-    text-align: left;
-  }
-  
-  .text-founder1 .founder-box2 p {
-    text-align: center;
-  }
-  
-  .founder1-img {
-    border-radius: 100%;
-  }
-  
-  .text-founder1 .founder-box4-skills {
-    margin: 20px;
-  
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background: #f5f5f5;
-    text-align: center;
-    padding: 10px;
-    width: 300px;
-    height: max-content;
-    position: relative;
-  }
-  
-  .text-founder1 .founder-box4-skills h3 {
-    padding-bottom: 10px;
-  }
-  
-  .text-founder1 .founder-box4-skills h4 {
-    font-size: 15px;
-    text-align: center;
-    color: #000;
-  }
-  
-  .text-founder1 .founder-box4-skills p {
-    text-align: left;
-  }
-  
-  .lang-logos {
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-    align-items: center;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin: 20px 85px;
-  }
-  
-  .user-links {
-    margin: 20px;
-    border: solid 1px black;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background: #eceeef;
-    padding-top: 5px;
-    width: auto;
-    height: auto;
-    position: relative;
-    transition: all 0.3s ease;
-    color: #000;
-  }
-  
-  .user-links p {
-    margin: 0px 10px;
-    padding: 0px 15px;
-  }
-  
-  .user-links:hover {
-    background-color: #dcd9d9;
-    color: #000;
-  }
-  
-  .styleless {
-    text-decoration: none;
-  }
-  
-  .user-links a {
-    color: #363738;
-    font-weight: 600;
-  }
-  
+
+.user-main {
+  align-items: center;
+  position: relative;
+  text-align: center;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+#founders-profile {
+  align-items: center;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.founder-container {
+  margin: 100px;
+}
+
+#founders-profile h2 {
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #046380;
+  padding-bottom: 30px;
+}
+.text-founder1 {
+  display: flex;
+}
+
+.text-founder1 ul {
+  list-style-type: none;
+}
+
+.text-founder1 .founder-box2 {
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: #f5f5f5;
+  text-align: center;
+  padding: 20px;
+  width: 600px;
+  height: auto;
+  position: relative;
+}
+
+.text-founder1 .founder-box2 h3 {
+  padding-bottom: 10px;
+}
+
+.text-founder1 .founder-box2 h4 {
+  font-size: 20px;
+  text-align: left;
+}
+
+.text-founder1 .founder-box2 p {
+  text-align: center;
+}
+
+.founder1-img {
+  border-radius: 100%;
+}
+
+.text-founder1 .founder-box4-skills {
+  margin: 20px;
+
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: #f5f5f5;
+  text-align: center;
+  padding: 10px;
+  width: 300px;
+  height: max-content;
+  position: relative;
+}
+
+.text-founder1 .founder-box4-skills h3 {
+  padding-bottom: 10px;
+}
+
+.text-founder1 .founder-box4-skills h4 {
+  font-size: 15px;
+  text-align: center;
+  color: #000;
+}
+
+.text-founder1 .founder-box4-skills p {
+  text-align: left;
+}
+
+.lang-logos {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 20px 85px;
+}
+
+.user-links {
+  margin: 20px;
+  border: solid 1px black;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: #eceeef;
+  padding-top: 5px;
+  width: auto;
+  height: auto;
+  position: relative;
+  transition: all 0.3s ease;
+  color: #000;
+}
+
+.user-links p {
+  margin: 0px 10px;
+  padding: 0px 15px;
+}
+
+.user-links:hover {
+  background-color: #dcd9d9;
+  color: #000;
+}
+
+.styleless {
+  text-decoration: none;
+}
+
+.user-links a {
+  color: #363738;
+  font-weight: 600;
+}
