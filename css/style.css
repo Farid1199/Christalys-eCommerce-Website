@@ -148,7 +148,7 @@ marquee {
 
 
 .btn-success {
-  background-color: #333; /* Set the background color to grey */
+  background-color: #333; 
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -157,7 +157,7 @@ marquee {
 }
 
 .btn-success:hover {
-  background-color: #555; /* Change the hover color to a slightly darker grey */
+  background-color: #555; 
 }
 .seperate {
   display: flex;
@@ -165,7 +165,7 @@ marquee {
 }
 
 .carousel {
-  max-width: 50%; /* Adjust the width of the carousel as needed */
+  max-width: 50%; 
 }
 
 .carousel img {
@@ -174,7 +174,7 @@ marquee {
 }
 
 .watchesSeperate {
-  max-width: 45%; /* Adjust the width of the text section as needed */
+  max-width: 45%;
 }
 
 #product-details h2 {
