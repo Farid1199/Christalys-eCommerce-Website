@@ -25,7 +25,7 @@
 
     <div class="col-md-6">
       <div class="card mb-4">
-        <img src="{{ asset('img\Neckless2.jpeg') }}" class="card-img-top" alt="Necklace" />
+        <img src="{{ asset('img\Neckless1.jpeg') }}" class="card-img-top" alt="Necklace" />
         <div class="card-body">
           <h5 class="card-title">Necklace</h5>
           <p class="card-text">Description of the necklace product.</p>
