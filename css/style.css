@@ -7,13 +7,13 @@ MAIN HEADER
 #main-header {
   display: flex;
   align-items: center;
-  padding: 15px 50px 50px 30px;
-  padding-bottom: 15px;
+  padding: 20px 15px;
   justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
-  margin: 0 auto;
   background-color: rgb(196, 196, 196);
+  z-index: 1;
+  position: fixed;
 }
 
 #top-nav {
@@ -45,8 +45,6 @@ MAIN HEADER
   z-index: 99;
   top: 0;
   left: 100%;
-  margin: 4px 0 0 0;
-  padding: 10px;
   border-radius: 3px;
 }
 
@@ -54,7 +52,6 @@ MAIN HEADER
   position: relative;
   white-space: nowrap;
   float: left;
-  margin-left: 8px;
 }
 
 .navigation li:hover > ul,
@@ -68,12 +65,12 @@ MAIN HEADER
 }
 
 .navigation a {
-  padding: 5px;
+  padding: 10px;
   text-decoration: none;
   display: inline-block;
   color: black;
-  font-family: "Raleway", sans-serif;
-  font-size: 15px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
   outline: none;
   text-decoration: none;
 }
@@ -132,6 +129,18 @@ MAIN HEADER
   background-color: green;
   color: white;
   transition-duration: 0.4s;
+}
+
+.li-log {
+  background-color: #e7e7e7;
+  margin: 0px 7.5px;
+  border-radius: 10px;
+}
+
+.li-log:hover {
+  background-color: #c1c1c1;
+  margin: 0px 7.5px;
+  border-radius: 10px;
 }
 
 /* 
@@ -436,4 +445,99 @@ main {
 .user-links a {
   color: #363738;
   font-weight: 600;
+}
+
+/*
+
+PRODUCTS PAGE
+
+*/
+
+.container {
+  max-width: 960px;
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+  background-color: rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #999;
+  transition: ease-in-out color 0.15s;
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+.product-device {
+  position: absolute;
+  right: 10%;
+  bottom: -30%;
+  width: 300px;
+  height: 540px;
+  background-color: #333;
+  border-radius: 21px;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+.product-device::before {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  bottom: 10%;
+  left: 10px;
+  content: "";
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.product-device-2 {
+  top: -25%;
+  right: auto;
+  bottom: 0;
+  left: 5%;
+  background-color: #e5e5e5;
+}
+
+/*
+ * Extra utilities
+ */
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+.flex-equal > * {
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    flex: 1;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
