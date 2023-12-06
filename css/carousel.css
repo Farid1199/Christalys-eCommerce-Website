@@ -6,12 +6,9 @@
 -------------------------------------------------- */
 
 /* Carousel base class */
-.carousel {
-  margin-bottom: 4rem;
-}
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  bottom: 3rem;
   z-index: 10;
 }
 
@@ -33,7 +30,6 @@
 
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
   text-align: center;
 }
 .marketing h2 {
