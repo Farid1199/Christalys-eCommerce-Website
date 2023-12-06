@@ -61,7 +61,7 @@
       Introduction Section
 -------------------------------->
   <body class="bg-light">
-    <div class="container">
+    <div class="container py-5">
       <div class="py-5 text-center"></div>
 
       <div class="row">
@@ -111,7 +111,19 @@
             </li>
           </ul>
 
-          <form class="card p-2"></form>
+          <form class="card p-2">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Promo code"
+              />
+              <div class="input-group">
+                <button type="submit" class="btn btn-secondary">Redeem</button>
+              </div>
+            </div>
+          </form>
+        </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Billing address</h4>
           <form class="needs-validation" novalidate>
@@ -179,49 +191,35 @@
                   required
                 >
                   <option value="">Choose...</option>
-                  <option>United Kingdom</option>
+                  <option>United States</option>
                 </select>
                 <div class="invalid-feedback">
                   Please select a valid country.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="county">County</label>
-                <select
-                  class="custom-select d-block w-100"
-                  id="county"
-                  required
-                >
+                <label for="state">State</label>
+                <select class="custom-select d-block w-100" id="state" required>
                   <option value="">Choose...</option>
-                  <option>West Midlands</option>
+                  <option>California</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please provide a valid county.
+                  Please provide a valid state.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="postcode">Postcode</label>
+                <label for="zip">Zip</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="postcode"
+                  id="zip"
                   placeholder=""
                   required
                 />
-                <div class="invalid-feedback">Post code required.</div>
+                <div class="invalid-feedback">Zip code required.</div>
               </div>
             </div>
-            <hr class="mb-4" />
-            <div class="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                class="custom-control-input"
-                id="same-address"
-              />
-              <label class="custom-control-label" for="same-address"
-                >Shipping address is the same as my billing address</label
-              >
-            </div>
+
             <div class="custom-control custom-checkbox">
               <input
                 type="checkbox"
@@ -261,16 +259,6 @@
                 <label class="custom-control-label" for="debit"
                   >Debit card</label
                 >
-              </div>
-              <div class="custom-control custom-radio">
-                <input
-                  id="paypal"
-                  name="paymentMethod"
-                  type="radio"
-                  class="custom-control-input"
-                  required
-                />
-                <label class="custom-control-label" for="paypal">Paypal</label>
               </div>
             </div>
             <div class="row">
@@ -325,11 +313,9 @@
               </div>
             </div>
             <hr class="mb-4" />
-            <a
-              class="btn btn-primary btn-lg btn-block"
-              href="order-confirmed.html"
-              >Securely Checkout</a
-            >
+            <button class="btn btn-primary btn-lg btn-block" type="submit">
+              Continue to checkout
+            </button>
           </form>
         </div>
       </div>
@@ -337,7 +323,6 @@
       <!-----------------------------
       LAST SECTION  
 -------------------------------->
-
       <hr class="mb-4" />
       <footer>
         <section id="conclusion">
@@ -372,6 +357,7 @@
       <script src="../../../../assets/js/vendor/popper.min.js"></script>
       <script src="../../../../dist/js/bootstrap.min.js"></script>
       <script src="../../../../assets/js/vendor/holder.min.js"></script>
+      <script src="js/script.js"></script>
       <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
