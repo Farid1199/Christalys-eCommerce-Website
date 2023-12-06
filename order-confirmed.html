@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chrystalis - Order Confirmation</title>
+    <link rel="icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="main-header">
+        <div id="logo">
+            <img src="img/logo.png" alt="TopLeft Logo" style="width: 30%; height: 20%" />
+        </div>
+
+        <form role="search">
+            <input class="submit-form" type="search" placeholder="Search" aria-label="Search" />
+            <button type="submit" class="button-style">Search</button>
+        </form>
+
+        <nav class="navigation-container">
+            <ul class="navigation">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Order Confirmed</h1>
+        <p>Thank you for your order! Your order has been successfully placed.</p>
+        <p>Your order number is: <strong id="orderNumber"></strong></p>
+        <p>Your tracking number is: <strong id="trackingNumber"></strong></p>
+        <p>An email confirmation has been sent to your registered email address.</p>
+        <p>Estimated delivery time: 3-5 business days.</p>
+        <p>For any inquiries, please contact our customer support.</p>
+
+        <a class="btn btn-primary btn-lg btn-block" href="previous-order-page.html">Order History</a>
+    </div>
+
+    <footer>
+        <section id="conclusion">
+            <div class="copyright-bottom">
+                <marquee>Copyright © 2023 Chrystalis. All rights reserved</marquee>
+            </div>
+        </section>
+    </footer>
+
+    <script>
+        function generateRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            return Array.from({ length }, () => characters[Math.floor(Math.random() * characters.length)]).join('');
+        }
+
+        function generateOrderNumber() {
+            return generateRandomString(4) + Math.floor(100 + Math.random() * 900);
+        }
+
+        function generateTrackingNumber() {
+            return generateRandomString(4) + Math.floor(100 + Math.random() * 900);
+        }
+
+        // Display the generated order and tracking numbers
+        document.getElementById('orderNumber').textContent = generateOrderNumber();
+        document.getElementById('trackingNumber').textContent = generateTrackingNumber();
+    </script>
+</body>
+
+</html>
