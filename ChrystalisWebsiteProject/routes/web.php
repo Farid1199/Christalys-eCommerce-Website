@@ -20,9 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+
+
+
 Route::get('/loginAdmin', function () {
-    return view('loginUserAdmin');
+    return view('loginUserAdmin')->name('login');
 });
+
 
 Route::get('/layout', function () {
     return view('mainLayout.layout');
@@ -109,6 +113,9 @@ Route::get("detail/{id}", [ProductController::class, 'detail']);
 
 
 //  #############################################################################################################################
+
+
+
 
 //  #############################################################################################################################
 

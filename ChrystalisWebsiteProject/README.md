@@ -1,66 +1,148 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://open-admin.org/">
+<img src="https://open-admin.org/gfx/logo.png" alt="open-admin" style="height:200px;background:transparent;">
+</a>
 </p>
 
-## About Laravel
+<p align="center"><code>open-admin</code> is administrative interface builder for laravel which can help you build CRUD backends just with few lines of code.</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+<a href="https://open-admin.org">Homepage</a> |
+<a href="https://open-admin.org/docs">Documentation</a> |
+<a href="https://github.com/open-admin-org/open-admin">Download</a> |
+<a href="https://github.com/open-admin-org?tab=repositories">Extensions</a>
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+    <a href="https://styleci.io/repos/365864806">
+        <img src="https://styleci.io/repos/365864806/shield" alt="StyleCI">
+    </a>
+    <a href="https://packagist.org/packages/open-admin-org/open-admin">
+        <img src="https://img.shields.io/github/license/open-admin-org/open-admin.svg?style=flat-square&color=brightgreen" alt="Packagist">
+    </a>
+    <a href="https://packagist.org/packages/open-admin-org/open-admin">
+        <img src="https://img.shields.io/packagist/dt/open-admin-org/open-admin.svg?style=flat-square" alt="Total Downloads">
+    </a>
+    <a href="https://github.com/open-admin-org/open-admin">
+        <img src="https://img.shields.io/badge/Awesome-Laravel-brightgreen.svg?style=flat-square" alt="Awesome Laravel">
+    </a>
+<!--
+    <a href="#backers" alt="sponsors on Open Collective">
+        <img src="https://opencollective.com/open-admin/backers/badge.svg?style=flat-square" />
+    </a>
+    <a href="https://www.paypal.me/wishbone-prductions" alt="Paypal donate">
+        <img src="https://img.shields.io/badge/Donate-Paypal-green.svg?style=flat-square" />
+    </a>-->
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p align="center">
+    Forked from <a href="https://github.com/z-song/laravel-admin">Laravel-admin</a> Much thanks to Z-song for all the effort & great setup!
+</p>
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Requirements
+------------
+ - PHP >= 7.3.0
+ - Laravel >= 7.0.0
+ - Fileinfo PHP Extension
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Installation
+------------
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> This package requires PHP 7.3+ and Laravel 7.0 or up
 
-## Laravel Sponsors
+First, install laravel (7.0 / 8.0 or up), and make sure that the database connection settings are correct.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```
+composer require open-admin-org/open-admin
+```
 
-### Premium Partners
+Then run these commands to publish assets and config：
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```
+php artisan vendor:publish --provider="OpenAdmin\Admin\AdminServiceProvider"
+```
+After run command you can find config file in `config/admin.php`, in this file you can change the install directory,db connection or table names.
 
-## Contributing
+At last run following command to finish install.
+```
+php artisan admin:install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Open `http://localhost/admin/` in browser,use username `admin` and password `admin` to login.
 
-## Code of Conduct
+Updating
+------------
+Updating to a new version of open-admin may require updating assets you can publish them using:
+```
+php artisan vendor:publish --tag=open-admin-assets --force
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Configurations
+------------
+The file `config/admin.php` contains an array of configurations, you can find the default configurations in there.
 
-## Security Vulnerabilities
+## Extensions
+<a href="https://open-admin.org/docs/en/extension-development">Extension development</a>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+More coming soon
 
-## License
+| Extension                                                        | Description                              | open-admin                              |
+| ---------------------------------------------------------------- | ---------------------------------------- |---------------------------------------- |
+| [helpers](https://github.com/open-admin-org/helpers)             | Several tools to help you in development | ~1.0 |
+| [media-manager](https://github.com/open-admin-org/media-manager) | Provides a web interface to manage local files          | ~1.0 |
+| [config](https://github.com/open-admin-org/config)               | Config manager for open-admin            |~1.0 |
+| [grid-sortable](https://github.com/open-admin-org/grid-sortable) | Sortable grids                           |~1.0 |
+| [CkEditor](https://github.com/open-admin-org/ckeditor)           | CkEditor for forms                       |~1.0 |
+| [api-tester](https://github.com/open-admin-org/api-tester)       | Test api calls from the admin            |~1.0 |
+| [scheduling](https://github.com/open-admin-org/scheduling)       | Show and test your cronjobs              |~1.0 |
+| [phpinfo](https://github.com/open-admin-org/phpinfo)             | Show php info in the admin               |~1.0 |
+| [log-viewer](https://github.com/open-admin-org/log-viewer)       | Log viewer for Laravel                   |~1.0.12 |
+| [page-designer](https://github.com/open-admin-org/page-designer) | Page designer to position items freely   |~1.0.18 |
+| [reporter](https://github.com/open-admin-org/reporter)           | Provides a developer-friendly web interface to view the exception    |~1.0.18 |
+| [redis-manager](https://github.com/open-admin-org/redis-manager) | Redis manager for open-admin             |~1.0.20 |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<!--
+| [backup](https://github.com/open-admin-extensions/backup) | An admin interface for managing backups          |~1.5 |
+| [wangEditor](https://github.com/open-admin-extensions/wangEditor) | A rich text editor based on [wangeditor](http://www.wangeditor.com/)         |~1.6 |
+| [summernote](https://github.com/open-admin-extensions/summernote) | A rich text editor based on [summernote](https://summernote.org/)          |~1.6 |
+| [simplemde](https://github.com/open-admin-extensions/simplemde) | A markdown editor based on [simplemde](https://github.com/sparksuite/simplemde-markdown-editor)          |~1.6 |
+| [php-editor](https://github.com/open-admin-extensions/php-editor) <br/> [python-editor](https://github.com/open-admin-extensions/python-editor) <br/> [js-editor](https://github.com/open-admin-extensions/js-editor)<br/> [css-editor](https://github.com/open-admin-extensions/css-editor)<br/> [clike-editor](https://github.com/open-admin-extensions/clike-editor)| Several programing language editor extensions based on code-mirror          |~1.6 |
+| [json-editor](https://github.com/open-admin-extensions/json-editor) | JSON Editor for Open-admin          |~1.6 |
+| [composer-viewer](https://github.com/open-admin-extensions/composer-viewer) | A web interface of composer packages in laravel.          |~1.6 |
+| [data-table](https://github.com/open-admin-extensions/data-table) | Advanced table widget for open-admin |~1.6 |
+| [watermark](https://github.com/open-admin-extensions/watermark) | Text watermark for open-admin |~1.6 |
+| [google-authenticator](https://github.com/ylic/open-admin-google-authenticator) | Google authenticator |~1.6 |
+-->
+
+## Contribute?
+ we are looking for active contributors:
+ - testing
+ - extension development
+ - translating documentation
+ - financing
+
+Other
+------------
+`open-admin` based on the following plugins or services:
+
++ [Laravel](https://laravel.com/)
++ [Axios](https://github.com/axios/axios)
++ [Bootstrap5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
++ [Choicesjs](https://github.com/Choices-js/Choices)
++ [Font-awesome](http://fontawesome.io)
++ [Moment](http://momentjs.com/)
++ [LeafletJS](https://leafletjs.com/)
++ [OpenStreetMaps](https://www.openstreetmap.org/)
++ [Sweetalert2](https://github.com/sweetalert2/sweetalert2)
++ [Toastify](https://github.com/apvarun/toastify-js)
++ [Flatpickr](https://github.com/flatpickr/flatpickr)
++ [Sortablejs](https://github.com/SortableJS/Sortable)
++ [Nprogress](https://ricostacruz.com/nprogress/)
++ [Dual-Listbox](https://github.com/maykinmedia/dual-listbox/)
++ [Coloris](https://github.com/mdbassit/Coloris/)
+
+License
+------------
+`open-admin` is licensed under [The MIT License (MIT)](LICENSE).

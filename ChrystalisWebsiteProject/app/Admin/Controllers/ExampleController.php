@@ -2,19 +2,20 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\User; // Adjust the namespace for the User model
 use OpenAdmin\Admin\Controllers\AdminController;
 use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Show;
 
-class ExampleController extends AdminController
+class UserController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Example controller';
+    protected $title = 'User Management';
 
     /**
      * Make a grid builder.
@@ -23,11 +24,15 @@ class ExampleController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new ExampleModel);
+        $grid = new Grid(new User);
 
         $grid->column('id', __('ID'))->sortable();
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('name', __('Name'));
+        $grid->column('email', __('Email'));
+        $grid->column('email_verified_at', __('Email Verified At'))->display(function ($value) {
+            return $value ? date('Y-m-d H:i:s', strtotime($value)) : '';
+        });
+        // Add other columns as needed
 
         return $grid;
     }
@@ -35,16 +40,20 @@ class ExampleController extends AdminController
     /**
      * Make a show builder.
      *
-     * @param mixed   $id
+     * @param mixed $id
      * @return Show
      */
     protected function detail($id)
     {
-        $show = new Show(ExampleModel::findOrFail($id));
+        $show = new Show(User::findOrFail($id));
 
         $show->field('id', __('ID'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('name', __('Name'));
+        $show->field('email', __('Email'));
+        $show->field('email_verified_at', __('Email Verified At'))->as(function ($value) {
+            return $value ? date('Y-m-d H:i:s', strtotime($value)) : '';
+        });
+        // Add other fields as needed
 
         return $show;
     }
@@ -56,11 +65,13 @@ class ExampleController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new ExampleModel);
+        $form = new Form(new User);
 
         $form->display('id', __('ID'));
-        $form->display('created_at', __('Created At'));
-        $form->display('updated_at', __('Updated At'));
+        $form->text('name', __('Name'));
+        $form->email('email', __('Email'));
+        $form->datetime('email_verified_at', __('Email Verified At'))->format('YYYY-MM-DD HH:mm:ss');
+        // Add other fields as needed
 
         return $form;
     }

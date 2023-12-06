@@ -1,8 +1,15 @@
 <?php
 
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
+use OpenAdmin\Admin\Admin;
 
-Admin::routes();
+
+
+
+
+$var  = new Admin();
+$var->routes();
 
 Route::group([
     'prefix'        => config('admin.route.prefix'),
@@ -12,5 +19,6 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
+  
 
 });
