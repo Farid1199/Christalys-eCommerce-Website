@@ -1,120 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About Us - Chrystalis</title>
     <link rel="icon" href="images/Logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style.css" /> <!-- Add your custom styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Add your custom styles -->
     <script defer src="js/main.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- HEADER NAVBAR (You can include this on every page if it's part of your site's navigation) -->
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <div id="logo" style="padding-bottom: 10px">
-                    <img src="images/Logo.png" alt="TopLeft Logo" style="padding-left: 50px; width: 35%; height: 35%" />
-                </div>
+    <header id="main-header">
+      <div id="logo">
+        <img
+          src="img/logo.png"
+          alt="TopLeft Logo"
+          style="width: 30%; height: 20%"
+        />
+      </div>
 
-                <form class="d-flex flex-grow-1 mx-auto" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+      <form class="form-inline mt-2 mt-md-0">
+        <input
+          class="form-control mr-sm-2"
+          type="text"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul id="top-nav" class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="products.html">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.html">Cart</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="about-us.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.html">Register</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <nav class="navigation-container">
+        <ul class="navigation">
+          <li><a href="home.html">HOME</a></li>
+          <li><a href="#">PRODUCTS</a></li>
+          <li><a href="#">CART</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li class="li-log"><a href="#">LOG IN</a></li>
+          <li class="li-log"><a href="#">SIGN UP</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- ABOUT US CONTENT -->
     <section class="container mt-5">
-        <h2>About Us</h2>
-        <p>
-            Welcome to Chrystalis, your go-to destination for exquisite jewelry. At Chrystalis, we believe in the power of
-            elegance and craftsmanship to inspire and elevate. Our journey began with a passion for beauty and a
-            commitment to providing our customers with timeless pieces that tell unique stories.
-        </p>
-        <p>
-            Our collection is a celebration of artistry, attention to detail, and the enduring allure of graceful
-            refinement. We take pride in curating a selection of rings, necklaces, bracelets, and more, each intricately
-            designed to capture the essence of timeless sophistication.
-        </p>
-        <p>
-            As a team, we are dedicated to creating a seamless and enjoyable shopping experience for our valued
-            customers. Whether you're seeking a statement piece or a thoughtful gift, Chrystalis invites you to immerse
-            yourself in a world of captivating jewelry that transcends trends.
-        </p>
-        <p>
-            Thank you for choosing Chrystalis. We look forward to being a part of your special moments and helping you
-            express your unique style and individuality through our stunning jewelry collection.
-        </p>
+      <h2>About Us</h2>
+      <p>
+        Welcome to Chrystalis, your go-to destination for exquisite jewelry. At
+        Chrystalis, we believe in the power of elegance and craftsmanship to
+        inspire and elevate. Our journey began with a passion for beauty and a
+        commitment to providing our customers with timeless pieces that tell
+        unique stories.
+      </p>
+      <p>
+        Our collection is a celebration of artistry, attention to detail, and
+        the enduring allure of graceful refinement. We take pride in curating a
+        selection of rings, necklaces, bracelets, and more, each intricately
+        designed to capture the essence of timeless sophistication.
+      </p>
+      <p>
+        As a team, we are dedicated to creating a seamless and enjoyable
+        shopping experience for our valued customers. Whether you're seeking a
+        statement piece or a thoughtful gift, Chrystalis invites you to immerse
+        yourself in a world of captivating jewelry that transcends trends.
+      </p>
+      <p>
+        Thank you for choosing Chrystalis. We look forward to being a part of
+        your special moments and helping you express your unique style and
+        individuality through our stunning jewelry collection.
+      </p>
 
-        <!-- Backstory Section -->
-        <div class="mt-5">
-            <h3>Our Story</h3>
-            <p>
-                Chrystalis was founded in [Year] with a vision to create a jewelry store that goes beyond just selling
-                products – we wanted to create an experience. Our founders, [Founder Names], shared a deep appreciation
-                for fine craftsmanship and a belief that every piece of jewelry should have a story.
-            </p>
-            <p>
-                Over the years, Chrystalis has grown from a small boutique to a destination for those seeking
-                one-of-a-kind, handcrafted jewelry. Our commitment to quality, artistry, and customer satisfaction has
-                remained unwavering.
-            </p>
-            <p>
-                Today, we are proud to serve a community of passionate individuals who appreciate the beauty of
-                meticulously crafted jewelry. Thank you for being a part of our journey.
-            </p>
-        </div>
+      <!-- Backstory Section -->
+      <div class="mt-5">
+        <h3>Our Story</h3>
+        <p>
+          Chrystalis was founded in [Year] with a vision to create a jewelry
+          store that goes beyond just selling products – we wanted to create an
+          experience. Our founders, [Founder Names], shared a deep appreciation
+          for fine craftsmanship and a belief that every piece of jewelry should
+          have a story.
+        </p>
+        <p>
+          Over the years, Chrystalis has grown from a small boutique to a
+          destination for those seeking one-of-a-kind, handcrafted jewelry. Our
+          commitment to quality, artistry, and customer satisfaction has
+          remained unwavering.
+        </p>
+        <p>
+          Today, we are proud to serve a community of passionate individuals who
+          appreciate the beauty of meticulously crafted jewelry. Thank you for
+          being a part of our journey.
+        </p>
+      </div>
 
-        <!-- Reviews Submission Section -->
-        <div class="mt-5">
-            <h3>Write a Review</h3>
-            <form>
-                <div class="mb-3">
-                    <label for="reviewerName" class="form-label">Your Name</label>
-                    <input type="text" class="form-control" id="reviewerName" required>
-                </div>
-                <div class="mb-3">
-                    <label for="reviewContent" class="form-label">Your Review</label>
-                    <textarea class="form-control" id="reviewContent" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit Review</button>
-            </form>
-        </div>
+      <!-- Reviews Submission Section -->
+      <div class="mt-5">
+        <h3>Write a Review</h3>
+        <form>
+          <div class="mb-3">
+            <label for="reviewerName" class="form-label">Your Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="reviewerName"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="reviewContent" class="form-label">Your Review</label>
+            <textarea
+              class="form-control"
+              id="reviewContent"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+      </div>
     </section>
 
     <!-- FOOTER (You can include this on every page if it's part of your site's layout) -->
-    <footer class="mt-5">
-        <div class="container text-center">
-            <p>&copy; 2023 Chrystalis. All rights reserved.</p>
+    <hr class="mb-4" />
+    <footer>
+      <section id="conclusion">
+        <div class="copyright-bottom text-center">
+          <p class="m-1">
+            &copy; Copyright Chrystalis 2023-2024. All Rights Reserved
+          </p>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+            <li class="list-inline-item"><a href="#">Back to top</a></li>
+          </ul>
         </div>
+      </section>
     </footer>
-
-</body>
-
+  </body>
 </html>
-
