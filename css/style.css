@@ -11,7 +11,7 @@ MAIN HEADER
   justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
-  background-color: rgb(196, 196, 196);
+  background-color: rgb(255, 255, 255);
   z-index: 1;
   position: fixed;
 }
@@ -154,7 +154,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 
 .login {
@@ -275,7 +275,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 75vh;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 
 /* Basic styles for the buttons */
