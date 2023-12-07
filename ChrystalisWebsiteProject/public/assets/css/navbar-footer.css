@@ -17,7 +17,7 @@ MAIN HEADER
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(255, 255, 255);
     z-index: 1;
     position: fixed;
 }

@@ -18,7 +18,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="first-slide" alt="First slide" />
+        <img class="first-slide" src="{{ asset('Images\HomePage\carosel1.png') }}" alt="First slide" />
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Welcome to Chrystalis</h1>
@@ -35,8 +35,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="second-slide"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide" />
+        <img class="second-slide" src="{{ asset('Images\HomePage\carosel1.png') }}" alt="Second slide" />
         <div class="container">
           <div class="carousel-caption">
             <h1>Discover Chrystalis</h1>
@@ -53,8 +52,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="third-slide"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide" />
+        <img class="third-slide" src="{{ asset('Images\HomePage\carosel1.png') }}" alt="Third slide" />
         <div class="container">
           <div class="carousel-caption text-right">
             <h1>Chrystalis Awaits You</h1>

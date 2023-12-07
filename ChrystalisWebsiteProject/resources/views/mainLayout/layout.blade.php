@@ -45,7 +45,7 @@
     @yield('header')
     <header id="main-header">
       <div id="logo">
-        <img src="img/logo.png" alt="TopLeft Logo" style="width: 30%; height: 20%" />
+        <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="width: 30%; height: 20%" />
       </div>
 
       <form class="form-inline mt-2 mt-md-0">
@@ -108,8 +108,8 @@
           &copy; Copyright Chrystalis 2023-2024. All Rights Reserved
         </p>
         <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
+          <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
           <li class="list-inline-item"><a href="#">Support</a></li>
           <li class="list-inline-item"><a href="#">Back to top</a></li>
         </ul>
