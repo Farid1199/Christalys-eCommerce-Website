@@ -102,7 +102,8 @@
         </p>
       </div>
       <div class="col-md-3">
-        <img class="img-fluid mx-auto" src="img/Ring.jpg" alt="Generic placeholder image" />
+        <img class="img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\gold-rings-.png') }}"
+          alt="Generic placeholder image" />
       </div>
     </div>
 
@@ -117,7 +118,8 @@
         </p>
       </div>
       <div class="col-md-3 order-md-1">
-        <img class="featurette-image img-fluid mx-auto" src="img/Watch.jpg" alt="Generic placeholder image" />
+        <img class="featurette-image img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\Watch-1.jpg') }}"
+          alt="Generic placeholder image" />
       </div>
     </div>
 
@@ -134,7 +136,8 @@
         </p>
       </div>
       <div class="col-md-3">
-        <img class="featurette-image img-fluid mx-auto" src="img/Necklace.jpg" alt="Generic placeholder image" />
+        <img class="featurette-image img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\Neckless1.jpeg') }}"
+          alt="Generic placeholder image" />
       </div>
     </div>
 
@@ -149,50 +152,46 @@
         </p>
       </div>
       <div class="col-md-3 order-md-1">
-        <img class="featurette-image img-fluid mx-auto" src="img/Earring.png" alt="Generic placeholder image" />
+        <img class="featurette-image img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\earrings - 1.jpg') }}"
+          alt="Generic placeholder image" />
       </div>
     </div>
 
-    <hr class="featurette-divider" />
+    <hr class="mb-3" />
 
-    <div class="row">
+    <div class="row my-5">
+      <h1 class="mb-5 text-center">Hear from our Customers</h1>
       <div class="col-lg-4">
-        <img class="rounded-circle"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-          alt="Generic placeholder image" width="140" height="140" />
-        <h2>Heading</h2>
+        <img class="rounded-circle" src="{{ asset('Images\HomePage\2girl.jpg') }}" alt="Generic placeholder image"
+          width="140" height="140" />
+        <h2>Sarah M.</h2>
         <p>
-          Donec sed odio dui. Etiam porta sem malesuada magna mollis
-          euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.
-          Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-          Praesent commodo cursus magna.
+          "Absolutely in love with my new ring from Chrystalis! The craftsmanship is exceptional, and the attention to
+          detail is superb. It's the perfect addition to my jewelry collection."
         </p>
+        <p>Rating: ★★★★</p>
       </div>
       <!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img class="rounded-circle"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-          alt="Generic placeholder image" width="140" height="140" />
-        <h2>Heading</h2>
+        <img class="rounded-circle" src="{{ asset('Images\HomePage\flavio.png') }}" alt="Generic placeholder image"
+          width="140" height="140" />
+        <h2>James L.</h2>
         <p>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
-          eget lacinia odio sem nec elit. Cras mattis consectetur purus sit
-          amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor
-          mauris condimentum nibh.
+          "I had a fantastic experience shopping at Chrystalis. The website is easy to navigate, the customer service is
+          top-notch, and my necklace arrived beautifully packaged!"
         </p>
+        <p>Rating: ★★★★★</p>
       </div>
       <!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img class="rounded-circle"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-          alt="Generic placeholder image" width="140" height="140" />
-        <h2>Heading</h2>
+        <img class="rounded-circle" src="{{ asset('Images\HomePage\emily.jpg') }}" alt="Generic placeholder image"
+          width="140" height="140" />
+        <h2>Emily R.</h2>
         <p>
-          Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-          egestas eget quam. Vestibulum id ligula porta felis euismod
-          semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-          condimentum nibh, ut fermentum massa justo sit amet risus.
+          "The earrings I purchased exceeded my expectations. They're elegant, comfortable to wear, and I've received so
+          many compliments. I'll definitely be a returning customer!"
         </p>
+        <p>Rating: ★★★★★</p>
       </div>
       <!-- /.col-lg-4 -->
     </div>
