@@ -7,8 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Admin\\Controllers\\AuthController' => $baseDir . '/app/Admin/Controllers/AuthController.php',
-    'App\\Admin\\Controllers\\ExampleController' => $baseDir . '/app/Admin/Controllers/ExampleController.php',
     'App\\Admin\\Controllers\\HomeController' => $baseDir . '/app/Admin/Controllers/HomeController.php',
+    'App\\Admin\\Controllers\\UserController' => $baseDir . '/app/Admin/Controllers/UserController.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => $baseDir . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
@@ -3417,7 +3417,6 @@ return array(
     'OpenAdmin\\Admin\\Controllers\\ModelForm' => $vendorDir . '/open-admin-org/open-admin/src/Controllers/ModelForm.php',
     'OpenAdmin\\Admin\\Controllers\\PermissionController' => $vendorDir . '/open-admin-org/open-admin/src/Controllers/PermissionController.php',
     'OpenAdmin\\Admin\\Controllers\\RoleController' => $vendorDir . '/open-admin-org/open-admin/src/Controllers/RoleController.php',
-    'OpenAdmin\\Admin\\Controllers\\UserController' => $vendorDir . '/open-admin-org/open-admin/src/Controllers/UserController.php',
     'OpenAdmin\\Admin\\Exception\\Handler' => $vendorDir . '/open-admin-org/open-admin/src/Exception/Handler.php',
     'OpenAdmin\\Admin\\Extension' => $vendorDir . '/open-admin-org/open-admin/src/Extension.php',
     'OpenAdmin\\Admin\\Facades\\Admin' => $vendorDir . '/open-admin-org/open-admin/src/Facades/Admin.php',

@@ -573,8 +573,8 @@ class ComposerStaticInita0144d843e65d923674fceea4f5c845d
 
     public static $classMap = array (
         'App\\Admin\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Admin/Controllers/AuthController.php',
-        'App\\Admin\\Controllers\\ExampleController' => __DIR__ . '/../..' . '/app/Admin/Controllers/ExampleController.php',
         'App\\Admin\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Admin/Controllers/HomeController.php',
+        'App\\Admin\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Admin/Controllers/UserController.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
@@ -3983,7 +3983,6 @@ class ComposerStaticInita0144d843e65d923674fceea4f5c845d
         'OpenAdmin\\Admin\\Controllers\\ModelForm' => __DIR__ . '/..' . '/open-admin-org/open-admin/src/Controllers/ModelForm.php',
         'OpenAdmin\\Admin\\Controllers\\PermissionController' => __DIR__ . '/..' . '/open-admin-org/open-admin/src/Controllers/PermissionController.php',
         'OpenAdmin\\Admin\\Controllers\\RoleController' => __DIR__ . '/..' . '/open-admin-org/open-admin/src/Controllers/RoleController.php',
-        'OpenAdmin\\Admin\\Controllers\\UserController' => __DIR__ . '/..' . '/open-admin-org/open-admin/src/Controllers/UserController.php',
         'OpenAdmin\\Admin\\Exception\\Handler' => __DIR__ . '/..' . '/open-admin-org/open-admin/src/Exception/Handler.php',
         'OpenAdmin\\Admin\\Extension' => __DIR__ . '/..' . '/open-admin-org/open-admin/src/Extension.php',
         'OpenAdmin\\Admin\\Facades\\Admin' => __DIR__ . '/..' . '/open-admin-org/open-admin/src/Facades/Admin.php',

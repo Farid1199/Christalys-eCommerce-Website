@@ -24,8 +24,10 @@ Route::get('/', function () {
 
 
 Route::get('/loginAdmin', function () {
-    return view('loginUserAdmin')->name('login');
+    return view('loginUserAdmin');
 });
+
+
 
 
 Route::get('/layout', function () {

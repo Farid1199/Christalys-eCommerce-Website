@@ -1,6 +1,6 @@
 @extends('mainLayout.layout')
 
-@section('title', 'Watch')
+@section('title', 'login')
 
 
 
