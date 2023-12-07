@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/boostrap.min.css')}}">
   <!-- <link rel="stylesheet" href="{{ asset('resources\css\homePage.css')}}"> 
   <link rel="stylesheet" href="resources\css\navbar-footer.css">  -->
-  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
 
 
 
@@ -43,28 +43,39 @@
 
   <div class="head1">
     @yield('header')
-    <header id="main-header">
-      <div id="logo">
+    <header id="main-header" class="shadow">
+      <div id="logo" class="ml-5">
         <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="width: 30%; height: 20%" />
       </div>
 
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
 
-      <nav class="navigation-container">
-        <ul class="navigation">
-          <li><a href="/">HOME</a></li>
-          <li><a href="{{route('products')}}">PRODUCTS</a></li>
-          <li><a href="">CART</a></li>
-          <li><a href="#">ABOUT US</a></li>
-          <li class="li-log"><a href="{{ url('/loginAdmin') }}">LOG IN</a></li>
-          <li class="li-log"><a href="#">SIGN UP</a></li>
-        </ul>
+      <nav class="navbar navbar-expand-xl navbar-dark navigation-container">
+
+        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+          aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+          <ul class="navbar-nav mr-auto navigation">
+            <form class="form-inline mt-2 mr-5 mt-md-0">
+              <input class="form-control mr-sm-2 p-1.5" type="text" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-success my-2 my-sm-0 p-1.5" type="submit">
+                Search
+              </button>
+            </form>
+            <li><a href="/">HOME</a></li>
+            <li><a href="{{route('products')}}">PRODUCTS</a></li>
+            <li><a href="">CART</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li class="li-log"><a href="{{ url('/loginAdmin') }}">LOG IN</a></li>
+            <li class="li-log"><a href="#">SIGN UP</a></li>
+
+          </ul>
+
+        </div>
       </nav>
+
     </header>
 
     <div
@@ -122,3 +133,25 @@
 </body>
 
 </html>
+
+
+
+<!--form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+
+      <nav class="navigation-container">
+
+        <ul class="navigation">
+          <li><a href="/">HOME</a></li>
+          <li><a href="{{route('products')}}">PRODUCTS</a></li>
+          <li><a href="">CART</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li class="li-log"><a href="{{ url('/loginAdmin') }}">LOG IN</a></li>
+          <li class="li-log"><a href="#">SIGN UP</a></li>
+
+        </ul>
+      </nav-->

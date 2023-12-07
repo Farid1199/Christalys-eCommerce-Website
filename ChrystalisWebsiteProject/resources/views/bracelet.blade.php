@@ -12,7 +12,7 @@
     MAIN CONTENT
 -------------------------------->
 
-<div class="album bg-light">
+<div class="album bg-light py-5">
     <div class="container py-5">
 
         <div class="py-3 text-center"></div>
