@@ -101,7 +101,6 @@
 
 
   @yield('footer')
-  <hr class="mb-4" />
   <footer>
     <section id="conclusion">
       <div class="copyright-bottom text-center">
