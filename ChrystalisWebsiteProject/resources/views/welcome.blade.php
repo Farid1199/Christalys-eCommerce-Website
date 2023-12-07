@@ -96,7 +96,7 @@
         <h2 class="featurette-heading">Rings</h2>
         <p class="lead">Discover our exquisite collection of rings.</p>
         <p>
-          <a class="btn btn-secondary" href="#" role="button">Explore &raquo;</a>
+          <a class="btn btn-secondary" href="rings" role="button">Explore &raquo;</a>
         </p>
       </div>
       <div class="col-md-3">
@@ -112,7 +112,7 @@
         <h2 class="featurette-heading">Watches</h2>
         <p class="lead">Explore our timeless and elegant watches.</p>
         <p>
-          <a class="btn btn-secondary" href="#" role="button">Explore &raquo;</a>
+          <a class="btn btn-secondary" href="watches" role="button">Explore &raquo;</a>
         </p>
       </div>
       <div class="col-md-3 order-md-1">
@@ -130,7 +130,7 @@
           Adorn yourself with our stunning necklace collection
         </p>
         <p>
-          <a class="btn btn-secondary" href="#" role="button">Explore &raquo;</a>
+          <a class="btn btn-secondary" href="necklaces" role="button">Explore &raquo;</a>
         </p>
       </div>
       <div class="col-md-3">
@@ -146,7 +146,7 @@
         <h2 class="featurette-heading">Earrings</h2>
         <p class="lead">Enhance your beauty with our elegant earrings</p>
         <p>
-          <a class="btn btn-secondary" href="#" role="button">Explore &raquo;</a>
+          <a class="btn btn-secondary" href="earrings" role="button">Explore &raquo;</a>
         </p>
       </div>
       <div class="col-md-3 order-md-1">
