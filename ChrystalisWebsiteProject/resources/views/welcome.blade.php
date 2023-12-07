@@ -155,7 +155,7 @@
       </div>
     </div>
 
-    <hr class="mb-3" />
+    <hr class="my-3" />
 
     <div class="row my-5">
       <h1 class="mb-5 text-center">Hear from our Customers</h1>
