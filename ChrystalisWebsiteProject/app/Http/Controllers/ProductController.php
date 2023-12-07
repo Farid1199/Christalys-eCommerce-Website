@@ -101,6 +101,21 @@ class ProductController extends Controller
      }
 
 
+     /**
+      *   ###############    This is a fuction for the cart table  ##################################
+      */
+
+      function addToCart(Request $reg){
+        if ($reg->session()->has('user')){
+            return "hello";
+        } else{
+            return redirect('/loginAdmin');
+        }
+
+        
+      }
+
+
 
      
 
@@ -109,25 +124,6 @@ class ProductController extends Controller
  
 
     
-   
-
-    // public function getWatches()
-    // {
-    //     $watches = Product::where('category', 'watch')->get();
-    //     return view('ProductDetail.rings.watches', compact('watches'));
-    // }
-
-    // public function getNecklaces()
-    // {
-    //     $necklaces = Product::where('category', 'necklace')->get();
-    //     return view('ProductDetail.rings.necklaces', compact('necklaces'));
-    // }
-
-    // public function getEarrings()
-    // {
-    //     $earrings = Product::where('category', 'earring')->get();
-    //     return view('ProductDetail.rings.earrings', compact('earrings'));
-    // }
 
 
     /**
