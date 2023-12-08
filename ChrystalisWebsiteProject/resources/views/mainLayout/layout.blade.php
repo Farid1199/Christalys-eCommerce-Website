@@ -1,3 +1,8 @@
+<?php
+use App\Http\Controllers\ProductController;
+$total = ProductController::cartItem();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,6 +54,8 @@
         <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="width: 30%; height: 20%" />
       </div>
 
+      
+
 
       <nav class="navbar navbar-expand-xl navbar-dark navigation-container">
 
@@ -67,10 +74,11 @@
             </form>
             <li><a href="/">HOME</a></li>
             <li><a href="{{route('products')}}">PRODUCTS</a></li>
-            <li><a href="#">CART</a></li>
             <li><a href="{{route('aboutus')}}">ABOUT US</a></li>
-            <li class="li-log"><a href="{{ url('/loginAdmin') }}">LOG IN</a></li>
-            <li class="li-log"><a href="#">SIGN UP</a></li>
+            <li><a href="cartlist">CART({{ $total }})</a></li>
+            <li class="li-log"><a href="{{ route('login') }}">LOG IN</a></li>
+            <li class="li-log"><a href="{{ route('register') }}">SIGN UP</a></li>
+
 
           </ul>
 
@@ -138,22 +146,3 @@
 
 
 
-<!--form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
-
-      <nav class="navigation-container">
-
-        <ul class="navigation">
-          <li><a href="/">HOME</a></li>
-          <li><a href="{{route('products')}}">PRODUCTS</a></li>
-          <li><a href="">CART</a></li>
-          <li><a href="#">ABOUT US</a></li>
-          <li class="li-log"><a href="{{ url('/loginAdmin') }}">LOG IN</a></li>
-          <li class="li-log"><a href="#">SIGN UP</a></li>
-
-        </ul>
-      </nav-->

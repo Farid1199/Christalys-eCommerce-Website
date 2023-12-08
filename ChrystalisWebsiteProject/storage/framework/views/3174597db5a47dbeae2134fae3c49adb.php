@@ -1,3 +1,12 @@
+<?php $__env->startSection('title', 'Login User Dashboard'); ?>
+
+
+
+<?php $__env->startSection('content'); ?>
+
+
+
+
 <?php if (isset($component)) { $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54 = $attributes; } ?>
 <?php $component = App\View\Components\AppLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -35,4 +44,9 @@
 <?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
 <?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
 <?php endif; ?>
-<?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/dashboard.blade.php ENDPATH**/ ?>
+
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('mainLayout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/dashboard.blade.php ENDPATH**/ ?>

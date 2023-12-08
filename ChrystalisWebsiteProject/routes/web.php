@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Auth\LoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -133,8 +135,15 @@ Route::get("detail/{id}", [ProductController::class, 'detail']);
 
 //  ##############################          Route for the Cart Table             ########################################################
 
-Route::post("add_to_cart", [ProductController::class, 'addToCart']);
 
+Route::get("/add_to_cart", [App\Http\Controllers\ProductController::class, 'addToCart']);
+
+Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList']);
+
+
+Route::get('/cartlist', function () {
+    return view('cartlist');
+})->name('cartlist');
 
 
 
@@ -153,6 +162,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post("add_to_cart", [ProductController::class, 'addToCart']);
 });
 
 require __DIR__ . '/auth.php';

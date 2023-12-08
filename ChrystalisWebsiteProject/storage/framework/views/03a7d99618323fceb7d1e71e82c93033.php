@@ -16,7 +16,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="first-slide" alt="First slide" />
+        <img class="first-slide" src="<?php echo e(asset('Images\HomePage\carosel1.png'), false); ?>" alt="First slide" />
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Welcome to Chrystalis</h1>
@@ -27,14 +27,13 @@
               collection that celebrates the artistry of adornment.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">About Us</a>
+              <a class="btn btn-lg btn-primary" href="<?php echo e(route('aboutus'), false); ?>" role="button">About Us</a>
             </p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="second-slide"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide" />
+        <img class="second-slide" src="<?php echo e(asset('Images\HomePage\carosel1.png'), false); ?>" alt="Second slide" />
         <div class="container">
           <div class="carousel-caption">
             <h1>Discover Chrystalis</h1>
@@ -45,14 +44,13 @@
               enduring allure of graceful refinement.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">Discover Chrystalis</a>
+              <a class="btn btn-lg btn-primary" href="#down" role="button">Discover Chrystalis</a>
             </p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="third-slide"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide" />
+        <img class="third-slide" src="<?php echo e(asset('Images\HomePage\carosel1.png'), false); ?>" alt="Third slide" />
         <div class="container">
           <div class="carousel-caption text-right">
             <h1>Chrystalis Awaits You</h1>
@@ -64,7 +62,7 @@
               where every piece tells a story as unique as you are.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">Browse Catalogue</a>
+              <a class="btn btn-lg btn-primary" href="<?php echo e(route('products'), false); ?>" role="button">Browse Catalogue</a>
             </p>
           </div>
         </div>
@@ -84,23 +82,24 @@
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container marketing">
+  <div class="container marketing" id="down">
     <!-- Three columns of text below the carousel -->
 
     <!-- START THE FEATURETTES -->
 
-    <hr class="featurette-divider" />
 
-    <div class="row featurette">
+
+    <div class="row featurette mt-5">
       <div class="col-md-9">
         <h2 class="featurette-heading">Rings</h2>
         <p class="lead">Discover our exquisite collection of rings.</p>
         <p>
-          <a class="btn btn-secondary" href="#" role="button">Explore &raquo;</a>
+          <a class="btn btn-secondary" href="rings" role="button">Explore &raquo;</a>
         </p>
       </div>
       <div class="col-md-3">
-        <img class="img-fluid mx-auto" src="img/Ring.jpg" alt="Generic placeholder image" />
+        <img class="img-fluid mx-auto" src="<?php echo e(asset('Images\CatalogueImg\gold-rings-.png'), false); ?>"
+          alt="Generic placeholder image" />
       </div>
     </div>
 
@@ -111,11 +110,12 @@
         <h2 class="featurette-heading">Watches</h2>
         <p class="lead">Explore our timeless and elegant watches.</p>
         <p>
-          <a class="btn btn-secondary" href="#" role="button">Explore &raquo;</a>
+          <a class="btn btn-secondary" href="watches" role="button">Explore &raquo;</a>
         </p>
       </div>
       <div class="col-md-3 order-md-1">
-        <img class="featurette-image img-fluid mx-auto" src="img/Watch.jpg" alt="Generic placeholder image" />
+        <img class="featurette-image img-fluid mx-auto" src="<?php echo e(asset('Images\CatalogueImg\Watch-1.jpg'), false); ?>"
+          alt="Generic placeholder image" />
       </div>
     </div>
 
@@ -128,69 +128,66 @@
           Adorn yourself with our stunning necklace collection
         </p>
         <p>
-          <a class="btn btn-secondary" href="#" role="button">Explore &raquo;</a>
+          <a class="btn btn-secondary" href="necklaces" role="button">Explore &raquo;</a>
         </p>
       </div>
       <div class="col-md-3">
-        <img class="featurette-image img-fluid mx-auto" src="img/Necklace.jpg" alt="Generic placeholder image" />
+        <img class="featurette-image img-fluid mx-auto" src="<?php echo e(asset('Images\CatalogueImg\Neckless1.jpeg'), false); ?>"
+          alt="Generic placeholder image" />
       </div>
     </div>
 
     <hr class="featurette-divider" />
 
-    <div class="row featurette text-right">
+    <div class="row featurette text-right mb-5">
       <div class="col-md-9 order-md-2">
         <h2 class="featurette-heading">Earrings</h2>
         <p class="lead">Enhance your beauty with our elegant earrings</p>
         <p>
-          <a class="btn btn-secondary" href="#" role="button">Explore &raquo;</a>
+          <a class="btn btn-secondary" href="earrings" role="button">Explore &raquo;</a>
         </p>
       </div>
       <div class="col-md-3 order-md-1">
-        <img class="featurette-image img-fluid mx-auto" src="img/Earring.png" alt="Generic placeholder image" />
+        <img class="featurette-image img-fluid mx-auto" src="<?php echo e(asset('Images\CatalogueImg\earrings - 1.jpg'), false); ?>"
+          alt="Generic placeholder image" />
       </div>
     </div>
 
-    <hr class="featurette-divider" />
+    <hr class="mb-3" />
 
-    <div class="row">
+    <div class="row my-5">
+      <h1 class="mb-5 text-center">Hear from our Customers</h1>
       <div class="col-lg-4">
-        <img class="rounded-circle"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-          alt="Generic placeholder image" width="140" height="140" />
-        <h2>Heading</h2>
+        <img class="rounded-circle" src="<?php echo e(asset('Images\HomePage\2girl.jpg'), false); ?>" alt="Generic placeholder image"
+          width="140" height="140" />
+        <h2>Sarah M.</h2>
         <p>
-          Donec sed odio dui. Etiam porta sem malesuada magna mollis
-          euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.
-          Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-          Praesent commodo cursus magna.
+          "Absolutely in love with my new ring from Chrystalis! The craftsmanship is exceptional, and the attention to
+          detail is superb. It's the perfect addition to my jewelry collection."
         </p>
+        <p>Rating: ★★★★</p>
       </div>
       <!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img class="rounded-circle"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-          alt="Generic placeholder image" width="140" height="140" />
-        <h2>Heading</h2>
+        <img class="rounded-circle" src="<?php echo e(asset('Images\HomePage\flavio.png'), false); ?>" alt="Generic placeholder image"
+          width="140" height="140" />
+        <h2>James L.</h2>
         <p>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
-          eget lacinia odio sem nec elit. Cras mattis consectetur purus sit
-          amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor
-          mauris condimentum nibh.
+          "I had a fantastic experience shopping at Chrystalis. The website is easy to navigate, the customer service is
+          top-notch, and my necklace arrived beautifully packaged!"
         </p>
+        <p>Rating: ★★★★★</p>
       </div>
       <!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img class="rounded-circle"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-          alt="Generic placeholder image" width="140" height="140" />
-        <h2>Heading</h2>
+        <img class="rounded-circle" src="<?php echo e(asset('Images\HomePage\emily.jpg'), false); ?>" alt="Generic placeholder image"
+          width="140" height="140" />
+        <h2>Emily R.</h2>
         <p>
-          Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-          egestas eget quam. Vestibulum id ligula porta felis euismod
-          semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-          condimentum nibh, ut fermentum massa justo sit amet risus.
+          "The earrings I purchased exceeded my expectations. They're elegant, comfortable to wear, and I've received so
+          many compliments. I'll definitely be a returning customer!"
         </p>
+        <p>Rating: ★★★★★</p>
       </div>
       <!-- /.col-lg-4 -->
     </div>
