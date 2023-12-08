@@ -175,7 +175,8 @@ Route::get('/t2detail', function () {
     return view('testdetail2');
 })->name('t2detail');
 
-/*Test 2 Dashboard test
-Route::get('/dashtest2', function () {
+/* Test 2 Dashboard test
+Route::get('/dd2', function () {
     return view('testusers2');
-})->name('/dashtest2');*/
+})->name('/dd2'); 
+*/

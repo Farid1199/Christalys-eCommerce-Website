@@ -67,7 +67,7 @@
             </form>
             <li><a href="/">HOME</a></li>
             <li><a href="{{route('products')}}">PRODUCTS</a></li>
-            <li><a href="">CART</a></li>
+            <li><a href="#">CART</a></li>
             <li><a href="{{route('aboutus')}}">ABOUT US</a></li>
             <li class="li-log"><a href="{{ url('/loginAdmin') }}">LOG IN</a></li>
             <li class="li-log"><a href="#">SIGN UP</a></li>
@@ -124,7 +124,6 @@
           <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
           <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
           <li class="list-inline-item"><a href="{{route('t2detail')}}">Detailed product test</a></li>
-          <li class="list-inline-item"><a href="{{route('dashtest2')}}">Dashboard test</a></li>
           <li class="list-inline-item"><a href="#">Back to top</a></li>
         </ul>
       </div>
