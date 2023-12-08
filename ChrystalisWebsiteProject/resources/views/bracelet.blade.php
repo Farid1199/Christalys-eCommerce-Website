@@ -46,6 +46,10 @@
                                             View
                                         </button></a>
 
+                                    <button type="button" class="btn btn-medium btn-outline-secondary">
+                                        Add to Wishlist ♥️
+                                    </button>
+
                                     <button type="button" class="btn btn-medium btn-outline-success">
                                         Add to Cart
                                     </button>
@@ -84,6 +88,10 @@
                                             class="btn btn-medium btn-outline-primary">
                                             View
                                         </button></a>
+
+                                    <button type="button" class="btn btn-medium btn-outline-secondary">
+                                        Add to Wishlist ♥️
+                                    </button>
 
                                     <button type="button" class="btn btn-medium btn-outline-success">
                                         Add to Cart

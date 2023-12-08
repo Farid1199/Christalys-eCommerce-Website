@@ -12,13 +12,17 @@
       User Account
 -------------------------------->
 
-<main class="user-main">
+<hr class="featurette-divider">
+
+<h1 class="mt-5 text-center" style="padding-top:50px;"> Welcome to your Dashboard, USER! </h1>
+<main class="user-main mt-5">
+
     <section id="founders-profile">
         <div class="text-founder1">
             <ul>
                 <li>
                     <div class="founder-box4-skills">
-                        <img src="img/user-pp.png" alt="java-logo" class="lang-logos" />
+                        <img src="{{ asset('Images\HomePage\user-pp.png') }}" alt="java-logo" class="lang-logos" />
                         <h3>Account Name</h3>
                         <section class="user-links">
                             <h4>My Details</h4>
@@ -44,13 +48,19 @@
                     <div class="founder-box4-skills">
                         <h3 style="padding-top: 10px">Help and Support</h3>
                         <section class="user-links">
-                            <h4>Customer Support</h4>
+                            <a href="{{route('contactus')}}" style="text-decoration:none;">
+                                <h4>Customer Support</h4>
+                            </a>
                         </section>
                         <section class="user-links">
-                            <h4>Digital Service Support</h4>
+                            <a href="{{route('contactus')}}" style="text-decoration:none;">
+                                <h4>Digital Service Support</h4>
+                            </a>
                         </section>
                         <section class="user-links">
-                            <h4>Contact Us</h4>
+                            <a href="{{route('contactus')}}" style="text-decoration:none;">
+                                <h4>Contact Us</h4>
+                            </a>
                         </section>
                     </div>
                 </li>
@@ -117,35 +127,6 @@
         </div>
     </section>
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
-<!--x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout-->
 
 
 @endsection

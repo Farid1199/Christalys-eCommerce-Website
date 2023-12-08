@@ -10,7 +10,7 @@
 
 <hr class="my-5" />
 
-<section id="product-details" class="container mt-4">
+<section id="product-details" class="container mt-4" style="padding-top:20px;">
     <!-- Product 1 -->
     <div class="seperate Watches">
         <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
@@ -50,7 +50,10 @@
 
             <p><b>Price: £2,700.00</b></p>
 
-            <button class="btn btn-success" id="addToCartBtn">Add to Cart</button>
+            <div class="d-flex justify-content-between align-items-center">
+                <button class="btn btn-success" id="addToCartBtn">Add to Cart</button>
+                <button class="btn btn-success" id="addToCartBtn">Add to Wishlist ♥️</button>
+            </div>
         </div>
     </div>
 

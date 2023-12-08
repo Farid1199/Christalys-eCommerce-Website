@@ -45,8 +45,6 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
 
-
-
 # Contact Us
 Route::get('/contactus', function () {
     return view('contactUs');
@@ -170,7 +168,7 @@ require __DIR__ . '/auth.php';
 
 
 
-# Dashboard test - NOT WORKING
+/* Dashboard test - NOT WORKING
 Route::get('/usertest', function () {
     return view('usertest');
 })->name('usertest');
@@ -178,15 +176,15 @@ Route::get('/usertest', function () {
 # Test for specific product - NOT WORKING
 Route::get('/detailcheck', function () {
     return view('DetailCheck');
-})->name('detailcheck');
+})->name('detailcheck'); */
 
 # Test 2 for specific product 
 Route::get('/t2detail', function () {
     return view('testdetail2');
 })->name('t2detail');
 
-/* Test 2 Dashboard test
-Route::get('/dd2', function () {
-    return view('testusers2');
-})->name('/dd2'); 
-*/
+# Dashboard test 
+Route::get('/t3users', function () {
+    return view('t3usertest');
+})->name('t3users');
+
