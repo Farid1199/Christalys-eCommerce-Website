@@ -33,7 +33,7 @@
   </symbol>
 </svg>
 
-
+<hr class="mb-5" />
 
 <main role="main">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
