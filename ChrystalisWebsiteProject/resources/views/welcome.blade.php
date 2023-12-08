@@ -258,7 +258,7 @@ TESTIMONIALS AND ENDINGS
               <h3 class="card-title text-uppercase text-dark">
                 Free delivery
               </h3>
-              <p>Consectetur adipi elit lorem ipsum dolor sit amet.</p>
+              <p>Get your order delivered for free today</p>
             </div>
           </div>
         </div>
@@ -273,7 +273,7 @@ TESTIMONIALS AND ENDINGS
               <h3 class="card-title text-uppercase text-dark">
                 Quality guarantee
               </h3>
-              <p>Dolor sit amet orem ipsu mcons ectetur adipi elit.</p>
+              <p>We stand behind our products’ quality</p>
             </div>
           </div>
         </div>
@@ -288,7 +288,7 @@ TESTIMONIALS AND ENDINGS
               <h3 class="card-title text-uppercase text-dark">
                 Daily offers
               </h3>
-              <p>Amet consectetur adipi elit loreme ipsum dolor sit.</p>
+              <p>Check out our daily deals and save</p>
             </div>
           </div>
         </div>
@@ -303,7 +303,7 @@ TESTIMONIALS AND ENDINGS
               <h3 class="card-title text-uppercase text-dark">
                 100% secure payment
               </h3>
-              <p>Rem Lopsum dolor sit amet, consectetur adipi elit.</p>
+              <p>Shop with confidence and peace of mind</p>
             </div>
           </div>
         </div>
