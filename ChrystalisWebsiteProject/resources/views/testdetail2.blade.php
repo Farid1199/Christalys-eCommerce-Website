@@ -50,7 +50,10 @@
 
             <p><b>Price: £2,700.00</b></p>
 
-            <button class="btn btn-success" id="addToCartBtn">Add to Cart</button>
+            <div class="d-flex justify-content-between align-items-center">
+                <button class="btn btn-success" id="addToCartBtn">Add to Cart</button>
+                <button class="btn btn-success" id="addToCartBtn">Add to Wishlist ♥️</button>
+            </div>
         </div>
     </div>
 
