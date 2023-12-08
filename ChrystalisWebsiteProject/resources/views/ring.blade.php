@@ -4,7 +4,6 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('assets/css/css-pages/style.css')}}" />
 
 <!-----------------------------
     MAIN CONTENT
@@ -35,6 +34,10 @@
 
 
 <!-- 
+
+
+<link rel="stylesheet" href="{{ asset('assets/css/css-pages/style.css')}}" />
+
 <div class="album py-5 bg-light">
     <div class="container py-5">
 

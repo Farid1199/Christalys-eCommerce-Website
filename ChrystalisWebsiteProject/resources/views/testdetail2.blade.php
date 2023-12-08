@@ -10,7 +10,7 @@
 
 <hr class="my-5" />
 
-<section id="product-details" class="container mt-4">
+<section id="product-details" class="container mt-4" style="padding-top:20px;">
     <!-- Product 1 -->
     <div class="seperate Watches">
         <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
