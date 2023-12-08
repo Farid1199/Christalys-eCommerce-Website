@@ -89,9 +89,9 @@
 
     <!-- START THE FEATURETTES -->
 
-    <hr class="featurette-divider" />
 
-    <div class="row featurette">
+
+    <div class="row featurette mt-5">
       <div class="col-md-9">
         <h2 class="featurette-heading">Rings</h2>
         <p class="lead">Discover our exquisite collection of rings.</p>
@@ -141,7 +141,7 @@
 
     <hr class="featurette-divider" />
 
-    <div class="row featurette text-right">
+    <div class="row featurette text-right mb-5">
       <div class="col-md-9 order-md-2">
         <h2 class="featurette-heading">Earrings</h2>
         <p class="lead">Enhance your beauty with our elegant earrings</p>
@@ -155,7 +155,7 @@
       </div>
     </div>
 
-    <hr class="my-3" />
+    <hr class="mb-3" />
 
     <div class="row my-5">
       <h1 class="mb-5 text-center">Hear from our Customers</h1>

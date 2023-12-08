@@ -12,7 +12,7 @@
             <div>
                 <img class="card-img-top" src="{{ asset($product['gallery']) }}" alt="">
             </div>
-    
+
             <div class="col-sm-6">
                 <h2>{{$product['name']}}</h2>
                 <h3>Price: {{$product['price']}}</h3>
@@ -26,14 +26,14 @@
 
                         <button>Add to Cart</button>
                     </form>
-                    
+
                     <br><br>
                     <button>Buy Now</button>
                     <br><br>
-                <!-- Add more details as needed -->
+                    <!-- Add more details as needed -->
             </div>
         </div>
     </div>
 
 
-@endsection
+    @endsection

@@ -37,7 +37,7 @@ CONTACT US CONTENT
         <textarea id="message" name="message" required=""></textarea>
 
         <!-- Submit Button -->
-        <input class="btn-primary" type="submit" name="submit" value="Submit" />
+        <input class="btn-outline-primary" type="submit" name="submit" value="Submit" />
     </form>
 </section>
 

@@ -43,9 +43,15 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
 
+# Dashboard test
 Route::get('/usertest', function () {
     return view('usertest');
 })->name('usertest');
+
+# Test for specific product
+Route::get('/detailcheck', function () {
+    return view('DetailCheck');
+})->name('detailcheck');
 
 
 # Contact Us
