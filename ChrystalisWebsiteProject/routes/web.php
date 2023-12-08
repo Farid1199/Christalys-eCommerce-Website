@@ -38,6 +38,24 @@ Route::get('/products', function () {
     return view('productCatalogue');
 })->name('products');
 
+# About Us
+Route::get('/aboutus', function () {
+    return view('aboutUs');
+})->name('aboutus');
+
+# About Us
+Route::get('/usertest', function () {
+    return view('usertest');
+})->name('usertest');
+
+# Contact Us
+Route::get('/contactus', function () {
+    return view('contactUs');
+})->name('contactus');
+
+
+
+
 # Product Catalogue to Rings Webpage
 Route::get('/rings', function () {
     return view('ring');
@@ -63,6 +81,8 @@ Route::get('/earrings', function () {
 Route::get('/watches', function () {
     return view('watch');
 })->name('watches');
+
+
 
 
 
@@ -138,4 +158,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

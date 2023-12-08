@@ -29,7 +29,7 @@
               collection that celebrates the artistry of adornment.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">About Us</a>
+              <a class="btn btn-lg btn-primary" href="{{route('aboutus')}}" role="button">About Us</a>
             </p>
           </div>
         </div>
@@ -46,7 +46,7 @@
               enduring allure of graceful refinement.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">Discover Chrystalis</a>
+              <a class="btn btn-lg btn-primary" href="#down" role="button">Discover Chrystalis</a>
             </p>
           </div>
         </div>
@@ -64,7 +64,7 @@
               where every piece tells a story as unique as you are.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">Browse Catalogue</a>
+              <a class="btn btn-lg btn-primary" href="{{route('products')}}" role="button">Browse Catalogue</a>
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container marketing">
+  <div class="container marketing" id="down">
     <!-- Three columns of text below the carousel -->
 
     <!-- START THE FEATURETTES -->
