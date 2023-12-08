@@ -6,37 +6,73 @@
 
 @section('content')
 
+<div class="col-sm-10">
 
-<div class="container">
-    <div class="container">
+    <!-- Ecartlist.blade.php -->
 
-        @foreach ($products as $item)
-            
-        
-        <div class="row">
-            <div>
-                <img class="card-img-top" src="{{ asset($item->gallery )}}" alt="">
+    <div class="trending-wrapper">
+
+        <h4>Result for Products</h4>
+
+        @foreach($products as $item)
+
+        <div class="row searched-item">
+
+            <div class="col-sm-3">
+
+                <a href="detail/{{$item->id}}">
+
+                    <img class="trending-image" src="{{$item->gallery}}">
+
+                </a>
+
             </div>
 
-            <div class="col-sm-6">
-                <h2>{{$item->name}}</h2>
-                <h5>{{$item->description}}</h5>
+            <div class="col-sm-3">
 
-                    <br><br>
-                    <form action="/add_to_cart" method="POST">
-                        @csrf
-                        <input type="hidden" name="product_id" value="{{$item->id}}">
+                <div>
 
-                        <button>Remove From Cart</button>
-                    </form>
+                    <h2>{{$item->name}}</h2>
 
-                    <!-- Add more details as needed -->
+                    <h5>{{$item->description}}</h5>
+
+                </div>
+
+                <!-- Missing closing tag? Assuming it's meant to be </a> -->
+
             </div>
+
+            <div class="col-sm-3">
+
+                <a href="detail/{{$item->id}}">
+
+                    <img class="trending-image" src="{{$item->gallery}}">
+
+                    <div>
+
+                        <h2>{{$item->name}}</h2>
+
+                        <h5>{{$item->description}}</h5>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <div class="col-sm-3">
+
+                <button><!-- Button content here --></button>
+
+            </div>
+
         </div>
 
         @endforeach
+
     </div>
 
+</div>
 
 
 
