@@ -43,12 +43,12 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
 
-# Dashboard test
+# Dashboard test - NOT WORKING
 Route::get('/usertest', function () {
     return view('usertest');
 })->name('usertest');
 
-# Test for specific product
+# Test for specific product - NOT WORKING
 Route::get('/detailcheck', function () {
     return view('DetailCheck');
 })->name('detailcheck');
