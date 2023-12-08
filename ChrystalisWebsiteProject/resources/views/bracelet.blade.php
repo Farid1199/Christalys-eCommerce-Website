@@ -41,9 +41,10 @@
 
                                 <div class="d-flex justify-content-between align-items-center">
 
-                                    <button type="button" class="btn btn-medium btn-outline-primary">
-                                        View
-                                    </button>
+                                    <a href="{{route('t2detail')}}"><button type="button"
+                                            class="btn btn-medium btn-outline-primary">
+                                            View
+                                        </button></a>
 
                                     <button type="button" class="btn btn-medium btn-outline-success">
                                         Add to Cart
@@ -79,9 +80,10 @@
 
                                 <div class="d-flex justify-content-between align-items-center">
 
-                                    <button type="button" class="btn btn-medium btn-outline-primary">
-                                        View
-                                    </button>
+                                    <a href="{{route('t2detail')}}"><button type="button"
+                                            class="btn btn-medium btn-outline-primary">
+                                            View
+                                        </button></a>
 
                                     <button type="button" class="btn btn-medium btn-outline-success">
                                         Add to Cart

@@ -31,6 +31,7 @@
   <script src="{{ asset('js/bootstrap.min.js')}}"></script>
   <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
   <script src="{{ asset('js/holder.min.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 
@@ -122,7 +123,8 @@
           <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
           <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
           <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
-          <li class="list-inline-item"><a href="{{url('/detailcheck')}}">Dashboard test</a></li>
+          <li class="list-inline-item"><a href="{{route('t2detail')}}">Detailed product test</a></li>
+          <li class="list-inline-item"><a href="{{route('dashtest2')}}">Dashboard test</a></li>
           <li class="list-inline-item"><a href="#">Back to top</a></li>
         </ul>
       </div>

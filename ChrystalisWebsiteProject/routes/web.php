@@ -43,15 +43,6 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
 
-# Dashboard test - NOT WORKING
-Route::get('/usertest', function () {
-    return view('usertest');
-})->name('usertest');
-
-# Test for specific product - NOT WORKING
-Route::get('/detailcheck', function () {
-    return view('DetailCheck');
-})->name('detailcheck');
 
 
 # Contact Us
@@ -165,3 +156,26 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+
+
+
+# Dashboard test - NOT WORKING
+Route::get('/usertest', function () {
+    return view('usertest');
+})->name('usertest');
+
+# Test for specific product - NOT WORKING
+Route::get('/detailcheck', function () {
+    return view('DetailCheck');
+})->name('detailcheck');
+
+# Test 2 for specific product 
+Route::get('/t2detail', function () {
+    return view('testdetail2');
+})->name('t2detail');
+
+/*Test 2 Dashboard test
+Route::get('/dashtest2', function () {
+    return view('testusers2');
+})->name('/dashtest2');*/
