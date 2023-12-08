@@ -20,9 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+
+
+
 Route::get('/loginAdmin', function () {
     return view('loginUserAdmin');
 });
+
+
+
 
 Route::get('/layout', function () {
     return view('mainLayout.layout');
@@ -31,6 +37,30 @@ Route::get('/layout', function () {
 Route::get('/products', function () {
     return view('productCatalogue');
 })->name('products');
+
+# About Us
+Route::get('/aboutus', function () {
+    return view('aboutUs');
+})->name('aboutus');
+
+# Dashboard test - NOT WORKING
+Route::get('/usertest', function () {
+    return view('usertest');
+})->name('usertest');
+
+# Test for specific product - NOT WORKING
+Route::get('/detailcheck', function () {
+    return view('DetailCheck');
+})->name('detailcheck');
+
+
+# Contact Us
+Route::get('/contactus', function () {
+    return view('contactUs');
+})->name('contactus');
+
+
+
 
 # Product Catalogue to Rings Webpage
 Route::get('/rings', function () {
@@ -63,6 +93,8 @@ Route::get('/watches', function () {
 
 
 
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -83,7 +115,20 @@ Route::get('/product', [ProductController::class, 'index']);
 //  #############################################################################################################################
 // Abu Video
 
+// Route for the product details page for Rings
 Route::get('/rings', [ProductController::class, 'index'])->name('rings.index');
+
+// Route for the product details page for bracelets
+Route::get('/bracelets', [ProductController::class, 'index1'])->name('bracelets.index');
+
+// Route for the product details page for necklaces
+Route::get('/necklaces', [ProductController::class, 'index2'])->name('necklaces.index');
+
+// Route for the product details page for earrings
+Route::get('/earrings', [ProductController::class, 'index3'])->name('earrings.index');
+
+// Route for the product details page for watches
+Route::get('/watches', [ProductController::class, 'index4'])->name('watches.index');
 
 // Route for the product details page
 
@@ -95,7 +140,15 @@ Route::get("detail/{id}", [ProductController::class, 'detail']);
 
 
 
-//  #############################################################################################################################
+//  ##############################          Route for the Cart Table             ########################################################
+
+Route::post("add_to_cart", [ProductController::class, 'addToCart']);
+
+
+
+
+
+
 
 //  #############################################################################################################################
 
@@ -111,4 +164,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
