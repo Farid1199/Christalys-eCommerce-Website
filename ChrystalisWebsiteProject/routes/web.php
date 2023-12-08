@@ -43,8 +43,6 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
 
-
-
 # Contact Us
 Route::get('/contactus', function () {
     return view('contactUs');
