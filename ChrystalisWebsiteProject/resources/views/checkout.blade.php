@@ -5,12 +5,6 @@
 @section('content')
 
 
-<!-----------------------------
-      Introduction Section
--------------------------------->
-
-
-
 <style>
     .container {
         max-width: 960px;
@@ -41,13 +35,13 @@
 
 <hr class="my-5">
 
-<div class="container">
+<div class="container h-100 w-100">
     <div class="text-center"></div>
 
     <div class="row">
 
 
-        <div class="col-md-4 order-md-2 mb-4">
+        <div class="col-xl-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
                 <span class="badge badge-secondary badge-pill">10</span>
@@ -68,30 +62,23 @@
                 </li>
 
                 @endforeach
-
-
             </ul>
-
-            <div>
-
-                <a href="#"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed Payment</button></a>
-            </div>
 
         </div>
 
 
-        <div class="col-md-8 order-md-1">
+        <div class="col-xl-8 order-md-1">
             <h4 class="mb-3">Billing address</h4>
             <form class="needs-validation" novalidate>
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-xl-6 mb-3">
                         <label for="firstName">First name</label>
                         <input type="text" class="form-control" id="firstName" placeholder="" value="" required />
                         <div class="invalid-feedback">
                             Valid first name is required.
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-xl-6 mb-3">
                         <label for="lastName">Last name</label>
                         <input type="text" class="form-control" id="lastName" placeholder="" value="" required />
                         <div class="invalid-feedback">Valid last name is required.</div>
@@ -112,17 +99,17 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-5 mb-3">
+                    <div class="col-xl-5 mb-3">
                         <label for="zip">City</label>
                         <input type="text" class="form-control" id="zip" placeholder="" required />
                         <div class="invalid-feedback">City required.</div>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-xl-4 mb-3">
                         <label for="zip">Region</label>
                         <input type="text" class="form-control" id="zip" placeholder="" required />
                         <div class="invalid-feedback">Region required.</div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-xl-3 mb-3">
                         <label for="zip">Post Code</label>
                         <input type="text" class="form-control" id="zip" placeholder="AB12 3CD" required />
                         <div class="invalid-feedback">Post Code required.</div>
@@ -149,13 +136,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-xl-6 mb-3">
                         <label for="cc-name">Name on card</label>
                         <input type="text" class="form-control" id="cc-name" placeholder="" required />
                         <small class="text-muted">Full name as displayed on card</small>
                         <div class="invalid-feedback">Name on card is required</div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-xl-6 mb-3">
                         <label for="cc-number">Credit card number</label>
                         <input type="text" class="form-control" id="cc-number" placeholder="" required />
                         <div class="invalid-feedback">
@@ -164,27 +151,25 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3 mb-3">
+                    <div class="col-xl-3 mb-3">
                         <label for="cc-expiration">Expiration</label>
                         <input type="text" class="form-control" id="cc-expiration" placeholder="" required />
                         <div class="invalid-feedback">Expiration date required</div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-xl-3 mb-3">
                         <label for="cc-expiration">CVV</label>
                         <input type="text" class="form-control" id="cc-cvv" placeholder="" required />
                         <div class="invalid-feedback">Security code required</div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-lg btn-block mb-4" type="submit">
-                    Proceed Payment
-                </button>
+                <a class="btn btn-primary btn-lg btn-block py-2 my-3" href="{{route('ordercm')}}">Proceed Payment</a>
             </form>
         </div>
 
 
 
         <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            // JavaScript for disabling form submissions if there are invalid fields
             (function () {
                 "use strict";
 
@@ -215,10 +200,11 @@
                     false
                 );
 
+            });
+
         </script>
     </div>
 
-</div>
 
 
 
@@ -234,4 +220,4 @@
 
 
 
-@endsection
+    @endsection

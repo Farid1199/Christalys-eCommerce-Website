@@ -14,6 +14,7 @@ $total = ProductController::cartItem();
     @yield('title', 'Chrystalis')
   </title>
 
+  <link rel="icon" href="{{ asset('assets/Images/Homepage/favicon.png')}}" type="image/x-icon" />
   <link rel="stylesheet" href="{{ asset('assets/css/navbar-footer.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/boostrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}">

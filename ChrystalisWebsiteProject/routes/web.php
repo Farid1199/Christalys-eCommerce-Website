@@ -83,11 +83,17 @@ Route::get('/watches', function () {
 })->name('watches');
 
 
-/*CHECKOUT
-Route::get('/checkout', function () {
-    return view('checkout');
-})->name('checkout');
-*/
+# ORDER CONFIRMED
+Route::get('/ordercm', function () {
+    return view('order-confirmed');
+})->name('ordercm');
+
+# PREVIOUS ORDERS
+Route::get('/previousod', function () {
+    return view('previous-orders');
+})->name('previousod');
+
+
 
 
 
