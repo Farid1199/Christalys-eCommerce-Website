@@ -28,7 +28,6 @@
             <a href="detail/{{$item->id}}" style="text-decoration:none;">
               <h6 class="my-0">{{$item->name}}</h6>
             </a>
-            <small class="text-muted">{{$item->description}}</small>
           </div>
           <span class="text-muted">{{$item->price}}</span>
         </li>
@@ -40,7 +39,7 @@
 
       <div>
 
-        <a href="check-out-page2.html"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
+        <a href="{{ route('checkout')}}"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
             Checkout</button></a>
       </div>
 
@@ -68,6 +67,7 @@
                 <a href="detail/{{$item->id}}" style="text-decoration:none;">
                   <p class="lead fw-normal mb-2">{{$item->name}}</p>
                 </a>
+                <p class="my-1">{{$item->description}}</p>
               </div>
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                 <h5 class="mb-0">{{$item->price}}</h5>
@@ -90,7 +90,7 @@
 
       <div class="row">
 
-        <a href="check-out-page2.html"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
+        <a href="{{ route('checkout')}}"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
             Checkout</button></a>
 
       </div>

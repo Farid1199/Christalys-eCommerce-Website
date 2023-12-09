@@ -83,6 +83,11 @@ Route::get('/watches', function () {
 })->name('watches');
 
 
+/*CHECKOUT
+Route::get('/checkout', function () {
+    return view('checkout');
+})->name('checkout');
+*/
 
 
 
@@ -142,6 +147,7 @@ Route::get("detail/{id}", [ProductController::class, 'detail']);
 
 Route::get("/add_to_cart", [App\Http\Controllers\ProductController::class, 'addToCart']);
 
+Route::get("checkout", [App\Http\Controllers\ProductController::class, 'checkoutList'])->name('checkout');
 
 Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList'])->name('cartlist');
 
