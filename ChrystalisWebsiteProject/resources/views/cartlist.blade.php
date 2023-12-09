@@ -77,8 +77,10 @@
                     <h5 class="mb-0">{{$item->price}}</h5>
                   </div>
                   <div class="col-md-1 col-lg-1 col-xl-1 text-end">               
-                    <a href="#!"><img src="{{ asset('Images\HomePage\cart-remove.png') }}" class="img-fluid"></img></a>
-                  </div>
+                    <a href="{{ url('/removecart', ['id' => $item->id]) }}">
+                      <img src="{{ asset('Images\HomePage\cart-remove.png') }}" class="img-fluid">
+                  </a>
+                                    </div>
                   
                 </div>
               </div>
@@ -109,22 +111,6 @@
   </div>
 
 
-  
-
-
-
-
-
-
-  
-  <!-- =================================================================
-  
-    -- =================================================================--> 
-
-
-
-
-
 
 
 
@@ -133,8 +119,38 @@
 @endsection
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--
 
+=================================================================
+              Bellow not needed
+    -- =================================================================--
 
 Previous CODE --
 
