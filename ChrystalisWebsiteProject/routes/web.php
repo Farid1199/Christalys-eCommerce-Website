@@ -50,6 +50,9 @@ Route::get('/contactus', function () {
     return view('contactUs');
 })->name('contactus');
 
+Route::get('/searchlist', function () {
+    return view('searchProducts');
+})->name('searchlist');
 
 
 
@@ -97,6 +100,9 @@ Route::get('/detail', [ProfileController::class, 'detail']);
 
 Route::get('/product', [ProductController::class, 'index']);
 
+//Route::get('/searchlist', [ProductController::class, 'productList']);
+
+Route::get('/search', [ProductController::class, 'productList'])->name('search');
 
 
 

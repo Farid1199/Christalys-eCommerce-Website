@@ -17,7 +17,21 @@ class ProductController extends Controller
 {
 
 
+    public function productList()
+    {
 
+        if (request()->has('search')) {
+            $searchTerm = request('search');
+            $products = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+        } else {
+            $products = Product::all();
+            //$bracelets = Product::where('category', 'Bracelet')->get();
+
+        }
+
+        //$bracelets = Product::where('category', 'Bracelet')->get();
+        return view('searchProducts', ['products' => $products]);
+    }
 
 
 
@@ -33,7 +47,19 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $rings = Product::where('category', 'Ring')->get();
+        //$rings = Product::where('category', 'Ring')->get();
+        //return view('ring', ['products' => $rings]);
+
+        if (request()->has('search')) {
+            $searchTerm = request('search');
+            $rings = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+        } else {
+            //$rings = Product::all();
+            $rings = Product::where('category', 'Ring')->get();
+
+        }
+
+        //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('ring', ['products' => $rings]);
     }
     public function getRings()
@@ -44,12 +70,49 @@ class ProductController extends Controller
 
     // ################################       Bracelet    #############################################
 
-    public function index1()
+    /*public function index1()
     {
         //
-        $bracelets = Product::where('category', 'Bracelet')->get();
+        //$bracelets = Product::where('category', 'Bracelet')->get();
+        //return view('bracelet', ['products' => $bracelets]);
+
+        if (request('search')) {
+            $bracelets = Product::where('category', '%' . request('search') . '%')->get();
+            //$bracelets = Product::where('category', 'Bracelet')->get();
+        } else {
+            $bracelets = Product::where('category', 'Bracelet')->get();
+        }
+
+        return view('bracelet', ['products' => $bracelets]);
+
+                /*if (request()->has('search')) {
+            $searchTerm = request('search');
+            $bracelets = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+        } else {
+            $bracelets = Product::all();
+            $bracelets = Product::where('category', 'Bracelet')->get();
+
+        }
+
+    }*/
+
+
+    public function index1()
+    {
+
+        if (request()->has('search')) {
+            $searchTerm = request('search');
+            $bracelets = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+        } else {
+            //$bracelets = Product::all();
+            $bracelets = Product::where('category', 'Bracelet')->get();
+
+        }
+
+        //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('bracelet', ['products' => $bracelets]);
     }
+
 
     public function getBracelet()
     {
@@ -65,7 +128,19 @@ class ProductController extends Controller
     public function index2()
     {
         //
-        $necklace = Product::where('category', 'Necklace')->get();
+        //$necklace = Product::where('category', 'Necklace')->get();
+        //return view('necklace', ['products' => $necklace]);
+
+        if (request()->has('search')) {
+            $searchTerm = request('search');
+            $necklace = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+        } else {
+            //$necklace = Product::all();
+            $necklace = Product::where('category', 'Necklace')->get();
+
+        }
+
+        //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('necklace', ['products' => $necklace]);
     }
 
@@ -80,7 +155,20 @@ class ProductController extends Controller
     public function index3()
     {
         //
-        $earrings = Product::where('category', 'Earring')->get();
+        //$earrings = Product::where('category', 'Earring')->get();
+        //return view('earring', ['products' => $earrings]);
+
+
+        if (request()->has('search')) {
+            $searchTerm = request('search');
+            $earrings = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+        } else {
+            //$necklace = Product::all();
+            $earrings = Product::where('category', 'Earring')->get();
+
+        }
+
+        //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('earring', ['products' => $earrings]);
     }
 
@@ -96,9 +184,22 @@ class ProductController extends Controller
     public function index4()
     {
         //
-        $watch = Product::where('category', 'Watch')->get();
+        //$watch = Product::where('category', 'Watch')->get();
+        //return view('watch', ['products' => $watch]);
+
+        if (request()->has('search')) {
+            $searchTerm = request('search');
+            $watch = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+        } else {
+            $watch = Product::where('category', 'Watch')->get();
+        }
+
+        //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('watch', ['products' => $watch]);
+
     }
+
+
 
     public function getWatch()
     {

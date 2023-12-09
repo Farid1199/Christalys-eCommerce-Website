@@ -1,4 +1,4 @@
-@extends('mainLayout.layout')
+@extends('mainLayout.layout2')
 
 @section('title', 'Cart List')
 
@@ -34,11 +34,6 @@
         </li>
 
         @endforeach
-
-        <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
-          <strong>{{$item->price}}</strong>
-        </li>
 
 
       </ul>

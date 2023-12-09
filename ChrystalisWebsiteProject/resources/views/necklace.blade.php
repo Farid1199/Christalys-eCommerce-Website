@@ -1,4 +1,4 @@
-@extends('mainLayout.layout')
+@extends('mainLayout.layout2')
 
 @section('title', 'Necklace')
 
@@ -24,8 +24,7 @@
                 <div class="card mb-4 box-shadow item{{ $necklace['id'] == 1 ? 'active' : '' }}">
                     <div class="row align-items-center">
                         <div class="col text-center">
-                            <img class="card-img-center img-fluid img-responsive"
-                                src="{{ $necklace['gallery'] }}"
+                            <img class="card-img-center img-fluid img-responsive" src="{{ $necklace['gallery'] }}"
                                 style="/*width: 70%; height: 70%;*/" alt="Card image cap" />
                         </div>
                         <div class="col-8">
@@ -46,11 +45,11 @@
                                             View
                                         </button></a>
 
-                                <form action="/add_to_cart" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{$necklace['id']}}">
-                                    <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
-                                </form>
+                                    <form action="/add_to_cart" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{$necklace['id']}}">
+                                        <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
+                                    </form>
 
                                 </div>
                             </div>

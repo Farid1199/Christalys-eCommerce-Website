@@ -1,4 +1,4 @@
-@extends('mainLayout.layout')
+@extends('mainLayout.layout2')
 
 @section('title', 'Login User Dashboard')
 

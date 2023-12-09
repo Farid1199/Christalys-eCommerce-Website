@@ -55,7 +55,7 @@ $total = ProductController::cartItem();
         <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="width: 30%; height: 20%" />
       </div>
 
-      
+
 
 
       <nav class="navbar navbar-expand-xl navbar-dark navigation-container">
@@ -68,10 +68,7 @@ $total = ProductController::cartItem();
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav mr-auto navigation">
             <form class="form-inline mt-2 mr-5 mt-md-0">
-              <input class="form-control mr-sm-2 p-1.5" type="text" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-success my-2 my-sm-0 p-1.5" type="submit">
-                Search
-              </button>
+
             </form>
             <li><a href="/">HOME</a></li>
             <li><a href="{{route('products')}}">PRODUCTS</a></li>
@@ -132,7 +129,7 @@ $total = ProductController::cartItem();
           <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
           <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
           <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
-          <li class="list-inline-item"><a href="{{route('t3users')}}">user test</a></li>
+          <li class="list-inline-item"><a href="{{ route('t2detail')}}">user test</a></li>
           <li class="list-inline-item"><a href="#">Back to top</a></li>
         </ul>
       </div>
@@ -144,6 +141,3 @@ $total = ProductController::cartItem();
 </body>
 
 </html>
-
-
-
