@@ -135,16 +135,17 @@ class ProductController extends Controller
  
   
   function cartList(){
-
     $userId = auth()->id();
+
     $products = DB::table('cart')
-        ->join('products', 'cart.product_id', '=', 'products.product_id')
+        ->join('products', 'cart.product_id', '=', 'products.id')  
         ->where('cart.user_id', $userId)
         ->select('products.*')
         ->get();
 
-        return view('cartlist', ['products' => $products]);
-  }
+    return view('cartlist', ['products' => $products]);
+}
+
 
 
 

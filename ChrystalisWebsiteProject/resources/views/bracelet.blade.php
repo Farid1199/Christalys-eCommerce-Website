@@ -19,20 +19,21 @@
         <div class="col">
 
             <div class="row">
-                <div class="card mb-4 box-shadow">
+
+                @foreach ($products as $bracelet)
+
+                <div class="card mb-4 box-shadow item{{ $bracelet['id'] == 1 ? 'active' : '' }}">
                     <div class="row align-items-center">
                         <div class="col text-center">
-                            <img class="card-img-center img-thumbnail img-responsive"
-                                src="{{ asset('Images\CatalogueImg\gold-rings-.png') }}"
+                            <img class="card-img-center img-fluid img-responsive"
+                                src="{{ $bracelet['gallery'] }}"
                                 style="/*width: 70%; height: 70%;*/" alt="Card image cap" />
                         </div>
                         <div class="col-8">
                             <div class="card-body text-left">
-                                <h4 class="text-left my-3">Product Title</h4>
+                                <h4 class="text-left my-3">{{ $bracelet->name }}</h4>
                                 <p class="card-text">
-                                    This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit
-                                    longer.
+                                    {{ $bracelet->description }}
                                 </p>
 
                                 <p class="card-text font-weight-bold">
@@ -41,76 +42,28 @@
 
                                 <div class="d-flex justify-content-between align-items-center">
 
-                                    <a href="{{route('t2detail')}}"><button type="button"
+                                    <a href="detail/{{$bracelet['id']}}"><button type="button"
                                             class="btn btn-medium btn-outline-primary">
                                             View
                                         </button></a>
 
-                                    <button type="button" class="btn btn-medium btn-outline-secondary">
-                                        Add to Wishlist ♥️
-                                    </button>
+                                <form action="/add_to_cart" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{$bracelet['id']}}">
+                                    <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
+                                </form>
 
-                                    <button type="button" class="btn btn-medium btn-outline-success">
-                                        Add to Cart
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                @endforeach
+
             </div>
-
-
-            <div class="row">
-                <div class="card mb-4 box-shadow">
-                    <div class="row align-items-center">
-                        <div class="col text-center">
-                            <img class="card-img-center img-thumbnail img-responsive"
-                                src="{{ asset('Images\CatalogueImg\Watch-1.jpg') }}" style="width: 80%; height: 100%;"
-                                alt="Card image cap" />
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body text-left">
-                                <h4 class="text-left my-3">Product Title</h4>
-                                <p class="card-text">
-                                    This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit
-                                    longer.
-                                </p>
-
-                                <p class="card-text font-weight-bold">
-                                    Price: £30
-                                </p>
-
-                                <div class="d-flex justify-content-between align-items-center">
-
-                                    <a href="{{route('t2detail')}}"><button type="button"
-                                            class="btn btn-medium btn-outline-primary">
-                                            View
-                                        </button></a>
-
-                                    <button type="button" class="btn btn-medium btn-outline-secondary">
-                                        Add to Wishlist ♥️
-                                    </button>
-
-                                    <button type="button" class="btn btn-medium btn-outline-success">
-                                        Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
         </div>
-
     </div>
-
 </div>
 </div>
 
@@ -131,7 +84,14 @@
             </div>
         @endforeach
     </section>
-</main> -->
+</main> 
+
+
+
+
+
+
+-->
 
 
 

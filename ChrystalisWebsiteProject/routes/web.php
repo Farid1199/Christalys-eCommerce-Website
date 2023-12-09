@@ -136,12 +136,12 @@ Route::get("detail/{id}", [ProductController::class, 'detail']);
 
 Route::get("/add_to_cart", [App\Http\Controllers\ProductController::class, 'addToCart']);
 
-Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList']);
+
+Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList'])->name('cartlist');
 
 
-Route::get('/cartlist', function () {
-    return view('cartlist');
-})->name('cartlist');
+
+
 
 
 
