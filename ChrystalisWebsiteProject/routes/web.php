@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Auth\LoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,22 +45,14 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
 
-# Dashboard test - NOT WORKING
-Route::get('/usertest', function () {
-    return view('usertest');
-})->name('usertest');
-
-# Test for specific product - NOT WORKING
-Route::get('/detailcheck', function () {
-    return view('DetailCheck');
-})->name('detailcheck');
-
-
 # Contact Us
 Route::get('/contactus', function () {
     return view('contactUs');
 })->name('contactus');
 
+Route::get('/searchlist', function () {
+    return view('searchProducts');
+})->name('searchlist');
 
 
 
@@ -89,6 +83,17 @@ Route::get('/watches', function () {
 })->name('watches');
 
 
+# ORDER CONFIRMED
+Route::get('/ordercm', function () {
+    return view('order-confirmed');
+})->name('ordercm');
+
+# PREVIOUS ORDERS
+Route::get('/previousod', function () {
+    return view('previous-orders');
+})->name('previousod');
+
+
 
 
 
@@ -104,8 +109,11 @@ Route::get('/dashboard', function () {
 // This is for the products of each product webpage
 Route::get('/detail', [ProfileController::class, 'detail']);
 
-Route::get('/product', [ProductController::class, 'index']);
+//Route::get('/product', [ProductController::class, 'index']);
 
+//Route::get('/searchlist', [ProductController::class, 'productList']);
+
+Route::get('/search', [ProductController::class, 'productList'])->name('search');
 
 
 
@@ -142,7 +150,15 @@ Route::get("detail/{id}", [ProductController::class, 'detail']);
 
 //  ##############################          Route for the Cart Table             ########################################################
 
-Route::post("add_to_cart", [ProductController::class, 'addToCart']);
+
+Route::get("/add_to_cart", [App\Http\Controllers\ProductController::class, 'addToCart']);
+
+Route::get("checkout", [App\Http\Controllers\ProductController::class, 'checkoutList'])->name('checkout');
+
+Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList'])->name('cartlist');
+
+
+
 
 
 
@@ -162,6 +178,32 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post("add_to_cart", [ProductController::class, 'addToCart']);
+    Route::delete('/cart/{id}', [ProductController::class, 'removeCart'])->name('cart.remove');
 });
 
 require __DIR__ . '/auth.php';
+
+
+
+
+/* Dashboard test - NOT WORKING
+Route::get('/usertest', function () {
+    return view('usertest');
+})->name('usertest');
+
+# Test for specific product - NOT WORKING
+Route::get('/detailcheck', function () {
+    return view('DetailCheck');
+})->name('detailcheck'); */
+
+# Test 2 for specific product 
+Route::get('/t2detail', function () {
+    return view('testdetail2');
+})->name('t2detail');
+
+# Dashboard test 
+Route::get('/t3users', function () {
+    return view('t3usertest');
+})->name('t3users');
+

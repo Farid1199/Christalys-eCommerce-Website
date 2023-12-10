@@ -1,3 +1,9 @@
+<?php
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+$total = ProductController::cartItem();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,13 +15,18 @@
     @yield('title', 'Chrystalis')
   </title>
 
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="{{ asset('assets/Images/Homepage/favicon.png')}}" type="image/x-icon" />
   <link rel="stylesheet" href="{{ asset('assets/css/navbar-footer.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/boostrap.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}">
   <!-- <link rel="stylesheet" href="{{ asset('resources\css\homePage.css')}}"> 
   <link rel="stylesheet" href="resources\css\navbar-footer.css">  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="{{ asset('assets/css/css-pages/ministore.css')}}" />
 
   <!--
   -->
@@ -31,6 +42,7 @@
   <script src="{{ asset('js/bootstrap.min.js')}}"></script>
   <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
   <script src="{{ asset('js/holder.min.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 
@@ -49,6 +61,8 @@
       </div>
 
 
+
+
       <nav class="navbar navbar-expand-xl navbar-dark navigation-container">
 
         <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarsExample04"
@@ -58,20 +72,42 @@
 
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav mr-auto navigation">
-            <form class="form-inline mt-2 mr-5 mt-md-0">
-              <input class="form-control mr-sm-2 p-1.5" type="text" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-success my-2 my-sm-0 p-1.5" type="submit">
-                Search
-              </button>
-            </form>
+
+            @if (Auth::check())
             <li><a href="/">HOME</a></li>
             <li><a href="{{route('products')}}">PRODUCTS</a></li>
-            <li><a href="">CART</a></li>
             <li><a href="{{route('aboutus')}}">ABOUT US</a></li>
-            <li class="li-log"><a href="{{ url('/loginAdmin') }}">LOG IN</a></li>
-            <li class="li-log"><a href="#">SIGN UP</a></li>
+            <li><a href="cartlist">CART({{ $total }})</a></li>
+
+
+            <li class="li-log"><a href="{{ route('dashboard') }}">
+                {{ __('DASHBOARD') }}</a></li>
+
+            <!-- Authentication -->
+            <li class="li-log">
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                  {{ __('LOG OUT') }}
+                </a>
+              </form>
+            </li>
+
+            @else
+
+            <li><a href="/">HOME</a></li>
+            <li><a href="{{route('products')}}">PRODUCTS</a></li>
+            <li><a href="{{route('aboutus')}}">ABOUT US</a></li>
+            <li><a href="cartlist">CART({{ $total }})</a></li>
+            <li class="li-log"><a href="{{ route('login') }}">LOG IN</a></li>
+            <li class="li-log"><a href="{{ route('register') }}">SIGN UP</a></li>
+            @endif
 
           </ul>
+
+
 
         </div>
       </nav>
@@ -122,7 +158,6 @@
           <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
           <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
           <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
-          <li class="list-inline-item"><a href="{{url('/detailcheck')}}">Dashboard test</a></li>
           <li class="list-inline-item"><a href="#">Back to top</a></li>
         </ul>
       </div>
@@ -134,25 +169,3 @@
 </body>
 
 </html>
-
-
-
-<!--form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
-
-      <nav class="navigation-container">
-
-        <ul class="navigation">
-          <li><a href="/">HOME</a></li>
-          <li><a href="{{route('products')}}">PRODUCTS</a></li>
-          <li><a href="">CART</a></li>
-          <li><a href="#">ABOUT US</a></li>
-          <li class="li-log"><a href="{{ url('/loginAdmin') }}">LOG IN</a></li>
-          <li class="li-log"><a href="#">SIGN UP</a></li>
-
-        </ul>
-      </nav-->

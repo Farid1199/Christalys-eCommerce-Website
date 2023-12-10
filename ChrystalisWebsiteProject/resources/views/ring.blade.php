@@ -1,8 +1,9 @@
-@extends('mainLayout.layout')
+@extends('mainLayout.layout2')
 
 @section('title', 'Ring')
 
 @section('content')
+
 
 <link rel="stylesheet" href="{{ asset('assets/css/css-pages/style.css')}}" />
 
@@ -10,6 +11,63 @@
     MAIN CONTENT
 -------------------------------->
 
+<div class="album bg-light py-5">
+    <div class="container py-5">
+
+        <div class="py-3 text-center"></div>
+        <div class="col">
+
+            <div class="row">
+
+                @foreach ($products as $ring)
+
+                <div class="card mb-4 box-shadow item{{ $ring['id'] == 1 ? 'active' : '' }}">
+                    <div class="row align-items-center">
+                        <div class="col text-center">
+                            <img class="card-img-center img-fluid img-responsive" src="{{ $ring['gallery'] }}"
+                                style="/*width: 70%; height: 70%;*/" alt="Card image cap" />
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body text-left">
+                                <h4 class="text-left my-3">{{ $ring->name }}</h4>
+                                <p class="card-text">
+                                    {{ $ring->description }}
+                                </p>
+
+                                <p class="card-text font-weight-bold">
+                                    Price: {{ $ring->price}}
+                                </p>
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <a href="detail/{{$ring['id']}}"><button type="button"
+                                            class="btn btn-medium btn-outline-primary">
+                                            View
+                                        </button></a>
+
+                                    <form action="/add_to_cart" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{$ring['id']}}">
+                                        <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @endforeach
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<!--
 <h1>Rings</h1>
 <main>
     <-- Ring 1 <section class="product-container">
@@ -25,7 +83,7 @@
         </div>
         @endforeach
         </section>
-</main>
+</main> -->
 
 
 
@@ -35,6 +93,10 @@
 
 
 <!-- 
+
+
+<link rel="stylesheet" href="{{ asset('assets/css/css-pages/style.css')}}" />
+
 <div class="album py-5 bg-light">
     <div class="container py-5">
 
