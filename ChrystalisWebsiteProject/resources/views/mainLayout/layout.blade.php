@@ -72,9 +72,7 @@ $total = ProductController::cartItem();
 
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav mr-auto navigation">
-            <form class="form-inline mt-2 mr-5 mt-md-0">
 
-            </form>
             @if (Auth::check())
             <li><a href="/">HOME</a></li>
             <li><a href="{{route('products')}}">PRODUCTS</a></li>

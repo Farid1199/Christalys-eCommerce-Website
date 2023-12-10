@@ -55,7 +55,13 @@ $total = ProductController::cartItem();
 
 
     <div class="col-md-8 order-md-1">
-      <h4 class="mb-3">Shopping Cart</h4>
+      <h2 class="mb-3">Shopping Cart</h2>
+
+      @if($products->isEmpty())
+      <h4 class="text-center my-3">Your cart is empty</h4>
+      @else
+
+
 
 
       <div class="row">
@@ -108,6 +114,7 @@ $total = ProductController::cartItem();
         $index++; // Increment the index for the next iteration
         @endphp
         @endforeach
+
       </div>
 
 
@@ -118,6 +125,7 @@ $total = ProductController::cartItem();
 
       </div>
 
+      @endif
 
     </div>
 
@@ -137,6 +145,7 @@ $total = ProductController::cartItem();
 
 
 @endsection
+
 
 
 
