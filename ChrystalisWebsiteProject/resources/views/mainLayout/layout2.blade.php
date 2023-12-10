@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 $total = ProductController::cartItem();
 ?>
 
