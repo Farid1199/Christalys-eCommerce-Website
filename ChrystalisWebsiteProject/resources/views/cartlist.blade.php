@@ -54,11 +54,15 @@ $total = ProductController::cartItem();
 
     </div>
 
-
+    @php
+    $index = 0; // Initialize an index variable
+@endphp
+ 
 
 
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Shopping Cart</h4>
+
 
       <div class="row">
         @foreach($products as $item)
@@ -82,7 +86,7 @@ $total = ProductController::cartItem();
                 <h5 class="mb-0">{{$item->price}}</h5>
               </div>
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="{{ url('/removecart', ['id' => $item->id]) }}">
+                <a href="{{ route('removeCart', ['id' => $remove[$index]->id]) }}">
                   <img src="{{ asset('Images\HomePage\cart-remove.png') }}" class="img-fluid">
                 </a>
               </div>
@@ -91,8 +95,14 @@ $total = ProductController::cartItem();
           </div>
 
         </div>
+
+        @php
+        $index++; // Increment the index for the next iteration
+    @endphp
         @endforeach
       </div>
+
+   
 
 
 
