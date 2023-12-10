@@ -76,9 +76,11 @@
             <div class="mb-3">
                 <label for="reviewContent" class="form-label">Your Review</label>
                 <textarea class="form-control" id="reviewContent" rows="4" required></textarea>
+
             </div>
-            <button type="submit" class="btn btn-primary">Submit Review</button>
+
         </form>
+        <button type="submit" class="btn btn-outline-primary w-100">Submit Review</button>
     </div>
 </section>
 

@@ -46,12 +46,6 @@ $total = ProductController::cartItem();
 
       </ul>
 
-      <div>
-
-        <a href="{{ route('checkout')}}"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
-            Checkout</button></a>
-      </div>
-
     </div>
 
 
