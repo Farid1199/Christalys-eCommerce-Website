@@ -65,7 +65,7 @@
 
                         <div class="d-flex justify-content-between pt-2">
                             <p class="fw-bold mb-0">Order Details</p>
-                            <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> $898.00</p>
+                            <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> £300</p>
                         </div>
 
                         <div class="d-flex justify-content-between pt-2">
@@ -96,7 +96,7 @@
                     <div class="card-footer border-0 px-4 py-3 bg-light"
                         style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
                         <h5 class="d-flex align-items-center justify-content-end text-dark text-uppercase mb-0">Total
-                            paid: <span class="h2 mb-0 ms-2">total</span></h5>
+                            paid: <span class="h2 mb-0 ms-2">£300</span></h5>
                     </div>
                 </div>
             </div>
