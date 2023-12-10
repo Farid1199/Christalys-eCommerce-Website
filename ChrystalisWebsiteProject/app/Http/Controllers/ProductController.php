@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -247,7 +248,9 @@ class ProductController extends Controller
             ->select('products.*', 'cart.id as cart_id')
             ->get();
 
-        return view('cartlist', ['products' => $products]);
+        $remove = Cart::where('user_id',$userId )->get();
+
+        return view('cartlist', ['products' => $products, 'remove' =>$remove]);
     }
 
     function checkoutList()
@@ -271,7 +274,7 @@ class ProductController extends Controller
         // Check if the authenticated user owns the cart item before removing it
         $cartItem = Cart::find($id);
 
-        if (!$cartItem || $cartItem->user_id !== auth()->id()) {
+        if ($cartItem->user_id !== auth()->id()) {
             // If the cart item is not found or doesn't belong to the authenticated user
             abort(403, 'Unauthorized action.');
         }
@@ -280,6 +283,7 @@ class ProductController extends Controller
         Cart::destroy($id);
 
         return redirect('cartlist');
+
     }
 
 
