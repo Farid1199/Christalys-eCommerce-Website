@@ -15,6 +15,12 @@
         </div>
     </div-->
 
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+
 
 
 
@@ -24,34 +30,52 @@
       User Account
 -------------------------------->
 
-    <hr class="featurette-divider">
 
-    <h1 class="mt-5 text-center"> Welcome to your Dashboard, USER! </h1>
-    <main class="user-main mt-5">
+    <div>
+        <h2 class="text-center my-3 py-3"> Welcome to your Dashboard, {{ Auth::user()->name }}!
+        </h2>
+    </div>
 
+    <main class="user-main">
         <section id="founders-profile">
             <div class="text-founder1">
                 <ul>
                     <li>
+
                         <div class="founder-box4-skills">
                             <img src="{{ asset('Images\HomePage\user-pp.png') }}" alt="java-logo" class="lang-logos" />
-                            <h3>Account Name</h3>
+                            <div>
+                                <h3>{{ Auth::user()->name }}</h3>
+                            </div>
+
                             <section class="user-links">
-                                <h4>My Details</h4>
-                            </section>
-                            <section class="user-links">
-                                <h4>Order History</h4>
-                            </section>
-                            <section class="user-links">
-                                <h4>Cart & Wishlist</h4>
-                            </section>
-                            <section class="user-links">
-                                <h4>Account Settings</h4>
-                            </section>
-                            <section class="user-links">
-                                <a href="login.html" class="styleless">
-                                    <h4>Log Out</h4>
+                                <a href="{{route('previousod')}}">
+                                    <h4>Order History</h4>
                                 </a>
+                            </section>
+                            <section class="user-links">
+                                <a href="{{route('cartlist')}}">
+                                    <h4>Cart</h4>
+                                </a>
+                            </section>
+                            <section class="user-links">
+                                <a href="{{ route('profile.edit') }}" class="styleless">
+                                    <h4>{{ __('Account Settings') }}</h4>
+                                </a>
+                            </section>
+
+                            <section class="user-links">
+
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-nav-link :href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        <h4>{{ __('Log Out') }}</h4>
+                                    </x-nav-link>
+                                </form>
+
+
                             </section>
                         </div>
                     </li>
@@ -139,6 +163,28 @@
             </div>
         </section>
     </main>
+
+    @yield('footer')
+    <footer>
+        <section id="conclusion">
+            <div class="copyright-bottom text-center">
+                <p class="m-1">
+                    &copy; Copyright Chrystalis 2023-2024. All Rights Reserved
+                </p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
+                    <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
+                    <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
+                    <li class="list-inline-item"><a href="{{ route('t2detail')}}">user test</a></li>
+                    <li class="list-inline-item"><a href="#">Back to top</a></li>
+                </ul>
+            </div>
+        </section>
+    </footer>
+
+
+
+
 
 
 </x-app-layout>

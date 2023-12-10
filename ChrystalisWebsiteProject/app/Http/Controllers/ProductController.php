@@ -250,7 +250,6 @@ class ProductController extends Controller
         return view('cartlist', ['products' => $products]);
     }
 
-
     function checkoutList()
     {
         $userId = auth()->id();
