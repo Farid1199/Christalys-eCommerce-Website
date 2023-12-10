@@ -35,7 +35,7 @@
                                 </p>
 
                                 <p class="card-text font-weight-bold">
-                                    Price: £30
+                                    Price: {{ $ring->price}}
                                 </p>
 
                                 <div class="d-flex justify-content-between align-items-center">
