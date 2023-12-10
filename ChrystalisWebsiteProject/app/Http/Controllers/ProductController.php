@@ -225,7 +225,7 @@ class ProductController extends Controller
         $cart->product_id = $reg->product_id;
         # then we are saving it
         $cart->save();
-        return redirect('/');
+        return back();
 
     }
 
@@ -250,9 +250,9 @@ class ProductController extends Controller
             ->select('products.*', 'cart.id as cart_id')
             ->get();
 
-        $remove = Cart::where('user_id',$userId )->get();
+        $remove = Cart::where('user_id', $userId)->get();
 
-        return view('cartlist', ['products' => $products, 'remove' =>$remove]);
+        return view('cartlist', ['products' => $products, 'remove' => $remove]);
     }
 
     function checkoutList()
@@ -271,23 +271,83 @@ class ProductController extends Controller
 
     ####################          Remove from cart fuunction         #######################
 
+    /* public function removeCart($id)
+     {
+         // Check if the authenticated user owns the cart item before removing it
+         $cartItem = Cart::find($id);
+
+         if ($cartItem->user_id !== auth()->id()) {
+             // If the cart item is not found or doesn't belong to the authenticated user
+             abort(403, 'Unauthorized action.');
+         }
+
+         // If the user owns the cart item, proceed to remove it
+         Cart::destroy($id);
+
+         return redirect('cartlist');
+
+     }
+
     public function removeCart($id)
     {
         // Check if the authenticated user owns the cart item before removing it
         $cartItem = Cart::find($id);
 
-        if ($cartItem->user_id !== auth()->id()) {
+        if (!$cartItem || $cartItem->user_id !== auth()->id()) {
             // If the cart item is not found or doesn't belong to the authenticated user
             abort(403, 'Unauthorized action.');
         }
 
         // If the user owns the cart item, proceed to remove it
-        Cart::destroy($id);
+        $cartItem->delete();
 
-        return redirect('cartlist');
-
+        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
     }
 
+
+
+
+    public function removeCart($id)
+    {
+        // Check if the authenticated user owns the cart item before removing it
+        $cart = Cart::find($id);
+
+        if (!$cart) {
+            // Log the ID of the item that causes issues
+            \Log::info("Cart item with ID {$id} not found.");
+            abort(404, 'Cart item not found.');
+        }
+
+        if ($cart->user_id !== auth()->id()) {
+            // Log the ID of the item that causes authorization issues
+            \Log::info("Unauthorized access attempt to remove cart item with ID {$id}.");
+            abort(403, 'Unauthorized action.');
+        }
+
+        // If the user owns the cart item, proceed to remove it
+        $cart->delete();
+
+        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
+    }*/
+
+
+    public function removeCart($id)
+    {
+        // Check if the authenticated user owns the cart item before removing it
+        $cartItem = Cart::where('id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
+
+        if (!$cartItem) {
+            // If the cart item is not found or doesn't belong to the authenticated user
+            abort(403, 'Unauthorized action.');
+        }
+
+        // If the user owns the cart item, proceed to remove it
+        $cartItem->delete();
+
+        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
+    }
 
 
 

@@ -50,8 +50,8 @@ $total = ProductController::cartItem();
 
     @php
     $index = 0; // Initialize an index variable
-@endphp
- 
+    @endphp
+
 
 
     <div class="col-md-8 order-md-1">
@@ -74,16 +74,30 @@ $total = ProductController::cartItem();
                 <a href="detail/{{$item->id}}" style="text-decoration:none;">
                   <p class="lead fw-normal mb-2">{{$item->name}}</p>
                 </a>
-                <p class="my-1">{{$item->description}}</p>
               </div>
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                 <h5 class="mb-0">{{$item->price}}</h5>
               </div>
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="{{ url('removeCart', ['id' => $remove[$index]->id]) }}">
+                <!--a href="{{ url('removeCart', ['id' => $remove[$index]->id]) }}">
                   <img src="{{ asset('Images\HomePage\cart-remove.png') }}" class="img-fluid">
-                </a>
+                </a-->
+
+
+                <form action="{{ route('cart.remove', ['id' => $item->cart_id]) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+
+                  <button type="submit" class="btn-danger" style="  border: none;
+                  cursor: pointer;
+                  appearance: none;
+                  background-color: inherit;
+                  margin: 0;
+                  padding: 0;">
+                    <img type="submit" src="{{ asset('Images\HomePage\cart-remove.png') }}" class="img-fluid"></button>
+                </form>
               </div>
+
 
             </div>
           </div>
@@ -92,13 +106,9 @@ $total = ProductController::cartItem();
 
         @php
         $index++; // Increment the index for the next iteration
-    @endphp
+        @endphp
         @endforeach
       </div>
-
-   
-
-
 
 
       <div class="row">
