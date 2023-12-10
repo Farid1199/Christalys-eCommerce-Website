@@ -1,6 +1,6 @@
 @extends('mainLayout.layout2')
 
-@section('title', 'Bracelets')
+@section('title', 'Full Catalogue')
 
 
 

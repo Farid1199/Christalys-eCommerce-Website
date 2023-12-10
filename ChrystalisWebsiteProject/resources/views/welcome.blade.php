@@ -1,6 +1,6 @@
 @extends('mainLayout.layout')
 
-@section('title', 'Welcome')
+@section('title', 'Home Page')
 
 @section('content')
 
