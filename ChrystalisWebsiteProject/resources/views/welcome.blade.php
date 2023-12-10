@@ -34,7 +34,7 @@
 </svg>
 
 <hr class="mb-4" />
-
+<hr class="mb-4" />
 <main role="main">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
