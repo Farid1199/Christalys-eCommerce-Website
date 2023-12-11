@@ -64,7 +64,7 @@ $total = ProductController::cartItem();
                         @if (Auth::check()) <li><a href="/">HOME</a></li>
                         <li><a href="{{route('products')}}">PRODUCTS</a></li>
                         <li><a href="{{route('aboutus')}}">ABOUT US</a></li>
-                        <li><a href="cartlist">CART({{$total}})</a></li>
+                        <li><a href="{{ route('cartlist') }}">CART({{$total}})</a></li>
                         <li class="li-log"><a href="{{ route('dashboard') }}"> {{__('DASHBOARD')}} </a></li>
                         <!-- Authentication -->
                         <li class="li-log">
@@ -74,7 +74,7 @@ $total = ProductController::cartItem();
                         </li>@else <li><a href="/">HOME</a></li>
                         <li><a href="{{route('products')}}">PRODUCTS</a></li>
                         <li><a href="{{route('aboutus')}}">ABOUT US</a></li>
-                        <li><a href="cartlist">CART({{$total}})</a></li>
+                        <li><a href="{{ route('cartlist') }}">CART({{$total}})</a></li>
                         <li class="li-log"><a href="{{ route('login') }}">LOG IN</a></li>
                         <li class="li-log"><a href="{{ route('register') }}">SIGN UP</a></li>@endif
                     </ul>
