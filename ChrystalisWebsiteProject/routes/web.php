@@ -109,7 +109,7 @@ Route::get('/dashboard', function () {
 // This is for the products of each product webpage
 Route::get('/detail', [ProfileController::class, 'detail']);
 
-//Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product', [ProductController::class, 'index']);
 
 //Route::get('/searchlist', [ProductController::class, 'productList']);
 
