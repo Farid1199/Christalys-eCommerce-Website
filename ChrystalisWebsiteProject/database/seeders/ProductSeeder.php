@@ -18,78 +18,69 @@ class ProductSeeder extends Seeder
     {
         //
         // Clear existing data
+
+        Product::where('gallery', 'like', '%.avif')->delete();
         
         DB::table('products')->insert([
+        
             [
-                'name' => 'Sparkling Infinity Stud Earrings',
-                'price' => '£25.00',
-                'Description' => 'Enhance your elegance with these Sparkling Infinity Stud Earrings crafted from high-quality sterling silver. The timeless design adds a touch of sophistication to any look, making them a versatile accessory for various occasions.',
-                'category' => 'Earring',
-                'gallery' => 'Images\EarringImg\Sparkling Infinity Stud Earrings.jpg',
+                'name' => 'Conquest 43mm / Automatic',
+                'price' => '£1,200',
+                'Description' => 'Longines Conquest 43mm L37284769 - A masterpiece of precision and style with an automatic movement, stainless steel case, and sporty design.',
+                'category' => 'Watch',
+                'gallery' => 'Images\WatchImg\conquestl.png',
             ],
             [
-                'name' => 'Sparkling Blue Herbarium Cluster Stud Earrings',
-                'price' => '£60.00',
-                'Description' => 'Adorn yourself with these Sparkling Blue Herbarium Cluster Stud Earrings, meticulously crafted from sterling silver. The blue herbarium cluster design adds a pop of color and nature-inspired charm to your jewelry collection.',
-                'category' => 'Earring',
-                'gallery' => 'Images/EarringImg/Sparkling Blue Herbarium Cluster Stud Earrings.jpg',
+                'name' => 'HAMILTON Khaki-Navy 40mm Mens Watch',
+                'price' => '£790.00',
+                'Description' => 'HAMILTON Khaki Navy Scuba - Versatile and stylish, transitioning from summer days at sea to busy days in the office. Three captivating color combinations make it eye-catching and ready for any adventure.',
+                'category' => 'Watch',
+                'gallery' => 'Images\WatchImg\ham.png',
             ],
             [
-                'name' => 'Pandora Timeless Pavé Single-row Bar Stud Earrings',
-                'price' => '£55.00',
-                'Description' => 'Make a bold statement with these Pandora Timeless Pavé Single-row Bar Stud Earrings, featuring a 14k gold-plated unique metal blend. The pavé design adds a touch of glamour and modern elegance to elevate your style.',
-                'category' => 'Earring',
-                'gallery' => 'Images\EarringImg\Pandora Timeless Pavé Single-row Bar Stud Earrings.jpg',
+                'name' => 'TISSOT T-Sport 43mm Mens Watch',
+                'price' => '£470.00',
+                'Description' => 'TISSOT T-Sport 43mm T1164071601100 - Perfect blend of style and functionality, crafted with precision to complement your active lifestyle.',
+                'category' => 'Watch',
+                'gallery' => 'Images\WatchImg\tissot.png',
             ],
             [
-                'name' => 'Sparkling Wave Stud Earrings',
-                'price' => '£55.00',
-                'Description' => 'Capture the essence of the ocean with these Sparkling Wave Stud Earrings crafted from sterling silver. The wave-inspired design adds a sense of movement and fluidity to your ensemble, perfect for a beach-inspired look.',
-                'category' => 'Earring',
-                'gallery' => 'Images/EarringImg/Sparkling Wave Stud Earrings.jpg',
+                'name' => 'LONGINES DolceVita 27.7x43.8mm Mens Watch',
+                'price' => '£1,000',
+                'Description' => 'LONGINES DolceVita L57574710 - Make a statement with this elegant timepiece, combining style and sophistication for any occasion.',
+                'category' => 'Watch',
+                'gallery' => 'Images\WatchImg\longines.png',
             ],
             [
-                'name' => 'Pandora Timeless Pavé Double-row Hoop Earrings',
-                'price' => '£90.00',
-                'Description' => 'Upgrade your style with these Pandora Timeless Pavé Double-row Hoop Earrings featuring a 14k rose gold-plated unique metal blend. The double-row pavé design creates a luxurious and sophisticated look for any occasion.',
-                'category' => 'Earring',
-                'gallery' => 'Images\EarringImg\Pandora Timeless Pavé Double-row Hoop Earrings.jpg',
+                'name' => 'JUNGHANS Max Bill 38mm Automatic Mens Watch',
+                'price' => '£875.00',
+                'Description' => 'JUNGHANS Max Bill 38mm - Seamlessly combining precision engineering with minimalist design, reflecting the iconic style of Max Bill.',
+                'category' => 'Watch',
+                'gallery' => 'Images\WatchImg\JUNGHANS.png',
             ],
             [
-                'name' => 'Square Sparkle Halo Stud Earrings',
-                'price' => '£90.00',
-                'Description' => 'Add a touch of modern glamour with these Square Sparkle Halo Stud Earrings featuring a 14k rose gold-plated unique metal blend. The square halo design creates a contemporary and chic look, perfect for expressing your unique style.',
-                'category' => 'Earring',
-                'gallery' => 'Images\EarringImg\Square Sparkle Halo Stud Earrings.jpg',
+                'name' => 'BREITLING Superocean Heritage B20 Automatic 46 Stainless Steel Watch',
+                'price' => '£2,300',
+                'Description' => 'BREITLING Superocean Heritage B20 - A robust and stylish timepiece designed for diving enthusiasts, featuring durable stainless steel construction and a 46mm case.',
+                'category' => 'Watch',
+                'gallery' => 'Images\WatchImg\BREITLING.png',
             ],
             [
-                'name' => 'Pandora Nova 14k Gold Lab-grown Diamond Earrings',
-                'price' => '£725.00',
-                'Description' => 'Indulge in luxury with these Pandora Nova 14k Gold Lab-grown Diamond Earrings. The exquisite design, coupled with lab-grown diamonds, adds a touch of opulence and sophistication to your jewelry collection.',
-                'category' => 'Earring',
-                'gallery' => 'Images\EarringImg\Pandora Nova 14k Gold Lab-grown Diamond Earrings.jpg',
+                'name' => 'RADO HyperChrome 44mm Mens Watch',
+                'price' => '£2,300',
+                'Description' => 'RADO HyperChrome 44mm - A contemporary timepiece blending modern aesthetics with advanced materials and precision engineering, making a distinctive statement on the wrist.',
+                'category' => 'Watch',
+                'gallery' => 'Images\WatchImg\RADO.png',
             ],
             [
-                'name' => 'Pandora Era Bezel Sterling Silver Lab-grown Diamond Earrings',
-                'price' => '£350.00',
-                'Description' => 'Radiate elegance with these Pandora Era Bezel Sterling Silver Lab-grown Diamond Earrings. The bezel setting and lab-grown diamonds create a timeless and classic look, making them a versatile accessory for any outfit.',
-                'category' => 'Earring',
-                'gallery' => 'Images\EarringImg\Pandora Era Bezel Sterling Silver Lab-grown Diamond Earrings.jpg',
+                'name' => 'TISSOT Gentleman Powermatic 80 Open Heart 40mm Mens Watch Grey',
+                'price' => '£760',
+                'Description' => 'TISSOT Gentleman Powermatic 80 - A sophisticated timepiece seamlessly blending modern design with precision engineering, a testament to TISSOT\'s commitment to craftsmanship.',
+                'category' => 'Watch',
+                'gallery' => 'Images\WatchImg\tissotGentleman.webp',
             ],
-            [
-                'name' => 'Pandora Timeless Pavé Single-row Hoop Earrings',
-                'price' => '£115.00',
-                'Description' => 'Embrace classic style with these Pandora Timeless Pavé Single-row Hoop Earrings crafted from sterling silver. The pavé detailing adds a touch of sparkle, making them a perfect accessory for both casual and formal occasions.',
-                'category' => 'Earring',
-                'gallery' => 'Images\EarringImg\Pandora Timeless Pavé Single-row Hoop Earrings.jpg',
-            ],
-            [
-                'name' => 'Sparkling Row Eternity Hoop Earrings',
-                'price' => '£100.00',
-                'Description' => 'Elevate your look with these Sparkling Row Eternity Hoop Earrings featuring a 14k gold-plated unique metal blend. The eternity hoop design adds a sense of timeless elegance, making them a versatile and sophisticated accessory.',
-                'category' => 'Earring',
-                'gallery' => 'Images\EarringImg\Sparkling Row Eternity Hoop Earrings.jpg',
-            ]
+            
+
         ]);
         
     }

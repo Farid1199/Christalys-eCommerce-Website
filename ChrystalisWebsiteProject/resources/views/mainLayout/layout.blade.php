@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 $total = ProductController::cartItem();
 ?>
 
@@ -25,7 +26,7 @@ $total = ProductController::cartItem();
   <link rel="stylesheet" href="resources\css\navbar-footer.css">  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+  <link rel="stylesheet" href="{{ asset('assets/css/css-pages/ministore.css')}}" />
 
   <!--
   -->
@@ -71,9 +72,7 @@ $total = ProductController::cartItem();
 
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav mr-auto navigation">
-            <form class="form-inline mt-2 mr-5 mt-md-0">
 
-            </form>
             @if (Auth::check())
             <li><a href="/">HOME</a></li>
             <li><a href="{{route('products')}}">PRODUCTS</a></li>
@@ -159,7 +158,6 @@ $total = ProductController::cartItem();
           <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
           <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
           <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
-          <li class="list-inline-item"><a href="{{ route('t2detail')}}">user test</a></li>
           <li class="list-inline-item"><a href="#">Back to top</a></li>
         </ul>
       </div>

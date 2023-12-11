@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', 'Welcome'); ?>
+<?php $__env->startSection('title', 'Home Page'); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -32,7 +32,7 @@
 </svg>
 
 <hr class="mb-4" />
-
+<hr class="mb-4" />
 <main role="main">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">

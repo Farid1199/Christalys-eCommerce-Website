@@ -109,7 +109,7 @@ Route::get('/dashboard', function () {
 // This is for the products of each product webpage
 Route::get('/detail', [ProfileController::class, 'detail']);
 
-Route::get('/product', [ProductController::class, 'index']);
+//Route::get('/product', [ProductController::class, 'index']);
 
 //Route::get('/searchlist', [ProductController::class, 'productList']);
 
@@ -179,6 +179,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post("add_to_cart", [ProductController::class, 'addToCart']);
+    Route::delete('/cart/{id}', [ProductController::class, 'removeCart'])->name('cart.remove');
 });
 
 require __DIR__ . '/auth.php';

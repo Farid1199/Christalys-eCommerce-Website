@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -46,22 +47,18 @@ class ProductController extends Controller
     // ################################       Ring    #############################################
     public function index()
     {
-        //
-        //$rings = Product::where('category', 'Ring')->get();
-        //return view('ring', ['products' => $rings]);
 
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $rings = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+            $rings = Product::where('category', 'Ring')
+                ->where('name', 'like', '%' . $searchTerm . '%')->get();
         } else {
-            //$rings = Product::all();
             $rings = Product::where('category', 'Ring')->get();
 
         }
-
-        //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('ring', ['products' => $rings]);
     }
+
     public function getRings()
     {
         $rings = Product::where('category', 'Ring')->get();
@@ -102,17 +99,15 @@ class ProductController extends Controller
 
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $bracelets = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+            $bracelets = Product::where('category', 'Bracelet')
+                ->where('name', 'like', '%' . $searchTerm . '%')
+                ->get();
         } else {
-            //$bracelets = Product::all();
             $bracelets = Product::where('category', 'Bracelet')->get();
 
         }
-
-        //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('bracelet', ['products' => $bracelets]);
     }
-
 
     public function getBracelet()
     {
@@ -125,7 +120,7 @@ class ProductController extends Controller
 
     // ################################       Necklace    #############################################
 
-    public function index2()
+    /*public function index2()
     {
         //
         //$necklace = Product::where('category', 'Necklace')->get();
@@ -142,6 +137,20 @@ class ProductController extends Controller
 
         //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('necklace', ['products' => $necklace]);
+    }*/
+
+    public function index2()
+    {
+        if (request()->has('search')) {
+            $searchTerm = request('search');
+            $necklace = Product::where('category', 'Necklace')
+                ->where('name', 'like', '%' . $searchTerm . '%')
+                ->get();
+        } else {
+            $necklace = Product::where('category', 'Necklace')->get();
+        }
+
+        return view('necklace', ['products' => $necklace]);
     }
 
     public function getNecklace()
@@ -154,21 +163,15 @@ class ProductController extends Controller
 
     public function index3()
     {
-        //
-        //$earrings = Product::where('category', 'Earring')->get();
-        //return view('earring', ['products' => $earrings]);
-
-
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $earrings = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+            $earrings = Product::where('category', 'Earring')
+                ->where('name', 'like', '%' . $searchTerm . '%')
+                ->get();
         } else {
-            //$necklace = Product::all();
             $earrings = Product::where('category', 'Earring')->get();
 
         }
-
-        //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('earring', ['products' => $earrings]);
     }
 
@@ -189,7 +192,9 @@ class ProductController extends Controller
 
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $watch = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
+            $watch = Product::where('category', 'Watch')
+                ->where('name', 'like', '%' . $searchTerm . '%')
+                ->get();
         } else {
             $watch = Product::where('category', 'Watch')->get();
         }
@@ -198,8 +203,6 @@ class ProductController extends Controller
         return view('watch', ['products' => $watch]);
 
     }
-
-
 
     public function getWatch()
     {
@@ -222,7 +225,7 @@ class ProductController extends Controller
         $cart->product_id = $reg->product_id;
         # then we are saving it
         $cart->save();
-        return redirect('/');
+        return back();
 
     }
 
@@ -247,7 +250,9 @@ class ProductController extends Controller
             ->select('products.*', 'cart.id as cart_id')
             ->get();
 
-        return view('cartlist', ['products' => $products]);
+        $remove = Cart::where('user_id', $userId)->get();
+
+        return view('cartlist', ['products' => $products, 'remove' => $remove]);
     }
 
     function checkoutList()
@@ -266,6 +271,23 @@ class ProductController extends Controller
 
     ####################          Remove from cart fuunction         #######################
 
+    /* public function removeCart($id)
+     {
+         // Check if the authenticated user owns the cart item before removing it
+         $cartItem = Cart::find($id);
+
+         if ($cartItem->user_id !== auth()->id()) {
+             // If the cart item is not found or doesn't belong to the authenticated user
+             abort(403, 'Unauthorized action.');
+         }
+
+         // If the user owns the cart item, proceed to remove it
+         Cart::destroy($id);
+
+         return redirect('cartlist');
+
+     }
+
     public function removeCart($id)
     {
         // Check if the authenticated user owns the cart item before removing it
@@ -277,11 +299,55 @@ class ProductController extends Controller
         }
 
         // If the user owns the cart item, proceed to remove it
-        Cart::destroy($id);
+        $cartItem->delete();
 
-        return redirect('cartlist');
+        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
     }
 
+
+
+
+    public function removeCart($id)
+    {
+        // Check if the authenticated user owns the cart item before removing it
+        $cart = Cart::find($id);
+
+        if (!$cart) {
+            // Log the ID of the item that causes issues
+            \Log::info("Cart item with ID {$id} not found.");
+            abort(404, 'Cart item not found.');
+        }
+
+        if ($cart->user_id !== auth()->id()) {
+            // Log the ID of the item that causes authorization issues
+            \Log::info("Unauthorized access attempt to remove cart item with ID {$id}.");
+            abort(403, 'Unauthorized action.');
+        }
+
+        // If the user owns the cart item, proceed to remove it
+        $cart->delete();
+
+        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
+    }*/
+
+
+    public function removeCart($id)
+    {
+        // Check if the authenticated user owns the cart item before removing it
+        $cartItem = Cart::where('id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
+
+        if (!$cartItem) {
+            // If the cart item is not found or doesn't belong to the authenticated user
+            abort(403, 'Unauthorized action.');
+        }
+
+        // If the user owns the cart item, proceed to remove it
+        $cartItem->delete();
+
+        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
+    }
 
 
 

@@ -1,6 +1,6 @@
 @extends('mainLayout.layout2')
 
-@section('title', 'Bracelets')
+@section('title', 'Full Catalogue')
 
 
 
@@ -36,7 +36,7 @@
                                 </p>
 
                                 <p class="card-text font-weight-bold">
-                                    Price: £30
+                                    Price: {{ $bracelet->price}}
                                 </p>
 
                                 <div class="d-flex justify-content-between align-items-center">
