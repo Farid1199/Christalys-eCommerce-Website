@@ -1,3 +1,14 @@
+@extends('mainLayout.layout')
+
+@section('title', 'Login User Dashboard')
+
+
+
+@section('content')
+
+
+
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -5,7 +16,7 @@
         </h2>
     </x-slot>
 
-    <!-- div class="py-12">
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
@@ -13,13 +24,7 @@
                 </div>
             </div>
         </div>
-    </div-->
-
-    <style>
-        a {
-            text-decoration: none;
-        }
-    </style>
+    </div>
 
 
 
@@ -30,52 +35,34 @@
       User Account
 -------------------------------->
 
+    <hr class="featurette-divider">
 
-    <div>
-        <h2 class="text-center my-3 py-3"> Welcome to your Dashboard, {{ Auth::user()->name }}!
-        </h2>
-    </div>
+    <h1 class="mt-5 text-center" style="padding-top:50px;"> Welcome to your Dashboard, USER! </h1>
+    <main class="user-main mt-5">
 
-    <main class="user-main">
         <section id="founders-profile">
             <div class="text-founder1">
                 <ul>
                     <li>
-
                         <div class="founder-box4-skills">
                             <img src="{{ asset('Images\HomePage\user-pp.png') }}" alt="java-logo" class="lang-logos" />
-                            <div>
-                                <h3>{{ Auth::user()->name }}</h3>
-                            </div>
-
+                            <h3>Account Name</h3>
                             <section class="user-links">
-                                <a href="{{route('previousod')}}">
-                                    <h4>Order History</h4>
-                                </a>
+                                <h4>My Details</h4>
                             </section>
                             <section class="user-links">
-                                <a href="{{route('cartlist')}}">
-                                    <h4>Cart</h4>
-                                </a>
+                                <h4>Order History</h4>
                             </section>
                             <section class="user-links">
-                                <a href="{{ route('profile.edit') }}" class="styleless">
-                                    <h4>{{ __('Account Settings') }}</h4>
-                                </a>
+                                <h4>Cart & Wishlist</h4>
                             </section>
-
                             <section class="user-links">
-
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-
-                                    <x-nav-link :href="route('logout')" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                        <h4>{{ __('Log Out') }}</h4>
-                                    </x-nav-link>
-                                </form>
-
-
+                                <h4>Account Settings</h4>
+                            </section>
+                            <section class="user-links">
+                                <a href="login.html" class="styleless">
+                                    <h4>Log Out</h4>
+                                </a>
                             </section>
                         </div>
                     </li>
@@ -164,27 +151,8 @@
         </section>
     </main>
 
-    @yield('footer')
-    <footer>
-        <section id="conclusion">
-            <div class="copyright-bottom text-center">
-                <p class="m-1">
-                    &copy; Copyright Chrystalis 2023-2024. All Rights Reserved
-                </p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
-                    <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
-                    <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
-                    <li class="list-inline-item"><a href="{{ route('t2detail')}}">user test</a></li>
-                    <li class="list-inline-item"><a href="#">Back to top</a></li>
-                </ul>
-            </div>
-        </section>
-    </footer>
-
-
-
-
-
-
 </x-app-layout>
+
+
+
+@endsection

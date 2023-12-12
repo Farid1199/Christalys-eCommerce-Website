@@ -50,9 +50,6 @@ Route::get('/contactus', function () {
     return view('contactUs');
 })->name('contactus');
 
-Route::get('/searchlist', function () {
-    return view('searchProducts');
-})->name('searchlist');
 
 
 
@@ -83,17 +80,6 @@ Route::get('/watches', function () {
 })->name('watches');
 
 
-# ORDER CONFIRMED
-Route::get('/ordercm', function () {
-    return view('order-confirmed');
-})->name('ordercm');
-
-# PREVIOUS ORDERS
-Route::get('/previousod', function () {
-    return view('previous-orders');
-})->name('previousod');
-
-
 
 
 
@@ -111,9 +97,6 @@ Route::get('/detail', [ProfileController::class, 'detail']);
 
 Route::get('/product', [ProductController::class, 'index']);
 
-//Route::get('/searchlist', [ProductController::class, 'productList']);
-
-Route::get('/search', [ProductController::class, 'productList'])->name('search');
 
 
 
@@ -153,7 +136,6 @@ Route::get("detail/{id}", [ProductController::class, 'detail']);
 
 Route::get("/add_to_cart", [App\Http\Controllers\ProductController::class, 'addToCart']);
 
-Route::get("checkout", [App\Http\Controllers\ProductController::class, 'checkoutList'])->name('checkout');
 
 Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList'])->name('cartlist');
 
@@ -179,7 +161,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post("add_to_cart", [ProductController::class, 'addToCart']);
-    Route::delete('/cart/{id}', [ProductController::class, 'removeCart'])->name('cart.remove');
 });
 
 require __DIR__ . '/auth.php';

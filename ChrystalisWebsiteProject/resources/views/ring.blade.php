@@ -1,4 +1,4 @@
-@extends('mainLayout.layout2')
+@extends('mainLayout.layout')
 
 @section('title', 'Ring')
 
@@ -24,7 +24,8 @@
                 <div class="card mb-4 box-shadow item{{ $ring['id'] == 1 ? 'active' : '' }}">
                     <div class="row align-items-center">
                         <div class="col text-center">
-                            <img class="card-img-center img-fluid img-responsive" src="{{ $ring['gallery'] }}"
+                            <img class="card-img-center img-fluid img-responsive"
+                                src="{{ $ring['gallery'] }}"
                                 style="/*width: 70%; height: 70%;*/" alt="Card image cap" />
                         </div>
                         <div class="col-8">
@@ -35,7 +36,7 @@
                                 </p>
 
                                 <p class="card-text font-weight-bold">
-                                    Price: {{ $ring->price}}
+                                    Price: £30
                                 </p>
 
                                 <div class="d-flex justify-content-between align-items-center">
@@ -45,11 +46,11 @@
                                             View
                                         </button></a>
 
-                                    <form action="/add_to_cart" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="product_id" value="{{$ring['id']}}">
-                                        <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
-                                    </form>
+                                <form action="/add_to_cart" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{$ring['id']}}">
+                                    <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
+                                </form>
 
                                 </div>
                             </div>
@@ -83,7 +84,7 @@
         </div>
         @endforeach
         </section>
-</main> -->
+</main> --> 
 
 
 
