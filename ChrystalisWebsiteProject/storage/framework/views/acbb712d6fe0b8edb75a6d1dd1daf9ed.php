@@ -1,3 +1,7 @@
+<?php $__env->startSection('title', 'Log in Page'); ?>
+
+<?php $__env->startSection('content'); ?>
+
 <?php if (isset($component)) { $__componentOriginal69dc84650370d1d4dc1b42d016d7226b = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal69dc84650370d1d4dc1b42d016d7226b = $attributes; } ?>
 <?php $component = App\View\Components\GuestLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -8,7 +12,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-
+    
 
     <form method="POST" action="<?php echo e(route('login'), false); ?>">
         <?php echo csrf_field(); ?>
@@ -146,42 +150,38 @@
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox"
-                    class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
                 <span class="ms-2 text-sm text-gray-600"><?php echo e(__('Remember me'), false); ?></span>
             </label>
         </div>
 
-        <div class="flex d-flex flex-wrap align-items-center mt-4">
+        <div class="flex items-center justify-end mt-4">
             <?php if(Route::has('register')): ?>
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                href="<?php echo e(route('register'), false); ?>">
-                <?php echo e(__('Register '), false); ?>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('register'), false); ?>">
+                    <?php echo e(__('Register  '), false); ?>
 
-            </a>
-        </div>
+                </a>
 
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <div class="flex d-flex flex-wrap align-items-center mt-4">
-            <?php if(Route::has('password.request')): ?>
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                href="<?php echo e(route('password.request'), false); ?>">
-                <?php echo e(__('Forgot your password?'), false); ?>
+            <div  class="flex items-center justify-end mt-4">
+                <?php if(Route::has('password.request')): ?>
+<a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="<?php echo e(route('password.request'), false); ?>">
+    <?php echo e(__('Forgot your password?'), false); ?>
 
-            </a>
-        </div>
-
-        <a href="<?php echo e(route('dashboard'), false); ?>"><?php if (isset($component)) { $__componentOriginald411d1792bd6cc877d687758b753742c = $component; } ?>
+</a> 
+            </div>
+                    
+            <?php if (isset($component)) { $__componentOriginald411d1792bd6cc877d687758b753742c = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginald411d1792bd6cc877d687758b753742c = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => ['class' => 'mt-4 text-left']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.primary-button','data' => ['class' => 'ms-3']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('primary-button'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['class' => 'mt-4 text-left']); ?>
+<?php $component->withAttributes(['class' => 'ms-3']); ?>
                 <?php echo e(__('Log in'), false); ?>
 
              <?php echo $__env->renderComponent(); ?>
@@ -193,8 +193,8 @@
 <?php if (isset($__componentOriginald411d1792bd6cc877d687758b753742c)): ?>
 <?php $component = $__componentOriginald411d1792bd6cc877d687758b753742c; ?>
 <?php unset($__componentOriginald411d1792bd6cc877d687758b753742c); ?>
-<?php endif; ?></a>
-
+<?php endif; ?>
+        </div>
     </form>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
@@ -208,4 +208,7 @@
 <?php endif; ?>
 
 
-<?php endif; ?><?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<?php endif; ?>   
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('mainLayout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/auth/login.blade.php ENDPATH**/ ?>

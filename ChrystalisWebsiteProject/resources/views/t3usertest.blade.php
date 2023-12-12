@@ -6,13 +6,6 @@
 
 @section('content')
 
-<style>
-    a {
-        text-decoration: none;
-    }
-</style>
-
-
 <link rel="stylesheet" href="{{ asset('assets/css/css-pages/dashboard.css')}}" />
 
 <!-----------------------------
@@ -35,20 +28,13 @@
                             <h4>My Details</h4>
                         </section>
                         <section class="user-links">
-                            <a href="{{route('previousod')}}">
-                                <h4>Order History</h4>
-                            </a>
-                        </section>
-
-                        <section class="user-links">
-                            <a href="{{route('cartlist')}}">
-                                <h4>Cart</h4>
-                            </a>
+                            <h4>Order History</h4>
                         </section>
                         <section class="user-links">
-                            <a href="{{route('cartlist')}}" class="styleless">
-                                <h4>Account Settings</h4>
-                            </a>
+                            <h4>Cart & Wishlist</h4>
+                        </section>
+                        <section class="user-links">
+                            <h4>Account Settings</h4>
                         </section>
                         <section class="user-links">
                             <a href="login.html" class="styleless">

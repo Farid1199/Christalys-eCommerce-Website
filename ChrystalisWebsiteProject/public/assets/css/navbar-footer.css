@@ -10,19 +10,6 @@ MAIN HEADER
   
   */
 
-a {
-    color: var(--dark-color);
-    text-decoration: none;
-    transition: 0.3s color ease-out;
-}
-a.light {
-    color: var(--light-color);
-}
-a:hover {
-    text-decoration: none;
-    color: var(--primary-color);
-}
-
 #main-header {
     display: flex;
     align-items: center;

@@ -1,4 +1,4 @@
-@extends('mainLayout.layout2')
+@extends('mainLayout.layout')
 
 @section('title', 'rings')
 
