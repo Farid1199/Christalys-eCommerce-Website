@@ -1,6 +1,7 @@
 @extends('mainLayout.layout2')
 
-@section('title', 'Necklace')
+@section('title', 'Full Catalogue')
+
 
 
 @section('content')
@@ -19,35 +20,35 @@
 
             <div class="row">
 
-                @foreach ($products as $necklace)
+                @foreach ($products as $bracelet)
 
-                <div class="card mb-4 box-shadow item{{ $necklace['id'] == 1 ? 'active' : '' }}">
+                <div class="card mb-4 box-shadow item{{ $bracelet['id'] == 1 ? 'active' : '' }}">
                     <div class="row align-items-center">
                         <div class="col text-center">
-                            <img class="card-img-center img-fluid img-responsive" src="{{ $necklace['gallery'] }}"
+                            <img class="card-img-center img-fluid img-responsive" src="{{ $bracelet['gallery'] }}"
                                 style="/*width: 70%; height: 70%;*/" alt="Card image cap" />
                         </div>
                         <div class="col-8">
                             <div class="card-body text-left">
-                                <h4 class="text-left my-3">{{ $necklace->name }}</h4>
+                                <h4 class="text-left my-3">{{ $bracelet->name }}</h4>
                                 <p class="card-text">
-                                    {{ $necklace->description }}
+                                    {{ $bracelet->description }}
                                 </p>
 
                                 <p class="card-text font-weight-bold">
-                                    Price: {{ $necklace->price}}
+                                    Price: {{ $bracelet->price}}
                                 </p>
 
                                 <div class="d-flex justify-content-between align-items-center">
 
-                                    <a href="detail/{{$necklace['id']}}"><button type="button"
+                                    <a href="detail/{{$bracelet['id']}}"><button type="button"
                                             class="btn btn-medium btn-outline-primary">
                                             View
                                         </button></a>
 
                                     <form action="/add_to_cart" method="POST">
                                         @csrf
-                                        <input type="hidden" name="product_id" value="{{$necklace['id']}}">
+                                        <input type="hidden" name="product_id" value="{{$bracelet['id']}}">
                                         <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
                                     </form>
 
@@ -66,36 +67,31 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-<!--
-
-
-<h1>Necklace</h1>
+<!-- <h1>Bracelet</h1>
 <main>
-     Ring 1 
+    Ring 1 
     <section class="product-container">
-        @foreach ($products as $necklace)
-            <div class="item {{ $necklace['id'] == 1 ? 'active' : '' }}">
-                <a href="detail/{{$necklace['id']}}">
-                    <img class="card-img-top" src="{{ $necklace['gallery'] }}">
+        @foreach ($products as $bracelet)
+            <div class="item {{ $bracelet['id'] == 1 ? 'active' : '' }}">
+                <a href="detail/{{$bracelet['id']}}">
+                    <img class="card-img-top" src="{{ $bracelet['gallery'] }}">
                     <div class="product-info">
-                        <h3>{{ $necklace->name }}</h3>
-                        <p>{{ $necklace->description }}</p>
+                        <h3>{{ $bracelet->name }}</h3>
+                        <p>{{ $bracelet->description }}</p>
                     </div>
                   </a>
             </div>
         @endforeach
     </section>
-</main>
+</main> 
+
+
+
+
 
 
 -->
+
+
 
 @endsection
