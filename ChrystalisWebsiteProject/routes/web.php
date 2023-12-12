@@ -57,6 +57,7 @@ Route::get('/searchlist', function () {
 
 
 # Product Catalogue to Rings Webpage
+# Product Catalogue to Rings Webpage
 Route::get('/rings', function () {
     return view('ring');
 })->name('rings');
