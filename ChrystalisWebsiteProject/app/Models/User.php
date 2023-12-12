@@ -18,17 +18,5 @@ class User extends Model implements Authenticatable
         'name',
         'email',
         'password',
-        'role', // Add 'role' to the fillable attributes if it's not already there
     ];
-
-    /**
-     * Check if the user is an admin.
-     *
-     * @return bool
-     */
-    public function isAdmin()
-    {
-        // Assuming 'role' is a column in the users table
-        return $this->role === 'admin';
-    }
 }
