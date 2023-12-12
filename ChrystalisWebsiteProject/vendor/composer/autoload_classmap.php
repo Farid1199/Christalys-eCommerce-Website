@@ -6504,6 +6504,7 @@ return array(
     'Symfony\\Component\\VarDumper\\Caster\\StubCaster' => $vendorDir . '/symfony/var-dumper/Caster/StubCaster.php',
     'Symfony\\Component\\VarDumper\\Caster\\SymfonyCaster' => $vendorDir . '/symfony/var-dumper/Caster/SymfonyCaster.php',
     'Symfony\\Component\\VarDumper\\Caster\\TraceStub' => $vendorDir . '/symfony/var-dumper/Caster/TraceStub.php',
+    'Symfony\\Component\\VarDumper\\Caster\\UninitializedStub' => $vendorDir . '/symfony/var-dumper/Caster/UninitializedStub.php',
     'Symfony\\Component\\VarDumper\\Caster\\UuidCaster' => $vendorDir . '/symfony/var-dumper/Caster/UuidCaster.php',
     'Symfony\\Component\\VarDumper\\Caster\\XmlReaderCaster' => $vendorDir . '/symfony/var-dumper/Caster/XmlReaderCaster.php',
     'Symfony\\Component\\VarDumper\\Caster\\XmlResourceCaster' => $vendorDir . '/symfony/var-dumper/Caster/XmlResourceCaster.php',
