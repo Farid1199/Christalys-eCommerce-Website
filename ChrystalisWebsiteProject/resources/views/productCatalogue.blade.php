@@ -32,7 +32,7 @@
       expression of your style and individuality with Chrystalis –
       where every piece tells a story as unique as you are.
     </p>
-    <a class="btn btn-outline-secondary" href="{{ route('search')}}">Browse Catalogue</a>
+    <a class="btn btn-outline-secondary" href="#category">Browse Catalogue</a>
 
   </div>
 </div>
