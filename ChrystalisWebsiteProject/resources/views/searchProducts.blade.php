@@ -46,6 +46,11 @@
                                             View
                                         </button></a>
 
+                                    <a href="/wishlist"><button type="button"
+                                            class="btn btn-medium btn-outline-secondary">
+                                            Add To Wishlist
+                                        </button></a>
+
                                     <form action="/add_to_cart" method="POST">
                                         @csrf
                                         <input type="hidden" name="product_id" value="{{$bracelet['id']}}">
