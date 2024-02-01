@@ -58,6 +58,9 @@ $total = ProductController::cartItem();
       <h2 class="mb-3">Shopping Cart</h2>
 
       @if($products->isEmpty())
+
+      <img class="mx-auto d-block my-4" src="{{ asset('Images\HomePage\Empty-cart.png') }}"
+        alt="Generic placeholder image" width="140" height="140" />
       <h4 class="text-center my-3">Your cart is empty</h4>
       @else
 
