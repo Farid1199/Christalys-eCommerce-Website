@@ -64,9 +64,6 @@ $total = ProductController::cartItem();
         <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="width: 30%; height: 20%" />
       </div>
 
-
-
-
       <nav class="navbar navbar-expand-xl navbar-dark navigation-container">
 
         <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarsExample04"
@@ -108,11 +105,9 @@ $total = ProductController::cartItem();
             <li class="li-log"><a href="{{ route('login') }}">LOG IN</a></li>
             <li class="li-log"><a href="{{ route('register') }}">SIGN UP</a></li>
 
-
-
-
-
             @endif
+
+
 
 
 
@@ -137,151 +132,151 @@ $total = ProductController::cartItem();
       </div>
       @endif
 
-
+      </ul>
+      </nav>
     </div>
 
 
-
-
-    <div class="main">
-      @yield('content')
-    </div>
+  </div>
 
 
 
 
-    @yield('footer')
-    <!-- Footer -->
-    <footer class="text-center text-lg-start text-dark" style="background-color: #eceff1">
+  <div class="main">
+    @yield('content')
+  </div>
 
 
-      <!-- Section: Social media -->
-      <section id="conclusion" class="d-flex justify-content-between p-4 text-white" style="background-color: #969696">
 
-        <!-- Left -->
-        <div class="me-5">
-          <span>Get connected with us on social networks:</span>
-        </div>
-        <!-- Left -->
 
-        <!-- Right -->
-        <div>
-          <a href="" class="text-white me-4">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="" class="text-white me-4">
-            <i class="fab fa-google"></i>
-          </a>
-          <a href="" class="text-white me-4">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="" class="text-white me-4">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="" class="text-white me-4">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-        <!-- Right -->
-      </section>
-      <!-- Section: Social media -->
+  @yield('footer')
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-dark" style="background-color: #eceff1">
 
-      <!-- Section: Links  -->
-      <section class="">
-        <div class="text-md-start mt-5 px-5">
-          <!-- Grid row -->
-          <div class="row mt-3">
-            <!-- Grid column -->
-            <div class="col-md col-lg col-xl mx-auto mb-4">
-              <!-- Content -->
-              <h6 class="text-uppercase fw-bold">Chrystalis</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px" />
-              <p>
-                Thank you for choosing Chrystalis. We look forward to being a
-                part of your special moments and helping you express your unique
-                style and individuality through our stunning jewelry collection.
-              </p>
-            </div>
-            <!-- Grid column -->
 
-            <!-- Grid column -->
-            <div class="col-md col-lg col-xl-3 mx-auto mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold">Information</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px" />
-              <p>
-                <a href="{{route('welcome')}}" class="list-inline-item">Home page</a>
-              </p>
-              <p>
-                <a href="{{route('products')}}" class="list-inline-item">Browse Our Catalogue</a>
-              </p>
-              <p>
-                <a href="{{route('contactus')}}" class="list-inline-item">Contact Us</a>
-              </p>
-              <p>
-                <a href="{{route('aboutus')}}" class="list-inline-item">About Us</a>
-              </p>
-            </div>
-            <!-- Grid column -->
+    <!-- Section: Social media -->
+    <section id="conclusion" class="d-flex justify-content-between p-4 text-white" style="background-color: #969696">
 
-            <!-- Grid column -->
-            <div class="col-md col-lg col-xl-3 mx-auto mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold">Useful links</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px" />
-              <p>
-                <a href="{{route('dashboard')}}" class="list-inline-item">Your Account</a>
-              </p>
-              <p>
-                <a href="{{route('cartlist')}}" class="list-inline-item">Your Cart</a>
-              </p>
-              <p>
-                <a href="{{route('previousod')}}" class="list-inline-item">Previous Orders</a>
-              </p>
-              <p>
-                <a href="{{ route('profile.edit') }}" class="list-inline-item">Account Settings</a>
-              </p>
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md col-lg col-xl mx-auto mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold">Contact Us</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px" />
-              <p>
-                <i class="fas fa-home mr-1"></i> 33 Road, Birmingham, B87 8HG
-              </p>
-              <p><i class="fas fa-envelope mr-1"></i> chrystalis@example.com</p>
-              <p><i class="fas fa-phone mr-1"></i> + 44 2345 678 098</p>
-              <p><i class="fas fa-print mr-1"></i> + 44 2342 567 389</p>
-            </div>
-            <!-- Grid column -->
-          </div>
-          <!-- Grid row -->
-        </div>
-      </section>
-      <!-- Section: Links  -->
-
-      <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05); text-decoration: none">
-        © Copyright Chrystalis 2023-2024. All Rights Reserved
-
-        <ul class="list-inline pt-2">
-          <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
-          <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
-          <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
-          <li class="list-inline-item"><a href="#">Back to top</a></li>
-        </ul>
+      <!-- Left -->
+      <div class="me-5">
+        <span>Get connected with us on social networks:</span>
       </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="text-md-start mt-5 px-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md col-lg col-xl mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">Chrystalis</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+            <p>
+              Thank you for choosing Chrystalis. We look forward to being a
+              part of your special moments and helping you express your unique
+              style and individuality through our stunning jewelry collection.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md col-lg col-xl-3 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Information</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+            <p>
+              <a href="{{route('welcome')}}" class="list-inline-item">Home page</a>
+            </p>
+            <p>
+              <a href="{{route('products')}}" class="list-inline-item">Browse Our Catalogue</a>
+            </p>
+            <p>
+              <a href="{{route('contactus')}}" class="list-inline-item">Contact Us</a>
+            </p>
+            <p>
+              <a href="{{route('aboutus')}}" class="list-inline-item">About Us</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md col-lg col-xl-3 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+            <p>
+              <a href="{{route('dashboard')}}" class="list-inline-item">Your Account</a>
+            </p>
+            <p>
+              <a href="{{route('cartlist')}}" class="list-inline-item">Your Cart</a>
+            </p>
+            <p>
+              <a href="{{route('previousod')}}" class="list-inline-item">Previous Orders</a>
+            </p>
+            <p>
+              <a href="{{ route('profile.edit') }}" class="list-inline-item">Account Settings</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md col-lg col-xl mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Contact Us</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+            <p>
+              <i class="fas fa-home mr-1"></i> 33 Road, Birmingham, B87 8HG
+            </p>
+            <p><i class="fas fa-envelope mr-1"></i> chrystalis@example.com</p>
+            <p><i class="fas fa-phone mr-1"></i> + 44 2345 678 098</p>
+            <p><i class="fas fa-print mr-1"></i> + 44 2342 567 389</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05); text-decoration: none">
+      © Copyright Chrystalis 2023-2024. All Rights Reserved
+
+      <ul class="list-inline pt-2">
+        <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
+        <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
+        <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
+        <li class="list-inline-item"><a href="#">Back to top</a></li>
+      </ul>
+    </div>
 
 
-      </section>
-    </footer>
+    </section>
+  </footer>
 
 </body>
 
