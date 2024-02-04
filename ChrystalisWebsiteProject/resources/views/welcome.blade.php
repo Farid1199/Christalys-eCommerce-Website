@@ -1,4 +1,4 @@
-@extends('mainLayout.layout')
+@extends('mainLayout.layout3')
 
 @section('title', 'Home Page')
 
@@ -34,7 +34,8 @@
   </symbol>
 </svg>
 
-<hr class="mb-1" />
+<hr class="mb-3" />
+<hr class="mb-3" />
 <main role="main">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">

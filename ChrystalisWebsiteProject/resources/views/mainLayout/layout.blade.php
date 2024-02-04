@@ -102,14 +102,20 @@ $total = ProductController::cartItem();
             <li><a href="{{route('products')}}">PRODUCTS</a></li>
             <li><a href="{{route('aboutus')}}">ABOUT US</a></li>
             <li><a href="{{ route('cartlist') }}">CART({{ $total }})</a></li>
+
+            <!--
+            
+-->
+
+
             <li class="li-log"><a href="{{ route('login') }}">LOG IN</a></li>
             <li class="li-log"><a href="{{ route('register') }}">SIGN UP</a></li>
 
             @endif
 
-
-
-
+          </ul>
+        </div>
+      </nav>
 
     </header>
 
@@ -132,10 +138,7 @@ $total = ProductController::cartItem();
       </div>
       @endif
 
-      </ul>
-      </nav>
     </div>
-
 
   </div>
 
