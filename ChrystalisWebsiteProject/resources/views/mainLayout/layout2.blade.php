@@ -185,6 +185,7 @@ $total = ProductController::cartItem();
 
 
   <div class="main">
+    <hr class="mb-5">
     @yield('content')
   </div>
 
