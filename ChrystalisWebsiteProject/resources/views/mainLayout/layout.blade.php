@@ -19,7 +19,6 @@ $total = ProductController::cartItem();
   <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
   <link rel="icon" href="{{ asset('assets/Images/Homepage/favicon.png')}}" type="image/x-icon" />
-  <link rel="stylesheet" href="{{ asset('assets/css/navbar-footer.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/boostrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}">
   <!-- <link rel="stylesheet" href="{{ asset('resources\css\homePage.css')}}"> 
@@ -27,13 +26,13 @@ $total = ProductController::cartItem();
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="{{ asset('assets/css/css-pages/ministore.css')}}" />
-
+  <link rel="stylesheet" href="{{ asset('assets/css/css-pages/font-awesome.min.css')}}" />
 
   <!-- Bootstrap icons -->
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <!--
-  -->
+
+  <!-- -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -48,6 +47,8 @@ $total = ProductController::cartItem();
   <script src="{{ asset('js/holder.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+
+
 </head>
 
 
@@ -59,67 +60,100 @@ $total = ProductController::cartItem();
 
   <div class="head1">
     @yield('header')
-    <header id="main-header" class="shadow">
-      <div id="logo" class="ml-5">
-        <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="width: 30%; height: 20%" />
+    <header class="fixed-top">
+      <div class="px-3 py-2 border-bottom" style="background-color: #f8f9fa;">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <a href="#!" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-decoration-none">
+              <div id="logo" class="ml-5">
+                <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo"
+                  style="width: 30%; height: 20%" />
+              </div>
+
+
+            </a>
+
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+              <li>
+                <a href="/" class="nav-link text-dark">
+                  <i class="fa fa-home d-block mx-auto mb-1 fa-2x text-center"> </i>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
+                  <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
+                  {{ __('Dashboard') }}
+                </a>
+              </li>
+              <li>
+                <a href="{{route('products')}}" class="nav-link text-secondary">
+                  <i class="fa fa-shopping-bag d-block mx-auto mb-1 fa-2x text-center"> </i>
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('cartlist') }}" class="nav-link text-secondary">
+                  <i class="fa fa-shopping-cart d-block mx-auto mb-1 fa-2x text-center"> </i>
+                  Cart({{ $total }})
+                </a>
+              </li>
+              <li>
+                <a href="{{route('aboutus')}}" class="nav-link text-secondary">
+                  <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
+                  About Us
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <nav class="navbar navbar-expand-xl navbar-dark navigation-container">
+      @if (Auth::check())
+      <div class="px-3 py-2 border-bottom mb-3" style="background-color: white;">
+        <div class="container d-flex flex-wrap justify-content-center">
+          <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
 
-        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarsExample04"
-          aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          </form>
 
-        <div class="collapse navbar-collapse" id="navbarsExample04">
-          <ul class="navbar-nav mr-auto navigation">
-
-            @if (Auth::check())
-            <li><a href="/">HOME</a></li>
-            <li><a href="{{route('products')}}">PRODUCTS</a></li>
-            <li><a href="{{route('aboutus')}}">ABOUT US</a></li>
-            <li><a href="{{ route('cartlist') }}">CART({{ $total }})</a></li>
-
-
-            <li class="li-log"><a href="{{ route('dashboard') }}">
-                {{ __('DASHBOARD') }}</a></li>
-
-            <!-- Authentication -->
-            <li class="li-log">
+          <div class="text-end">
+            <button type="button" class="btn btn-primary">
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
-
                 <a href="{{route('logout')}}" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                  {{ __('LOG OUT') }}
+                  {{ __('Log Out') }}
                 </a>
               </form>
-            </li>
-
-
-            @else
-            <li><a href="/">HOME</a></li>
-            <li><a href="{{route('products')}}">PRODUCTS</a></li>
-            <li><a href="{{route('aboutus')}}">ABOUT US</a></li>
-            <li><a href="{{ route('cartlist') }}">CART({{ $total }})</a></li>
-
-            <!--
-            
--->
-
-
-            <li class="li-log"><a href="{{ route('login') }}">LOG IN</a></li>
-            <li class="li-log"><a href="{{ route('register') }}">SIGN UP</a></li>
-
-            @endif
-
-          </ul>
+            </button>
+          </div>
         </div>
-      </nav>
+      </div>
 
+      @else
+      <div class="px-3 py-2 border-bottom mb-3" style="background-color: white;">
+        <div class="container d-flex flex-wrap justify-content-center">
+          <form class="col-6 col-lg-auto d-flex flex-grow-1 mr-5 pr-5" role="search">
+
+          </form>
+
+
+          <div class="text-end">
+            <a href="{{ route('login') }}"><button type="button" class="btn btn-light text-dark me-2">
+                Login
+              </button></a>
+            <a href="{{ route('register') }}"><button type="button" class="btn btn-primary">Sign-up</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      @endif
     </header>
 
-    <div
+
+    <!--    <div
       class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
       @if (Route::has('login'))
       <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
@@ -139,6 +173,7 @@ $total = ProductController::cartItem();
       @endif
 
     </div>
+-->
 
   </div>
 
