@@ -41,10 +41,16 @@
 
                                 <div class="d-flex justify-content-between align-items-center">
 
-                                    <a href="detail/{{$watch['id']}}"><button type="button"
-                                            class="btn btn-medium btn-outline-primary">
-                                            View
-                                        </button></a>
+                                    <form action="detail/{{$watch['id']}}" method="GET">
+                                        @csrf
+                                        <button class="btn btn-outline-primary" id="addToCartBtn"> View </button>
+                                    </form>
+
+                                    <form action="/wishlist" method="GET">
+                                        @csrf
+                                        <button class="btn btn-outline-secondary" id="addToCartBtn"> Add to Wishlist
+                                        </button>
+                                    </form>
 
                                     <form action="/add_to_cart" method="POST">
                                         @csrf
