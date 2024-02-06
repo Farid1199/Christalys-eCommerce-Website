@@ -13,6 +13,7 @@
 -->
 
 <hr class="my-5">
+<hr class="my-5">
 
 <section class="container mt-5 px-5">
     <h2 class="container mt-5 mb-3 text-center">About Us</h2>

@@ -4,6 +4,7 @@
 
 @section('content')
 
+
 <link rel="stylesheet" href="{{ asset('assets/css/css-pages/homePage.css')}}" />
 <link rel="stylesheet" href="{{ asset('assets/css/css-pages/ministore.css')}}" />
 <!-----------------------------
@@ -33,8 +34,8 @@
   </symbol>
 </svg>
 
-<hr class="mb-4" />
-<hr class="mb-4" />
+<hr class="mb-3" />
+<hr class="mb-3" />
 <main role="main">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -219,7 +220,8 @@ TESTIMONIALS AND ENDINGS
           width="140" height="140" />
         <h2>James L.</h2>
         <p>
-          "I had a fantastic experience shopping at Chrystalis. The website is easy to navigate, the customer service is
+          "I had a fantastic experience shopping at Chrystalis. The website is easy to navigate, the customer service
+          is
           top-notch, and my necklace arrived beautifully packaged!"
         </p>
         <p>Rating: ★★★★★</p>
@@ -230,7 +232,8 @@ TESTIMONIALS AND ENDINGS
           width="140" height="140" />
         <h2>Emily R.</h2>
         <p>
-          "The earrings I purchased exceeded my expectations. They're elegant, comfortable to wear, and I've received so
+          "The earrings I purchased exceeded my expectations. They're elegant, comfortable to wear, and I've received
+          so
           many compliments. I'll definitely be a returning customer!"
         </p>
         <p>Rating: ★★★★★</p>
@@ -310,6 +313,4 @@ TESTIMONIALS AND ENDINGS
       </div>
     </div>
   </section>
-
-
   @endsection

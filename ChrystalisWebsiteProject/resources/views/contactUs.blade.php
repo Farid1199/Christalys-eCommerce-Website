@@ -15,6 +15,7 @@ CONTACT US CONTENT
 -->
 
 <hr class="my-5">
+<hr class="my-5">
 
 <h1 class="my-5 text-center">Contact Chrystalis!</h1>
 

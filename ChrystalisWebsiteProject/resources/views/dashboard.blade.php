@@ -1,3 +1,5 @@
+@extends('mainLayout.layout')
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -22,7 +24,11 @@
     </style>
 
 
+    <!-- Bootstrap icons -->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!--
+  -->
 
     <link rel="stylesheet" href="{{ asset('assets/css/css-pages/dashboard.css')}}" />
 
@@ -32,6 +38,7 @@
 
 
     <div>
+        <hr class="mb-3">
         <h2 class="text-center my-3 py-3"> Welcome to your Dashboard, {{ Auth::user()->name }}!
         </h2>
     </div>
@@ -164,23 +171,7 @@
         </section>
     </main>
 
-    @yield('footer')
-    <footer>
-        <section id="conclusion">
-            <div class="copyright-bottom text-center">
-                <p class="m-1">
-                    &copy; Copyright Chrystalis 2023-2024. All Rights Reserved
-                </p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
-                    <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
-                    <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
-                    <li class="list-inline-item"><a href="{{ route('t2detail')}}">user test</a></li>
-                    <li class="list-inline-item"><a href="#">Back to top</a></li>
-                </ul>
-            </div>
-        </section>
-    </footer>
+
 
 
 
