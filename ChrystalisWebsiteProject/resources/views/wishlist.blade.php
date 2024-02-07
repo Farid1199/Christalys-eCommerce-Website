@@ -5,41 +5,27 @@
 @section('content')
 
 <div class="container py-5">
-    <div class="py-5 text-center"></div>
-
+    <h1>Wishlist</h1>
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
     <div class="row">
-        <div class="col-sm-10">
-            <div class="trending-wrapper">
-                <h4>Wishlist</h4>
-                @foreach($products as $item)
-                <div class="row searched-item">
-                    <div class="col-sm-3">
-                        <a href="detail/{{$item->id}}">
-                            <img class="trending-image" src="{{$item->gallery}}">
-                        </a>
-                    </div>
-                    <div class="col-sm-3">
-                        <div>
-                            <h2>{{$item->name}}</h2>
-                            <h5>{{$item->description}}</h5>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="detail/{{$item->id}}">
-                            <img class="trending-image" src="{{$item->gallery}}">
-                            <div>
-                                <h2>{{$item->name}}</h2>
-                                <h5>{{$item->description}}</h5>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-sm-3">
-                        <button>Add to Cart</button>
-                    </div>
+        @foreach($wishlistItems as $item)
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ $item->product->image_url }}" class="card-img-top" alt="{{ $item->product->name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $item->product->name }}</h5>
+                    <p class="card-text">{{ $item->product->description }}</p>
+                    <form action="{{ route('wishlist.remove', $item->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Remove from Wishlist</button>
+                    </form>
                 </div>
-                @endforeach
             </div>
         </div>
+        @endforeach
     </div>
 </div>
 

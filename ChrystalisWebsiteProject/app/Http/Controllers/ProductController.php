@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 
-
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,6 +12,8 @@ use App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Models\Wishlist;
+use Illuminate\Support\Facades\Auth;
+
 
 
 
@@ -273,110 +274,52 @@ class ProductController extends Controller
 
 
 
-    ####################          WishList function         #######################
+  ####################          WishList function         #######################
 
-    public function wishList()
+    // public function wishList()
+    // {
+    //     // Logic to retrieve the user's wish list items from the database
+    //     $userId = auth()->id();
+    //     $wishListItems = WishList::where('user_id', $userId)->get();
+    
+    //     // Assuming you have a relationship between WishList and Product models
+    //     $products = $wishListItems->map(function ($wishListItem) {
+    //         return $wishListItem->product;
+    //     });
+    
+    //     // Return the view with the wish list items
+    //     return view('wishlist', ['products' => $products]);
+    // }
+
+
+    public function wishlist()
     {
-        // Logic to retrieve the user's wish list items from the database
-        $userId = auth()->id();
-        $wishListItems = WishList::where('user_id', $userId)->get();
-
-        // Assuming you have a relationship between WishList and Product models
-        $products = $wishListItems->map(function ($wishListItem) {
-            return $wishListItem->product;
-        });
-
-        // Return the view with the wish list items
-        return view('wishlist', ['products' => $products]);
+        $userId = Auth::id();
+        $wishlistItems = Wishlist::where('user_id', $userId)->with('product')->get();
+        return view('wishlist', ['wishlistItems' => $wishlistItems]);
     }
 
-
-
-    ####################          Remove from cart function         #######################
-
-    /* public function removeCart($id)
-     {
-         // Check if the authenticated user owns the cart item before removing it
-         $cartItem = Cart::find($id);
-
-         if ($cartItem->user_id !== auth()->id()) {
-             // If the cart item is not found or doesn't belong to the authenticated user
-             abort(403, 'Unauthorized action.');
-         }
-
-         // If the user owns the cart item, proceed to remove it
-         Cart::destroy($id);
-
-         return redirect('cartlist');
-
-     }
-
-    public function removeCart($id)
+    public function addToWishlist(Request $request)
     {
-        // Check if the authenticated user owns the cart item before removing it
-        $cartItem = Cart::find($id);
-
-        if (!$cartItem || $cartItem->user_id !== auth()->id()) {
-            // If the cart item is not found or doesn't belong to the authenticated user
-            abort(403, 'Unauthorized action.');
-        }
-
-        // If the user owns the cart item, proceed to remove it
-        $cartItem->delete();
-
-        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
+        $wishlistItem = new Wishlist;
+        $wishlistItem->user_id = Auth::id();
+        $wishlistItem->product_id = $request->product_id;
+        $wishlistItem->save();
+        return back()->with('success', 'Item added to wishlist successfully.');
     }
 
-
-
-
-    public function removeCart($id)
+    public function removeFromWishlist($id)
     {
-        // Check if the authenticated user owns the cart item before removing it
-        $cart = Cart::find($id);
-
-        if (!$cart) {
-            // Log the ID of the item that causes issues
-            \Log::info("Cart item with ID {$id} not found.");
-            abort(404, 'Cart item not found.');
-        }
-
-        if ($cart->user_id !== auth()->id()) {
-            // Log the ID of the item that causes authorization issues
-            \Log::info("Unauthorized access attempt to remove cart item with ID {$id}.");
+        $wishlistItem = Wishlist::find($id);
+        if (!$wishlistItem || $wishlistItem->user_id !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
-
-        // If the user owns the cart item, proceed to remove it
-        $cart->delete();
-
-        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
-    }*/
-
-
-    public function removeCart($id)
-    {
-        // Check if the authenticated user owns the cart item before removing it
-        $cartItem = Cart::where('id', $id)
-            ->where('user_id', auth()->id())
-            ->first();
-
-        if (!$cartItem) {
-            // If the cart item is not found or doesn't belong to the authenticated user
-            abort(403, 'Unauthorized action.');
-        }
-
-        // If the user owns the cart item, proceed to remove it
-        $cartItem->delete();
-
-        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
+        $wishlistItem->delete();
+        return redirect()->route('wishlist')->with('success', 'Item removed from wishlist successfully.');
     }
+    
 
-
-
-
-
-
+    
 
 
 

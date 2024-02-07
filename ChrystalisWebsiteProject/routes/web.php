@@ -166,9 +166,17 @@ Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList
 
 //route for wishlist 
 
-Route::get("wishlist", [App\Http\Controllers\ProductController::class, 'wishList'])->name('wishlist');
+Route::get('/wishlist', [ProductController::class, 'wishlist'])->name('wishlist');
+Route::post('/add_to_wishlist', [ProductController::class, 'addToWishlist']);
+Route::delete('/wishlist/{id}', [ProductController::class, 'removeFromWishlist'])->name('wishlist.remove');
 
 
+// Route::get("wishlist", [App\Http\Controllers\ProductController::class, 'wishList'])->name('wishlist');
+
+
+// Route::get('/wishlist', [ProductController::class, 'wishList'])->name('wishlist');
+// Route::get('/add_to_wishlist', [ProductController::class, 'addToWishlist']);
+// Route::delete('/wishlist/{id}', [ProductController::class, 'removeFromWishlist'])->name('wishlist.remove');
 
 
 //  #############################################################################################################################
