@@ -33,7 +33,11 @@
     </style>
 
 
+    <!-- Bootstrap icons -->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!--
+  -->
 
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/css-pages/dashboard.css'), false); ?>" />
 
@@ -43,6 +47,7 @@
 
 
     <div>
+        <hr class="mb-3">
         <h2 class="text-center my-3 py-3"> Welcome to your Dashboard, <?php echo e(Auth::user()->name, false); ?>!
         </h2>
     </div>
@@ -194,23 +199,7 @@
         </section>
     </main>
 
-    <?php echo $__env->yieldContent('footer'); ?>
-    <footer>
-        <section id="conclusion">
-            <div class="copyright-bottom text-center">
-                <p class="m-1">
-                    &copy; Copyright Chrystalis 2023-2024. All Rights Reserved
-                </p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="<?php echo e(asset('Images\HomePage\privacyp.png'), false); ?>">Privacy</a></li>
-                    <li class="list-inline-item"><a href="<?php echo e(asset('Images\HomePage\privacyp.png'), false); ?>">Terms</a></li>
-                    <li class="list-inline-item"><a href="<?php echo e(route('contactus'), false); ?>">Support</a></li>
-                    <li class="list-inline-item"><a href="<?php echo e(route('t2detail'), false); ?>">user test</a></li>
-                    <li class="list-inline-item"><a href="#">Back to top</a></li>
-                </ul>
-            </div>
-        </section>
-    </footer>
+
 
 
 
@@ -226,4 +215,5 @@
 <?php if (isset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
 <?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
 <?php unset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
-<?php endif; ?><?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/dashboard.blade.php ENDPATH**/ ?>
+<?php endif; ?>
+<?php echo $__env->make('mainLayout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/dashboard.blade.php ENDPATH**/ ?>

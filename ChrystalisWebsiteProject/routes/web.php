@@ -159,10 +159,14 @@ Route::get("checkout", [App\Http\Controllers\ProductController::class, 'checkout
 Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList'])->name('cartlist');
 
 
+
+
+
+//  ##############################          Route for the WishList             ########################################################
+
 //route for wishlist 
 
 Route::get("wishlist", [App\Http\Controllers\ProductController::class, 'wishList'])->name('wishlist');
-
 
 
 

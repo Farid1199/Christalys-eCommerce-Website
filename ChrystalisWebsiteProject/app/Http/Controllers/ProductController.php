@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,6 +12,8 @@ use App\Models\Cart;
 use App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use App\Models\Wishlist;
+
 
 
 
@@ -269,7 +272,27 @@ class ProductController extends Controller
     }
 
 
-    ####################          Remove from cart fuunction         #######################
+
+  ####################          WishList function         #######################
+
+    public function wishList()
+    {
+        // Logic to retrieve the user's wish list items from the database
+        $userId = auth()->id();
+        $wishListItems = WishList::where('user_id', $userId)->get();
+    
+        // Assuming you have a relationship between WishList and Product models
+        $products = $wishListItems->map(function ($wishListItem) {
+            return $wishListItem->product;
+        });
+    
+        // Return the view with the wish list items
+        return view('wishlist', ['products' => $products]);
+    }
+    
+
+
+    ####################          Remove from cart function         #######################
 
     /* public function removeCart($id)
      {
