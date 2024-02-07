@@ -12,7 +12,6 @@ $total = ProductController::cartItem();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-    @yield('title', 'Chrystalis')
   </title>
 
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -100,7 +99,7 @@ $total = ProductController::cartItem();
                 </a>
               </li>
               <li>
-                
+
                 <a href="{{route('wishlist')}}" class="nav-link text-secondary">
                   <i class="fa fa-star d-block mx-auto mb-1 fa-2x text-center"> </i>
                   Wish List
@@ -149,6 +148,11 @@ $total = ProductController::cartItem();
               value="{{ request('search') }}" />
             <button class="btn btn-outline-success my-2 my-sm-0 p-1.5" type="submit">Search</button>
           </form>
+
+          @if(!empty($message))
+          <p>{{ $message }}</p>
+          @endif
+
 
           <div class="text-end">
             <a href="{{ route('login') }}"><button type="button" class="btn btn-light text-dark me-2">

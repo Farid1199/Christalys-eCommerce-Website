@@ -6,10 +6,10 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('assets/css/css-pages/contactus.css')}}" />
+<!-- <link rel="stylesheet" href="{{ asset('assets/css/css-pages/contactus.css')}}" /-->
 
-<!-- 
-    
+
+<!--
 CONTACT US CONTENT 
 
 -->
@@ -17,12 +17,13 @@ CONTACT US CONTENT
 <hr class="my-5">
 <hr class="my-5">
 
-<h1 class="my-5 text-center">Contact Chrystalis!</h1>
 
-<!-- Contact Form Section -->
+<!-- <h1 class="my-5 text-center">Contact Chrystalis!</h1>
+
+Contact Form Section 
 <section class="Contact-us">
     <form id="contactForm" onsubmit="return checkForm()" name="contactForm">
-        <!-- Form Fields -->
+        
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required="" />
 
@@ -37,10 +38,62 @@ CONTACT US CONTENT
         <label for="message">Message:</label>
         <textarea id="message" name="message" required=""></textarea>
 
-        <!-- Submit Button -->
+        
         <input class="btn-outline-primary" type="submit" name="submit" value="Submit" />
     </form>
 </section>
+-->
+
+
+
+<div class="container">
+    <div class="row justify-content-center my-5">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="my-2 text-center">Contact Chrystalis!</h1>
+
+                    <!-- Contact Form Section -->
+                    <form id="contactForm" name="contactForm">
+                        <!-- Form Fields -->
+                        <div class="form-group font-weight-bold">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" required="">
+                        </div>
+                        <div class="form-group font-weight-bold">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required="">
+                        </div>
+                        <div class="form-group font-weight-bold">
+                            <label for="confirm-email">Confirm Email:</label>
+                            <input type="email" class="form-control" id="confirm-email" name="confirm-email"
+                                required="">
+                        </div>
+                        <div class="form-group font-weight-bold">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required="">
+                        </div>
+                        <div class="form-group font-weight-bold">
+                            <label for="message">Message:</label>
+                            <textarea class="form-control" id="message" name="message" required=""></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="my-3 btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
 
 
