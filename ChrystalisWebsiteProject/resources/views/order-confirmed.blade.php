@@ -4,6 +4,8 @@
 
 @section('content')
 
+<hr class="mb-3">
+
 <section class="h-100 gradient-custom mt-5">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
