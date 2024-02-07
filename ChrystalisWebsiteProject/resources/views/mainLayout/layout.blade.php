@@ -102,7 +102,7 @@ $total = ProductController::cartItem();
               <li>
                 
                 <a href="{{route('wishlist')}}" class="nav-link text-secondary">
-                  <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
+                  <i class="fa fa-star d-block mx-auto mb-1 fa-2x text-center"> </i>
                   Wish List
                 </a>
               </li>
