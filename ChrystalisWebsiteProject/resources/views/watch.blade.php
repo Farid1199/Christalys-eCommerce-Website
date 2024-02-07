@@ -46,10 +46,11 @@
                                         <button class="btn btn-outline-primary" id="addToCartBtn"> View </button>
                                     </form>
 
-                                    <form action="/wishlist" method="GET">
+                                    <form action="/add_to_wishlist" method="POST">
                                         @csrf
                                         <button class="btn btn-outline-secondary" id="addToCartBtn"> Add to Wishlist
                                         </button>
+                                        <input type="hidden" value="{{$watch->id}}" name="product_id" id="product_id">
                                     </form>
 
                                     <form action="/add_to_cart" method="POST">
