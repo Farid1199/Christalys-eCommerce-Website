@@ -4,12 +4,10 @@
 
 @section('content')
 
-<hr class="my-5">
-
 <div class="container py-5">
     <h1>Wishlist</h1>
     @if(session('success'))
-    <div class="alert alert-success">{{ session('success') }}</div>
+        <div class="alert alert-success">{{ session('success') }}</div>
     @endif
     <div class="row">
         @foreach($wishlistItems as $item)
