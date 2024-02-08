@@ -4,8 +4,10 @@
 
 @section('content')
 
+<hr class="my-2">
+
 <div class="container py-5">
-    <h1>Wishlist</h1>
+    <h1 class="my-5">Wishlist</h1>
     @if(session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
     @endif
