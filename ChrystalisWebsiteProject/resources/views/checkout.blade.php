@@ -10,6 +10,10 @@ $total = ProductController::cartItem();
 ?>
 
 <style>
+    .container {
+        max-width: 960px;
+    }
+
     .border-top {
         border-top: 1px solid #e5e5e5;
     }
