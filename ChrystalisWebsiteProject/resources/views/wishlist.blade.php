@@ -7,13 +7,13 @@
 <div class="container py-5">
     <h1>Wishlist</h1>
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+    <div class="alert alert-success">{{ session('success') }}</div>
     @endif
     <div class="row">
         @foreach($wishlistItems as $item)
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img src="{{ $item->product->image_url }}" class="card-img-top" alt="{{ $item->product->name }}">
+                <img src="{{ $item->product->gallery }}" class="card-img-top" alt="{{ $item->product->name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->product->name }}</h5>
                     <p class="card-text">{{ $item->product->description }}</p>
