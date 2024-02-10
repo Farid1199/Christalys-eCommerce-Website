@@ -259,6 +259,26 @@ class ProductController extends Controller
         return view('cartlist', ['products' => $products, 'remove' => $remove]);
     }
 
+
+
+    public function removeCart($id)
+    {
+        // Check if the authenticated user owns the cart item before removing it
+        $cartItem = Cart::where('id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
+
+        if (!$cartItem) {
+            // If the cart item is not found or doesn't belong to the authenticated user
+            abort(403, 'Unauthorized action.');
+        }
+
+        // If the user owns the cart item, proceed to remove it
+        $cartItem->delete();
+
+        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
+    }
+
     function checkoutList()
     {
         $userId = auth()->id();
@@ -274,19 +294,19 @@ class ProductController extends Controller
 
 
 
-  ####################          WishList function         #######################
+    ####################          WishList function         #######################
 
     // public function wishList()
     // {
     //     // Logic to retrieve the user's wish list items from the database
     //     $userId = auth()->id();
     //     $wishListItems = WishList::where('user_id', $userId)->get();
-    
+
     //     // Assuming you have a relationship between WishList and Product models
     //     $products = $wishListItems->map(function ($wishListItem) {
     //         return $wishListItem->product;
     //     });
-    
+
     //     // Return the view with the wish list items
     //     return view('wishlist', ['products' => $products]);
     // }
@@ -317,9 +337,9 @@ class ProductController extends Controller
         $wishlistItem->delete();
         return redirect()->route('wishlist')->with('success', 'Item removed from wishlist successfully.');
     }
-    
 
-    
+
+
 
 
 
