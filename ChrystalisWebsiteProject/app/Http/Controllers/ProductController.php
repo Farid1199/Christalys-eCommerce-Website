@@ -259,8 +259,6 @@ class ProductController extends Controller
         return view('cartlist', ['products' => $products, 'remove' => $remove]);
     }
 
-
-
     public function removeCart($id)
     {
         // Check if the authenticated user owns the cart item before removing it
