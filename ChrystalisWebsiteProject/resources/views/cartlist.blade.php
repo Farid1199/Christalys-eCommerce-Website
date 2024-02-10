@@ -13,9 +13,6 @@ $total = ProductController::cartItem();
 
 <div class="container py-5">
   <div class="py-5 text-center"></div>
-
-
-
   <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -40,9 +37,7 @@ $total = ProductController::cartItem();
         @endforeach
 
 
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
 
-        </li>
 
       </ul>
 
@@ -56,6 +51,10 @@ $total = ProductController::cartItem();
 
     <div class="col-md-8 order-md-1">
       <h2 class="mb-3">Shopping Cart</h2>
+
+      @if(session('success'))
+      <div class="alert alert-success">{{ session('success') }}</div>
+      @endif
 
       @if($products->isEmpty())
 
