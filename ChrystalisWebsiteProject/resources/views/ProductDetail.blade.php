@@ -66,7 +66,13 @@
                 <form action="/add_to_cart" method="POST">
                     @csrf
                     <input type="hidden" name="product_id" value="{{$product['id']}}">
-                    <button class="btn btn-success" id="addToCartBtn">Add to Cart</button>
+                    <button class="btn btn-success mb-3" id="addToCartBtn">Add to Cart</button>
+                </form>
+                <form action="/add_to_wishlist" method="POST">
+                    @csrf
+                    <button class="btn btn-outline-secondary" id="addToCartBtn"> Add to Wishlist
+                    </button>
+                    <input type="hidden" value="{{$product->id}}" name="product_id" id="product_id">
                 </form>
             </div>
         </div>
