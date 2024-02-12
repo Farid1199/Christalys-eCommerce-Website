@@ -19,19 +19,21 @@
                     <div class="card-body">
                         <h5 class="card-title">Search Filters</h5>
                         <!-- Search form for category -->
-                        <form action="" method="GET">
+                        <form action="{{ route('searchByCategory') }}" method="GET">
                             <div class="form-group">
                                 <label for="category">Search by Category</label>
                                 <select class="form-control" id="category" name="category">
                                     <option value="">All Categories</option>
                                     <!-- Loop through categories and display options -->
-
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Filter</button>
                         </form>
                         <!-- Search form for price -->
-                        <form action="" method="GET">
+                        <form action="{{ route('searchByPrice') }}" method="GET">
                             <div class="form-group">
                                 <label for="min_price">Search by Price</label>
                                 <input type="number" class="form-control" id="min_price" name="min_price"
@@ -43,10 +45,10 @@
                         </form>
                         <!-- Sorting options -->
                         <h5 class="mt-4">Sort By</h5>
-                        <a href="" class="btn btn-link">Name</a>
-                        <a href="" class="btn btn-link">Price</a>
-                        <a href="" class="btn btn-link">Alphabetical Order</a>
-                        <a href="" class="btn btn-link">Category</a>
+                        <a href="{{ route('sortByName') }}" class="btn btn-link">Name</a>
+                        <a href="{{ route('sortByPrice') }}" class="btn btn-link">Price</a>
+                        <a href="{{ route('sortByAlphabeticalOrder') }}" class="btn btn-link">Alphabetical Order</a>
+                        <a href="{{ route('sortByCategory') }}" class="btn btn-link">Category</a>
                     </div>
                 </div>
             </div>
