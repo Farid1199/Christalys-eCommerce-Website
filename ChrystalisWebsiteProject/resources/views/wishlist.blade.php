@@ -13,7 +13,7 @@
     @endif
     <div class="row">
         @foreach($wishlistItems as $item)
-        <div class="col-md-4 mb-4">
+        <div class="col-md-3 mb-4">
             <div class="card">
                 <img src="{{ $item->product->gallery }}" class="card-img-top" alt="{{ $item->product->name }}">
                 <div class="card-body">

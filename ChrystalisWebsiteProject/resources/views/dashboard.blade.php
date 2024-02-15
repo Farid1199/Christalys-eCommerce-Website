@@ -66,6 +66,11 @@
                                 </a>
                             </section>
                             <section class="user-links">
+                                <a href="{{route('wishlist')}}">
+                                    <h4>WishList</h4>
+                                </a>
+                            </section>
+                            <section class="user-links">
                                 <a href="{{ route('profile.edit') }}" class="styleless">
                                     <h4>{{ __('Account Settings') }}</h4>
                                 </a>
