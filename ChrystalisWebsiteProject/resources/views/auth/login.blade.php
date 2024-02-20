@@ -53,7 +53,7 @@
                 {{ __('Log in') }}
             </x-primary-button></a>
 
-            <a href="{{route('loginUserAdmin')}}">
+            <a href="{{route('admin.login')}}">
                 {{ __('Log in as Admin') }}
             </a>
 
