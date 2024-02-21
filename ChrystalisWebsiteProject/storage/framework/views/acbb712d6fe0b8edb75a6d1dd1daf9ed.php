@@ -195,6 +195,11 @@
 <?php unset($__componentOriginald411d1792bd6cc877d687758b753742c); ?>
 <?php endif; ?></a>
 
+            <a href="<?php echo e(route('admin.login'), false); ?>">
+                <?php echo e(__('Log in as Admin'), false); ?>
+
+            </a>
+
     </form>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

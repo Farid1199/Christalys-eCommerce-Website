@@ -24,10 +24,12 @@ Route::get('/', function () {
 
 
 
-
 Route::get('/loginAdmin', function () {
     return view('loginUserAdmin');
 });
+// Route::get('/loginAdmin', function () {
+//     return view('loginUserAdmin');
+// });
 
 
 

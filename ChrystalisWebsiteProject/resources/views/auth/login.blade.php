@@ -53,6 +53,10 @@
                 {{ __('Log in') }}
             </x-primary-button></a>
 
+            <a href="{{route('admin.login')}}">
+                {{ __('Log in as Admin') }}
+            </a>
+
     </form>
 </x-guest-layout>
 
