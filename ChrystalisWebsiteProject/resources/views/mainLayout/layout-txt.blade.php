@@ -1,7 +1,6 @@
 <?php
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-
 $total = ProductController::cartItem();
 ?>
 
@@ -69,7 +68,7 @@ $total = ProductController::cartItem();
             <a href="#!" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-decoration-none">
               <div id="logo" class="ml-5">
                 <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo"
-                  style="width: 40%; height: 30%" />
+                  style="width: 30%; height: 20%" />
               </div>
 
 
@@ -82,7 +81,12 @@ $total = ProductController::cartItem();
                   Home
                 </a>
               </li>
-
+              <li>
+                <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
+                  <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
+                  {{ __('Dashboard') }}
+                </a>
+              </li>
               <li>
                 <a href="{{route('products')}}" class="nav-link text-secondary">
                   <i class="fa fa-shopping-bag d-block mx-auto mb-1 fa-2x text-center"> </i>
@@ -109,61 +113,55 @@ $total = ProductController::cartItem();
                   About Us
                 </a>
               </li>
-
-
-              @if (Auth::check())
-              <li>
-                <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
-                  <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
-                  {{ __('Dashboard') }}
-                </a>
-              </li>
-
-              <li>
-
-                <form method="POST" action="{{ route('logout') }}">
-                  @csrf
-                  <a href="{{route('logout')}}" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                    <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
-                    {{ __('Log Out') }}
-                  </a>
-                </form>
-
-              </li>
-
-
-              @else
-
-              <li>
-
-                <a href="{{ route('login') }}" class="nav-link text-secondary">
-                  <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
-                  Login
-                </a>
-              </li>
-
-              <li>
-
-                <a href="{{ route('register') }}" class="nav-link text-secondary">
-                  <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
-                  Sign-up
-                </a>
-              </li>
-
+            </ul>
           </div>
-          @endif
-
-          </ul>
         </div>
       </div>
-  </div>
+
+      @if (Auth::check())
+      <div class="px-3 py-2 border-bottom mb-3" style="background-color: white;">
+        <div class="container d-flex flex-wrap justify-content-center">
+          <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
+
+          </form>
+
+          <div class="text-end">
+            <button type="button" class="btn btn-primary">
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                  {{ __('Log Out') }}
+                </a>
+              </form>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      @else
+      <div class="px-3 py-2 border-bottom mb-3" style="background-color: white;">
+        <div class="container d-flex flex-wrap justify-content-center">
+          <form class="col-6 col-lg-auto d-flex flex-grow-1 mr-5 pr-5" role="search">
+
+          </form>
 
 
-  </header>
+          <div class="text-end">
+            <a href="{{ route('login') }}"><button type="button" class="btn btn-light text-dark me-2">
+                Login
+              </button></a>
+            <a href="{{ route('register') }}"><button type="button" class="btn btn-primary">Sign-up</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      @endif
+    </header>
 
 
-  <!--    <div
+    <!--    <div
       class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
       @if (Route::has('login'))
       <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
