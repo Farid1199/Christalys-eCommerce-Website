@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Router;
 use App\Admin\Controllers\ExampleController;
+use App\Admin\Controllers;
 
 
 Admin::routes();
