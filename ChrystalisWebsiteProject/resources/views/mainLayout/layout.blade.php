@@ -113,7 +113,7 @@ $total = ProductController::cartItem();
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-end my-md-0 text-small ml-5">
                     @if (Auth::check())
-                      <li>
+                      <<li>
                           <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
                             <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
                             {{ __('Dashboard') }}
