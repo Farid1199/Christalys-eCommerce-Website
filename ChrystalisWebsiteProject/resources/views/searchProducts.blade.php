@@ -52,13 +52,26 @@
                     <h5 class="card-title mt-4"> Sort Filters</h5>
                     <form>
                     <div class="form-group">
+                        
                             <label for="name">Sort by Name</label>
                         
-                                <select class="form-control" id="sort_name" name="sort_name" value="{{ request('sort_name') }}">
+                            <select class="form-control" id="sort_name" name="sort_name" value="{{ request('sort_name') }}">
                                 <option value="asc">Ascending Order</option>
                                 <option value="desc">Descending Order</option>
                                 <!-- Add more categories as needed -->
                             </select>
+
+<!-- COMPLETE THE CODE FOR OTHER SORTS, VISIT TANISHQ WEBSITE ON HOW TO SORT -->
+
+                            <!--
+                            <label for="name">Sort by Price</label>
+                        
+                            <select class="form-control" id="sort_price" name="sort_price" value="{{ request('sort_price') }}">
+                                <option value="asc">Ascending Order</option>
+                                <option value="desc">Descending Order</option>
+                                 Add more categories as needed 
+                            </select>
+                            -->
                         </div>
                         <button class="btn btn-success" type="submit" class="btn btn-primary">Apply Filter</button>
                     </form>

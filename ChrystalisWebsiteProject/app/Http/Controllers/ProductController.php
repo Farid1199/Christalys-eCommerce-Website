@@ -69,6 +69,11 @@ class ProductController extends Controller
             $query->orderBy('name', $sortName);
         }
 
+        if (request()->has('sort_price')) {
+            $sortName = request('sort_price');
+            $query->orderBy('price', $sortName);
+        }
+
         if (request()->has('reset_filters')) {
             $products = Product::where('category', 'products')->get();
 
