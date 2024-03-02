@@ -17,6 +17,9 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
+
+
+
                         <h5 class="card-title">Search Filters</h5>
                         <!-- Search form for category -->
                         <form action="" method="GET">
@@ -50,6 +53,11 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+            
             <!-- Products Column -->
             <div class="col-md-9">
                 <div class="py-3 text-center"></div>
