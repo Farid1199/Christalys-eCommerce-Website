@@ -20,36 +20,58 @@
 
 
 
-                        <h5 class="card-title">Search Filters</h5>
-                        <!-- Search form for category -->
-                        <form action="" method="GET">
-                            <div class="form-group">
-                                <label for="category">Search by Category</label>
-                                <select class="form-control" id="category" name="category">
-                                    <option value="">All Categories</option>
-                                    <!-- Loop through categories and display options -->
+                    <h5 class="card-title">Search Filters</h5>
+                    <!-- Search form for category -->
+                    <form>
+                        <div class="form-group">
+                            <label for="category">Search by Category</label>
+                            <select class="form-control" id="category" name="category" value="{{ request('category') }}">
+                                <!-- Loop through categories and display options -->
+                                <option value="all" disabled selected>Select Category</option>
+                                <option value="Ring">Rings</option>
+                                <option value="Necklace">Necklace</option>
+                                <option value="Bracelet">Bracelets</option>
+                                <option value="Earring">Earrings</option>
+                                <option value="Watch">Watches</option>
+                                <!-- Add more categories as needed -->
+                            </select>
+                        </div>
 
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Filter</button>
-                        </form>
-                        <!-- Search form for price -->
-                        <form action="" method="GET">
-                            <div class="form-group">
-                                <label for="min_price">Search by Price</label>
-                                <input type="number" class="form-control" id="min_price" name="min_price"
-                                    placeholder="Min Price">
-                                <input type="number" class="form-control" id="max_price" name="max_price"
-                                    placeholder="Max Price">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Filter</button>
-                        </form>
-                        <!-- Sorting options -->
-                        <h5 class="mt-4">Sort By</h5>
-                        <a href="" class="btn btn-link">Name</a>
-                        <a href="" class="btn btn-link">Price</a>
-                        <a href="" class="btn btn-link">Alphabetical Order</a>
-                        <a href="" class="btn btn-link">Category</a>
+
+                        <div class="form-group">
+                            <label for="min_price">Search by Price</label>
+                            <input type="number" class="form-control" id="min_price" name="min_price"
+                                placeholder="Min Price" value="{{ request('min_price') }}">
+                            <input type="number" class="form-control" id="max_price" name="max_price"
+                                placeholder="Max Price" value="{{ request('max_price') }}">
+                        </div>
+
+                        <button class="btn btn-success" type="submit" class="btn btn-primary">Apply Filter</button>
+                    </form>
+
+                    <h5 class="card-title mt-4"> Sort Filters</h5>
+                    <form>
+                    <div class="form-group">
+                            <label for="name">Sort by Name</label>
+                        
+                                <select class="form-control" id="sort_name" name="sort_name" value="{{ request('sort_name') }}">
+                                <option value="asc">Ascending Order</option>
+                                <option value="desc">Descending Order</option>
+                                <!-- Add more categories as needed -->
+                            </select>
+                        </div>
+                        <button class="btn btn-success" type="submit" class="btn btn-primary">Apply Filter</button>
+                    </form>
+
+                    <form>
+                        <div class="form-group mt-5 text-center">     
+                        <button class="btn btn-primary ml-3" value="{{ request('reset_filters') }} ">Reset Filters</button> 
+                                <!-- Add more categories as needed -->
+                            </select>
+                        </div>
+                    </form>
+                
+<!-- -->
                     </div>
                 </div>
             </div>
@@ -57,6 +79,13 @@
 
 
 
+                                    <!-- Sorting options
+                        <h5 class="mt-4">Sort By</h5>
+                        <a href="" class="btn btn-link">Name</a>
+                        <a href="" class="btn btn-link">Price</a>
+                        <a href="" class="btn btn-link">Alphabetical Order</a>
+                        <a href="" class="btn btn-link">Category</a>
+                         -->
             
             <!-- Products Column -->
             <div class="col-md-9">
@@ -78,7 +107,7 @@
                                             {{ $bracelet->description }}
                                         </p>
                                         <p class="card-text font-weight-bold">
-                                            Price: {{ $bracelet->price}}
+                                            Price: £{{ $bracelet->price}}
                                         </p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <form action="detail/{{$bracelet['id']}}" method="GET">

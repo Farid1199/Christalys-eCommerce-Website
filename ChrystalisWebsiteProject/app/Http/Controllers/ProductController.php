@@ -24,19 +24,62 @@ class ProductController extends Controller
 
     public function productList()
     {
+        $query = Product::query();
 
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $products = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
-        } else {
-            $products = Product::all();
-            //$bracelets = Product::where('category', 'Bracelet')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        }
+
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
 
         }
 
-        //$bracelets = Product::where('category', 'Bracelet')->get();
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        // Order by name in alphabetical order
+        if (request()->has('sort_name')) {
+            $sortName = request('sort_name');
+            $query->orderBy('name', $sortName);
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'products')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
         return view('searchProducts', ['products' => $products]);
     }
+
 
 
 
