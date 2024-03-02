@@ -15,8 +15,8 @@
         <div class="row">
             <!-- Search Filters Column -->
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card sticky-sm-top ">
+                    <div class="card-body ">
 
 
 
@@ -27,7 +27,7 @@
                             <label for="category">Search by Category</label>
                             <select class="form-control" id="category" name="category" value="{{ request('category') }}">
                                 <!-- Loop through categories and display options -->
-                                <option value="all" disabled selected>Select Category</option>
+                                <option value="all" disabled selected>-- Select Category --</option>
                                 <option value="Ring">Rings</option>
                                 <option value="Necklace">Necklace</option>
                                 <option value="Bracelet">Bracelets</option>
@@ -46,60 +46,17 @@
                                 placeholder="Max Price" value="{{ request('max_price') }}">
                         </div>
 
-                        <button class="btn btn-success" type="submit" class="btn btn-primary">Apply Filter</button>
-                    </form>
-
-                    <h5 class="card-title mt-4"> Sort Filters</h5>
-                    <form>
-                    <div class="form-group">
-                        
-                            <label for="name">Sort by Name</label>
-                        
-                            <select class="form-control" id="sort_name" name="sort_name" value="{{ request('sort_name') }}">
-                                <option value="asc">Ascending Order</option>
-                                <option value="desc">Descending Order</option>
-                                <!-- Add more categories as needed -->
-                            </select>
-
-<!-- COMPLETE THE CODE FOR OTHER SORTS, VISIT TANISHQ WEBSITE ON HOW TO SORT -->
-
-                            <!--
-                            <label for="name">Sort by Price</label>
-                        
-                            <select class="form-control" id="sort_price" name="sort_price" value="{{ request('sort_price') }}">
-                                <option value="asc">Ascending Order</option>
-                                <option value="desc">Descending Order</option>
-                                 Add more categories as needed 
-                            </select>
-                            -->
+                        <div class="form-group mt-5 text-center">
+                            <button class="btn btn-success text-center" type="submit" >Apply Filters</button>
+                            <button class="btn btn-primary ml-3" value="{{ request('reset_filters') }} ">Reset Filters</button>
                         </div>
-                        <button class="btn btn-success" type="submit" class="btn btn-primary">Apply Filter</button>
-                    </form>
-
-                    <form>
-                        <div class="form-group mt-5 text-center">     
-                        <button class="btn btn-primary ml-3" value="{{ request('reset_filters') }} ">Reset Filters</button> 
-                                <!-- Add more categories as needed -->
-                            </select>
-                        </div>
-                    </form>
                 
-<!-- -->
+                    </form>
                     </div>
                 </div>
             </div>
 
 
-
-
-                                    <!-- Sorting options
-                        <h5 class="mt-4">Sort By</h5>
-                        <a href="" class="btn btn-link">Name</a>
-                        <a href="" class="btn btn-link">Price</a>
-                        <a href="" class="btn btn-link">Alphabetical Order</a>
-                        <a href="" class="btn btn-link">Category</a>
-                         -->
-            
             <!-- Products Column -->
             <div class="col-md-9">
                 <div class="py-3 text-center"></div>
