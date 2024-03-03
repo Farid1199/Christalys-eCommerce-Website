@@ -112,13 +112,6 @@ class ProductController extends Controller
             $query->where('name', 'like', '%' . $searchTerm . '%');
         }
 
-        // Filter by category
-        if (request()->has('category')) {
-            $category = request('category');
-            $query->where('category', $category);
-
-        }
-
         // Filter by minimum price
         // Filter by minimum price
         if (request()->has('min_price')) {
@@ -160,7 +153,7 @@ class ProductController extends Controller
         }
 
         if (request()->has('reset_filters')) {
-            $products = Product::where('category', 'Ring')->get();
+            $query = Product::query();
 
         }
 
@@ -236,7 +229,7 @@ class ProductController extends Controller
         }
 
         if (request()->has('reset_filters')) {
-            $products = Product::where('category', 'Ring')->get();
+            $products = Product::where('category', 'Bracelet')->get();
 
         }
 
@@ -335,7 +328,7 @@ class ProductController extends Controller
         }
 
         if (request()->has('reset_filters')) {
-            $products = Product::where('category', 'Ring')->get();
+            $products = Product::where('category', 'Necklace')->get();
 
         }
 
@@ -411,7 +404,7 @@ class ProductController extends Controller
         }
 
         if (request()->has('reset_filters')) {
-            $products = Product::where('category', 'Ring')->get();
+            $products = Product::where('category', 'Earring')->get();
 
         }
 
@@ -488,7 +481,7 @@ class ProductController extends Controller
         }
 
         if (request()->has('reset_filters')) {
-            $products = Product::where('category', 'Ring')->get();
+            $products = Product::where('category', 'Watch')->get();
 
         }
 

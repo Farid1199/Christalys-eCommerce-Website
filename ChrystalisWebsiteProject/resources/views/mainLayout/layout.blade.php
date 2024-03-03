@@ -113,19 +113,20 @@ $total = ProductController::cartItem();
 
           <ul class="nav col-12 col-lg-auto my-2 justify-content-end my-md-0 text-small ml-5">
                     @if (Auth::check())
-                      <<li>
+                      <li>
                           <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
                             <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
                             {{ __('Dashboard') }}
                           </a>
                         </li>
+
                         <li>
 
           <form method="POST" action="{{ route('logout') }}">
             @csrf
             <a href="{{route('logout')}}" onclick="event.preventDefault();
-                                          this.closest('form').submit();">
-              <i class="fa fa-sign-out d-block mx-auto mb-1 fa-2x text-center"> </i>
+                                          this.closest('form').submit();" class="nav-link text-secondary">
+              <i class="fas fa-sign-out-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
               {{ __('Log Out') }}
             </a>
           </form>
@@ -135,7 +136,7 @@ $total = ProductController::cartItem();
                     <li>
 
           <a href="{{ route('login') }}" class="nav-link text-secondary">
-            <i class="fa fa-sign-in d-block mx-auto mb-1 fa-2x text-center"> </i>
+            <i class="fas fa-sign-in-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
             Login
           </a>
           </li>
@@ -144,7 +145,7 @@ $total = ProductController::cartItem();
 
           <a href="{{ route('register') }}" class="nav-link text-secondary">
             <i class="fa fa-users d-block mx-auto mb-1 fa-2x text-center"> </i>
-            Sign-up
+            Sign Up
           </a>
           </li>
 

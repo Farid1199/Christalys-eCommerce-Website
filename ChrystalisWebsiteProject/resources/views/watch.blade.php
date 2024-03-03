@@ -20,7 +20,7 @@
 
       <!-- Search Filters Column -->
       <div class="col-md-3">
-                <div class="card sticky-sm-top ">
+                <div class="card sticky-sm-top  mt-4">
                     <div class="card-body ">
 
 
