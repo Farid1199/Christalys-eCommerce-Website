@@ -24,19 +24,72 @@ class ProductController extends Controller
 
     public function productList()
     {
+        $query = Product::query();
 
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $products = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
-        } else {
-            $products = Product::all();
-            //$bracelets = Product::where('category', 'Bracelet')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        }
+
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
 
         }
 
-        //$bracelets = Product::where('category', 'Bracelet')->get();
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'products')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
         return view('searchProducts', ['products' => $products]);
     }
+
 
 
 
@@ -51,16 +104,63 @@ class ProductController extends Controller
     // ################################       Ring    #############################################
     public function index()
     {
+        $query = Product::where('category', 'Ring');
 
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $rings = Product::where('category', 'Ring')
-                ->where('name', 'like', '%' . $searchTerm . '%')->get();
-        } else {
-            $rings = Product::where('category', 'Ring')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        }
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $query = Product::query();
 
         }
-        return view('ring', ['products' => $rings]);
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('ring', ['products' => $products]);
     }
 
     public function getRings()
@@ -71,46 +171,72 @@ class ProductController extends Controller
 
     // ################################       Bracelet    #############################################
 
-    /*public function index1()
-    {
-        //
-        //$bracelets = Product::where('category', 'Bracelet')->get();
-        //return view('bracelet', ['products' => $bracelets]);
-
-        if (request('search')) {
-            $bracelets = Product::where('category', '%' . request('search') . '%')->get();
-            //$bracelets = Product::where('category', 'Bracelet')->get();
-        } else {
-            $bracelets = Product::where('category', 'Bracelet')->get();
-        }
-
-        return view('bracelet', ['products' => $bracelets]);
-
-                /*if (request()->has('search')) {
-            $searchTerm = request('search');
-            $bracelets = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
-        } else {
-            $bracelets = Product::all();
-            $bracelets = Product::where('category', 'Bracelet')->get();
-
-        }
-
-    }*/
-
-
     public function index1()
     {
+        $query = Product::where('category', 'Bracelet');
 
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $bracelets = Product::where('category', 'Bracelet')
-                ->where('name', 'like', '%' . $searchTerm . '%')
-                ->get();
-        } else {
-            $bracelets = Product::where('category', 'Bracelet')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        }
+
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
 
         }
-        return view('bracelet', ['products' => $bracelets]);
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'Bracelet')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('bracelet', ['products' => $products]);
     }
 
     public function getBracelet()
@@ -145,16 +271,71 @@ class ProductController extends Controller
 
     public function index2()
     {
+
+        $query = Product::where('category', 'Necklace');
+
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $necklace = Product::where('category', 'Necklace')
-                ->where('name', 'like', '%' . $searchTerm . '%')
-                ->get();
-        } else {
-            $necklace = Product::where('category', 'Necklace')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
         }
 
-        return view('necklace', ['products' => $necklace]);
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
+
+        }
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'Necklace')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('necklace', ['products' => $products]);
     }
 
     public function getNecklace()
@@ -167,16 +348,70 @@ class ProductController extends Controller
 
     public function index3()
     {
+        $query = Product::where('category', 'Earring');
+
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $earrings = Product::where('category', 'Earring')
-                ->where('name', 'like', '%' . $searchTerm . '%')
-                ->get();
-        } else {
-            $earrings = Product::where('category', 'Earring')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        }
+
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
 
         }
-        return view('earring', ['products' => $earrings]);
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'Earring')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('earring', ['products' => $products]);
     }
 
     public function getEarring()
@@ -190,22 +425,70 @@ class ProductController extends Controller
 
     public function index4()
     {
-        //
-        //$watch = Product::where('category', 'Watch')->get();
-        //return view('watch', ['products' => $watch]);
+        $query = Product::where('category', 'Watch');
 
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $watch = Product::where('category', 'Watch')
-                ->where('name', 'like', '%' . $searchTerm . '%')
-                ->get();
-        } else {
-            $watch = Product::where('category', 'Watch')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
         }
 
-        //$bracelets = Product::where('category', 'Bracelet')->get();
-        return view('watch', ['products' => $watch]);
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
 
+        }
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'Watch')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('watch', ['products' => $products]);
     }
 
     public function getWatch()

@@ -63,10 +63,9 @@ $total = ProductController::cartItem();
     @yield('header')
     <header class="fixed-top">
       <div class="px-3 py-2 border-bottom" style="background-color: #f8f9fa;">
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <div class="container d-flex justify-content-between align-items-center ">
 
-            <a href="#!" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-decoration-none">
+            <a href="#!" class="d-flex align-items-center my-2 text-decoration-none">
               <div id="logo" class="ml-5">
                 <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo"
                   style="width: 40%; height: 30%" />
@@ -75,7 +74,7 @@ $total = ProductController::cartItem();
 
             </a>
 
-            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <ul class="nav col-12 col-lg-auto my-2 mr-5 justify-content-center my-md-0 text-small">
               <li>
                 <a href="/" class="nav-link text-dark">
                   <i class="fa fa-home d-block mx-auto mb-1 fa-2x text-center"> </i>
@@ -104,59 +103,59 @@ $total = ProductController::cartItem();
               </li>
               <li>
 
-                <a href="{{route('aboutus')}}" class="nav-link text-secondary">
+                <a href="{{route('aboutus')}}" class="nav-link text-secondary mr-5">
                   <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
                   About Us
                 </a>
               </li>
+          </ul> 
 
 
-              @if (Auth::check())
-              <li>
-                <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
-                  <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
-                  {{ __('Dashboard') }}
-                </a>
-              </li>
+          <ul class="nav col-12 col-lg-auto my-2 justify-content-end my-md-0 text-small ml-5">
+                    @if (Auth::check())
+                      <li>
+                          <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
+                            <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
+                            {{ __('Dashboard') }}
+                          </a>
+                        </li>
 
-              <li>
+                        <li>
 
-                <form method="POST" action="{{ route('logout') }}">
-                  @csrf
-                  <a href="{{route('logout')}}" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                    <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
-                    {{ __('Log Out') }}
-                  </a>
-                </form>
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                          this.closest('form').submit();" class="nav-link text-secondary">
+              <i class="fas fa-sign-out-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
+              {{ __('Log Out') }}
+            </a>
+          </form>
 
-              </li>
+          </li>
+                    @else
+                    <li>
 
+          <a href="{{ route('login') }}" class="nav-link text-secondary">
+            <i class="fas fa-sign-in-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
+            Login
+          </a>
+          </li>
 
-              @else
+          <li>
 
-              <li>
+          <a href="{{ route('register') }}" class="nav-link text-secondary">
+            <i class="fa fa-users d-block mx-auto mb-1 fa-2x text-center"> </i>
+            Sign Up
+          </a>
+          </li>
 
-                <a href="{{ route('login') }}" class="nav-link text-secondary">
-                  <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
-                  Login
-                </a>
-              </li>
-
-              <li>
-
-                <a href="{{ route('register') }}" class="nav-link text-secondary">
-                  <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
-                  Sign-up
-                </a>
-              </li>
-
-          </div>
           @endif
+        </ul>
 
-          </ul>
+
+
         </div>
-      </div>
+      
   </div>
 
 
