@@ -8,6 +8,7 @@
 
 <?php
 use App\Http\Controllers\ProductController;
+
 $total = ProductController::cartItem();
 ?>
 
@@ -31,7 +32,7 @@ $total = ProductController::cartItem();
               <h6 class="my-0">{{$item->name}}</h6>
             </a>
           </div>
-          <span class="text-muted">{{$item->price}}</span>
+          <span class="text-muted">£{{$item->price}}</span>
         </li>
 
         @endforeach
@@ -44,7 +45,7 @@ $total = ProductController::cartItem();
     </div>
 
     @php
-    $index = 0; // Initialize an index variable
+$index = 0; // Initialize an index variable
     @endphp
 
 
@@ -84,7 +85,7 @@ $total = ProductController::cartItem();
                 </a>
               </div>
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">{{$item->price}}</h5>
+                <h5 class="mb-0">£{{$item->price}}</h5>
               </div>
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                 <!--a href="{{ url('removeCart', ['id' => $remove[$index]->id]) }}">
@@ -113,7 +114,7 @@ $total = ProductController::cartItem();
         </div>
 
         @php
-        $index++; // Increment the index for the next iteration
+    $index++; // Increment the index for the next iteration
         @endphp
         @endforeach
 
@@ -122,7 +123,7 @@ $total = ProductController::cartItem();
 
       <div class="row">
 
-        <a href="{{ route('stripe.checkout',['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
+        <a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
             Checkout</button></a>
 
       </div>
