@@ -45,9 +45,6 @@ class ProductController extends Controller
             $minPrice = request('min_price');
             if (is_numeric($minPrice)) {
                 $query->where('price', '>=', $minPrice);
-            } else {
-                // Handle the case where min_price is not a valid numeric value
-                // You can log an error or provide a default behavior
             }
         }
 
@@ -57,9 +54,6 @@ class ProductController extends Controller
             $maxPrice = request('max_price');
             if (is_numeric($maxPrice)) {
                 $query->where('price', '<=', $maxPrice);
-            } else {
-                // Handle the case where min_price is not a valid numeric value
-                // You can log an error or provide a default behavior
             }
         }
 
@@ -81,7 +75,6 @@ class ProductController extends Controller
 
         if (request()->has('reset_filters')) {
             $products = Product::where('category', 'products')->get();
-
         }
 
         // Fetch products
