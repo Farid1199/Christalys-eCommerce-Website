@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RingController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
@@ -50,6 +51,8 @@ Route::get('/aboutus', function () {
 Route::get('/contactus', function () {
     return view('contactUs');
 })->name('contactus');
+
+Route::post('/contactus', [ContactController::class, 'submit'])->name('contactus.submit');
 
 Route::get('/searchlist', function () {
     return view('searchProducts');
@@ -226,8 +229,13 @@ Route::get('/t3users', function () {
 //  ##############################          Stripe/Checkout             ########################################################
 
 
-Route::controller(StripePaymentController::class)->group(function(){
-    Route::get('stripe','stripe')->name('stripe.index');
-    Route::get('stripe/checkout','stripeCheckout')->name('stripe.checkout');
-    Route::get('stripe/checkout/success','stripeCheckoutSuccess')->name('stripe.checkout.success');
+Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('stripe', 'stripe')->name('stripe.index');
+    Route::get('stripe/checkout', 'stripeCheckout')->name('stripe.checkout');
+    Route::get('stripe/checkout/success', 'stripeCheckoutSuccess')->name('stripe.checkout.success');
 });
+
+
+//  ##############################          Contact Us Form             ########################################################
+
+

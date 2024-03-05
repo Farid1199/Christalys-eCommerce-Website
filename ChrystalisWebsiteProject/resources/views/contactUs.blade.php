@@ -53,8 +53,27 @@ Contact Form Section
                 <div class="card-body">
                     <h1 class="my-2 text-center">Contact Chrystalis!</h1>
 
+                    <!-- Display validation errors if any -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <!-- Display success message if any -->
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     <!-- Contact Form Section -->
-                    <form id="contactForm" name="contactForm">
+                    <form action="{{ route('contactus.submit') }}" method="POST" id="contactForm" name="contactForm">
+                        @csrf
                         <!-- Form Fields -->
                         <div class="form-group font-weight-bold">
                             <label for="name">Name:</label>
@@ -70,8 +89,8 @@ Contact Form Section
                                 required="">
                         </div>
                         <div class="form-group font-weight-bold">
-                            <label for="phone">Phone Number:</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" required="">
+                            <label for="subject">Subject:</label>
+                            <input type="tel" class="form-control" id="subject" name="subject" required="">
                         </div>
                         <div class="form-group font-weight-bold">
                             <label for="message">Message:</label>
@@ -86,6 +105,7 @@ Contact Form Section
         </div>
     </div>
 </div>
+
 
 
 
