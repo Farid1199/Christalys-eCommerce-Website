@@ -496,18 +496,44 @@ class ProductController extends Controller
      */
 
 
-    function addToCart(Request $reg)
-    {
-
-
-        $cart = new Cart;
-        $cart->user_id = auth()->user()->id;
-        $cart->product_id = $reg->product_id;
-        # then we are saving it
-        $cart->save();
-        return back();
-
-    }
+     public function addToCart(Request $request)
+     {
+         // Retrieve product ID and quantity from the form submission
+         $productId = $request->input('product_id');
+         $quantity = $request->input('quantity');
+     
+         // Retrieve the product from the database
+         $product = Product::find($productId);
+     
+         // Check if the product exists and if it's available
+         if (!$product || $product->stock < $quantity) {
+             // Handle error - product not found or not enough stock
+             return redirect()->back()->with('error', 'The product is not available.');
+         }
+     
+         // Add the product to the user's cart or update its quantity
+         // Here you might interact with your cart service or session to handle cart logic
+         // For simplicity, let's assume you're storing cart data in the session
+         $cart = session()->get('cart', []);
+     
+         if (isset($cart[$productId])) {
+             // If the product is already in the cart, update its quantity
+             $cart[$productId]['quantity'] += $quantity;
+         } else {
+             // Otherwise, add the product to the cart
+             $cart[$productId] = [
+                 'name' => $product->name,
+                 'quantity' => $quantity,
+                 'price' => $product->price,
+             ];
+         }
+     
+         // Update the cart data in the session
+         session()->put('cart', $cart);
+     
+         // Redirect back to the product page or wherever you want
+         return redirect()->back()->with('success', 'Product added to cart successfully.');
+     }
 
 
     static function cartItem()
@@ -568,22 +594,6 @@ class ProductController extends Controller
 
 
 
-    ####################          WishList function         #######################
-
-    // public function wishList()
-    // {
-    //     // Logic to retrieve the user's wish list items from the database
-    //     $userId = auth()->id();
-    //     $wishListItems = WishList::where('user_id', $userId)->get();
-
-    //     // Assuming you have a relationship between WishList and Product models
-    //     $products = $wishListItems->map(function ($wishListItem) {
-    //         return $wishListItem->product;
-    //     });
-
-    //     // Return the view with the wish list items
-    //     return view('wishlist', ['products' => $products]);
-    // }
 
 
     public function wishlist()

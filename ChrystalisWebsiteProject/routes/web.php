@@ -240,6 +240,5 @@ Route::controller(StripePaymentController::class)->group(function () {
 });
 
 
-//  ##############################          Contact Us Form             ########################################################
-
+Route::post('/update-cart-quantity/{id}', [ProductController::class, 'updateCartQuantity'])->name('update.cart.quantity');
 
