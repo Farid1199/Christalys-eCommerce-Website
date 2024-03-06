@@ -44,14 +44,42 @@ Contact Form Section
 </section>
 -->
 
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md col-lg col-xl mx-auto mb-4">
+            <!-- Contact Details -->
+            <div class="text-center">
+                <h2 class="text-uppercase fw-bold">Contact Chrystalis!</h2>
+                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                <p><i class="fas fa-home mr-1"></i> 33 Road, Birmingham, B87 8HG</p>
+                <p><i class="fas fa-envelope mr-1"></i> chrystalis@example.com</p>
+                <p><i class="fas fa-phone mr-1"></i> +44 2345 678 098</p>
+                <p><i class="fas fa-print mr-1"></i> +44 2342 567 389</p>
+            </div>
+            <div class="text-center">
+                <p>
+                    Thank you for choosing Chrystalis. We are delighted to be a part of your special moments
+                    and are committed to helping you express your unique style and individuality through our
+                    stunning jewelry collection.
+                </p>
+                <p>
+                    If you have any questions, concerns, or feedback, please feel free to contact us using the
+                    information above or by filling out the form below. We value your input and strive to provide
+                    exceptional customer service.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <div class="container">
-    <div class="row justify-content-center my-5">
+    <div class="row justify-content-center mb-5">
         <div class="col-md-6">
             <div class="card shadow">
                 <div class="card-body">
-                    <h1 class="my-2 text-center">Contact Chrystalis!</h1>
+                    <h3 class="my-2 text-center">Contact Us Here!</h3>
 
                     <!-- Display validation errors if any -->
                     @if ($errors->any())

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RingController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
@@ -46,6 +47,9 @@ Route::get('/products', function () {
 Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
+
+Route::post('/aboutus', [AboutUsController::class, 'submitform'])->name('aboutus.submitform');
+
 
 # Contact Us
 Route::get('/contactus', function () {
