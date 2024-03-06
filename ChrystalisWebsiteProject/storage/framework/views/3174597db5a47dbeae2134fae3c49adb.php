@@ -77,6 +77,11 @@
                                 </a>
                             </section>
                             <section class="user-links">
+                                <a href="<?php echo e(route('wishlist'), false); ?>">
+                                    <h4>WishList</h4>
+                                </a>
+                            </section>
+                            <section class="user-links">
                                 <a href="<?php echo e(route('profile.edit'), false); ?>" class="styleless">
                                     <h4><?php echo e(__('Account Settings'), false); ?></h4>
                                 </a>

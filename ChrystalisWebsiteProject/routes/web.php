@@ -231,3 +231,7 @@ Route::controller(StripePaymentController::class)->group(function(){
     Route::get('stripe/checkout','stripeCheckout')->name('stripe.checkout');
     Route::get('stripe/checkout/success','stripeCheckoutSuccess')->name('stripe.checkout.success');
 });
+
+
+Route::post('/update-cart-quantity/{id}', [ProductController::class, 'updateCartQuantity'])->name('update.cart.quantity');
+
