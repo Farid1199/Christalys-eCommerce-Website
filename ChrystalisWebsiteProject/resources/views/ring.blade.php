@@ -107,6 +107,20 @@
 </div>
 
 
+<script> 
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the min_price and max_price input fields
+    var minPriceField = document.getElementById('min_price');
+    var maxPriceField = document.getElementById('max_price');
+
+    // Clear the min_price and max_price input fields
+    minPriceField.value = '';
+    maxPriceField.value = '';
+});
+
+</script>
+
+
 
 <!--
 <h1>Rings</h1>
