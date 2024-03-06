@@ -497,43 +497,56 @@ class ProductController extends Controller
 
 
      public function addToCart(Request $request)
-     {
-         // Retrieve product ID and quantity from the form submission
-         $productId = $request->input('product_id');
-         $quantity = $request->input('quantity');
-     
-         // Retrieve the product from the database
-         $product = Product::find($productId);
-     
-         // Check if the product exists and if it's available
-         if (!$product || $product->stock < $quantity) {
-             // Handle error - product not found or not enough stock
-             return redirect()->back()->with('error', 'The product is not available.');
-         }
-     
-         // Add the product to the user's cart or update its quantity
-         // Here you might interact with your cart service or session to handle cart logic
-         // For simplicity, let's assume you're storing cart data in the session
-         $cart = session()->get('cart', []);
-     
-         if (isset($cart[$productId])) {
-             // If the product is already in the cart, update its quantity
-             $cart[$productId]['quantity'] += $quantity;
-         } else {
-             // Otherwise, add the product to the cart
-             $cart[$productId] = [
-                 'name' => $product->name,
-                 'quantity' => $quantity,
-                 'price' => $product->price,
-             ];
-         }
-     
-         // Update the cart data in the session
-         session()->put('cart', $cart);
-     
-         // Redirect back to the product page or wherever you want
-         return redirect()->back()->with('success', 'Product added to cart successfully.');
-     }
+{
+    try {
+        // Retrieve product ID and quantity from the form submission
+        $productId = $request->input('product_id');
+        $quantity = $request->input('quantity');
+
+        // Retrieve the product from the database
+        $product = Product::find($productId);
+
+        // Check if the product exists and if it's available
+        if (!$product || $product->stock < $quantity) {
+            // Handle error - product not found or not enough stock
+            return redirect()->back()->with('error', 'The product is not available or out of stock.');
+        }
+
+        // Calculate total price
+        $totalPrice = $product->price * $quantity;
+
+        // Create or update cart item
+        $cartItem = Cart::where('product_id', $productId)
+            ->where('user_id', auth()->id())
+            ->first();
+
+        if ($cartItem) {
+            // If the product is already in the cart, update its quantity and total price
+            $cartItem->quantity += $quantity;
+            $cartItem->total_price += $totalPrice;
+        } else {
+            // Otherwise, add a new item to the cart
+            $cartItem = new Cart([
+                'product_id' => $productId,
+                'user_id' => auth()->id(),
+                'quantity' => $quantity,
+                'total_price' => $totalPrice,
+            ]);
+        }
+
+        // Save the cart item to the database
+        $cartItem->save();
+
+        // Redirect back to the product page or wherever you want
+        return redirect()->back()->with('success', 'Product added to cart successfully.');
+    } catch (\Exception $e) {
+        // Log the exception for debugging
+        \Log::error('Error adding product to cart: ' . $e->getMessage());
+
+        // Redirect back with an error message
+        return redirect()->back()->with('error', 'An error occurred while adding the product to cart. Please try again later.');
+    }
+}
 
 
     static function cartItem()
