@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RingController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
@@ -48,15 +46,10 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
 
-Route::post('/aboutus', [AboutUsController::class, 'submitform'])->name('aboutus.submitform');
-
-
 # Contact Us
 Route::get('/contactus', function () {
     return view('contactUs');
 })->name('contactus');
-
-Route::post('/contactus', [ContactController::class, 'submit'])->name('contactus.submit');
 
 Route::get('/searchlist', function () {
     return view('searchProducts');
@@ -160,7 +153,7 @@ Route::get("detail/{id}", [ProductController::class, 'detail']);
 //  ##############################          Route for the Cart Table             ########################################################
 
 
-Route::get("/add_to_cart", [App\Http\Controllers\ProductController::class, 'addToCart']);
+Route::post("/add_to_cart", [App\Http\Controllers\ProductController::class, 'addToCart'])->name('addToCart');
 
 Route::get("checkout", [App\Http\Controllers\ProductController::class, 'checkoutList'])->name('checkout');
 
@@ -233,12 +226,11 @@ Route::get('/t3users', function () {
 //  ##############################          Stripe/Checkout             ########################################################
 
 
-Route::controller(StripePaymentController::class)->group(function () {
-    Route::get('stripe', 'stripe')->name('stripe.index');
-    Route::get('stripe/checkout', 'stripeCheckout')->name('stripe.checkout');
-    Route::get('stripe/checkout/success', 'stripeCheckoutSuccess')->name('stripe.checkout.success');
+Route::controller(StripePaymentController::class)->group(function(){
+    Route::get('stripe','stripe')->name('stripe.index');
+    Route::get('stripe/checkout','stripeCheckout')->name('stripe.checkout');
+    Route::get('stripe/checkout/success','stripeCheckoutSuccess')->name('stripe.checkout.success');
 });
 
 
 Route::post('/update-cart-quantity/{id}', [ProductController::class, 'updateCartQuantity'])->name('update.cart.quantity');
-

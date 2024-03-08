@@ -8,11 +8,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\CartItem;
 use App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
+// use App\Http\Controllers\Log;
+use Illuminate\Support\Facades\Log;
 
 
 
@@ -500,37 +503,54 @@ class ProductController extends Controller
 {
     try {
         // Retrieve product ID and quantity from the form submission
+        Log::info('Worked ');
+        echo 'Worked';
         $productId = $request->input('product_id');
-        $quantity = $request->input('quantity');
-
+        
+        if (!is_null($request->input('quantity'))) {
+            echo 'Worked1';
+            Log::info('Worked1 ');
+            $quantity = $request->input('quantity');
+        }
+        else {
+            $quantity = 1;
+        }
+        Log::info($productId);
+        
         // Retrieve the product from the database
         $product = Product::find($productId);
+        Log::info('Worked2dfgdfgd ');
+        $price = $product->price;
 
         // Check if the product exists and if it's available
-        if (!$product || $product->stock < $quantity) {
-            // Handle error - product not found or not enough stock
-            return redirect()->back()->with('error', 'The product is not available or out of stock.');
-        }
+        // if (!$product || $product->stock < $quantity) {
+        //     // Handle error - product not found or not enough stock
+        //     Log::info('Worked2dfgdfgd_productnot ');
+        //     return redirect()->back()->with('error', 'The product is not available or out of stock.');
+        // }
 
         // Calculate total price
-        $totalPrice = $product->price * $quantity;
-
+        // $totalPrice = $product->price * $quantity;
+        $cartItem = CartItem::where('product_id', $product)
+                            ->where('user_id', Auth::id())->first();
         // Create or update cart item
-        $cartItem = Cart::where('product_id', $productId)
-            ->where('user_id', auth()->id())
-            ->first();
+        session()->flash('success', 'Product added successfully');
+        Log::info('Worked3 ');
+        
 
         if ($cartItem) {
+            Log::info('Worked3 ');
             // If the product is already in the cart, update its quantity and total price
             $cartItem->quantity += $quantity;
-            $cartItem->total_price += $totalPrice;
+            // $cartItem->total_price += $totalPrice;
         } else {
             // Otherwise, add a new item to the cart
-            $cartItem = new Cart([
+            Log::info('Worked4');
+            $cartItem = new CartItem([
+                'user_id' => Auth::id(),
                 'product_id' => $productId,
-                'user_id' => auth()->id(),
                 'quantity' => $quantity,
-                'total_price' => $totalPrice,
+                'total_amount' =>  $quantity * $price
             ]);
         }
 
@@ -541,10 +561,12 @@ class ProductController extends Controller
         return redirect()->back()->with('success', 'Product added to cart successfully.');
     } catch (\Exception $e) {
         // Log the exception for debugging
-        \Log::error('Error adding product to cart: ' . $e->getMessage());
+        Log::error('Error adding product to cart: ' . $e->getMessage());
 
         // Redirect back with an error message
+        echo 'Fail';
         return redirect()->back()->with('error', 'An error occurred while adding the product to cart. Please try again later.');
+        
     }
 }
 
@@ -559,25 +581,26 @@ class ProductController extends Controller
     }
 
 
-    function cartList()
-    {
-        $userId = auth()->id();
+    public function cartList()
+{
+    $userId = auth()->id();
 
-        $products = DB::table('cart')
-            ->join('products', 'cart.product_id', '=', 'products.id')
-            ->where('cart.user_id', $userId)
-            ->select('products.*', 'cart.id as cart_id')
-            ->get();
+    $cartItems = DB::table('cart_items')
+        ->join('products', 'cart_items.product_id', '=', 'products.id')
+        ->where('cart_items.user_id', $userId)
+        ->select('products.*', 'cart_items.id as cart_id', 'cart_items.quantity', 'cart_items.total_amount')
+        ->get();
 
-        $remove = Cart::where('user_id', $userId)->get();
+        
 
-        return view('cartlist', ['products' => $products, 'remove' => $remove]);
-    }
+    return view('cartlist', ['cartItems' => $cartItems]);
+}
+
 
     public function removeCart($id)
     {
         // Check if the authenticated user owns the cart item before removing it
-        $cartItem = Cart::where('id', $id)
+        $cartItem = CartItem::where('id', $id)
             ->where('user_id', auth()->id())
             ->first();
 
