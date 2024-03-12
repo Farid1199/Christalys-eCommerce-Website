@@ -121,9 +121,7 @@ $index = 0; // Initialize an index variable
         @endforeach
 
         
-        @php
-$totalPrice = $cartItems->sum('total_amount');
-@endphp
+       
 
 <div class="row">
   <div class="col-md-4 order-md-2 mb-4">

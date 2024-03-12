@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
 
 class StripePaymentController extends Controller
 {
@@ -16,6 +17,12 @@ class StripePaymentController extends Controller
 
     public function stripecheckout(request $request)
     {
+        $userId = auth()->id();
+        $cartItems = DB::table('cart_items')->where('cart_items.user_id', $userId)->get();
+        $totalPrice = $cartItems->sum('total_amount');
+        
+
+
         $stripe = new StripeClient(env('STRIPE_SECRET'));
         $reDirectUrl = route('stripe.checkout.success').'?session_id={CHECKOUT_SESSION_ID}';
 
@@ -29,7 +36,7 @@ class StripePaymentController extends Controller
                     'product_data' => [
                         'name' => $request->product,
                     ],
-                    'unit_amount' => 100 * $request->price,
+                    'unit_amount' => $totalPrice *100,
                     'currency' => 'GBP',
                 ],
                 'quantity' => 1

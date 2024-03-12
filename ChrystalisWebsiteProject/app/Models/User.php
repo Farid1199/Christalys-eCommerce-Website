@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
-
-class User extends Model implements Authenticatable
+class User extends Authenticatable
 {
-    use AuthenticatableTrait;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'users';
 

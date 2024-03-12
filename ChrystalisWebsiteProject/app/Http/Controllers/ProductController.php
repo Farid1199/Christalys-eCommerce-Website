@@ -581,6 +581,8 @@ class ProductController extends Controller
     }
 
 
+
+
     public function cartList()
 {
     $userId = auth()->id();
@@ -591,9 +593,9 @@ class ProductController extends Controller
         ->select('products.*', 'cart_items.id as cart_id', 'cart_items.quantity', 'cart_items.total_amount')
         ->get();
 
-        
+         $totalPrice = $cartItems->sum('total_amount');
 
-    return view('cartlist', ['cartItems' => $cartItems]);
+    return view('cartlist', ['cartItems' => $cartItems,'totalPrice' => $totalPrice]);
 }
 
 
