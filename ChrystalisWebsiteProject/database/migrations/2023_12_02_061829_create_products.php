@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("category");
             $table->string("description");
             $table->string("gallery");
+            $table->integer("inventory_count");
             $table->timestamps();
         });
     }

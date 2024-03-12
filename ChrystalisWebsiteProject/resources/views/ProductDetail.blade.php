@@ -4,8 +4,25 @@
 
 @section('content')
 
+
+
+
 <hr class="my-5" />
 <hr class="my-5" />
+
+
+<!-- Add this section for displaying flash messages -->
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+@if(session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
 
 <section id="product-details" class="container my-4" style="padding-top: 20px;">
     <div class="row">

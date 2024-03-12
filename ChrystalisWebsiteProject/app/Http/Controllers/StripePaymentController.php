@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Stripe\StripeClient;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use App\Models\CartItem;
+use Stripe\Customer;
+
 
 class StripePaymentController extends Controller
 {
@@ -23,30 +26,45 @@ class StripePaymentController extends Controller
         
 
 
-        $stripe = new StripeClient(env('STRIPE_SECRET'));
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $reDirectUrl = route('stripe.checkout.success').'?session_id={CHECKOUT_SESSION_ID}';
+        $cart_items = CartItem::with('product')->where('user_id', auth()->user()->id)->get();
+        $lineItems = [];
 
-        $response = $stripe->checkout->sessions->create([
-            'success_url' => $reDirectUrl,
-            'payment_method_types' => ['link','card'],
-
-            'line_items' => [
-                [
-                'price_data' => [
-                    'product_data' => [
-                        'name' => $request->product,
-                    ],
-                    'unit_amount' => $totalPrice *100,
-                    'currency' => 'GBP',
-                ],
-                'quantity' => 1
-            ],
-        ],
-        'mode' => 'payment',
-        'allow_promotion_codes' => true,
-
+        $customer = Customer::create([
+ 
+            'email' => auth()->user()->email,
         ]);
-        return redirect($response['url']);
+
+
+
+        foreach ($cart_items as $product) {
+            $lineItems[] = [
+                'price_data' => [
+                    'currency'     => 'gbp',
+                    'product_data' => [
+                        'name' => $product->product->name, // Ensure this is the correct way to get the product name
+                    ],
+                    'unit_amount'  => round($product->product->price*100), // Ensure price is in GBP and already a decimal
+                ],
+                'quantity'   => $product->quantity, // Ensure this is the correct way to get the quantity
+            ];
+        }
+        
+        // Check that $lineItems is not empty
+       
+        
+        $session = \Stripe\Checkout\Session::create([
+            'shipping_address_collection' => ['allowed_countries' => ['GB']],
+            'success_url' => $reDirectUrl,
+            'cancel_url' => route('cartlist'), // You should provide a cancel_url as well
+            'payment_method_types' => ['card'], // 'link' is not a standard payment method type for Stripe
+            "metadata" => array("cus_id" => $customer->id,"userid" =>auth()->user()->id),
+            'line_items' => $lineItems,
+            'mode' => 'payment',
+        ]);
+        
+        return redirect($session->url); // Make sure to use the property access '->' instead of array access '[]'
 
     }
 

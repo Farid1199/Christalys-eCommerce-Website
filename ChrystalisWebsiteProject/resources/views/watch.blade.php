@@ -16,6 +16,20 @@
     <div class="container py-5">
 
         <div class="py-3 text-center"></div>
+
+<!-- Add this section for displaying flash messages -->
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+@if(session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
+
         <div class="row">
 
       <!-- Search Filters Column -->

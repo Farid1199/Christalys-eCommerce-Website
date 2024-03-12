@@ -520,17 +520,16 @@ class ProductController extends Controller
         // Retrieve the product from the database
         $product = Product::find($productId);
         Log::info('Worked2dfgdfgd ');
+
+        // Check if the inventory count is more than 0
+        if ($product->inventory_count <= 0) {
+            // If not, redirect back with an error message
+            return redirect()->back()->with('error', 'This product is currently out of stock.');
+        }
+
         $price = $product->price;
 
-        // Check if the product exists and if it's available
-        // if (!$product || $product->stock < $quantity) {
-        //     // Handle error - product not found or not enough stock
-        //     Log::info('Worked2dfgdfgd_productnot ');
-        //     return redirect()->back()->with('error', 'The product is not available or out of stock.');
-        // }
-
-        // Calculate total price
-        // $totalPrice = $product->price * $quantity;
+       
         $cartItem = CartItem::where('product_id', $product)
                             ->where('user_id', Auth::id())->first();
         // Create or update cart item
@@ -542,6 +541,11 @@ class ProductController extends Controller
             Log::info('Worked3 ');
             // If the product is already in the cart, update its quantity and total price
             $cartItem->quantity += $quantity;
+            // Ensure that updating the cart item doesn't exceed the inventory count
+            if ($cartItem->quantity > $product->inventory_count) {
+                // Adjust the cart item quantity to the maximum available inventory or handle as needed
+                return redirect()->back()->with('error', 'Unable to add the desired quantity to cart. Limited stock available.');
+            }
             // $cartItem->total_price += $totalPrice;
         } else {
             // Otherwise, add a new item to the cart
@@ -550,7 +554,7 @@ class ProductController extends Controller
                 'user_id' => Auth::id(),
                 'product_id' => $productId,
                 'quantity' => $quantity,
-                'total_amount' =>  $quantity * $price
+                'total_amount' =>  $quantity * $price 
             ]);
         }
 
@@ -569,6 +573,7 @@ class ProductController extends Controller
         
     }
 }
+
 
 
     static function cartItem()
@@ -661,6 +666,10 @@ class ProductController extends Controller
     }
 
 
+
+ /**
+     *   ########################       Product Availability Allert      ##################################
+     */
 
 
 
