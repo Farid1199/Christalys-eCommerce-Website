@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactController;
+
 
 
 /*
@@ -226,10 +229,10 @@ Route::get('/t3users', function () {
 //  ##############################          Stripe/Checkout             ########################################################
 
 
-Route::controller(StripePaymentController::class)->group(function(){
-    Route::get('stripe','stripe')->name('stripe.index');
-    Route::get('stripe/checkout','stripeCheckout')->name('stripe.checkout');
-    Route::get('stripe/checkout/success','stripeCheckoutSuccess')->name('stripe.checkout.success');
+Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('stripe', 'stripe')->name('stripe.index');
+    Route::get('stripe/checkout', 'stripeCheckout')->name('stripe.checkout');
+    Route::get('stripe/checkout/success', 'stripeCheckoutSuccess')->name('stripe.checkout.success');
 });
 
 
