@@ -32,9 +32,12 @@ $total = ProductController::cartItem();
               <h6 class="my-0">{{$item->name}}</h6>
             </a>
           </div>
-          <span class="text-muted">£{{$item->price}}</span>
-          <span class="text-muted">Quantity:{{$item->quantity}}</span>
+          <span class="text-muted">Q:{{$item->quantity}}</span>
           <span class="text-muted">Total amount: £{{$item->total_amount}}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <span class="text-muted">Total Price:£{{$totalPrice}}</span>
+
         </li>
 
         @endforeach
