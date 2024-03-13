@@ -4,261 +4,139 @@
 
 @section('content')
 
+<style>
+    body {
+        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+    }
 
-<link rel="stylesheet" href="{{ asset('assets/css/css-pages/style.css')}}" />
+    .album {
+        background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
+        border-radius: 0.25rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
 
-<!-----------------------------
-    MAIN CONTENT
--------------------------------->
+    .card {
+        background-color: #dee2e6; /* Grey card background for better content readability */
+        border: none;
+    }
 
+    .btn-outline-secondary, .btn-grey, .btn-outline-grey {
+        color: #6c757d; /* Adjusting for consistency */
+        border-color: #6c757d; /* Grey border for buttons */
+    }
+
+    .btn-outline-secondary:hover, .btn-grey:hover, .btn-outline-grey:hover {
+        color: #fff; /* White text on hover */
+        background-color: #5a6268; /* Darker grey background on hover */
+        border-color: #545b62; /* Darker grey border on hover */
+    }
+
+    .btn-success, .btn-primary {
+        background-color: #6c757d; /* Adjusting primary and success buttons to match grey scheme */
+        border-color: #6c757d; /* Consistent border color */
+    }
+
+    .btn-success:hover, .btn-primary:hover {
+        background-color: #5a6268; /* Darker grey on hover */
+        border-color: #545b62; /* Darker border color on hover */
+    }
+
+    .form-control {
+        border-radius: 0.25rem;
+    }
+
+    .sticky-sm-top {
+        top: 0;
+        z-index: 1020;
+    }
+</style>
 <div class="album bg-light py-5">
     <div class="container py-5">
-        
-
         <div class="py-3 text-center"></div>
 
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
 
-<!-- Add this section for displaying flash messages -->
-@if(session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
-@endif
+        @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+        @endif
 
-@if(session('error'))
-<div class="alert alert-danger">
-    {{ session('error') }}
-</div>
-@endif
         <div class="row">
-
-        <!-- Search Filters Column -->
-        <div class="col-md-3">
-                <div class="card sticky-sm-top  mt-4">
-                    <div class="card-body ">
-
-
-
-                    <h5 class="card-title">Search Filters</h5>
-                    <!-- Search form for category -->
-                    <form>
-
-                        <div class="form-group">
-                            <label for="min_price">Search by Price</label>
-                            <input type="number" class="form-control" id="min_price" name="min_price"
-                                placeholder="Min Price" value="{{ request('min_price') }}">
-                            <input type="number" class="form-control" id="max_price" name="max_price"
-                                placeholder="Max Price" value="{{ request('max_price') }}">
-                        </div>
-
-                        <div class="form-group mt-5 text-center">
-                            <button class="btn btn-success text-center" type="submit" >Apply Filters</button>
-                            <button class="btn btn-primary ml-3" value="{{ request('reset_filters') }} ">Reset Filters</button>
-                        </div>
-                
-                    </form>
+            <div class="col-md-3">
+                <div class="card sticky-sm-top mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Search Filters</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="min_price">Search by Price</label>
+                                <input type="number" class="form-control" id="min_price" name="min_price" placeholder="Min Price" value="{{ request('min_price') }}">
+                                <input type="number" class="form-control" id="max_price" name="max_price" placeholder="Max Price" value="{{ request('max_price') }}">
+                            </div>
+                            <div class="form-group mt-5 text-center">
+                                <button class="btn btn-secondary text-center" type="submit">Apply Filters</button>
+                                <button class="btn btn-secondary ml-3" type="button" onclick="resetFilters()">Reset Filters</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
 
-
-
             <div class="col-md-9">
-                
                 @foreach ($products as $ring)
-
-                <div class="card mb-4 box-shadow item{{ $ring['id'] == 1 ? 'active' : '' }}">
+                <div class="card mb-4 box-shadow">
                     <div class="row align-items-center">
                         <div class="col text-center">
-                            <img class="card-img-center img-fluid img-responsive" src="{{ $ring['gallery'] }}"
-                                style="width: 250px; height: 250px;" alt="Card image cap" />
+                            <img class="card-img-center img-fluid img-responsive" src="{{ $ring['gallery'] }}" style="width: 250px; height: 250px;" alt="Card image cap" />
                         </div>
                         <div class="col-8">
                             <div class="card-body text-left">
                                 <h4 class="text-left my-3">{{ $ring->name }}</h4>
-                                <p class="card-text">
-                                    {{ $ring->description }}
-                                </p>
-
-                                <p class="card-text font-weight-bold">
-                                    Price: £{{ $ring->price}}
-                                </p>
-
+                                <p class="card-text">{{ $ring->description }}</p>
+                                <p class="card-text font-weight-bold">Price: £{{ $ring->price }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
-
-
-
                                     <form action="detail/{{$ring['id']}}" method="GET">
                                         @csrf
-                                        <button class="btn btn-outline-primary" id="addToCartBtn"> View </button>
+                                        <button class="btn btn-outline-secondary" type="submit">View</button>
                                     </form>
 
                                     <form action="/add_to_wishlist" method="POST">
                                         @csrf
-                                        <button class="btn btn-outline-secondary" id="addToCartBtn"> Add to Wishlist
-                                        </button>
-                                        <input type="hidden" value="{{$ring->id}}" name="product_id" id="product_id">
+                                        <button class="btn btn-outline-secondary" type="submit">Add to Wishlist</button>
+                                        <input type="hidden" value="{{$ring->id}}" name="product_id">
                                     </form>
 
                                     <form action="/add_to_cart" method="POST">
                                         @csrf
                                         <input type="hidden" name="product_id" value="{{$ring['id']}}">
-                                        <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
+                                        <button class="btn btn-success" type="submit">Add to Cart</button>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 @endforeach
-
             </div>
         </div>
     </div>
 </div>
-</div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var minPriceField = document.getElementById('min_price');
+        var maxPriceField = document.getElementById('max_price');
 
-<script> 
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the min_price and max_price input fields
-    var minPriceField = document.getElementById('min_price');
-    var maxPriceField = document.getElementById('max_price');
-
-    // Clear the min_price and max_price input fields
-    minPriceField.value = '';
-    maxPriceField.value = '';
-});
-
+        // Optionally reset fields on page load if needed
+        function resetFilters() {
+            minPriceField.value = '';
+            maxPriceField.value = '';
+        }
+    });
 </script>
 
-
-
-<!--
-<h1>Rings</h1>
-<main>
-    <-- Ring 1 <section class="product-container">
-        @foreach ($products as $ring)
-        <div class="item {{ $ring['id'] == 1 ? 'active' : '' }}">
-            <a href="detail/{{$ring['id']}}">
-                <img class="card-img-top" src="{{ $ring['gallery'] }}">
-                <div class="product-info">
-                    <h3>{{ $ring->name }}</h3>
-                    <p>{{ $ring->description }}</p>
-                </div>
-            </a>
-        </div>
-        @endforeach
-        </section>
-</main> -->
-
-
-
 @endsection
-
-
-
-
-<!-- 
-
-
-<link rel="stylesheet" href="{{ asset('assets/css/css-pages/style.css')}}" />
-
-<div class="album py-5 bg-light">
-    <div class="container py-5">
-
-        <div class="py-3 text-center"></div>
-        <div class="row">
-
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <h4 class="text-center my-3">Product Title</h4>
-                    <img class="card-img-top"
-                        data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                        alt="Card image cap" />
-                    <div class="card-body">
-                        <p class="card-text">
-                            This is a wider card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit
-                            longer.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <button type="button" class="btn btn-medium btn-outline-primary">
-                                View
-                            </button>
-
-                            <button type="button" class="btn btn-medium btn-outline-success">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <h4 class="text-center my-3">Product Title</h4>
-                    <img class="card-img-top"
-                        data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                        alt="Card image cap" />
-                    <div class="card-body">
-                        <p class="card-text">
-                            This is a wider card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit
-                            longer.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <button type="button" class="btn btn-medium btn-outline-primary">
-                                View
-                            </button>
-
-                            <button type="button" class="btn btn-medium btn-outline-success">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-    </div>
-
-</div>
-</div> -->
-
-
-<!--
-
-            <div class="col-md-4 item {{ $ring['id'] == 1 ? 'active' : '' }}">
-                <div class="card mb-4 box-shadow">
-                    <h4 class="text-center my-3">{{ $ring->name }}</h4>
-                    <img class="card-img-top"
-                        data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                        alt="Card image cap" />
-                    <div class="card-body">
-                        <p class="card-text">
-                            {{ $ring->description }}
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <a href="detail/{{$ring['id']}}">
-                                <button type="button" class="btn btn-medium btn-outline-primary">
-                                    View
-                                </button> </a>
-
-                            <button type="button" class="btn btn-medium btn-outline-success">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
--->
