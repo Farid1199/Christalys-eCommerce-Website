@@ -237,3 +237,8 @@ Route::controller(StripePaymentController::class)->group(function () {
 
 
 Route::post('/update-cart-quantity/{id}', [ProductController::class, 'updateCartQuantity'])->name('update.cart.quantity');
+
+
+
+
+Route::stripeWebhooks('/webhook');
