@@ -7,7 +7,6 @@ use OpenAdmin\Admin\Admin;
 
 
 
-
 $var  = new Admin();
 $var->routes();
 
@@ -21,5 +20,7 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     
 $router->resource('users', UserController::class);
+$router->resource('products', ProductController::class);
+
 
 });

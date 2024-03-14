@@ -14,5 +14,5 @@ class Product extends Model
     protected $fillable = ['id', 'name', 'price', 'category', 'description', 'gallery'];
 
     // If you don't want to use timestamps (created_at and updated_at columns)
-    public $timestamps = false;
+  
 }

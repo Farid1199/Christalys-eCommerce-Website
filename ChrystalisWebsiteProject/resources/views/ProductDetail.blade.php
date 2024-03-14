@@ -4,45 +4,154 @@
 
 @section('content')
 
+    <!-- Other meta tags, title, and stylesheets -->
+
+    <style>
+        .zoomable-image-container {
+            overflow: hidden;
+            position: relative;
+            width: 450px; /* Adjust this value as per your image width */
+            height: 450px; /* Adjust this value as per your image height */
+        }
+
+        .zoomable-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+
+
+    body {
+        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+    }
+
+    .album {
+        background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
+        border-radius: 0.25rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+    .card {
+        background-color: #dee2e6; /* Grey card background for better content readability */
+        border: none;
+    }
+
+    .btn-outline-secondary, .btn-grey, .btn-outline-grey {
+        color: #6c757d; /* Adjusting for consistency */
+        border-color: #6c757d; /* Grey border for buttons */
+    }
+
+    .btn-outline-secondary:hover, .btn-grey:hover, .btn-outline-grey:hover {
+        color: #fff; /* White text on hover */
+        background-color: #5a6268; /* Darker grey background on hover */
+        border-color: #545b62; /* Darker grey border on hover */
+    }
+
+    .btn-success, .btn-primary {
+        background-color: #6c757d; /* Adjusting primary and success buttons to match grey scheme */
+        border-color: #6c757d; /* Consistent border color */
+    }
+
+    .btn-success:hover, .btn-primary:hover {
+        background-color: #5a6268; /* Darker grey on hover */
+        border-color: #545b62; /* Darker border color on hover */
+    }
+
+    .form-control {
+        border-radius: 0.25rem;
+    }
+
+    .sticky-sm-top {
+        top: 0;
+        z-index: 1020;
+    }
+
+
+    </style>
+
+    <script>
+                window.onload = function() {
+        const container = document.querySelector('.zoomable-image-container');
+        const image = document.querySelector('.zoomable-image');
+
+        container.addEventListener('mousemove', function(event) {
+            const { left, top, width, height } = container.getBoundingClientRect();
+            const mouseX = event.clientX - left;
+            const mouseY = event.clientY - top;
+            const offsetX = (mouseX / width) * 100;
+            const offsetY = (mouseY / height) * 100;
+
+            const transformValue = `translate(-${offsetX}%, -${offsetY}%) scale(2)`;
+
+            image.style.transform = transformValue;
+        });
+
+        container.addEventListener('mouseleave', function() {
+            image.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    };
+    </script>
+
+
+
+
 <hr class="my-5" />
 <hr class="my-5" />
 
+
+<!-- Add this section for displaying flash messages -->
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+@if(session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
+
 <section id="product-details" class="container my-4" style="padding-top: 20px;">
-    <div class="row">
-        <div class="col-md-6">
-            <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset($product['gallery']) }}" class="img-fluid img-thumbnail float-right"
-                            style="max-width: 450px; height: 450px;" alt="Product Image">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="zoomable-image-container">
+                                <img src="{{ asset($product['gallery']) }}" class="zoomable-image img-fluid img-thumbnail"
+                                    style="max-width: 450px; height: 450px;" alt="Product Image">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="watchesSeperate">
-                <h2>{{ $product['name'] }}</h2>
-                <p>{{ $product['description'] }}</p>
-                <p>Category: {{ $product['category'] }}</p>
-                <p><b>Price: {{ $product['price'] }}</b></p>
-                <form action="/add_to_cart" method="POST">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $product['id'] }}">
-                    
-                    <label for="quantity" class="form-label">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control mb-3" style="width: auto;">
+            <div class="col-md-6">
+                <div class="watchesSeperate">
+                    <h2>{{ $product['name'] }}</h2>
+                    <p>{{ $product['description'] }}</p>
+                    <p>Category: {{ $product['category'] }}</p>
+                    <p><b>Price: {{ $product['price'] }}</b></p>
+                    <form action="/add_to_cart" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product['id'] }}">
+                        
+                        <label for="quantity" class="form-label">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control mb-3" style="width: auto;">
 
-                    <button class="btn btn-success mb-3" id="addToCartBtn">Add to Cart</button>
-                </form>
-                <form action="/add_to_wishlist" method="POST">
-                    @csrf
-                    <button class="btn btn-outline-secondary" id="addToWishlistBtn"> Add to Wishlist
-                    </button>
-                    <input type="hidden" value="{{ $product['id'] }}" name="product_id">
-                </form>
+                        <button class="btn btn-success mb-3" id="addToCartBtn">Add to Cart</button>
+                    </form>
+                    <form action="/add_to_wishlist" method="POST">
+                        @csrf
+                        <button class="btn btn-outline-secondary" id="addToWishlistBtn"> Add to Wishlist
+                        </button>
+                        <input type="hidden" value="{{ $product['id'] }}" name="product_id">
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 @endsection

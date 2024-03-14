@@ -4,6 +4,53 @@
 
 @section('content')
 
+<style>
+    body {
+        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+    }
+
+    .album {
+        background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
+        border-radius: 0.25rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+    .card {
+        background-color: #dee2e6; /* Grey card background for better content readability */
+        border: none;
+    }
+
+    .btn-outline-secondary, .btn-grey, .btn-outline-grey {
+        color: #6c757d; /* Adjusting for consistency */
+        border-color: #6c757d; /* Grey border for buttons */
+    }
+
+    .btn-outline-secondary:hover, .btn-grey:hover, .btn-outline-grey:hover {
+        color: #fff; /* White text on hover */
+        background-color: #5a6268; /* Darker grey background on hover */
+        border-color: #545b62; /* Darker grey border on hover */
+    }
+
+    .btn-success, .btn-primary {
+        background-color: #6c757d; /* Adjusting primary and success buttons to match grey scheme */
+        border-color: #6c757d; /* Consistent border color */
+    }
+
+    .btn-success:hover, .btn-primary:hover {
+        background-color: #5a6268; /* Darker grey on hover */
+        border-color: #545b62; /* Darker border color on hover */
+    }
+
+    .form-control {
+        border-radius: 0.25rem;
+    }
+
+    .sticky-sm-top {
+        top: 0;
+        z-index: 1020;
+    }
+</style>
+
 <link rel="stylesheet" href="{{ asset('assets/css/css-pages/style.css')}}" />
 
 <!-----------------------------
@@ -12,6 +59,9 @@
 
 <div class="album bg-light py-5">
     <div class="container py-5">
+
+
+
         <div class="row">
             <!-- Search Filters Column -->
             <div class="col-md-3">
@@ -47,8 +97,8 @@
                         </div>
 
                         <div class="form-group mt-5 text-center">
-                            <button class="btn btn-success text-center" type="submit" >Apply Filters</button>
-                            <button class="btn btn-primary ml-3" value="{{ request('reset_filters') }} ">Reset Filters</button>
+                            <button class="btn btn-outline-secondary text-center" type="submit" >Apply Filters</button>
+                            <button class="btn btn-outline-secondary ml-3" value="{{ request('reset_filters') }} ">Reset Filters</button>
                         </div>
                 
                     </form>
@@ -59,7 +109,20 @@
 
             <!-- Products Column -->
             <div class="col-md-9">
-                <div class="py-3 text-center"></div>
+                <div class="py-3 text-center">
+                    <!-- Flash messages -->
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+
+        @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+        @endif
+                </div>
                 <div class="col">
                     <div class="row">
                         @foreach ($products as $bracelet)
@@ -82,7 +145,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <form action="detail/{{$bracelet['id']}}" method="GET">
                                                 @csrf
-                                                <button class="btn btn-outline-primary" id="addToCartBtn"> View
+                                                <button class="btn btn-outline-secondary" id="addToCartBtn"> View
                                                 </button>
                                             </form>
                                             <form action="/add_to_wishlist" method="POST">

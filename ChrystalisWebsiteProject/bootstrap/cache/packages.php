@@ -70,4 +70,18 @@
       'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
     ),
   ),
+  'spatie/laravel-stripe-webhooks' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\StripeWebhooks\\StripeWebhooksServiceProvider',
+    ),
+  ),
+  'spatie/laravel-webhook-client' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\WebhookClient\\WebhookClientServiceProvider',
+    ),
+  ),
 );

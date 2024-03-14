@@ -16,32 +16,49 @@ $total = ProductController::cartItem();
   <div class="py-5 text-center"></div>
   <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
-      <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">Your cart</span>
-        <span class="badge badge-secondary badge-pill">{{$total}}</span>
-      </h4>
-      <ul class="list-group mb-3">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Your cart</span>
+            <span class="badge badge-secondary badge-pill">{{$total}}</span>
+        </h4>
+        <ul class="list-group mb-3">
+            @foreach($cartItems as $item)
+            <li class="list-group-item cart-item">
+                <div class="row">
+                    <div class="col-5">
+                        <a href="detail/{{$item->id}}" style="text-decoration:none;">
+                            <h6 class="my-0">{{$item->name}}</h6>
+                        </a>
+                    </div>
+                    <div class="col-3 text-center">
+                        <div>
+                            <span class="text-muted">Q: {{$item->quantity}}</span>
+                        </div>
+                    </div>
+                    <div class="col-4 text-right">
+                        <div>
+                            <span class="text-muted">Total: £{{$item->total_amount}}</span>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </li>
 
-        @foreach($products as $item)
-
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-
-
-          <div>
-            <a href="detail/{{$item->id}}" style="text-decoration:none;">
-              <h6 class="my-0">{{$item->name}}</h6>
-            </a>
-          </div>
-          <span class="text-muted">£{{$item->price}}</span>
-        </li>
-
-        @endforeach
-
-
-
-
-      </ul>
-
+            <li class="list-group-item cart-item bg-light border">
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <div>
+                            <span class="text-dark">Total Amount:</span>
+                        </div>
+                    </div> 
+                    <div class="col-6 text-right">
+                        <div>
+                            <span class="text-dark"> £{{$totalPrice}}</span>
+                        </div>
+                    </div> 
+                </div>
+            </li>
+            
+        </ul>
     </div>
 
     @php
@@ -57,7 +74,7 @@ $index = 0; // Initialize an index variable
       <div class="alert alert-success">{{ session('success') }}</div>
       @endif
 
-      @if($products->isEmpty())
+      @if($cartItems->isEmpty())
 
       <img class="mx-auto d-block my-4" src="{{ asset('Images\HomePage\Empty-cart.png') }}"
         alt="Generic placeholder image" width="140" height="140" />
@@ -68,7 +85,7 @@ $index = 0; // Initialize an index variable
 
 
       <div class="row">
-        @foreach($products as $item)
+        @foreach($cartItems as $item)
         <div class="card rounded-3 mb-4">
 
           <div class="card-body">
@@ -88,8 +105,8 @@ $index = 0; // Initialize an index variable
                 <h5 class="mb-0">£{{$item->price}}</h5>
               </div>
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <!--a href="{{ url('removeCart', ['id' => $remove[$index]->id]) }}">
-                  <img src="{{ asset('Images\HomePage\cart-remove.png') }}" class="img-fluid">
+               
+                 
                 </a-->
 
 
@@ -118,8 +135,41 @@ $index = 0; // Initialize an index variable
         @endphp
         @endforeach
 
+        
+       
+    <div class="container ">
+
+      <div class="row ">
+
+        <div class="card rounded-3 mb-4 bg-light">
+
+          <div class="card-body bg-light">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-sm text-left">
+
+                <h4 class="d-flex justify-content-between align-items-center ">
+                  <span class="mb-0">Total Price:</span>
+                </h4>
+                
+              </div>
+
+              <div class="col-sm text-right">
+
+                <h3 class="align-items-center ">
+                  <span class="mb-0">£{{$totalPrice}}</span>
+                </h3>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
       </div>
 
+    </div>
 
       <div class="row">
 
