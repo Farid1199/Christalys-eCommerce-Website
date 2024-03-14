@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfileController;
+
 $total = ProductController::cartItem();
 ?>
 
@@ -12,7 +12,6 @@ $total = ProductController::cartItem();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-    @yield('title', 'Chrystalis')
   </title>
 
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -21,7 +20,7 @@ $total = ProductController::cartItem();
   <link rel="icon" href="{{ asset('assets/Images/Homepage/favicon.png')}}" type="image/x-icon" />
   <link rel="stylesheet" href="{{ asset('assets/css/boostrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}">
-  <!-- <link rel="stylesheet" href="{{ asset('resources\css\homePage.css')}}"> 
+  <!-- <link rel="stylesheet" href="{{ asset('resources\css\homePage.css')}}">
   <link rel="stylesheet" href="resources\css\navbar-footer.css">  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -61,32 +60,26 @@ $total = ProductController::cartItem();
   <div class="head1">
     @yield('header')
     <header class="fixed-top">
-      <div class="px-3 py-2 border-bottom" style="background-color: #f8f9fa;">
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div class="px-3 py-2 border-bottom" style="background-color: #f8f9fa;">
+          <div class="container d-flex justify-content-between align-items-center ">
 
-            <a href="#!" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-decoration-none">
+            <a href="#!" class="d-flex align-items-center my-2 text-decoration-none">
               <div id="logo" class="ml-5">
                 <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo"
-                  style="width: 30%; height: 20%" />
+                  style="width: 40%; height: 30%" />
               </div>
 
 
             </a>
 
-            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <ul class="nav col-12 col-lg-auto my-2 mr-5 justify-content-center my-md-0 text-small">
               <li>
                 <a href="/" class="nav-link text-dark">
                   <i class="fa fa-home d-block mx-auto mb-1 fa-2x text-center"> </i>
                   Home
                 </a>
               </li>
-              <li>
-                <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
-                  <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
-                  {{ __('Dashboard') }}
-                </a>
-              </li>
+
               <li>
                 <a href="{{route('products')}}" class="nav-link text-secondary">
                   <i class="fa fa-shopping-bag d-block mx-auto mb-1 fa-2x text-center"> </i>
@@ -100,60 +93,101 @@ $total = ProductController::cartItem();
                 </a>
               </li>
               <li>
-                <a href="{{route('aboutus')}}" class="nav-link text-secondary">
+
+                <a href="{{route('wishlist')}}" class="nav-link text-secondary">
+                  <i class="fa fa-star d-block mx-auto mb-1 fa-2x text-center"> </i>
+                  Wish List
+                </a>
+              </li>
+              <li>
+
+                <a href="{{route('aboutus')}}" class="nav-link text-secondary mr-5">
                   <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
                   About Us
                 </a>
               </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      @if (Auth::check())
-      <div class="px-3 py-2 border-bottom mb-3" style="background-color: white;">
-        <div class="container d-flex flex-wrap justify-content-center">
-          <form class="col-6 col-lg-auto d-flex flex-grow-1 mr-5 pr-5" role="search">
-            <input class="form-control mr-sm-2 p-1.5" type="text" placeholder="Search" aria-label="Search" name="search"
-              value="{{ request('search') }}" />
-            <button class="btn btn-outline-success my-2 my-sm-0 p-1.5" type="submit">Search</button>
-          </form>
+          </ul> 
 
 
-          <div class="text-end">
-            <button type="button" class="btn btn-primary">
-              <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <a href="{{route('logout')}}" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                  {{ __('Log Out') }}
-                </a>
-              </form>
-            </button>
-          </div>
-        </div>
-      </div>
+          <ul class="nav col-12 col-lg-auto my-2 justify-content-end my-md-0 text-small ml-5">
+                    @if (Auth::check())
+                      <li>
+                          <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
+                            <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
+                            {{ __('Dashboard') }}
+                          </a>
+                        </li>
 
-      @else
-      <div class="px-3 py-2 border-bottom mb-3" style="background-color: white;">
-        <div class="container d-flex flex-wrap justify-content-center">
-          <form class="col-6 col-lg-auto d-flex flex-grow-1 mr-5 pr-5" role="search">
-            <input class="form-control mr-sm-2 p-1.5" type="text" placeholder="Search" aria-label="Search" name="search"
-              value="{{ request('search') }}" />
-            <button class="btn btn-outline-success my-2 my-sm-0 p-1.5" type="submit">Search</button>
-          </form>
+                        <li>
 
-          <div class="text-end">
-            <a href="{{ route('login') }}"><button type="button" class="btn btn-light text-dark me-2">
-                Login
-              </button></a>
-            <a href="{{ route('register') }}"><button type="button" class="btn btn-primary">Sign-up</button>
+          <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                          this.closest('form').submit();" class="nav-link text-secondary">
+              <i class="fas fa-sign-out-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
+              {{ __('Log Out') }}
             </a>
-          </div>
+          </form>
+
+          </li>
+                    @else
+                    <li>
+
+          <a href="{{ route('login') }}" class="nav-link text-secondary">
+            <i class="fas fa-sign-in-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
+            Login
+          </a>
+          </li>
+
+          <li>
+
+          <a href="{{ route('register') }}" class="nav-link text-secondary">
+            <i class="fa fa-users d-block mx-auto mb-1 fa-2x text-center"> </i>
+            Sign Up
+          </a>
+          </li>
+
+          @endif
+        </ul>
+
+
+</div>
+      </div>
+
+
+      <div class="px-3 py-2 border-bottom mb-3" style="background-color: white;">
+        <div class="container d-flex flex-wrap justify-content-center">
+
+
+          <form class="col-6 col-lg-auto d-flex flex-grow-1 flex-wrap justify-content-between" role="search">
+              <div class="d-flex mb-2 mb-lg-0" style="width: 65%;">
+                  <input class="form-control mr-sm-2 p-1.5" type="text" placeholder="Search" aria-label="Search" name="search" value="{{ request('search') }}" style="width: 100%;" />
+                  <button class="btn btn-outline-success my-2 my-sm-0 p-1.5" type="submit">Search</button>
+              </div>
+              <div class="d-flex" style="width: 22.5%;">
+              <span class="align-self-center" style="width: 40%; text-align:center">SORT BY:</span>
+                  <select class="form-control" id="sort" name="sort" value="{{ request('sort') }}" onchange="this.form.submit()" style="width: 100%;">
+                      <option disabled selected>-- Select Sort Type --</option>
+                      <option value="name_asc">Name (Ascending)</option>
+                      <option value="name_desc">Name (Descending)</option>
+                      <option value="price_asc">Price (Low-to-High)</option>
+                      <option value="price_desc">Price (High-to-Low)</option>
+                  </select>
+              </div>
+          </form>
+
+          @if(!empty($message))
+          <p>{{ $message }}</p>
+          @endif
+
+
+
         </div>
       </div>
 
-      @endif
+
+
+
     </header>
 
 

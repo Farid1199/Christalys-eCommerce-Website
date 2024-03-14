@@ -11,6 +11,10 @@ use App\Models\Cart;
 use App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use App\Models\Wishlist;
+use Illuminate\Support\Facades\Auth;
+
+
 
 
 
@@ -20,19 +24,65 @@ class ProductController extends Controller
 
     public function productList()
     {
+        $query = Product::query();
 
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $products = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
-        } else {
-            $products = Product::all();
-            //$bracelets = Product::where('category', 'Bracelet')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        }
+
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
 
         }
 
-        //$bracelets = Product::where('category', 'Bracelet')->get();
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'products')->get();
+        }
+
+        // Fetch products
+        $products = $query->get();
+
         return view('searchProducts', ['products' => $products]);
     }
+
 
 
 
@@ -47,16 +97,63 @@ class ProductController extends Controller
     // ################################       Ring    #############################################
     public function index()
     {
+        $query = Product::where('category', 'Ring');
 
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $rings = Product::where('category', 'Ring')
-                ->where('name', 'like', '%' . $searchTerm . '%')->get();
-        } else {
-            $rings = Product::where('category', 'Ring')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        }
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $query = Product::query();
 
         }
-        return view('ring', ['products' => $rings]);
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('ring', ['products' => $products]);
     }
 
     public function getRings()
@@ -67,46 +164,72 @@ class ProductController extends Controller
 
     // ################################       Bracelet    #############################################
 
-    /*public function index1()
-    {
-        //
-        //$bracelets = Product::where('category', 'Bracelet')->get();
-        //return view('bracelet', ['products' => $bracelets]);
-
-        if (request('search')) {
-            $bracelets = Product::where('category', '%' . request('search') . '%')->get();
-            //$bracelets = Product::where('category', 'Bracelet')->get();
-        } else {
-            $bracelets = Product::where('category', 'Bracelet')->get();
-        }
-
-        return view('bracelet', ['products' => $bracelets]);
-
-                /*if (request()->has('search')) {
-            $searchTerm = request('search');
-            $bracelets = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
-        } else {
-            $bracelets = Product::all();
-            $bracelets = Product::where('category', 'Bracelet')->get();
-
-        }
-
-    }*/
-
-
     public function index1()
     {
+        $query = Product::where('category', 'Bracelet');
 
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $bracelets = Product::where('category', 'Bracelet')
-                ->where('name', 'like', '%' . $searchTerm . '%')
-                ->get();
-        } else {
-            $bracelets = Product::where('category', 'Bracelet')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        }
+
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
 
         }
-        return view('bracelet', ['products' => $bracelets]);
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'Bracelet')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('bracelet', ['products' => $products]);
     }
 
     public function getBracelet()
@@ -141,16 +264,71 @@ class ProductController extends Controller
 
     public function index2()
     {
+
+        $query = Product::where('category', 'Necklace');
+
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $necklace = Product::where('category', 'Necklace')
-                ->where('name', 'like', '%' . $searchTerm . '%')
-                ->get();
-        } else {
-            $necklace = Product::where('category', 'Necklace')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
         }
 
-        return view('necklace', ['products' => $necklace]);
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
+
+        }
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'Necklace')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('necklace', ['products' => $products]);
     }
 
     public function getNecklace()
@@ -163,16 +341,70 @@ class ProductController extends Controller
 
     public function index3()
     {
+        $query = Product::where('category', 'Earring');
+
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $earrings = Product::where('category', 'Earring')
-                ->where('name', 'like', '%' . $searchTerm . '%')
-                ->get();
-        } else {
-            $earrings = Product::where('category', 'Earring')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        }
+
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
 
         }
-        return view('earring', ['products' => $earrings]);
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'Earring')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('earring', ['products' => $products]);
     }
 
     public function getEarring()
@@ -186,22 +418,70 @@ class ProductController extends Controller
 
     public function index4()
     {
-        //
-        //$watch = Product::where('category', 'Watch')->get();
-        //return view('watch', ['products' => $watch]);
+        $query = Product::where('category', 'Watch');
 
+        // Filter by search term
         if (request()->has('search')) {
             $searchTerm = request('search');
-            $watch = Product::where('category', 'Watch')
-                ->where('name', 'like', '%' . $searchTerm . '%')
-                ->get();
-        } else {
-            $watch = Product::where('category', 'Watch')->get();
+            $query->where('name', 'like', '%' . $searchTerm . '%');
         }
 
-        //$bracelets = Product::where('category', 'Bracelet')->get();
-        return view('watch', ['products' => $watch]);
+        // Filter by category
+        if (request()->has('category')) {
+            $category = request('category');
+            $query->where('category', $category);
 
+        }
+
+        // Filter by minimum price
+        // Filter by minimum price
+        if (request()->has('min_price')) {
+            $minPrice = request('min_price');
+            if (is_numeric($minPrice)) {
+                $query->where('price', '>=', $minPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+
+        // Filter by maximum price
+        if (request()->has('max_price')) {
+            $maxPrice = request('max_price');
+            if (is_numeric($maxPrice)) {
+                $query->where('price', '<=', $maxPrice);
+            } else {
+                // Handle the case where min_price is not a valid numeric value
+                // You can log an error or provide a default behavior
+            }
+        }
+
+        if (request()->has('sort')) {
+            $sort = request('sort');
+            if ($sort === 'price_desc') {
+                $query->orderByDesc('price');
+            }
+            if ($sort === 'name_desc') {
+                $query->orderByDesc('name');
+            }
+            if ($sort === 'price_asc') {
+                $query->orderBy('price');
+            }
+            if ($sort === 'name_asc') {
+                $query->orderBy('name');
+            }
+        }
+
+        if (request()->has('reset_filters')) {
+            $products = Product::where('category', 'Watch')->get();
+
+        }
+
+        // Fetch products
+        $products = $query->get();
+
+        return view('watch', ['products' => $products]);
     }
 
     public function getWatch()
@@ -216,18 +496,57 @@ class ProductController extends Controller
      */
 
 
-    function addToCart(Request $reg)
-    {
+     public function addToCart(Request $request)
+{
+    try {
+        // Retrieve product ID and quantity from the form submission
+        $productId = $request->input('product_id');
+        $quantity = $request->input('quantity');
 
+        // Retrieve the product from the database
+        $product = Product::find($productId);
 
-        $cart = new Cart;
-        $cart->user_id = auth()->user()->id;
-        $cart->product_id = $reg->product_id;
-        # then we are saving it
-        $cart->save();
-        return back();
+        // Check if the product exists and if it's available
+        if (!$product || $product->stock < $quantity) {
+            // Handle error - product not found or not enough stock
+            return redirect()->back()->with('error', 'The product is not available or out of stock.');
+        }
 
+        // Calculate total price
+        $totalPrice = $product->price * $quantity;
+
+        // Create or update cart item
+        $cartItem = Cart::where('product_id', $productId)
+            ->where('user_id', auth()->id())
+            ->first();
+
+        if ($cartItem) {
+            // If the product is already in the cart, update its quantity and total price
+            $cartItem->quantity += $quantity;
+            $cartItem->total_price += $totalPrice;
+        } else {
+            // Otherwise, add a new item to the cart
+            $cartItem = new Cart([
+                'product_id' => $productId,
+                'user_id' => auth()->id(),
+                'quantity' => $quantity,
+                'total_price' => $totalPrice,
+            ]);
+        }
+
+        // Save the cart item to the database
+        $cartItem->save();
+
+        // Redirect back to the product page or wherever you want
+        return redirect()->back()->with('success', 'Product added to cart successfully.');
+    } catch (\Exception $e) {
+        // Log the exception for debugging
+        \Log::error('Error adding product to cart: ' . $e->getMessage());
+
+        // Redirect back with an error message
+        return redirect()->back()->with('error', 'An error occurred while adding the product to cart. Please try again later.');
     }
+}
 
 
     static function cartItem()
@@ -255,82 +574,6 @@ class ProductController extends Controller
         return view('cartlist', ['products' => $products, 'remove' => $remove]);
     }
 
-    function checkoutList()
-    {
-        $userId = auth()->id();
-
-        $products = DB::table('cart')
-            ->join('products', 'cart.product_id', '=', 'products.id')
-            ->where('cart.user_id', $userId)
-            ->select('products.*', 'cart.id as cart_id')
-            ->get();
-
-        return view('checkout', ['products' => $products]);
-    }
-
-
-    ####################          Remove from cart fuunction         #######################
-
-    /* public function removeCart($id)
-     {
-         // Check if the authenticated user owns the cart item before removing it
-         $cartItem = Cart::find($id);
-
-         if ($cartItem->user_id !== auth()->id()) {
-             // If the cart item is not found or doesn't belong to the authenticated user
-             abort(403, 'Unauthorized action.');
-         }
-
-         // If the user owns the cart item, proceed to remove it
-         Cart::destroy($id);
-
-         return redirect('cartlist');
-
-     }
-
-    public function removeCart($id)
-    {
-        // Check if the authenticated user owns the cart item before removing it
-        $cartItem = Cart::find($id);
-
-        if (!$cartItem || $cartItem->user_id !== auth()->id()) {
-            // If the cart item is not found or doesn't belong to the authenticated user
-            abort(403, 'Unauthorized action.');
-        }
-
-        // If the user owns the cart item, proceed to remove it
-        $cartItem->delete();
-
-        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
-    }
-
-
-
-
-    public function removeCart($id)
-    {
-        // Check if the authenticated user owns the cart item before removing it
-        $cart = Cart::find($id);
-
-        if (!$cart) {
-            // Log the ID of the item that causes issues
-            \Log::info("Cart item with ID {$id} not found.");
-            abort(404, 'Cart item not found.');
-        }
-
-        if ($cart->user_id !== auth()->id()) {
-            // Log the ID of the item that causes authorization issues
-            \Log::info("Unauthorized access attempt to remove cart item with ID {$id}.");
-            abort(403, 'Unauthorized action.');
-        }
-
-        // If the user owns the cart item, proceed to remove it
-        $cart->delete();
-
-        return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
-    }*/
-
-
     public function removeCart($id)
     {
         // Check if the authenticated user owns the cart item before removing it
@@ -349,8 +592,48 @@ class ProductController extends Controller
         return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
     }
 
+    function checkoutList()
+    {
+        $userId = auth()->id();
+
+        $products = DB::table('cart')
+            ->join('products', 'cart.product_id', '=', 'products.id')
+            ->where('cart.user_id', $userId)
+            ->select('products.*', 'cart.id as cart_id')
+            ->get();
+
+        return view('checkout', ['products' => $products]);
+    }
 
 
+
+
+
+    public function wishlist()
+    {
+        $userId = Auth::id();
+        $wishlistItems = Wishlist::where('user_id', $userId)->with('product')->get();
+        return view('wishlist', ['wishlistItems' => $wishlistItems]);
+    }
+
+    public function addToWishlist(Request $request)
+    {
+        $wishlistItem = new Wishlist;
+        $wishlistItem->user_id = Auth::id();
+        $wishlistItem->product_id = $request->product_id;
+        $wishlistItem->save();
+        return back()->with('success', 'Item added to wishlist successfully.');
+    }
+
+    public function removeFromWishlist($id)
+    {
+        $wishlistItem = Wishlist::find($id);
+        if (!$wishlistItem || $wishlistItem->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+        $wishlistItem->delete();
+        return redirect()->route('wishlist')->with('success', 'Item removed from wishlist successfully.');
+    }
 
 
 

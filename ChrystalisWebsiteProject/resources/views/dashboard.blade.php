@@ -1,6 +1,6 @@
-@extends('mainLayout.layout')
-
 <x-app-layout>
+    <hr class="mb-4">
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -63,6 +63,11 @@
                             <section class="user-links">
                                 <a href="{{route('cartlist')}}">
                                     <h4>Cart</h4>
+                                </a>
+                            </section>
+                            <section class="user-links">
+                                <a href="{{route('wishlist')}}">
+                                    <h4>WishList</h4>
                                 </a>
                             </section>
                             <section class="user-links">

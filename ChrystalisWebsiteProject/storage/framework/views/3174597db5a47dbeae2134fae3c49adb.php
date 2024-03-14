@@ -8,6 +8,8 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
+    <hr class="mb-4">
+
      <?php $__env->slot('header', null, []); ?> 
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <?php echo e(__('Dashboard'), false); ?>
@@ -33,7 +35,11 @@
     </style>
 
 
+    <!-- Bootstrap icons -->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!--
+  -->
 
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/css-pages/dashboard.css'), false); ?>" />
 
@@ -43,6 +49,7 @@
 
 
     <div>
+        <hr class="mb-3">
         <h2 class="text-center my-3 py-3"> Welcome to your Dashboard, <?php echo e(Auth::user()->name, false); ?>!
         </h2>
     </div>
@@ -67,6 +74,11 @@
                             <section class="user-links">
                                 <a href="<?php echo e(route('cartlist'), false); ?>">
                                     <h4>Cart</h4>
+                                </a>
+                            </section>
+                            <section class="user-links">
+                                <a href="<?php echo e(route('wishlist'), false); ?>">
+                                    <h4>WishList</h4>
                                 </a>
                             </section>
                             <section class="user-links">
@@ -194,23 +206,7 @@
         </section>
     </main>
 
-    <?php echo $__env->yieldContent('footer'); ?>
-    <footer>
-        <section id="conclusion">
-            <div class="copyright-bottom text-center">
-                <p class="m-1">
-                    &copy; Copyright Chrystalis 2023-2024. All Rights Reserved
-                </p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="<?php echo e(asset('Images\HomePage\privacyp.png'), false); ?>">Privacy</a></li>
-                    <li class="list-inline-item"><a href="<?php echo e(asset('Images\HomePage\privacyp.png'), false); ?>">Terms</a></li>
-                    <li class="list-inline-item"><a href="<?php echo e(route('contactus'), false); ?>">Support</a></li>
-                    <li class="list-inline-item"><a href="<?php echo e(route('t2detail'), false); ?>">user test</a></li>
-                    <li class="list-inline-item"><a href="#">Back to top</a></li>
-                </ul>
-            </div>
-        </section>
-    </footer>
+
 
 
 

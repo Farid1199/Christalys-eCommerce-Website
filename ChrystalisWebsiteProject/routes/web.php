@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RingController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\StripePaymentController;
 
 
 /*
@@ -24,10 +27,10 @@ Route::get('/', function () {
 
 
 
-
 Route::get('/loginAdmin', function () {
     return view('loginUserAdmin');
 });
+
 
 
 
@@ -45,10 +48,15 @@ Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
 
+Route::post('/aboutus', [AboutUsController::class, 'submitform'])->name('aboutus.submitform');
+
+
 # Contact Us
 Route::get('/contactus', function () {
     return view('contactUs');
 })->name('contactus');
+
+Route::post('/contactus', [ContactController::class, 'submit'])->name('contactus.submit');
 
 Route::get('/searchlist', function () {
     return view('searchProducts');
@@ -159,12 +167,24 @@ Route::get("checkout", [App\Http\Controllers\ProductController::class, 'checkout
 Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList'])->name('cartlist');
 
 
+
+
+
+//  ##############################          Route for the WishList             ########################################################
+
 //route for wishlist 
 
-Route::get("wishlist", [App\Http\Controllers\ProductController::class, 'wishList'])->name('wishlist');
+Route::get('/wishlist', [ProductController::class, 'wishlist'])->name('wishlist');
+Route::post('/add_to_wishlist', [ProductController::class, 'addToWishlist']);
+Route::delete('/wishlist/{id}', [ProductController::class, 'removeFromWishlist'])->name('wishlist.remove');
 
 
+// Route::get("wishlist", [App\Http\Controllers\ProductController::class, 'wishList'])->name('wishlist');
 
+
+// Route::get('/wishlist', [ProductController::class, 'wishList'])->name('wishlist');
+// Route::get('/add_to_wishlist', [ProductController::class, 'addToWishlist']);
+// Route::delete('/wishlist/{id}', [ProductController::class, 'removeFromWishlist'])->name('wishlist.remove');
 
 
 //  #############################################################################################################################
@@ -207,4 +227,18 @@ Route::get('/t2detail', function () {
 Route::get('/t3users', function () {
     return view('t3usertest');
 })->name('t3users');
+
+
+
+//  ##############################          Stripe/Checkout             ########################################################
+
+
+Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('stripe', 'stripe')->name('stripe.index');
+    Route::get('stripe/checkout', 'stripeCheckout')->name('stripe.checkout');
+    Route::get('stripe/checkout/success', 'stripeCheckoutSuccess')->name('stripe.checkout.success');
+});
+
+
+Route::post('/update-cart-quantity/{id}', [ProductController::class, 'updateCartQuantity'])->name('update.cart.quantity');
 

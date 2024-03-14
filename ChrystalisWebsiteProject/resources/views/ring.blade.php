@@ -13,19 +13,51 @@
 
 <div class="album bg-light py-5">
     <div class="container py-5">
+        
 
         <div class="py-3 text-center"></div>
-        <div class="col">
+        <div class="row">
 
-            <div class="row">
+        <!-- Search Filters Column -->
+        <div class="col-md-3">
+                <div class="card sticky-sm-top  mt-4">
+                    <div class="card-body ">
 
+
+
+                    <h5 class="card-title">Search Filters</h5>
+                    <!-- Search form for category -->
+                    <form>
+
+                        <div class="form-group">
+                            <label for="min_price">Search by Price</label>
+                            <input type="number" class="form-control" id="min_price" name="min_price"
+                                placeholder="Min Price" value="{{ request('min_price') }}">
+                            <input type="number" class="form-control" id="max_price" name="max_price"
+                                placeholder="Max Price" value="{{ request('max_price') }}">
+                        </div>
+
+                        <div class="form-group mt-5 text-center">
+                            <button class="btn btn-success text-center" type="submit" >Apply Filters</button>
+                            <button class="btn btn-primary ml-3" value="{{ request('reset_filters') }} ">Reset Filters</button>
+                        </div>
+                
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-9">
+                
                 @foreach ($products as $ring)
 
                 <div class="card mb-4 box-shadow item{{ $ring['id'] == 1 ? 'active' : '' }}">
                     <div class="row align-items-center">
                         <div class="col text-center">
                             <img class="card-img-center img-fluid img-responsive" src="{{ $ring['gallery'] }}"
-                                style="/*width: 70%; height: 70%;*/" alt="Card image cap" />
+                                style="width: 250px; height: 250px;" alt="Card image cap" />
                         </div>
                         <div class="col-8">
                             <div class="card-body text-left">
@@ -35,7 +67,7 @@
                                 </p>
 
                                 <p class="card-text font-weight-bold">
-                                    Price: {{ $ring->price}}
+                                    Price: £{{ $ring->price}}
                                 </p>
 
                                 <div class="d-flex justify-content-between align-items-center">
@@ -47,10 +79,11 @@
                                         <button class="btn btn-outline-primary" id="addToCartBtn"> View </button>
                                     </form>
 
-                                    <form action="/wishlist" method="GET">
+                                    <form action="/add_to_wishlist" method="POST">
                                         @csrf
                                         <button class="btn btn-outline-secondary" id="addToCartBtn"> Add to Wishlist
                                         </button>
+                                        <input type="hidden" value="{{$ring->id}}" name="product_id" id="product_id">
                                     </form>
 
                                     <form action="/add_to_cart" method="POST">
@@ -72,6 +105,20 @@
     </div>
 </div>
 </div>
+
+
+<script> 
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the min_price and max_price input fields
+    var minPriceField = document.getElementById('min_price');
+    var maxPriceField = document.getElementById('max_price');
+
+    // Clear the min_price and max_price input fields
+    minPriceField.value = '';
+    maxPriceField.value = '';
+});
+
+</script>
 
 
 

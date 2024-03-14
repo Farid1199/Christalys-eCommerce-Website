@@ -8,14 +8,12 @@
 
 <?php
 use App\Http\Controllers\ProductController;
+
 $total = ProductController::cartItem();
 ?>
 
 <div class="container py-5">
   <div class="py-5 text-center"></div>
-
-
-
   <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -34,28 +32,30 @@ $total = ProductController::cartItem();
               <h6 class="my-0">{{$item->name}}</h6>
             </a>
           </div>
-          <span class="text-muted">{{$item->price}}</span>
+          <span class="text-muted">£{{$item->price}}</span>
         </li>
 
         @endforeach
 
 
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
 
-        </li>
 
       </ul>
 
     </div>
 
     @php
-    $index = 0; // Initialize an index variable
+$index = 0; // Initialize an index variable
     @endphp
 
 
 
     <div class="col-md-8 order-md-1">
       <h2 class="mb-3">Shopping Cart</h2>
+
+      @if(session('success'))
+      <div class="alert alert-success">{{ session('success') }}</div>
+      @endif
 
       @if($products->isEmpty())
 
@@ -85,7 +85,7 @@ $total = ProductController::cartItem();
                 </a>
               </div>
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">{{$item->price}}</h5>
+                <h5 class="mb-0">£{{$item->price}}</h5>
               </div>
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                 <!--a href="{{ url('removeCart', ['id' => $remove[$index]->id]) }}">
@@ -114,7 +114,7 @@ $total = ProductController::cartItem();
         </div>
 
         @php
-        $index++; // Increment the index for the next iteration
+    $index++; // Increment the index for the next iteration
         @endphp
         @endforeach
 
@@ -123,7 +123,7 @@ $total = ProductController::cartItem();
 
       <div class="row">
 
-        <a href="{{ route('checkout')}}"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
+        <a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
             Checkout</button></a>
 
       </div>
@@ -159,103 +159,3 @@ $total = ProductController::cartItem();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-=================================================================
-              Bellow not needed
-    -- =================================================================--
-
-Previous CODE --
-
-
-
-
-<div class="col-sm-10">
-
-    Ecartlist.blade.php 
-
-   <div class="trending-wrapper">
-
-       <h4>Result for Products</h4>
-
-       @foreach($products as $item)
-
-       <div class="row searched-item">
-
-           <div class="col-sm-3">
-
-               <a href="detail/{{$item->id}}">
-
-                   <img class="trending-image" src="{{$item->gallery}}">
-
-               </a>
-
-           </div>
-
-           <div class="col-sm-3">
-
-               <div>
-
-                   <h2>{{$item->name}}</h2>
-
-                   <h5>{{$item->description}}</h5>
-
-               </div>
-
-                Missing closing tag? Assuming it's meant to be </a> 
-
-           </div>
-
-           <div class="col-sm-3">
-
-               <a href="detail/{{$item->id}}">
-
-                   <img class="trending-image" src="{{$item->gallery}}">
-
-                   <div>
-
-                       <h2>{{$item->name}}</h2>
-
-                       <h5>{{$item->description}}</h5>
-
-                   </div>
-
-               </a>
-
-           </div>
-
-           <div class="col-sm-3">
-
-               <button> Button content here </button>
-
-           </div>
-
-       </div>
-
-       @endforeach
-
-   </div>
-
-</div>
-
-
--->

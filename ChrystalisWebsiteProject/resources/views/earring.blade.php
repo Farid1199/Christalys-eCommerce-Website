@@ -16,61 +16,106 @@
     <div class="container py-5">
 
         <div class="py-3 text-center"></div>
-        <div class="col">
-
             <div class="row">
 
-                @foreach ($products as $earring)
+                <!-- Search Filters Column -->
+                <div class="col-md-3">
+                    <div class="card sticky-sm-top  mt-4">
+                        <div class="card-body ">
 
-                <div class="card mb-4 box-shadow item{{ $earring['id'] == 1 ? 'active' : '' }}">
-                    <div class="row align-items-center">
-                        <div class="col text-center">
-                            <img class="card-img-center img-fluid img-responsive" src="{{ $earring['gallery'] }}"
-                                style="/*width: 70%; height: 70%;*/" alt="Card image cap" />
+
+
+                            <h5 class="card-title">Search Filters</h5>
+                            <!-- Search form for category -->
+                            <form>
+
+                                <div class="form-group">
+                                    <label for="min_price">Search by Price</label>
+                                    <input type="number" class="form-control" id="min_price" name="min_price"
+                                        placeholder="Min Price" value="{{ request('min_price') }}">
+                                    <input type="number" class="form-control" id="max_price" name="max_price"
+                                        placeholder="Max Price" value="{{ request('max_price') }}">
+                                </div>
+
+                                <div class="form-group mt-5 text-center">
+                                    <button class="btn btn-success text-center" type="submit" >Apply Filters</button>
+                                    <button class="btn btn-primary ml-3" value="{{ request('reset_filters') }} ">Reset Filters</button>
+                                </div>
+                        
+                            </form>
                         </div>
-                        <div class="col-8">
-                            <div class="card-body text-left">
-                                <h4 class="text-left my-3">{{ $earring->name }}</h4>
-                                <p class="card-text">
-                                    {{ $earring->description }}
-                                </p>
+                    </div>
+                </div>
+                
 
-                                <p class="card-text font-weight-bold">
-                                    Price: {{ $earring->price}}
-                                </p>
+                <div class="col-md-9">
 
-                                <div class="d-flex justify-content-between align-items-center">
+                    @foreach ($products as $earring)
 
-                                    <form action="detail/{{$earring['id']}}" method="GET">
-                                        @csrf
-                                        <button class="btn btn-outline-primary" id="addToCartBtn"> View </button>
-                                    </form>
+                    <div class="card mb-4 box-shadow item{{ $earring['id'] == 1 ? 'active' : '' }}">
+                        <div class="row align-items-center">
+                            <div class="col text-center">
+                                <img class="card-img-center img-fluid img-responsive" src="{{ $earring['gallery'] }}"
+                                    style="width: 250px; height: 250px;" alt="Card image cap" />
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body text-left">
+                                    <h4 class="text-left my-3">{{ $earring->name }}</h4>
+                                    <p class="card-text">
+                                        {{ $earring->description }}
+                                    </p>
 
-                                    <form action="/wishlist" method="GET">
-                                        @csrf
-                                        <button class="btn btn-outline-secondary" id="addToCartBtn"> Add to Wishlist
-                                        </button>
-                                    </form>
+                                    <p class="card-text font-weight-bold">
+                                        Price: £{{ $earring->price}}
+                                    </p>
 
-                                    <form action="/add_to_cart" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="product_id" value="{{$earring['id']}}">
-                                        <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
-                                    </form>
+                                    <div class="d-flex justify-content-between align-items-center">
 
+                                        <form action="detail/{{$earring['id']}}" method="GET">
+                                            @csrf
+                                            <button class="btn btn-outline-primary" id="addToCartBtn"> View </button>
+                                        </form>
+
+                                        <form action="/add_to_wishlist" method="POST">
+                                            @csrf
+                                            <button class="btn btn-outline-secondary" id="addToCartBtn"> Add to Wishlist
+                                            </button>
+                                            <input type="hidden" value="{{$earring->id}}" name="product_id" id="product_id">
+                                        </form>
+
+                                        <form action="/add_to_cart" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{$earring['id']}}">
+                                            <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
+                                        </form>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    @endforeach
+
                 </div>
 
-                @endforeach
-
-            </div>
         </div>
     </div>
 </div>
-</div>
+
+<script> 
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the min_price and max_price input fields
+    var minPriceField = document.getElementById('min_price');
+    var maxPriceField = document.getElementById('max_price');
+
+    // Clear the min_price and max_price input fields
+    minPriceField.value = '';
+    maxPriceField.value = '';
+});
+
+</script>
+
 
 
 <!--
