@@ -12,7 +12,7 @@
 
 
 <section id="product-details" class="container mt-4">
-    <!-- Product 1 -->
+    <!-- Product 1       Useless websites -->
     <div class="seperate Watches">
         <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
             <div class="carousel-inner">
