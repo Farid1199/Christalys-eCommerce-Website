@@ -6,7 +6,7 @@ use OpenAdmin\Admin\Controllers\AdminController;
 use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Show;
-use App\Models\User; // Update the namespace to point to your User model
+use \App\Models\User;
 
 class UserController extends AdminController
 {
@@ -26,7 +26,14 @@ class UserController extends AdminController
     {
         $grid = new Grid(new User());
 
-        // You can customize the grid further if needed
+        $grid->column('id', __('Id'));
+        $grid->column('name', __('Name'));
+        $grid->column('email', __('Email'));
+        $grid->column('email_verified_at', __('Email verified at'));
+        $grid->column('password', __('Password'));
+        $grid->column('remember_token', __('Remember token'));
+        $grid->column('created_at', __('Created at'));
+        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
@@ -41,7 +48,14 @@ class UserController extends AdminController
     {
         $show = new Show(User::findOrFail($id));
 
-        // You can customize the show view further if needed
+        $show->field('id', __('Id'));
+        $show->field('name', __('Name'));
+        $show->field('email', __('Email'));
+        $show->field('email_verified_at', __('Email verified at'));
+        $show->field('password', __('Password'));
+        $show->field('remember_token', __('Remember token'));
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
 
         return $show;
     }
@@ -55,9 +69,12 @@ class UserController extends AdminController
     {
         $form = new Form(new User());
 
-        // You can customize the form further if needed
+        $form->text('name', __('Name'));
+        $form->email('email', __('Email'));
+        $form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'));
+        $form->password('password', __('Password'));
+        $form->text('remember_token', __('Remember token'));
 
         return $form;
     }
 }
-
