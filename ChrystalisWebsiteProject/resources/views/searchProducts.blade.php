@@ -19,6 +19,12 @@
         background-color: #dee2e6; /* Grey card background for better content readability */
         border: none;
     }
+    .card-img-center:hover {
+    transform: scale(1.05);
+    transition: transform .3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
 
     .btn-outline-secondary, .btn-grey, .btn-outline-grey {
         color: #6c757d; /* Adjusting for consistency */
@@ -125,47 +131,50 @@
                 </div>
                 <div class="col">
                     <div class="row">
-                        @foreach ($products as $bracelet)
-                        <div class="card mb-4 box-shadow item{{ $bracelet['id'] == 1 ? 'active' : '' }}">
-                            <div class="row align-items-center">
-                                <div class="col text-center">
-                                    <img class="card-img-center img-fluid img-responsive"
-                                        src="{{ $bracelet['gallery'] }}" style="width: 250px; height: 250px;"
-                                        alt="Card image cap" />
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body text-left">
-                                        <h4 class="text-left my-3">{{ $bracelet->name }}</h4>
-                                        <p class="card-text">
-                                            {{ $bracelet->description }}
-                                        </p>
-                                        <p class="card-text font-weight-bold">
-                                            Price: £{{ $bracelet->price}}
-                                        </p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <form action="detail/{{$bracelet['id']}}" method="GET">
-                                                @csrf
-                                                <button class="btn btn-outline-secondary" id="addToCartBtn"> View
-                                                </button>
-                                            </form>
-                                            <form action="/add_to_wishlist" method="POST">
-                                                @csrf
-                                                <button class="btn btn-outline-secondary" id="addToCartBtn"> Add to
-                                                    Wishlist </button>
-                                                <input type="hidden" value="{{$bracelet->id}}" name="product_id"
-                                                    id="product_id">
-                                            </form>
-                                            <form action="/add_to_cart" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="product_id" value="{{$bracelet['id']}}">
-                                                <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
+                    @foreach ($products as $bracelet)
+<div class="card mb-4 box-shadow item{{ $bracelet['id'] == 1 ? 'active' : '' }}">
+    <div class="row align-items-center">
+        <div class="col text-center">
+    
+            <a href="detail/{{$bracelet['id']}}" style="text-decoration: none;">
+                <img class="card-img-center img-fluid img-responsive"
+                     src="{{ $bracelet['gallery'] }}" style="width: 250px; height: 250px;"
+                     alt="Card image cap" />
+            </a>
+        </div>
+        <div class="col-8">
+            <div class="card-body text-left">
+                <h4 class="text-left my-3">{{ $bracelet->name }}</h4>
+                <p class="card-text">
+                    {{ $bracelet->description }}
+                </p>
+                <p class="card-text font-weight-bold">
+                    Price: £{{ $bracelet->price}}
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <form action="detail/{{$bracelet['id']}}" method="GET">
+                        @csrf
+                        <button class="btn btn-outline-secondary" id="addToCartBtn">View</button>
+                    </form>
+                    <!-- Add to Wishlist -->
+                    <form action="/add_to_wishlist" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $bracelet->id }}">
+                        <button class="btn btn-outline-secondary" type="submit">Add to Wishlist</button>
+                    </form>
+                    <!-- Add to Cart -->
+                    <form action="/add_to_cart" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $bracelet->id }}">
+                        <button class="btn btn-success" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
                     </div>
                 </div>
             </div>
