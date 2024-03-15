@@ -4,27 +4,27 @@
 
 @section('content')
 
-    <!-- Other meta tags, title, and stylesheets -->
+  
 
     <style>
+   
         .zoomable-image-container {
-            overflow: hidden;
-            position: relative;
-            width: 450px; /* Adjust this value as per your image width */
-            height: 450px; /* Adjust this value as per your image height */
-        }
+        overflow: hidden;
+        position: relative;
+        width: 450px;
+        height: 450px; 
+        cursor: zoom-in;
+    }
 
-        .zoomable-image {
-            display: block;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.5s ease;
-        }
-
-
+    .zoomable-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease;
+    }
 
     body {
-        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+        background-color: #e9ecef; 
     }
 
     .album {
@@ -37,6 +37,7 @@
         background-color: #dee2e6; /* Grey card background for better content readability */
         border: none;
     }
+  
 
     .btn-outline-secondary, .btn-grey, .btn-outline-grey {
         color: #6c757d; /* Adjusting for consistency */
@@ -71,28 +72,33 @@
 
     </style>
 
-    <script>
-                window.onload = function() {
-        const container = document.querySelector('.zoomable-image-container');
-        const image = document.querySelector('.zoomable-image');
+<script>
+  window.onload = function() {
+    const container = document.querySelector('.zoomable-image-container');
+    const image = document.querySelector('.zoomable-image');
 
-        container.addEventListener('mousemove', function(event) {
-            const { left, top, width, height } = container.getBoundingClientRect();
-            const mouseX = event.clientX - left;
-            const mouseY = event.clientY - top;
-            const offsetX = (mouseX / width) * 100;
-            const offsetY = (mouseY / height) * 100;
+    container.addEventListener('mousemove', function(event) {
+        const { left, top, width, height } = container.getBoundingClientRect();
+        const mouseX = event.clientX - left;
+        const mouseY = event.clientY - top;
 
-            const transformValue = `translate(-${offsetX}%, -${offsetY}%) scale(2)`;
+        // Setting the transform origin to the mouse position for zooming around the cursor
+        const originX = (mouseX / width) * 100;
+        const originY = (mouseY / height) * 100;
+        image.style.transformOrigin = `${originX}% ${originY}%`;
 
-            image.style.transform = transformValue;
-        });
+        // Adjusting the scale value for zoom. You may tweak the '2' (zoom level) as needed.
+        image.style.transform = 'scale(2)';
+    });
 
-        container.addEventListener('mouseleave', function() {
-            image.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-    };
-    </script>
+    container.addEventListener('mouseleave', function() {
+        // Resetting the image transform to its original state
+        image.style.transform = 'scale(1)';
+        image.style.transformOrigin = 'center center'; // Resetting the transform origin
+    });
+};
+
+</script>
 
 
 
