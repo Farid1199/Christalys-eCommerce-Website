@@ -101,8 +101,21 @@ $index = 0; // Initialize an index variable
                   <p class="lead fw-normal mb-2">{{$item->name}}</p>
                 </a>
               </div>
+
+              <form action="/add_to_cart" method="POST">
+                @csrf
+
+                
+                <label for="quantity" class="form-label">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: auto;">
+            </form>
+
+
+
+              
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                 <h5 class="mb-0">£{{$item->price}}</h5>
+  
               </div>
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                
