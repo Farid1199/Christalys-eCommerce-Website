@@ -578,7 +578,7 @@ class ProductController extends Controller
         $quantity = DB::table('cart_items')->value('quantity');
 
         // Pass the quantity value to the view
-        return view('carstlist', ['quantity' => $quantity]);
+        return view('cartlist', ['quantity' => $quantity]);
     }
 
 
