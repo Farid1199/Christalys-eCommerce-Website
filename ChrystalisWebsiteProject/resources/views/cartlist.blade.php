@@ -149,11 +149,11 @@ $index = 0; // Initialize an index variable
                 </a>
               </div>
 
-<form action="/add_to_cart" method="POST" style="width: 20%;">
-    @csrf
-    <label for="quantity" class="form-label">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%;">
-</form>
+          <form action="/add_to_cart" method="POST" style="width: 20%;">
+              @csrf
+              <label for="quantity" class="form-label">Quantity:</label>
+              <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%;">
+            </form>
 
 
 

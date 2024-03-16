@@ -97,7 +97,7 @@
                         <div class="founder-box4-skills">
                             <h3 style="padding-top: 10px">Info and Support</h3>
                             <section class="user-links">
-                                <a href="{{route('contactus')}}" style="text-decoration:none;">
+                                <a href="{{route('aboutus')}}" style="text-decoration:none;">
                                     <h4>About Us</h4>
                                 </a>
                             </section>
