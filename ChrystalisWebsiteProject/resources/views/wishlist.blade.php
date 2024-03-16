@@ -60,7 +60,7 @@
     <div class="row">
         @foreach($wishlistItems as $item)
         <div class="col-md-3 mb-4">
-            <div class="card">
+            <div class="card shadow">
                 <img src="{{ $item->product->gallery }}" class="card-img-top" alt="{{ $item->product->name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->product->name }}</h5>

@@ -133,9 +133,9 @@ $index = 0; // Initialize an index variable
 
       <div class="row">
         @foreach($cartItems as $item)
-        <div class="card rounded-3 mb-4">
+        <div class="card rounded-3 mb-4 shadow-sm border">
 
-          <div class="card-body">
+          <div class="card-body ">
             <div class="row d-flex justify-content-between align-items-center">
               <div class="col-md-2 col-lg-2 col-xl-2">
 

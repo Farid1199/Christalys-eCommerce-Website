@@ -118,7 +118,7 @@
                 <div class="card mb-4 box-shadow item{{ $watch['id'] == 1 ? 'active' : '' }}">
                     <div class="row align-items-center">
                         <div class="col text-center">
-                            <img class="card-img-center img-fluid img-responsive" src="{{ $watch['gallery'] }}"
+                            <img class="card-img-center img-fluid img-responsive img-thumbnail shadow" src="{{ $watch['gallery'] }}"
                                 style="width: 250px; height: 250px;" alt="Card image cap" />
                         </div>
                         <div class="col-8">

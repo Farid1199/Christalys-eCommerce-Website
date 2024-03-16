@@ -117,7 +117,7 @@
                     <div class="card mb-4 box-shadow item{{ $earring['id'] == 1 ? 'active' : '' }}">
                         <div class="row align-items-center">
                             <div class="col text-center">
-                                <img class="card-img-center img-fluid img-responsive" src="{{ $earring['gallery'] }}"
+                                <img class="card-img-center img-fluid img-responsive img-thumbnail shadow" src="{{ $earring['gallery'] }}"
                                     style="width: 250px; height: 250px;" alt="Card image cap" />
                             </div>
                             <div class="col-8">

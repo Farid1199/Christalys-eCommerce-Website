@@ -121,11 +121,11 @@
 
 <section id="product-details" class="container my-4" style="padding-top: 20px;">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <div class="zoomable-image-container">
+                            <div class="zoomable-image-container shadow rounded">
                                 <img src="{{ asset($product['gallery']) }}" class="zoomable-image img-fluid img-thumbnail"
                                     style="max-width: 450px; height: 450px;" alt="Product Image">
                             </div>
@@ -137,8 +137,9 @@
                 <div class="watchesSeperate">
                     <h2>{{ $product['name'] }}</h2>
                     <p>{{ $product['description'] }}</p>
-                    <p>Category: {{ $product['category'] }}</p>
-                    <p><b>Price: {{ $product['price'] }}</b></p>
+                    <p><b>Category: {{ $product['category'] }}</b></p>
+                    <p><b>Price: £{{ $product['price'] }}</b></p>
+
                     <form action="/add_to_cart" method="POST">
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $product['id'] }}">
@@ -154,6 +155,7 @@
                         </button>
                         <input type="hidden" value="{{ $product['id'] }}" name="product_id">
                     </form>
+                    
                 </div>
             </div>
         </div>
