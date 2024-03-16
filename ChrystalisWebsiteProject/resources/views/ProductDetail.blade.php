@@ -4,16 +4,16 @@
 
 @section('content')
 
-    <!-- Other meta tags, title, and stylesheets -->
+  
 
     <style>
    
         .zoomable-image-container {
         overflow: hidden;
         position: relative;
-        width: 450px; /* Adjust this value as per your image width */
-        height: 450px; /* Adjust this value as per your image height */
-        cursor: zoom-in; /* Makes the cursor appear as a magnifying glass */
+        width: 450px;
+        height: 450px; 
+        cursor: zoom-in;
     }
 
     .zoomable-image {
@@ -24,7 +24,7 @@
     }
 
     body {
-        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+        background-color: #e9ecef; 
     }
 
     .album {
@@ -37,6 +37,7 @@
         background-color: #dee2e6; /* Grey card background for better content readability */
         border: none;
     }
+  
 
     .btn-outline-secondary, .btn-grey, .btn-outline-grey {
         color: #6c757d; /* Adjusting for consistency */

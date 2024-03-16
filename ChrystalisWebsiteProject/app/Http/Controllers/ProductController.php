@@ -499,6 +499,7 @@ class ProductController extends Controller
      */
 
 
+
     public function addToCart(Request $request)
     {
         try {
@@ -553,7 +554,8 @@ class ProductController extends Controller
                     'user_id' => Auth::id(),
                     'product_id' => $productId,
                     'quantity' => $quantity,
-                    'total_amount' => $quantity * $price
+                    'total_amount' => number_format($quantity * $price, 2)
+
                 ]);
             }
 
@@ -571,11 +573,17 @@ class ProductController extends Controller
             return redirect()->back()->with('error', 'An error occurred while adding the product to cart. Please try again later.');
 
         }
+
+        // Fetch the quantity from the database
+        $quantity = DB::table('cart_items')->value('quantity');
+
+        // Pass the quantity value to the view
+        return view('carstlist', ['quantity' => $quantity]);
     }
 
 
 
-    public static function cartItem()
+    static function cartItem()
     {
         $userId = auth()->id();
         $cartItems = CartItem::where('user_id', $userId)->get();

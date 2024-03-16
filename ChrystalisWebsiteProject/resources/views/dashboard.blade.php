@@ -21,6 +21,7 @@
         a {
             text-decoration: none;
         }
+
     </style>
 
 
@@ -119,9 +120,9 @@
 
                     <h4>Personal Details</h4>
                     <section class="user-links">
-                        <p style="font-weight: 500">Your Name</p>
+                        <p style="font-weight: 500"> {{ Auth::user()->name }}</p>
                         <p>DOB: XX/XX/XX</p>
-                        <p>Email: sampleemail@email.com</p>
+                        <p>Email: {{ Auth::user()->email }}</p>
                         <p>Phone: +44 XXXX XXX XXX</p>
                         <p>Current Password: *******</p>
                         <p style="padding: 15px; color: black">

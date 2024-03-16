@@ -20,6 +20,11 @@
         background-color: #dee2e6; /* Grey card background for better content readability */
         border: none;
     }
+    .card-img-center:hover {
+    transform: scale(1.05);
+    transition: transform .3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
 
     .btn-outline-secondary, .btn-grey, .btn-outline-grey {
         color: #6c757d; /* Adjusting for consistency */
@@ -118,8 +123,10 @@
                 <div class="card mb-4 box-shadow item{{ $watch['id'] == 1 ? 'active' : '' }}">
                     <div class="row align-items-center">
                         <div class="col text-center">
-                            <img class="card-img-center img-fluid img-responsive img-thumbnail shadow" src="{{ $watch['gallery'] }}"
-                                style="width: 250px; height: 250px;" alt="Card image cap" />
+                        <a href="detail/{{$watch['id']}}" style="text-decoration: none;">
+                <img class="card-img-center img-fluid img-responsive" src="{{ $watch['gallery'] }}"
+                     style="width: 250px; height: 250px;" alt="Card image cap" />
+            </a>
                         </div>
                         <div class="col-8">
                             <div class="card-body text-left">

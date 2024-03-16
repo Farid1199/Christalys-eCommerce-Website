@@ -1,6 +1,7 @@
 <?php if (isset($component)) { $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54 = $component; } ?>
+<?php if (isset($componentData)) { $__componentDataOriginal9ac128a9029c0e4701924bd2d73d7f54 = $componentData; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54 = $attributes; } ?>
-<?php $component = App\View\Components\AppLayout::resolve([] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = App\View\Components\AppLayout::resolve($componentData = [] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('app-layout'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
@@ -93,8 +94,9 @@
                                     <?php echo csrf_field(); ?>
 
                                     <?php if (isset($component)) { $__componentOriginalc295f12dca9d42f28a259237a5724830 = $component; } ?>
+<?php if (isset($componentData)) { $__componentDataOriginalc295f12dca9d42f28a259237a5724830 = $componentData; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalc295f12dca9d42f28a259237a5724830 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.nav-link','data' => ['href' => route('logout'),'onclick' => 'event.preventDefault();
+<?php $component = Illuminate\View\AnonymousComponent::resolve($componentData = ['view' => 'components.nav-link','data' => ['href' => route('logout'),'onclick' => 'event.preventDefault();
                                                 this.closest(\'form\').submit();']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('nav-link'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -102,7 +104,7 @@
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('logout')),'onclick' => 'event.preventDefault();
+<?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($componentData['data']['href'] ?? null),'onclick' => 'event.preventDefault();
                                                 this.closest(\'form\').submit();']); ?>
                                         <h4><?php echo e(__('Log Out'), false); ?></h4>
                                      <?php echo $__env->renderComponent(); ?>
@@ -110,6 +112,10 @@
 <?php if (isset($__attributesOriginalc295f12dca9d42f28a259237a5724830)): ?>
 <?php $attributes = $__attributesOriginalc295f12dca9d42f28a259237a5724830; ?>
 <?php unset($__attributesOriginalc295f12dca9d42f28a259237a5724830); ?>
+<?php endif; ?>
+<?php if (isset($__componentDataOriginalc295f12dca9d42f28a259237a5724830)): ?>
+<?php $componentData = $__componentDataOriginalc295f12dca9d42f28a259237a5724830; ?>
+<?php unset($__componentDataOriginalc295f12dca9d42f28a259237a5724830); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc295f12dca9d42f28a259237a5724830)): ?>
 <?php $component = $__componentOriginalc295f12dca9d42f28a259237a5724830; ?>
@@ -149,9 +155,9 @@
 
                     <h4>Personal Details</h4>
                     <section class="user-links">
-                        <p style="font-weight: 500">Your Name</p>
+                        <p style="font-weight: 500"> <?php echo e(Auth::user()->name, false); ?></p>
                         <p>DOB: XX/XX/XX</p>
-                        <p>Email: sampleemail@email.com</p>
+                        <p>Email: <?php echo e(Auth::user()->email, false); ?></p>
                         <p>Phone: +44 XXXX XXX XXX</p>
                         <p>Current Password: *******</p>
                         <p style="padding: 15px; color: black">
@@ -218,6 +224,10 @@
 <?php if (isset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
 <?php $attributes = $__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
 <?php unset($__attributesOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
+<?php endif; ?>
+<?php if (isset($__componentDataOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
+<?php $componentData = $__componentDataOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
+<?php unset($__componentDataOriginal9ac128a9029c0e4701924bd2d73d7f54); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal9ac128a9029c0e4701924bd2d73d7f54)): ?>
 <?php $component = $__componentOriginal9ac128a9029c0e4701924bd2d73d7f54; ?>
