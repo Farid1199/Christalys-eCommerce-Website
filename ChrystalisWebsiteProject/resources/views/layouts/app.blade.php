@@ -31,10 +31,10 @@
 
 
 
-        <!-- Page Content -->
+        {{-- <!-- Page Content 
         <main>
             {{ $slot }}
-        </main>
+        </main>  --> --}}
 
 
         @include('mainLayout.layout')
