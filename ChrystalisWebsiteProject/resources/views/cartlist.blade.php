@@ -133,9 +133,9 @@ $index = 0; // Initialize an index variable
 
       <div class="row">
         @foreach($cartItems as $item)
-        <div class="card rounded-3 mb-4">
+        <div class="card rounded-3 mb-4 shadow border-lg">
 
-          <div class="card-body">
+          <div class="card-body ">
             <div class="row d-flex justify-content-between align-items-center">
               <div class="col-md-2 col-lg-2 col-xl-2">
 
@@ -149,12 +149,10 @@ $index = 0; // Initialize an index variable
                 </a>
               </div>
 
-              <form action="/add_to_cart" method="POST">
-                @csrf
-
-                
-                <label for="quantity" class="form-label">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: auto;">
+          <form action="/add_to_cart" method="POST" style="width: 20%;">
+              @csrf
+              <label for="quantity" class="form-label">Quantity:</label>
+              <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%;">
             </form>
 
 
@@ -233,7 +231,7 @@ $index = 0; // Initialize an index variable
 
       <div class="row">
 
-        <a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-primary btn-block btn-lg">Proceed to
+        <a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-secondary btn-block btn-lg">Proceed to
             Checkout</button></a>
 
       </div>

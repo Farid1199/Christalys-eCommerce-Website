@@ -17,6 +17,10 @@ $total = ProductController::cartItem();
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+  <!-- Include Toastr library -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
   <link rel="icon" href="{{ asset('assets/Images/Homepage/favicon.png')}}" type="image/x-icon" />
   <link rel="stylesheet" href="{{ asset('assets/css/boostrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}">
@@ -176,7 +180,7 @@ $total = ProductController::cartItem();
               </div>
           </form>
 
-          @if(!empty($message))
+          @if(!empty ($message))
           <p>{{ $message }}</p>
           @endif
 

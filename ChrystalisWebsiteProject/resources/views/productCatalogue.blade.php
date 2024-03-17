@@ -122,7 +122,7 @@
       <h2 class="display-5">Coming Soon</h2>
       <p class="lead">Coming Soon</p>
       <p><a href="#" class="btn btn-secondary my-2">Visit</a></p>
-      <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px"></div>
+      <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px"></div>
     </div>
   </div>
 </div>
