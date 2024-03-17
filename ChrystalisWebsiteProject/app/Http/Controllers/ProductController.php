@@ -680,24 +680,24 @@ class ProductController extends Controller
  /**
      *   ########################       Oder History      ##################################
      */
-                public function previousOrders() {
-                    $userId = auth()->id(); // Retrieve user_id for the order
-
-                    // Use the user_id to find orders associated with the user
-                    $orders = DB::table('orders')
-                                ->where('user_id', $userId)
-                                ->orderBy('created_at', 'desc')
-                                ->get();
-
-                    // Retrieve total price of all orders for the user
-                    $totalPrice = $orders->sum('total_amount');
-
-                    // Passing the orders and the total price to the view
-                    return view('previousOrders', [
-                        'orders' => $orders,
-                        'totalPrice' => $totalPrice
-                    ]);
-                }
+    public function previousOrders() {
+        $userId = Auth::id(); // Retrieve user_id for the order
+    
+        $orders = DB::table('orders')
+                    ->where('user_id', $userId)
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+    
+        // Assuming each order has associated products details directly or through a pivot table
+        // This is a placeholder. You should replace it with actual logic to fetch associated products
+        foreach ($orders as $order) {
+            // Here, you would typically fetch product details for each order
+            // For demonstration, let's assume we're appending a mock list of products
+            $order->products = "1x Gold Ring, 2x Silver Necklace"; // Placeholder, replace with actual product fetching logic
+        }
+    
+        return view('previousOrders', ['orders' => $orders]);
+    }
 
     
 

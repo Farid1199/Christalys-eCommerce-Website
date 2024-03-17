@@ -4,9 +4,8 @@
 
 @section('content')
 
-
-
-<style>/* General table styling */
+<style>
+/* General table styling */
 .table {
     border-collapse: separate;
     border-spacing: 0 15px;
@@ -23,13 +22,13 @@ thead th {
 /* Row and cell styling */
 .table tbody tr {
     background-color: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .table tbody tr td {
     vertical-align: middle;
     padding: 15px;
-    border-top: solid 2px transparent; /* Prevents borders from colliding */
+    border-top: solid 2px transparent;
 }
 
 /* Hover effect for rows */
@@ -123,95 +122,48 @@ thead th {
 }
 </style>
 
-
-<hr class="my-5">
-<hr class="my-5">
-
-
-
 <div class="container mt-5">
-    <div class="d-flex justify-content-center row">
+    <div class="row justify-content-center">
         <div class="col">
             <div class="rounded">
                 <div class="table-responsive table-borderless">
                     <table class="table">
-                        <thead>
-
-                            <!-- Table to display multiple orders -->
+                        <thead class="thead-light">
                             <tr>
-                                <th class="text-center">
-                                    <div class="toggle-btn">
-                                        <div class="inner-circle"></div>
-                                    </div>
-                                </th>
-                                <th>Order ID</th> <!-- Fixed to display generic label instead of undefined variable -->
-                                <th>Tracking ID</th>
-                                <th>Date</th>
+                                <th>Order ID</th>
+                                <th>User ID</th>
+                                <th>Address ID</th>
+                                <th>Session ID</th>
                                 <th>Total Amount</th>
-                                <th>Progress</th>
+                                <th>Paid</th>
                                 <th>Products</th>
-
-                                <th></th>
                             </tr>
                         </thead>
-                        <!-- Placeholder for each order row -->
-                        <tbody class="table-body">
-                            @foreach($orders as $order)
-                            <tr class="cell-1">
-                                <td class="text-center">
-                                    <div class="toggle-btn">
-                                        <div class="inner-circle"></div>
-                                    </div>
-                                </td>
+                        <tbody>
+                            @forelse($orders as $order)
+                            <tr>
                                 <td>{{ $order->order_id }}</td>
-                                <td>JUSQ830</td>
-                                <td>10/12/2023</td>
-                                <td>£300</td>
-                                <td><span class="badge badge-success">Fullfilled</span></td>
-                                <td>1x Gold Ring</td>
-                                <td><i class="fa fa-ellipsis-h text-black-50"></i></td>
-                            </tr>
-                            <tr class="cell-1">
-                                <td class="text-center">
-                                    <div class="toggle-btn">
-                                        <div class="inner-circle"></div>
-                                    </div>
+                                <td>{{ $order->user_id }}</td>
+                                <td>{{ $order->address_id }}</td>
+                                <td>{{ $order->session_id }}</td>
+                                <td>£{{ number_format($order->total_price, 2) }}</td>
+                                <td>{{ $order->paid ? 'Yes' : 'No' }}</td>
+                                <td>
+                                    <!-- Placeholder for product details -->
+                                    N/A
                                 </td>
-                                <td>{{ $order->order_id }}</td>
-                                <td>MSCG627</td>
-                                <td>18/05/2023</td>
-                                <td>£800</td>
-                                <td><span class="badge badge-info">Confirmed</span></td>
-                                <td>2x Gold Bracelets, 3x Gold Earrings </td>
-                                <td><i class="fa fa-ellipsis-h text-black-50"></i></td>
                             </tr>
-                            <tr class="cell-1">
-                                <td class="text-center">
-                                    <div class="toggle-btn">
-                                        <div class="inner-circle"></div>
-                                    </div>
-                                </td>
-                                <td>KBSNBS9</td>
-                                <td>JHSJ07H</td>
-                                <td>08/05/2023</td>
-                                <td>£900</td>
-                                <td><span class="badge badge-danger">Order Cancelled</span></td>
-                                <td>2x Sapphire earrings, 1x Diamond necklace</td>
-                                <td><i class="fa fa-ellipsis-h text-black-50"></i></td>
+                            @empty
+                            <tr>
+                                <td colspan="7" class="text-center">No previous orders found.</td>
                             </tr>
-                            @endforeach
+                            @endforelse
                         </tbody>
-
                     </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
 
 @endsection
