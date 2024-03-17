@@ -5,119 +5,88 @@
 @section('content')
 
 <style>
-/* General table styling */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    padding-top: 20px;
+}
+
 .table {
-    border-collapse: separate;
-    border-spacing: 0 15px;
     width: 100%;
+    border-collapse: collapse;
 }
 
-/* Header styling */
-thead th {
-    font-weight: 600;
+.table thead th {
     background-color: #f8f9fa;
-    border-bottom: solid 2px #dee2e6;
+    text-align: left;
+    font-weight: 600;
+    padding: 12px;
+    border-bottom: 2px solid #dee2e6;
 }
 
-/* Row and cell styling */
-.table tbody tr {
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.table tbody tr td {
-    vertical-align: middle;
+.table tbody td {
     padding: 15px;
-    border-top: solid 2px transparent;
+    border-bottom: 1px solid #eee;
 }
 
-/* Hover effect for rows */
 .table tbody tr:hover {
     background-color: #f2f2f2;
 }
 
-/* Styling for badges to make them more rounded and stand out */
 .badge {
+    display: inline-block;
     padding: 0.5em 0.75em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
     border-radius: 0.25rem;
 }
 
 .badge-success {
     background-color: #28a745;
-}
-
-.badge-info {
-    background-color: #17a2b8;
+    color: #fff;
 }
 
 .badge-danger {
     background-color: #dc3545;
+    color: #fff;
 }
 
-/* Styling for the ellipsis icon */
-.fa-ellipsis-h {
-    font-size: 1.25rem;
-    cursor: pointer;
-}
-
-/* Custom toggle button styling */
-.toggle-btn {
-    display: inline-block;
-    cursor: pointer;
-}
-
-.inner-circle {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #6c757d;
-    position: relative;
-    transition: all 0.3s ease-in-out;
-}
-
-.toggle-btn .inner-circle:before {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #f8f9fa;
-}
-
-/* Styling adjustments for smaller screens */
 @media (max-width: 768px) {
-    .table {
-        border: 0;
-    }
-
     .table thead {
         display: none;
     }
 
-    .table tbody tr {
+    .table, .table tbody, .table tr, .table td {
         display: block;
-        margin-bottom: 20px;
+        width: 100%;
     }
 
-    .table tbody tr td {
-        display: block;
+    .table tr {
+        margin-bottom: 15px;
+    }
+
+    .table td {
         text-align: right;
-        font-size: 0.85rem;
-        border-bottom: 1px dotted #ccc;
+        padding-left: 50%;
+        position: relative;
     }
 
-    .table tbody tr td:last-child {
-        border-bottom: 0;
-    }
-
-    .table tbody tr td:before {
+    .table td::before {
         content: attr(data-label);
-        float: left;
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
         font-weight: bold;
-        text-transform: uppercase;
+        text-align: left;
     }
 }
 </style>
@@ -125,43 +94,44 @@ thead th {
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="rounded">
-                <div class="table-responsive table-borderless">
-                    <table class="table">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Order ID</th>
-                                <th>User ID</th>
-                                <th>Address ID</th>
-                                <th>Session ID</th>
-                                <th>Total Amount</th>
-                                <th>Paid</th>
-                                <th>Products</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($orders as $order)
-                            <tr>
-                                <td>{{ $order->order_id }}</td>
-                                <td>{{ $order->user_id }}</td>
-                                <td>{{ $order->address_id }}</td>
-                                <td>{{ $order->session_id }}</td>
-                                <td>£{{ number_format($order->total_price, 2) }}</td>
-                                <td>{{ $order->paid ? 'Yes' : 'No' }}</td>
-                                <td>
-                                    <!-- Placeholder for product details -->
-                                    N/A
-                                </td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <td colspan="7" class="text-center">No previous orders found.</td>
-                            </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>User ID</th>
+                        <th>Address ID</th>
+                        <th>Session ID</th>
+                        <th>Total Amount</th>
+                        <th>Paid</th>
+                        <th>Products</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    @forelse($orders as $order)
+                    <tr>
+                        <td data-label="Order ID">{{ $order->order_id }}</td>
+                        <td data-label="User ID">{{ $order->user_id }}</td>
+                        <td data-label="Address ID">{{ $order->address_id }}</td>
+                        <td data-label="Session ID">{{ $order->session_id }}</td>
+                        <td data-label="Total Amount">£{{ number_format($order->total_price, 2) }}</td>
+                        <td data-label="Paid">
+                            <span class="badge {{ $order->paid ? 'badge-success' : 'badge-danger' }}">
+                                {{ $order->paid ? 'Yes' : 'No' }}
+                            </span>
+                        </td>
+                        <td data-label="Products">
+                            <!-- Assuming you'll populate this based on your application's logic -->
+                            N/A
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="7" class="text-center">No previous orders found.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
