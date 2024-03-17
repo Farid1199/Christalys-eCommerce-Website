@@ -16,7 +16,7 @@ use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\Log;
 use Illuminate\Support\Facades\Log;
-
+use \App\Models\Order;
 
 
 
@@ -673,6 +673,33 @@ class ProductController extends Controller
         return redirect()->route('wishlist')->with('success', 'Item removed from wishlist successfully.');
     }
 
+
+
+
+ 
+ /**
+     *   ########################       Oder History      ##################################
+     */
+                public function previousOrders() {
+                    $userId = auth()->id(); // Retrieve user_id for the order
+
+                    // Use the user_id to find orders associated with the user
+                    $orders = DB::table('orders')
+                                ->where('user_id', $userId)
+                                ->orderBy('created_at', 'desc')
+                                ->get();
+
+                    // Retrieve total price of all orders for the user
+                    $totalPrice = $orders->sum('total_amount');
+
+                    // Passing the orders and the total price to the view
+                    return view('previousOrders', [
+                        'orders' => $orders,
+                        'totalPrice' => $totalPrice
+                    ]);
+                }
+
+    
 
 
  /**

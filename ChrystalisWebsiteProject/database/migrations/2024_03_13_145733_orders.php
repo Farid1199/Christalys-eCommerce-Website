@@ -16,7 +16,6 @@ return new class extends Migration
             $table->id('order_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('address_id');
-      
             $table->unsignedBigInteger('session_id')->nullable(); // Nullable if the session is not always required
             $table->decimal('total_price', 8, 2);
             $table->boolean('paid');

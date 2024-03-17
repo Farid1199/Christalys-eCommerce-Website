@@ -51,13 +51,13 @@
                     <li>
 
                         <div class="founder-box4-skills">
-                            <img src="{{ asset('Images\HomePage\user-pp.png') }}" alt="java-logo" class="lang-logos" />
+                            <img src="{{ asset('Images/HomePage/user-pp.png') }}" alt="java-logo" class="lang-logos" />
                             <div>
                                 <h3>{{ Auth::user()->name }}</h3>
                             </div>
 
                             <section class="user-links">
-                                <a href="{{route('previousod')}}">
+                                <a href="{{ route('previousOrders') }}">
                                     <h4>Order History</h4>
                                 </a>
                             </section>

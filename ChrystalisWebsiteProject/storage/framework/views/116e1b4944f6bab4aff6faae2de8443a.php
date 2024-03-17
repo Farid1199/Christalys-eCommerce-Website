@@ -32,11 +32,7 @@
 
 
 
-        <!-- Page Content -->
-        <main>
-            <?php echo e($slot, false); ?>
-
-        </main>
+        
 
 
         <?php echo $__env->make('mainLayout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
