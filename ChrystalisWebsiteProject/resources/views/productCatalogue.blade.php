@@ -58,7 +58,7 @@
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3" id="category">
 
   <!-- Rings -->
-  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
     <div class="py-3">
       <h2 class="display-5">Rings</h2>
       <p class="lead">Discover our exquisite collection of rings</p>
@@ -93,7 +93,7 @@
   </div>
 
   <!-- Earrings -->
-  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
     <div class="py-3">
       <h2 class="display-5">Earrings</h2>
       <p class="lead">Enhance your beauty with our elegant earrings</p>
@@ -106,7 +106,7 @@
 
 <!-- Watches -->
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
     <div class="py-3">
       <h2 class="display-5">Watches</h2>
       <p class="lead">Explore our timeless and elegant watches</p>
