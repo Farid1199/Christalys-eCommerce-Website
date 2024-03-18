@@ -588,8 +588,8 @@ class ProductController extends Controller
     {
         // $userId=Session::get('user')['id'];
         $userId = auth()->id();
-
-        return Cart::where('user_id', $userId)->count();
+        $total = CartItem::where('user_id', $userId)->get();
+        return count($total);
 
     }
 
