@@ -7,7 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\ContactController;
+//use App\Http\Controllers\ContactController;
 use \App\Models\Order;
 
 
@@ -44,7 +44,7 @@ Route::get('/products', function () {
     return view('productCatalogue');
 })->name('products');
 
-# About Us
+#About Us
 Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
