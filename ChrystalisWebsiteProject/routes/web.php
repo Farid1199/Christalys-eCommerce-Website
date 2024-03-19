@@ -8,7 +8,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CsvFileController;
+use App\Http\Controllers\ReviewController;
 //use App\Http\Controllers\ContactController;
+
 use \App\Models\Order;
 
 
@@ -256,6 +258,7 @@ Route::get('/UserExport', [CsvFileController::class, 'export'])->name('UserExpor
 
 //  Product Review Route
 
+Route::post('/submit_review',[ReviewController::class, 'store'])->name('reviews.store');
 
 
 

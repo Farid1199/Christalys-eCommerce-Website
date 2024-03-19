@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('product_id');
             $table->integer('user_id');
             $table->integer('quantity_num')->default(1); // Add quantity column
-            $table->decimal('total_price', 10, 2)->default(0.00); // Add total_price column
+            $table->float('total_price', 10, 2)->default(0.00); // Add total_price column
             $table->timestamps();
         });
     }
