@@ -161,7 +161,7 @@
             </div>
         </div>
 
-        @include('shared.comment-box')
+        @include('shared.comments-box')
     </section>
 
 @endsection
