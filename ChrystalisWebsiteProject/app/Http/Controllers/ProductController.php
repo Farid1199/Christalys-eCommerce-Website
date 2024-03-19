@@ -251,16 +251,16 @@ class ProductController extends Controller
         //
         //$necklace = Product::where('category', 'Necklace')->get();
         //return view('necklace', ['products' => $necklace]);
-
+ 
         if (request()->has('search')) {
             $searchTerm = request('search');
             $necklace = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
         } else {
             //$necklace = Product::all();
             $necklace = Product::where('category', 'Necklace')->get();
-
+ 
         }
-
+ 
         //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('necklace', ['products' => $necklace]);
     }*/
