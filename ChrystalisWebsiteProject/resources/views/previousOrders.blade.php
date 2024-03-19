@@ -90,20 +90,26 @@ body, html {
     }
 }
 </style>
-<hr class="my-5 py-5"></hr>
-<div class="container mt-5">
+<hr class="my-5 py-4"></hr>
+
+<div>
+        <h2 class="text-center "> Previous Orders
+        </h2>
+    </div>
+
+
+<div class="container mt-2">
     <div class="row justify-content-center">
         <div class="col">
             <table class="table">
                 <thead>
                     <tr>
                         <th>Order ID</th>
-                        <th>User ID</th>
-                        <th>Address ID</th>
+                        <th>Transaction Date & Time</th>
                         <th>Session ID</th>
                         <th>Total Amount</th>
-                        <th>Paid</th>
-                        <th>Products</th>
+                        <th>Order Status</th>
+                        <th>Info</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -111,18 +117,37 @@ body, html {
                     @forelse($orders as $order)
                     <tr>
                         <td data-label="Order ID">{{ $order->order_id }}</td>
-                        <td data-label="User ID">{{ $order->user_id }}</td>
-                        <td data-label="Address ID">{{ $order->address_id }}</td>
+                        <td data-label="Transaction date">{{ $order->created_at }}</td>
                         <td data-label="Session ID">{{ $order->session_id }}</td>
                         <td data-label="Total Amount">£{{ number_format($order->total_price, 2) }}</td>
-                        <td data-label="Paid">
-                            <span class="badge {{ $order->paid ? 'badge-success' : 'badge-danger' }}">
-                                {{ $order->paid ? 'Yes' : 'No' }}
-                            </span>
+                        <td data-label="Order Status">
+                            @switch($order->process)
+                                @case('Received')
+                                    <span class="badge badge-primary">Received</span>
+                                    @break
+                                @case('Processing')
+                                    <span class="badge badge-secondary">Processing</span>
+                                    @break
+                                @case('Dispatched')
+                                    <span class="badge badge-warning">Dispatched</span>
+                                    @break
+                                @case('Delivered')
+                                    <span class="badge badge-success">Delivered</span>
+                                    @break
+                                @case('Returned')
+                                    <span class="badge badge-danger">Returned</span>
+                                    @break                               
+                            @endswitch
                         </td>
-                        <td data-label="Products">
-                            <!-- Assuming you'll populate this based on your application's logic -->
-                            N/A
+                        <td data-label="Info">
+
+                        <span class="badge bg-light">
+                            <a href="receipt/{{$order->order_id }}" style="text-decoration: none;">
+                                More info
+                            </a>
+                        </span>
+
+     
                         </td>
                     </tr>
                     @empty

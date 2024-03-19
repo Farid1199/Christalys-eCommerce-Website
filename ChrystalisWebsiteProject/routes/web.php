@@ -91,10 +91,7 @@ Route::get('/watches', function () {
 })->name('watches');
 
 
-# ORDER CONFIRMED
-Route::get('/ordercm', function () {
-    return view('order-confirmed');
-})->name('ordercm');
+
 
 
 
@@ -147,7 +144,8 @@ Route::get('/watches', [ProductController::class, 'index4'])->name('watches.inde
 
 Route::get("detail/{id}", [ProductController::class, 'detail']);
 
-
+// Route for the order details page
+Route::get("receipt/{order_id}", [ProductController::class, 'receipt']);
 
 
 
@@ -258,7 +256,7 @@ Route::get('/UserExport', [CsvFileController::class, 'export'])->name('UserExpor
 
 //  Product Review Route
 
-Route::post('/submit_review',[ReviewController::class, 'store'])->name('reviews.store');
+Route::post('/submit_review', [ReviewController::class, 'store'])->name('reviews.store');
 
 
 

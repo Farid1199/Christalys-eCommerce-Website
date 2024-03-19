@@ -10,7 +10,10 @@ class ReviewController extends Controller
 {
     public function store(Request $request)
     {
-        
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
         $request->validate([
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'required|string|max:255',

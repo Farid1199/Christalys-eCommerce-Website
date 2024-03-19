@@ -554,7 +554,7 @@ class ProductController extends Controller
                     'user_id' => Auth::id(),
                     'product_id' => $productId,
                     'quantity' => $quantity,
-                    'total_amount' => $quantity * $price,
+                    'total_amount' => number_format($quantity * $price, 2)
 
                 ]);
             }
@@ -570,7 +570,6 @@ class ProductController extends Controller
 
             // Redirect back with an error message
             echo 'Fail';
-
             return redirect()->back()->with('error', 'An error occurred while adding the product to cart. Please try again later.');
 
         }
@@ -700,6 +699,16 @@ class ProductController extends Controller
         return view('previousOrders', ['orders' => $orders]);
     }
 
+
+    public function receipt($id)
+    {
+        $order = Order::find($id);
+        if (!$order) {
+            // Handle the case where the order is not found
+            return redirect()->back()->with('error', 'Order not found.');
+        }
+        return view('order-confirmed', ['order' => $order]);
+    }
 
 
 
