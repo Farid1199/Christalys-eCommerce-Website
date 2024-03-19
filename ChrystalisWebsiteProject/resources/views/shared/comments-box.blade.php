@@ -20,16 +20,27 @@
         <button type="submit" class="btn btn-success">Submit Review</button>
     </form>
     
-    <div class="reviews">
-        {{-- Loop through reviews here --}}
-        <div class="review mb-3">
-            <div class="rating">★★★★☆</div>
-            <p class="comment">Great product, fast delivery!</p>
-            <small class="text-muted">Posted by John Doe on 2024-03-19</small>
-        </div>
-        {{-- Repeat for other reviews --}}
+    @foreach(App\Models\Review::all() as $review)
+    <div class="review mb-3">
+        <div class="rating">{{ str_repeat('★', $review->rating) . str_repeat('☆', 5 - $review->rating) }}</div>
+        <p class="comment">{{ $review->comment }}</p>
+        <small class="text-muted">Posted by {{ $review->user->name }} on {{ $review->created_at->format('Y-m-d') }}</small>
     </div>
+@endforeach
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <style>
