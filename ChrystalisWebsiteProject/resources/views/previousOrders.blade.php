@@ -90,7 +90,7 @@ body, html {
     }
 }
 </style>
-
+<hr class="my-5 py-5"></hr>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col">
@@ -136,4 +136,5 @@ body, html {
     </div>
 </div>
 
+<hr class="my-3 py-3"></hr>
 @endsection

@@ -19,4 +19,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    public function reviews()
+{
+    return $this->hasMany(Review::class);
+}
+
 }

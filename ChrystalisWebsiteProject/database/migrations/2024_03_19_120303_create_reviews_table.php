@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::create('cart', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_id');
-            $table->integer('user_id');
-            $table->integer('quantity_num')->default(1); // Add quantity column
-            $table->float('total_price', 10, 2)->default(0.00); // Add total_price column
+            $table->unsignedBigInteger('user_id');
+            $table->text('comment');
+            $table->unsignedTinyInteger('rating');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            
         });
     }
 
@@ -27,7 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::dropIfExists('cart');
+        Schema::dropIfExists('reviews');
     }
 };

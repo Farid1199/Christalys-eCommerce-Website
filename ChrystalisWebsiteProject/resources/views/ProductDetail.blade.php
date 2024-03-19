@@ -160,6 +160,8 @@
                 </div>
             </div>
         </div>
+
+        @include('shared.comments-box')
     </section>
 
 @endsection
