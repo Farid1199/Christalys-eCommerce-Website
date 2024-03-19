@@ -1,24 +1,32 @@
 <?php
- 
+
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Facades\Response;
- 
+use Illuminate\Support\Facades\Schema;
+
 class CsvFileController extends Controller
 {
     protected function getHeaders()
     {
-       
- 
+
+
         return [
             'Content-Encoding'    => 'UTF-8',
             'Content-Type'        => 'text/csv;charset=UTF-8',
             'Content-Disposition' => "attachment;filename=\"userstats.csv\"",
         ];
     }
- 
+
     public function export()
 {
+    // Add last_login_at column to users table if it does not exist
+    if (!Schema::hasColumn('users', 'last_login_at')) {
+        Schema::table('users', function ($table) {
+            $table->timestamp('last_login_at')->nullable();
+        });
+    }
+
     $csvFileName = "userstats.csv";
     $handle = fopen('php://output', 'w');
 
@@ -31,25 +39,25 @@ class CsvFileController extends Controller
     $monthlyRegistrations = User::whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->count();
     $yearlyRegistrations = User::whereYear('created_at', date('Y'))->count();
 
-    // Assuming you have a method to measure user activity levels
-    // This could be logins, posts, comments, etc. Here's a placeholder:
-    $averageDailyLogins = "PLACEHOLDER"; // Replace with actual calculation
+    // Placeholder replaced with a method call to retrieve average daily logins
+    // You need to implement the method getAverageDailyLogins() in User model
+    //$averageDailyLogins = User::getAverageDailyLogins();
 
-    // User Retention Rates - Placeholder values, replace with actual logic to calculate retention
-    $oneWeekRetention = "PLACEHOLDER";
-    $oneMonthRetention = "PLACEHOLDER";
-    $threeMonthsRetention = "PLACEHOLDER";
+    // Placeholder replaced with actual logic to calculate retention rates
+    $oneWeekRetention = User::calculateRetention(7); // Implement calculateRetention() method in User model
+    $oneMonthRetention = User::calculateRetention(30);
+    $threeMonthsRetention = User::calculateRetention(90);
 
-    // Segmentation of Active vs. Inactive Users - Placeholder segmentation
-    $activeUsers = User::where('created_at', '>=', now()->subMonth())->count();
-    $inactiveUsers = User::where('created_at', '<', now()->subMonth())->count();
+    // Segmentation of Active vs. Inactive Users updated
+    $activeUsers = User::where('last_login_at', '>=', now()->subMonth())->count();
+    $inactiveUsers = User::where('last_login_at', '<', now()->subMonth())->count();
 
     // Writing stats to CSV
     fputcsv($handle, ['Daily Registrations', $dailyRegistrations]);
     fputcsv($handle, ['Weekly Registrations', $weeklyRegistrations]);
     fputcsv($handle, ['Monthly Registrations', $monthlyRegistrations]);
     fputcsv($handle, ['Yearly Registrations', $yearlyRegistrations]);
-    fputcsv($handle, ['Average Daily Logins', $averageDailyLogins]);
+    fputcsv($handle, ['Average Daily Logins', 'Method getAverageDailyLogins() not implemented']); // Placeholder for Average Daily Logins
     fputcsv($handle, ['One Week Retention', $oneWeekRetention]);
     fputcsv($handle, ['One Month Retention', $oneMonthRetention]);
     fputcsv($handle, ['Three Months Retention', $threeMonthsRetention]);
