@@ -76,7 +76,7 @@ class HandleChargeableSource implements ShouldQueue
             foreach ($cartItems as $cartItem) {
                 // Create the ItemOrder for each product in cart
                 $itemOrder = new ItemOrder();
-                $itemOrder->order_id = $order->id;
+                $itemOrder->order_id = $order->order_id;
                 $itemOrder->product_id = $cartItem->product_id;
                 $itemOrder->quantity = $cartItem->quantity;
                 // Check if total_price is null or not, and set it accordingly
@@ -86,7 +86,7 @@ class HandleChargeableSource implements ShouldQueue
 
             // Create the Transaction
             $transaction = new Transaction();
-            $transaction->order_id = $order->id;
+            $transaction->order_id = $order->order_id;
             $transaction->customer_id = $data['metadata']['cus_id'];
             $transaction->save();
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\CsvFileController;
 //use App\Http\Controllers\ContactController;
 use \App\Models\Order;
 
@@ -249,4 +250,5 @@ Route::get('/previousOrders', [ProductController::class, 'previousOrders'])->nam
 // })->name('previousOrders');
 
 
+Route::get('/UserExport', [CsvFileController::class, 'export'])->name('UserExport');
 
