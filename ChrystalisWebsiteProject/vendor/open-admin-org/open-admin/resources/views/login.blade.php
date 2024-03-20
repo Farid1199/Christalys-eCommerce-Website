@@ -5,12 +5,22 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Chrystalis | {{ __('admin.login') }}</title>
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<link rel="icon" href="{{ asset('assets/Images/Homepage/favicon.png')}}" type="image/x-icon" />
 
 		@if(!is_null($favicon = Admin::favicon()))
 		<link rel="shortcut icon" href="{{$favicon}}">
 		@endif
 
 		<link rel="stylesheet" href="{{ Admin::asset("open-admin/css/styles.css")}}">
+		<link href="https://fonts.googleapis.com/css2?family=Chrysalis&display=swap" rel="stylesheet">
+		<style>
+			body, h1 {
+				font-family: 'Chrysalis', sans-serif;
+			}
+			h1 {
+				font-size: 36px; /* Increased font size for the title */
+			}
+		</style>
 		<script src="{{ Admin::asset("bootstrap5/bootstrap.bundle.min.js")}}"></script>
 
 	</head>
