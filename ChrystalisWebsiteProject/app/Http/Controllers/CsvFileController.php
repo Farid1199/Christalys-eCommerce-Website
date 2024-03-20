@@ -44,9 +44,10 @@ class CsvFileController extends Controller
     //$averageDailyLogins = User::getAverageDailyLogins();
 
     // Placeholder replaced with actual logic to calculate retention rates
-    $oneWeekRetention = User::calculateRetention(7); // Implement calculateRetention() method in User model
-    $oneMonthRetention = User::calculateRetention(30);
-    $threeMonthsRetention = User::calculateRetention(90);
+    // Removed due to Call to undefined method - requires implementation
+    // $oneWeekRetention = User::calculateRetention(7);
+    // $oneMonthRetention = User::calculateRetention(30);
+    // $threeMonthsRetention = User::calculateRetention(90);
 
     // Segmentation of Active vs. Inactive Users updated
     $activeUsers = User::where('last_login_at', '>=', now()->subMonth())->count();
@@ -58,9 +59,9 @@ class CsvFileController extends Controller
     fputcsv($handle, ['Monthly Registrations', $monthlyRegistrations]);
     fputcsv($handle, ['Yearly Registrations', $yearlyRegistrations]);
     fputcsv($handle, ['Average Daily Logins', 'Method getAverageDailyLogins() not implemented']); // Placeholder for Average Daily Logins
-    fputcsv($handle, ['One Week Retention', $oneWeekRetention]);
-    fputcsv($handle, ['One Month Retention', $oneMonthRetention]);
-    fputcsv($handle, ['Three Months Retention', $threeMonthsRetention]);
+    fputcsv($handle, ['One Week Retention', 'Method calculateRetention() not implemented']);
+    fputcsv($handle, ['One Month Retention', 'Method calculateRetention() not implemented']);
+    fputcsv($handle, ['Three Months Retention', 'Method calculateRetention() not implemented']);
     fputcsv($handle, ['Active Users', $activeUsers]);
     fputcsv($handle, ['Inactive Users', $inactiveUsers]);
 
