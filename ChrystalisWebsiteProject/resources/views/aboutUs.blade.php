@@ -127,5 +127,23 @@
 
 
 
+<script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('656be6c0e99577434659', {
+      cluster: 'eu'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('eventlistener', function(data) {
+      alert(JSON.stringify(data));
+    });
+  </script>
+
+
+
 @endsection
 

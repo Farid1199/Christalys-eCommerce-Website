@@ -13,7 +13,7 @@ use App\Models\Transaction;
 use App\Models\CartItem;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-
+use App\Events\PlaOrderEvent;
 
 class HandleChargeableSource implements ShouldQueue
 {
@@ -90,6 +90,9 @@ class HandleChargeableSource implements ShouldQueue
             $transaction->customer_id = $data['metadata']['cus_id'];
             $transaction->save();
 
+
+
+            event(new PlaOrderEvent("new order creted"));
             // Commit the transaction
             DB::commit();
         } catch (\Exception $e) {
