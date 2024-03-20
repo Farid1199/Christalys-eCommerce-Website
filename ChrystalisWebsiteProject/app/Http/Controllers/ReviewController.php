@@ -9,23 +9,21 @@ use Illuminate\Support\Facades\Auth;
 class ReviewController extends Controller
 {
     public function store(Request $request)
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login');
-        }
+{
+    $request->validate([
+        'product_id' => 'required|exists:products,id',
+        'rating' => 'required|integer|min:1|max:5',
+        'comment' => 'required|string|max:255',
+    ]);
 
-        $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'required|string|max:255',
-        ]);
+    Review::create([
+        'user_id' => Auth::id(),
+        'product_id' => $request->product_id,
+        'rating' => $request->rating,
+        'comment' => $request->comment,
+    ]);
 
-        $review = new Review([
-            'user_id' => Auth::id(), // Assuming users are authenticated
-            'rating' => $request->rating,
-            'comment' => $request->comment,
-        ]);
-        $review->save();
+    return back()->with('success', 'Review submitted successfully!');
+}
 
-        return back()->with('success', 'Review submitted successfully!');
-    }
 }

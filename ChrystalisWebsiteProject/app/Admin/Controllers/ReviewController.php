@@ -28,6 +28,7 @@ class ReviewController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('user_id', __('User id'));
+        $grid->column('product_id', __('Product id'));
         $grid->column('comment', __('Comment'));
         $grid->column('rating', __('Rating'));
         $grid->column('created_at', __('Created at'));
@@ -35,6 +36,8 @@ class ReviewController extends AdminController
 
         return $grid;
     }
+
+    
 
     /**
      * Make a show builder.
@@ -48,6 +51,7 @@ class ReviewController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('user_id', __('User id'));
+        $show->field('product_id', __('Product id'));
         $show->field('comment', __('Comment'));
         $show->field('rating', __('Rating'));
         $show->field('created_at', __('Created at'));
@@ -66,6 +70,7 @@ class ReviewController extends AdminController
         $form = new Form(new Review());
 
         $form->number('user_id', __('User id'));
+        $form->number('product_id', __('Product id'));
         $form->textarea('comment', __('Comment'));
         $form->switch('rating', __('Rating'));
 

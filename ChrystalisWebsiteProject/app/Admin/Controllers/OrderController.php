@@ -32,6 +32,7 @@ class OrderController extends AdminController
         $grid->column('session_id', __('Session id'));
         $grid->column('total_price', __('Total price'));
         $grid->column('paid', __('Paid'));
+        $grid->column('process', __('Process'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -54,6 +55,7 @@ class OrderController extends AdminController
         $show->field('session_id', __('Session id'));
         $show->field('total_price', __('Total price'));
         $show->field('paid', __('Paid'));
+        $show->field('process', __('Process'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -69,12 +71,12 @@ class OrderController extends AdminController
     {
         $form = new Form(new Order());
 
-        $form->number('order_id', __('Order id'));
         $form->number('user_id', __('User id'));
         $form->number('address_id', __('Address id'));
         $form->number('session_id', __('Session id'));
         $form->decimal('total_price', __('Total price'));
         $form->switch('paid', __('Paid'));
+        $form->text('process', __('Process'))->default('Received');
 
         return $form;
     }
