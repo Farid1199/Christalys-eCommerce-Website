@@ -149,7 +149,10 @@
 
                 <div class="text-center mt-4">
                     <p>If you are not satisfied with the order press the return button</p>
-                    <button class="btn btn-danger">Return Order</button>
+                    <form action="{{ route('orders.myReturns', $order) }}" method="POST">
+                        @csrf
+                        <button class="btn btn-danger" type="submit">Return Order</button>
+                    </form>
                 </div>
 
 

@@ -272,9 +272,14 @@ Route::get('/productExport', [CsvProductStatsController::class, 'export'])->name
 
 Route::post('/orders/{order}/request-return', [OrderController::class, 'requestReturn'])->name('orders.requestReturn');
 
-Route::get('/my-returns', [OrderController::class, 'myReturns'])->name('orders.myReturns');
+Route::post('/my-returns/{order}', [OrderController::class, 'returnOrder'])->name('orders.myReturns');
 
 
 
-// web.php
-Route::post('/order/{order}/return', 'OrderController@returnOrder')->name('order.return');
+;
+
+
+
+
+
+

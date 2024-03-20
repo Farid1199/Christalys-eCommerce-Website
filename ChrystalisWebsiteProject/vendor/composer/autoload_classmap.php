@@ -15,6 +15,7 @@ return array(
     'App\\Admin\\Controllers\\TransactionController' => $baseDir . '/app/Admin/Controllers/TransactionController.php',
     'App\\Admin\\Controllers\\UserController' => $baseDir . '/app/Admin/Controllers/UserController.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Events\\PlaOrderEvent' => $baseDir . '/app/Events/PlaOrderEvent.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AboutUsController' => $baseDir . '/app/Http/Controllers/AboutUsController.php',
     'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => $baseDir . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
