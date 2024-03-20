@@ -8,19 +8,21 @@
   body {
     background-color: #f5f5f5; /* Light grey background */
   }
-  
+
   .category-box {
     background-color: #e0e0e0; /* Darker grey for more contrast against the light grey background */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Slightly darker shadow for more depth */
+    cursor: pointer; /* Changes cursor appearance to suggest clickable area */
   }
-  
+
   .category-box-dark {
     background-color: #bcbcbc; /* Even darker grey for significant contrast */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Consistent shadowing for depth */
+    cursor: pointer; /* Changes cursor appearance to suggest clickable area */
   }
-  
+
   .main-content, .category {
     padding: 20px;
     margin-top: 20px;
@@ -33,6 +35,15 @@
     bg: "#55595c",
     fg: "#eceeef",
     text: "Thumbnail",
+  });
+
+  // Direct clicks on category boxes to the corresponding link
+  document.addEventListener("DOMContentLoaded", function() {
+    const categories = document.querySelectorAll('.category-box, .category-box-dark');
+    categories.forEach(category => category.addEventListener("click", function() {
+      const link = this.querySelector('a').href;
+      window.location.href = link;
+    }));
   });
 </script>
 
@@ -58,7 +69,7 @@
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3" id="category">
 
   <!-- Rings -->
-  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" onclick="window.location='rings';">
     <div class="py-3">
       <h2 class="display-5">Rings</h2>
       <p class="lead">Discover our exquisite collection of rings</p>
@@ -69,7 +80,7 @@
   </div>
 
   <!-- Necklaces -->
-  <div class="category-box mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+  <div class="category-box mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" onclick="window.location='necklaces';">
     <div class="py-3">
       <h2 class="display-5">Necklaces</h2>
       <p class="lead">Adorn yourself with our stunning necklace collection</p>
@@ -82,7 +93,7 @@
 
 <!-- Bracelets -->
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-  <div class="category-box mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+  <div class="category-box mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" onclick="window.location='bracelets';">
     <div class="py-3">
       <h2 class="display-5">Bracelets</h2>
       <p class="lead">Description of the bracelet product</p>
@@ -93,7 +104,7 @@
   </div>
 
   <!-- Earrings -->
-  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" onclick="window.location='earrings';">
     <div class="py-3">
       <h2 class="display-5">Earrings</h2>
       <p class="lead">Enhance your beauty with our elegant earrings</p>
@@ -106,7 +117,7 @@
 
 <!-- Watches -->
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+  <div class="category-box-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" onclick="window.location='watches';">
     <div class="py-3">
       <h2 class="display-5">Watches</h2>
       <p class="lead">Explore our timeless and elegant watches</p>
@@ -117,7 +128,7 @@
   </div>
 
   <!-- Coming Soon -->
-  <div class="category-box mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+  <div class="category-box mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" onclick="window.location='#';">
     <div class="py-3">
       <h2 class="display-5">Coming Soon</h2>
       <p class="lead">Coming Soon</p>
