@@ -109,7 +109,7 @@ body, html {
                         <th>Session ID</th>
                         <th>Total Amount</th>
                         <th>Order Status</th>
-                        <th>Info</th>
+                        <th>Order Receipt</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -143,7 +143,7 @@ body, html {
 
                         <span class="badge bg-light">
                             <a href="receipt/{{$order->order_id }}" style="text-decoration: none;">
-                                More info
+                                Order Receipt
                             </a>
                         </span>
 
