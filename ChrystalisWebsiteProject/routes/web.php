@@ -10,7 +10,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CsvFileController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CsvProductStatsController;
-
+use App\Http\Controllers\OrderController;
 
 //use App\Http\Controllers\ContactController;
 
@@ -266,5 +266,20 @@ Route::post('/submit_review', [ReviewController::class, 'store'])->name('reviews
 // Startistics for the Products
 
 Route::get('/productExport', [CsvProductStatsController::class, 'export'])->name('productExport');
+
+
+//   Product Return
+
+Route::post('/orders/{order}/request-return', [OrderController::class, 'requestReturn'])->name('orders.requestReturn');
+
+Route::post('/my-returns/{order}', [OrderController::class, 'returnOrder'])->name('orders.myReturns');
+
+
+
+;
+
+
+
+
 
 
