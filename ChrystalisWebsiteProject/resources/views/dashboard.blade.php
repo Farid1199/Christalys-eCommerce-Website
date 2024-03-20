@@ -44,8 +44,8 @@
  
  
     <div>
-        <hr class="mb-3">
-        <h2 class="text-center my-3 py-2"> Welcome to your Dashboard, {{ Auth::user()->name }}!
+        <hr class="my-4">
+        <h2 class="text-center my-4 py-4"> Welcome to your Dashboard, {{ Auth::user()->name }}!
         </h2>
     </div>
  
