@@ -16,7 +16,7 @@ use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\Log;
 use Illuminate\Support\Facades\Log;
-
+use \App\Models\Order;
 
 
 
@@ -91,7 +91,7 @@ class ProductController extends Controller
 
     function detail($id)
     {
-        $data = Product::find($id);
+        $data = Product::where('id', $id)->orderBy('created_at', 'DESC')->first();;
         return view('ProductDetail', ['product' => $data]);
 
     }
@@ -251,16 +251,16 @@ class ProductController extends Controller
         //
         //$necklace = Product::where('category', 'Necklace')->get();
         //return view('necklace', ['products' => $necklace]);
-
+ 
         if (request()->has('search')) {
             $searchTerm = request('search');
             $necklace = Product::where('name', 'like', '%' . $searchTerm . '%')->get();
         } else {
             //$necklace = Product::all();
             $necklace = Product::where('category', 'Necklace')->get();
-
+ 
         }
-
+ 
         //$bracelets = Product::where('category', 'Bracelet')->get();
         return view('necklace', ['products' => $necklace]);
     }*/
@@ -498,89 +498,88 @@ class ProductController extends Controller
      *   ###############    This is a fuction for the cart table  ##################################
      */
 
-    
-     
-     public function addToCart(Request $request)
-{
-    try {
-        // Retrieve product ID and quantity from the form submission
-        Log::info('Worked ');
-        echo 'Worked';
-        $productId = $request->input('product_id');
-        
-        if (!is_null($request->input('quantity'))) {
-            echo 'Worked1';
-            Log::info('Worked1 ');
-            $quantity = $request->input('quantity');
-        }
-        else {
-            $quantity = 1;
-        }
-        Log::info($productId);
-        
-        // Retrieve the product from the database
-        $product = Product::find($productId);
-        Log::info('Worked2dfgdfgd ');
 
-        // Check if the inventory count is more than 0
-        if ($product->inventory_count <= 0) {
-            // If not, redirect back with an error message
-            return redirect()->back()->with('error', 'This product is currently out of stock.');
-        }
 
-        $price = $product->price;
+    public function addToCart(Request $request)
+    {
+        try {
+            // Retrieve product ID and quantity from the form submission
+            Log::info('Worked ');
+            echo 'Worked';
+            $productId = $request->input('product_id');
 
-       
-        $cartItem = CartItem::where('product_id', $product)
-                            ->where('user_id', Auth::id())->first();
-        // Create or update cart item
-        session()->flash('success', 'Product added successfully');
-        Log::info('Worked3 ');
-        
-
-        if ($cartItem) {
-            Log::info('Worked3 ');
-            // If the product is already in the cart, update its quantity and total price
-            $cartItem->quantity += $quantity;
-            // Ensure that updating the cart item doesn't exceed the inventory count
-            if ($cartItem->quantity > $product->inventory_count) {
-                // Adjust the cart item quantity to the maximum available inventory or handle as needed
-                return redirect()->back()->with('error', 'Unable to add the desired quantity to cart. Limited stock available.');
+            if (!is_null($request->input('quantity'))) {
+                echo 'Worked1';
+                Log::info('Worked1 ');
+                $quantity = $request->input('quantity');
+            } else {
+                $quantity = 1;
             }
-            // $cartItem->total_price += $totalPrice;
-        } else {
-            // Otherwise, add a new item to the cart
-            Log::info('Worked4');
-            $cartItem = new CartItem([
-                'user_id' => Auth::id(),
-                'product_id' => $productId,
-                'quantity' => $quantity,
-                'total_amount' => number_format($quantity * $price, 2)
+            Log::info($productId);
 
-            ]);
+            // Retrieve the product from the database
+            $product = Product::find($productId);
+            Log::info('Worked2dfgdfgd ');
+
+            // Check if the inventory count is more than 0
+            if ($product->inventory_count <= 0) {
+                // If not, redirect back with an error message
+                return redirect()->back()->with('error', 'This product is currently out of stock.');
+            }
+
+            $price = $product->price;
+
+
+            $cartItem = CartItem::where('product_id', $product)
+                ->where('user_id', Auth::id())->first();
+            // Create or update cart item
+            session()->flash('success', 'Product added successfully');
+            Log::info('Worked3 ');
+
+
+            if ($cartItem) {
+                Log::info('Worked3 ');
+                // If the product is already in the cart, update its quantity and total price
+                $cartItem->quantity += $quantity;
+                // Ensure that updating the cart item doesn't exceed the inventory count
+                if ($cartItem->quantity > $product->inventory_count) {
+                    // Adjust the cart item quantity to the maximum available inventory or handle as needed
+                    return redirect()->back()->with('error', 'Unable to add the desired quantity to cart. Limited stock available.');
+                }
+                // $cartItem->total_price += $totalPrice;
+            } else {
+                // Otherwise, add a new item to the cart
+                Log::info('Worked4');
+                $cartItem = new CartItem([
+                    'user_id' => Auth::id(),
+                    'product_id' => $productId,
+                    'quantity' => $quantity,
+                    'total_amount' => number_format($quantity * $price, 2)
+
+                ]);
+            }
+
+            // Save the cart item to the database
+            $cartItem->save();
+
+            // Redirect back to the product page or wherever you want
+            return redirect()->back()->with('success', 'Product added to cart successfully.');
+        } catch (\Exception $e) {
+            // Log the exception for debugging
+            Log::error('Error adding product to cart: ' . $e->getMessage());
+
+            // Redirect back with an error message
+            echo 'Fail';
+            return redirect()->back()->with('error', 'An error occurred while adding the product to cart. Please try again later.');
+
         }
 
-        // Save the cart item to the database
-        $cartItem->save();
+        // Fetch the quantity from the database
+        $quantity = DB::table('cart_items')->value('quantity');
 
-        // Redirect back to the product page or wherever you want
-        return redirect()->back()->with('success', 'Product added to cart successfully.');
-    } catch (\Exception $e) {
-        // Log the exception for debugging
-        Log::error('Error adding product to cart: ' . $e->getMessage());
-
-        // Redirect back with an error message
-        echo 'Fail';
-        return redirect()->back()->with('error', 'An error occurred while adding the product to cart. Please try again later.');
-        
+        // Pass the quantity value to the view
+        return view('cartlist', ['quantity' => $quantity]);
     }
-
-    // Fetch the quantity from the database
-    $quantity = DB::table('cart_items')->value('quantity');
-     
-    // Pass the quantity value to the view
-    return view('carstlist', ['quantity' => $quantity]);
-}
 
 
 
@@ -588,8 +587,8 @@ class ProductController extends Controller
     {
         // $userId=Session::get('user')['id'];
         $userId = auth()->id();
-
-        return Cart::where('user_id', $userId)->count();
+        $total = CartItem::where('user_id', $userId)->get();
+        return count($total);
 
     }
 
@@ -597,19 +596,19 @@ class ProductController extends Controller
 
 
     public function cartList()
-{
-    $userId = auth()->id();
+    {
+        $userId = auth()->id();
 
-    $cartItems = DB::table('cart_items')
-        ->join('products', 'cart_items.product_id', '=', 'products.id')
-        ->where('cart_items.user_id', $userId)
-        ->select('products.*', 'cart_items.id as cart_id', 'cart_items.quantity', 'cart_items.total_amount')
-        ->get();
+        $cartItems = DB::table('cart_items')
+            ->join('products', 'cart_items.product_id', '=', 'products.id')
+            ->where('cart_items.user_id', $userId)
+            ->select('products.*', 'cart_items.id as cart_id', 'cart_items.quantity', 'cart_items.total_amount')
+            ->get();
 
-         $totalPrice = $cartItems->sum('total_amount');
+        $totalPrice = $cartItems->sum('total_amount');
 
-    return view('cartlist', ['cartItems' => $cartItems,'totalPrice' => $totalPrice]);
-}
+        return view('cartlist', ['cartItems' => $cartItems, 'totalPrice' => $totalPrice]);
+    }
 
 
     public function removeCart($id)
@@ -675,7 +674,45 @@ class ProductController extends Controller
 
 
 
- /**
+
+
+    /**
+     *   ########################       Oder History      ##################################
+     */
+    public function previousOrders()
+    {
+        $userId = Auth::id(); // Retrieve user_id for the order
+
+        $orders = DB::table('orders')
+            ->where('user_id', $userId)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Assuming each order has associated products details directly or through a pivot table
+        // This is a placeholder. You should replace it with actual logic to fetch associated products
+        foreach ($orders as $order) {
+            // Here, you would typically fetch product details for each order
+            // For demonstration, let's assume we're appending a mock list of products
+            $order->products = "1x Gold Ring, 2x Silver Necklace"; // Placeholder, replace with actual product fetching logic
+        }
+
+        return view('previousOrders', ['orders' => $orders]);
+    }
+
+
+    public function receipt($id)
+    {
+        $order = Order::find($id);
+        if (!$order) {
+            // Handle the case where the order is not found
+            return redirect()->back()->with('error', 'Order not found.');
+        }
+        return view('order-confirmed', ['order' => $order]);
+    }
+
+
+
+    /**
      *   ########################       Product Availability Allert      ##################################
      */
 

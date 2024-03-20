@@ -1,4 +1,8 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('title', 'Previous Orders')
+
+@section('content')
 
     <hr class="mb-5">
 
@@ -29,4 +33,6 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+
+ 
+    @endsection

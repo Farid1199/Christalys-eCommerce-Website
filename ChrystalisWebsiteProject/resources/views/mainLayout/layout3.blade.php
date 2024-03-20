@@ -193,7 +193,7 @@ $total = ProductController::cartItem();
                             <a href="{{route('cartlist')}}" class="list-inline-item">Your Cart</a>
                         </p>
                         <p>
-                            <a href="{{route('previousod')}}" class="list-inline-item">Previous Orders</a>
+                            <a href="{{route('previousOrders')}}" class="list-inline-item">Previous Orders</a>
                         </p>
                         <p>
                             <a href="{{ route('profile.edit') }}" class="list-inline-item">Account Settings</a>

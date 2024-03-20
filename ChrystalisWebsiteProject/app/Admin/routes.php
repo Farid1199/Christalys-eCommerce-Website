@@ -24,6 +24,6 @@ $router->resource('products', ProductController::class);
 $router->resource('orders', OrderController::class);
 $router->resource('item-orders', OrderItemController::class);
 $router->resource('transactions', TransactionController::class);
-
+$router->resource('reviews', ReviewController::class);
 
 });

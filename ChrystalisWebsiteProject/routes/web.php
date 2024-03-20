@@ -7,8 +7,14 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CsvFileController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CsvProductStatsController;
 
+
+//use App\Http\Controllers\ContactController;
+
+use \App\Models\Order;
 
 
 /*
@@ -44,7 +50,7 @@ Route::get('/products', function () {
     return view('productCatalogue');
 })->name('products');
 
-# About Us
+#About Us
 Route::get('/aboutus', function () {
     return view('aboutUs');
 })->name('aboutus');
@@ -88,15 +94,9 @@ Route::get('/watches', function () {
 })->name('watches');
 
 
-# ORDER CONFIRMED
-Route::get('/ordercm', function () {
-    return view('order-confirmed');
-})->name('ordercm');
 
-# PREVIOUS ORDERS
-Route::get('/previousod', function () {
-    return view('previous-orders');
-})->name('previousod');
+
+
 
 
 
@@ -147,7 +147,8 @@ Route::get('/watches', [ProductController::class, 'index4'])->name('watches.inde
 
 Route::get("detail/{id}", [ProductController::class, 'detail']);
 
-
+// Route for the order details page
+Route::get("receipt/{order_id}", [ProductController::class, 'receipt']);
 
 
 
@@ -168,7 +169,7 @@ Route::get("cartlist", [App\Http\Controllers\ProductController::class, 'cartList
 
 //  ##############################          Route for the WishList             ########################################################
 
-//route for wishlist 
+//route for wishlist
 
 Route::get('/wishlist', [ProductController::class, 'wishlist'])->name('wishlist');
 Route::post('/add_to_wishlist', [ProductController::class, 'addToWishlist']);
@@ -214,12 +215,12 @@ Route::get('/detailcheck', function () {
     return view('DetailCheck');
 })->name('detailcheck'); */
 
-# Test 2 for specific product 
+# Test 2 for specific product
 Route::get('/t2detail', function () {
     return view('testdetail2');
 })->name('t2detail');
 
-# Dashboard test 
+# Dashboard test
 Route::get('/t3users', function () {
     return view('t3usertest');
 })->name('t3users');
@@ -242,3 +243,28 @@ Route::post('/update-cart-quantity/{id}', [ProductController::class, 'updateCart
 
 
 Route::stripeWebhooks('/webhook');
+
+
+// Route for the dashboard page for Rings
+Route::get('/previousOrders', [ProductController::class, 'previousOrders'])->name('previousOrders');
+
+// Route::get('/previousOrders', function () {
+//     return view('previousOrders');
+// })->name('previousOrders');
+
+
+Route::get('/UserExport', [CsvFileController::class, 'export'])->name('UserExport');
+
+
+
+//  Product Review Route
+
+Route::post('/submit_review', [ReviewController::class, 'store'])->name('reviews.store');
+
+
+
+// Startistics for the Products
+
+Route::get('/productExport', [CsvProductStatsController::class, 'export'])->name('productExport');
+
+

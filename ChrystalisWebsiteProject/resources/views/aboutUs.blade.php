@@ -117,39 +117,9 @@
     <div class="mt-5">
         <h3 class="container my-3 text-center">Write a Review</h3>
 
-        <!-- Display validation errors if any -->
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+       
 
-        <!-- Display success message if any -->
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-
-        <form action="{{ route('aboutus.submitform') }}" method="POST" id="aboutusForm" name="aboutusForm">
-            @csrf
-            <div class="mb-3">
-                <label for="name" class="form-label">Your Name</label>
-                <input type="text" class="form-control" id="name" name="name" required=""/>
-            </div>
-            <div class="mb-3">
-                <label for="review" class="form-label">Your Review</label>
-                <textarea class="form-control" id="review" rows="4" name="review" required=""></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-outline-primary w-100">Submit Review</button>
-        </form>
-
+                
     </div>
 </section>
 
@@ -158,3 +128,4 @@
 
 
 @endsection
+
