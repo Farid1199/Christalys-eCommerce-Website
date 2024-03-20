@@ -91,7 +91,7 @@ class ProductController extends Controller
 
     function detail($id)
     {
-        $data = Product::find($id);
+        $data = Product::where('id', $id)->orderBy('created_at', 'DESC')->first();;
         return view('ProductDetail', ['product' => $data]);
 
     }

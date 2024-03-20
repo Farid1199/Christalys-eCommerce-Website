@@ -1,6 +1,9 @@
 
 <div class="container my-4">
     <h3 class="mb-3">Customer Reviews</h3>
+    @auth
+    
+
     <form action="/submit_review" method="POST" class="mb-4">
         @csrf
         <div class="mb-3">
@@ -17,16 +20,26 @@
             <label for="comment" class="form-label">Comment</label>
             <textarea name="comment" id="comment" rows="3" class="form-control"></textarea>
         </div>
+        <!-- Hidden input for product_id -->
+        <input type="hidden" name="product_id" value="{{ $product->id }}">
+        
         <button type="submit" class="btn btn-success">Submit Review</button>
     </form>
+
+    @else 
+
+    <h7>You have to be logged in to post a review</h7>
     
-    @foreach(App\Models\Review::all() as $review)
+    @endauth
+    
+    @foreach($product->reviews as $review)
     <div class="review mb-3">
         <div class="rating">{{ str_repeat('★', $review->rating) . str_repeat('☆', 5 - $review->rating) }}</div>
         <p class="comment">{{ $review->comment }}</p>
         <small class="text-muted">Posted by {{ $review->user->name }} on {{ $review->created_at->format('Y-m-d') }}</small>
     </div>
 @endforeach
+
 </div>
 
 
