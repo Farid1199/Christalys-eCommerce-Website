@@ -254,6 +254,9 @@ Route::get('/previousOrders', [ProductController::class, 'previousOrders'])->nam
 
 
 Route::get('/UserExport', [CsvFileController::class, 'export'])->name('UserExport');
+Route::get('/productExport', [CsvProductStatsController::class, 'export'])->name('productExport');
+
+
 
 
 

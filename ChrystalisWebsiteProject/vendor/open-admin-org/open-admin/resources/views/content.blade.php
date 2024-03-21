@@ -17,6 +17,9 @@
 
         @include('admin::partials.breadcrumb')
 
+        <a href="{{ route('UserExport') }}" class="btn btn-success">Export Users</a>
+        <a href="{{ route('productExport') }}" class="btn btn-info">Export Products</a>
+
     </section>
 
     <section class="content">
