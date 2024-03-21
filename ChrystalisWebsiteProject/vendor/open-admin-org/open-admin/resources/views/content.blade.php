@@ -21,7 +21,7 @@
 
     <section class="dashboard" style="background: #f4f4f4; padding: 15px; margin-bottom: 20px;">
         <h2 style="margin-bottom: 20px; font-size: 24px; color: #333;">Dashboard</h2>
-        <div class="website" style="margin-bottom: 20px;">
+        <div class="website" style="margin-bottom: 20px; border: 1px solid #ddd; padding: 10px;">
             <h3 style="font-size: 20px; color: #333; margin-bottom: 15px;">Website</h3>
             <a href="{{ route('welcome') }}" class="btn btn-primary" style="box-shadow: 0 2px 4px rgba(0,0,0,.2);">Go to Website</a>
         </div>
