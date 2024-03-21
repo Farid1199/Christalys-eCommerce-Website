@@ -9,20 +9,20 @@
         <style type="text/css">{{ $css }}</style>
     @endisset
 
-    <section class="content-header clearfix">
-        <h1>
+    <section class="content-header clearfix" style="background: #f4f4f4; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd;">
+        <h1 style="font-weight: 300; font-size: 28px; color: #333;">
             {!! 'Chrystalis Jewelery Website' ?: trans('admin.title') !!}
-            <small>{!! $description ?: trans('admin.description') !!}</small>
+            <small style="font-size: 15px; color: #666;">{!! $description ?: trans('admin.description') !!}</small>
         </h1>
 
         @include('admin::partials.breadcrumb')
 
-        <a href="{{ route('UserExport') }}" class="btn btn-success">Export Users</a>
-        <a href="{{ route('productExport') }}" class="btn btn-info">Export Products</a>
+        <a href="{{ route('UserExport') }}" class="btn btn-success" style="box-shadow: 0 2px 4px rgba(0,0,0,.2);">Export Users</a>
+        <a href="{{ route('productExport') }}" class="btn btn-info" style="box-shadow: 0 2px 4px rgba(0,0,0,.2);">Export Products</a>
 
     </section>
 
-    <section class="content">
+    <section class="content" style="background: #fff; padding: 20px;">
 
         @include('admin::partials.alerts')
         @include('admin::partials.exception')
