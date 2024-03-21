@@ -17,39 +17,12 @@ CONTACT US CONTENT
 <hr class="my-5">
 <hr class="my-5">
 
-
-<!-- <h1 class="my-5 text-center">Contact Chrystalis!</h1>
-
-Contact Form Section 
-<section class="Contact-us">
-    <form id="contactForm" onsubmit="return checkForm()" name="contactForm">
-        
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required="" />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required="" />
-
-        <label for="confirm-email">Confirm Email:</label>
-        <input type="email" id="confirm-email" name="confirm-email" required="" />
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required="" />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required=""></textarea>
-
-        
-        <input class="btn-outline-primary" type="submit" name="submit" value="Submit" />
-    </form>
-</section>
--->
-
 <div class="container">
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center my-5">
         <div class="col-md col-lg col-xl mx-auto mb-4">
             <!-- Contact Details -->
             <div class="text-center">
-                <h2 class="text-uppercase fw-bold">Contact Chrystalis!</h2>
+                <h6 class="text-uppercase fw-bold">Contact Us</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
                 <p><i class="fas fa-home mr-1"></i> 33 Road, Birmingham, B87 8HG</p>
                 <p><i class="fas fa-envelope mr-1"></i> chrystalis@example.com</p>
@@ -70,16 +43,12 @@ Contact Form Section
             </div>
         </div>
     </div>
-</div>
 
-
-
-<div class="container">
-    <div class="row justify-content-center mb-5">
+    <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow">
                 <div class="card-body">
-                    <h3 class="my-2 text-center">Contact Us Here!</h3>
+                    <h1 class="my-2 text-center">Contact Chrystalis!</h1>
 
                     <!-- Display validation errors if any -->
                     @if ($errors->any())
@@ -99,12 +68,30 @@ Contact Form Section
                         </div>
                     @endif
 
-                    
+                    <!-- Contact Form Section -->
+                    <form action="{{ route('contact.submit') }}" method="POST" id="contactForm" name="contactForm">
+                        @csrf
+                        <!-- Form Fields -->
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required="">
+                        </div>
+                      
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required=""></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<hr class="my-5">
 
 
 
@@ -118,3 +105,6 @@ Contact Form Section
 
 
 @endsection
+
+
+

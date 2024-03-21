@@ -12,7 +12,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CsvProductStatsController;
 use App\Http\Controllers\OrderController;
 
-//use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactController;
 
 use \App\Models\Order;
 
@@ -279,7 +279,11 @@ Route::post('/my-returns/{order}', [OrderController::class, 'returnOrder'])->nam
 
 
 
-;
+// Contact Us post
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+
+Route::post('/review', [AboutUsController::class, 'submit'])->name('review.submit');
 
 
 
