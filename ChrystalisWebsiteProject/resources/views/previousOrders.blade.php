@@ -134,10 +134,10 @@ body, html {
                                 @case('Delivered')
                                     <span class="badge badge-success">Delivered</span>
                                     @if($order->process === 'Delivered')
-                                        <form action="{{ route('orders.requestReturn', $order->order_id) }}" method="POST">
+                                        <!--form action="{{ route('orders.requestReturn', $order->order_id) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-warning">Request Return</button>
-                                        </form>
+                                        </form-->
                                     @endif
                                     @break
                                 @case('Returned')

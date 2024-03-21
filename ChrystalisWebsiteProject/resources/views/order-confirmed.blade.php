@@ -91,7 +91,7 @@
                                                     <div class="d-flex justify-content-around mb-1">
                                                         <p class="mt-1 mb-0 small ms-xl-5">You have returned your order</p>
                                                     </div>
-                                                @break
+                                                @break                                          
                                         @endswitch
 
                                     </div>
@@ -147,19 +147,52 @@
                 </div>
 
 
-                <div class="text-center mt-4">
-                    <p>If you are not satisfied with the order press the return button</p>
-                    <form action="{{ route('orders.myReturns', $order) }}" method="POST">
-                        @csrf
-                        <button class="btn btn-danger" type="submit">Return Order</button>
-                    </form>
-                </div>
-
-
+                @switch($order->process)
+                    @case('Received')
+                        <div class="text-center mt-4">
+                            <p>If you are you want to cancel the transaction, press the cancel button below</p>
+                            <form action="{{ route('orders.myReturns', $order) }}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger" type="submit">Cancel Order</button>
+                            </form>
+                        </div>
+                        @break
+                    @case('Processing')
+                    <div class="text-center mt-4">
+                        <p>If you are you want to cancel the transaction, press the cancel button below</p>
+                        <form action="{{ route('orders.myReturns', $order) }}" method="POST">
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Cancel Order</button>
+                        </form>
+                    </div>
+                        @break
+                    @case('Dispatched')
+                        <div class="text-center mt-4">
+                            <p>If you are you want to return the order, press the Return Order Below</p>
+                            <form action="{{ route('orders.myReturns', $order) }}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger" type="submit">Return Order</button>
+                            </form>
+                        </div>
+                        @break
+                    @case('Delivered')
+                    <div class="text-center mt-4">
+                        <p>If you are you want to return the order, press the Return Order Below</p>
+                        <form action="{{ route('orders.myReturns', $order) }}" method="POST">
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Return Order</button>
+                        </form>
+                    </div>
+                        @break
+                    @case('Returned')
+                    <div class="text-center mt-4">
+                        <p>You have successfully returned your order!</p>
+                    
+                    </div>
+                        @break
+                @endswitch
             </div>
         </div>
-
-
     </div>
 </section>
 
