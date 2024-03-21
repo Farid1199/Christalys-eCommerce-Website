@@ -82,6 +82,7 @@ class HandleChargeableSource implements ShouldQueue
                 // Check if total_price is null or not, and set it accordingly
                 $itemOrder->total_price = $cartItem->total_price ? $cartItem->total_price : 0; // Ensure total_price is not null
                 $itemOrder->save();
+                $cartItem->delete();
             }
 
             // Create the Transaction
