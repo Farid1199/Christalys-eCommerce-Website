@@ -17,9 +17,11 @@
 
         @include('admin::partials.breadcrumb')
 
-        <a href="{{ route('UserExport') }}" class="btn btn-success" style="box-shadow: 0 2px 4px rgba(0,0,0,.2);">Export Users</a>
-        <a href="{{ route('productExport') }}" class="btn btn-info" style="box-shadow: 0 2px 4px rgba(0,0,0,.2);">Export Products</a>
+    </section>
 
+    <section class="dashboard" style="padding: 15px; margin-bottom: 20px;">
+        <a href="{{ route('UserExport') }}" class="btn btn-success" style="box-shadow: 0 2px 4px rgba(0,0,0,.2); margin-right: 5px;">Export Users</a>
+        <a href="{{ route('productExport') }}" class="btn btn-info" style="box-shadow: 0 2px 4px rgba(0,0,0,.2);">Export Products</a>
     </section>
 
     <section class="content" style="background: #fff; padding: 20px;">
