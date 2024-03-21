@@ -19,7 +19,8 @@
 
     </section>
 
-    <section class="dashboard" style="padding: 15px; margin-bottom: 20px;">
+    <section class="dashboard" style="background: #f4f4f4; padding: 15px; margin-bottom: 20px;">
+        <h2 style="margin-bottom: 20px; font-size: 24px; color: #333;">Dashboard</h2>
         <a href="{{ route('UserExport') }}" class="btn btn-success" style="box-shadow: 0 2px 4px rgba(0,0,0,.2); margin-right: 5px;">Export Users</a>
         <a href="{{ route('productExport') }}" class="btn btn-info" style="box-shadow: 0 2px 4px rgba(0,0,0,.2);">Export Products</a>
     </section>
