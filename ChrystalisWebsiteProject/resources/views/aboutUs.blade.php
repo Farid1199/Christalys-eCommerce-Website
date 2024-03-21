@@ -5,6 +5,14 @@
 
 
 @section('content')
+
+
+
+<p>
+    Try publishing an event to channel <code>my-channel</code>
+    with event name <code>my-event</code>. <!-- Updated to 'my-event' -->
+  </p>
+
 <style>
     body {
         background-color: #e9ecef; /* Slightly darker grey for the overall background */
@@ -52,9 +60,9 @@
     }
 </style>
 
-<!-- 
-    
- ABOUT US CONTENT 
+<!--
+
+ ABOUT US CONTENT
 
 -->
 
@@ -62,6 +70,22 @@
 <hr class="my-5">
 
 <section class="container mt-5 px-5">
+
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script>
+  
+      // Enable pusher logging - don't include this in production
+      Pusher.logToConsole = true;
+  
+      var pusher = new Pusher('1f859ba1be741d46da9d', {
+        cluster: 'eu'
+      });
+  
+      var channel = pusher.subscribe('my-channel');
+      channel.bind('my-event', function(data) {
+        alert(JSON.stringify(data));
+      });
+    </script>
     <h2 class="container mt-5 mb-3 text-center">About Us</h2>
     <p>
         Welcome to Chrystalis, your go-to destination for exquisite jewelry. At
@@ -117,9 +141,9 @@
     <div class="mt-5">
         <h3 class="container my-3 text-center">Write a Review</h3>
 
-       
 
-                
+
+
     </div>
 </section>
 
@@ -127,23 +151,7 @@
 
 
 
-<script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
-  <script>
-
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('656be6c0e99577434659', {
-      cluster: 'eu'
-    });
-
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('eventlistener', function(data) {
-      alert(JSON.stringify(data));
-    });
-  </script>
 
 
 
 @endsection
-

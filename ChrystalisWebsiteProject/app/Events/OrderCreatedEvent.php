@@ -10,18 +10,16 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class PlaOrderEvent implements ShouldBroadcast
+class OrderCreatedEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    /** 
+    /**
      * Create a new event instance.
      */
-  public  $notification; 
-    public function __construct($notification)
+    public function __construct()
     {
         //
-        $this->notification = $notification; 
     }
 
     /**
@@ -32,16 +30,7 @@ class PlaOrderEvent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('my-channel'),
+            new PrivateChannel('channel-name'),
         ];
-    }
-
-
-
-
-    public function broadcastAs()
-    {
-        return 'my-event';
-        
     }
 }
