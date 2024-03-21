@@ -17,11 +17,11 @@ class PlaOrderEvent implements ShouldBroadcast
     /** 
      * Create a new event instance.
      */
-  protected  $my_global_variable; 
-    public function __construct($my_global_variable)
+  public  $notification; 
+    public function __construct($notification)
     {
         //
-        $this->my_global_variable = $my_global_variable; 
+        $this->notification = $notification; 
     }
 
     /**
@@ -41,7 +41,7 @@ class PlaOrderEvent implements ShouldBroadcast
 
     public function broadcastAs()
     {
-        return 'eventlistener';
+        return 'my-event';
         
     }
 }
