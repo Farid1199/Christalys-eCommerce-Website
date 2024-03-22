@@ -18,21 +18,14 @@
         </include>
     </source>
     <php>
-       <php>
-    <env name="APP_ENV" value="testing"/>
-    <env name="BCRYPT_ROUNDS" value="4"/>
-    <env name="CACHE_DRIVER" value="array"/>
-    <env name="DB_CONNECTION" value="mysql"/> <!-- Change to MySQL -->
-    <env name="DB_DATABASE" value="chrystaliswebsitedatabase"/> <!-- Change to your database name -->
-    <env name="DB_HOST" value="127.0.0.1"/> <!-- Change to your database host -->
-    <env name="DB_PORT" value="3306"/> <!-- Change to your database port -->
-    <env name="DB_USERNAME" value="root"/> <!-- Change to your database username -->
-    <env name="DB_PASSWORD" value=""/> <!-- Change to your database password -->
-    <env name="MAIL_MAILER" value="array"/>
-    <env name="QUEUE_CONNECTION" value="sync"/>
-    <env name="SESSION_DRIVER" value="array"/>
-    <env name="TELESCOPE_ENABLED" value="false"/>
-</php>
-
+        <env name="APP_ENV" value="testing"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <!-- <env name="DB_CONNECTION" value="sqlite"/> -->
+        <!-- <env name="DB_DATABASE" value=":memory:"/> -->
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
     </php>
 </phpunit>

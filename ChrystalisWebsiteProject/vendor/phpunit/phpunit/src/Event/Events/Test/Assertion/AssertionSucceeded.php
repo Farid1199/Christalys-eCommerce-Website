@@ -15,18 +15,16 @@ use PHPUnit\Event\Telemetry;
 
 /**
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
- *
- * @deprecated
  */
 final class AssertionSucceeded implements Event
 {
     private readonly Telemetry\Info $telemetryInfo;
-    private readonly string $value;
+    private readonly mixed $value;
     private readonly string $constraint;
     private readonly int $count;
     private readonly string $message;
 
-    public function __construct(Telemetry\Info $telemetryInfo, string $value, string $constraint, int $count, string $message)
+    public function __construct(Telemetry\Info $telemetryInfo, mixed $value, string $constraint, int $count, string $message)
     {
         $this->telemetryInfo = $telemetryInfo;
         $this->value         = $value;
@@ -40,7 +38,7 @@ final class AssertionSucceeded implements Event
         return $this->telemetryInfo;
     }
 
-    public function value(): string
+    public function value(): mixed
     {
         return $this->value;
     }
@@ -62,7 +60,7 @@ final class AssertionSucceeded implements Event
         if (!empty($this->message)) {
             $message = sprintf(
                 ', Message: %s',
-                $this->message,
+                $this->message
             );
         }
 
@@ -70,7 +68,7 @@ final class AssertionSucceeded implements Event
             'Assertion Succeeded (Constraint: %s, Value: %s%s)',
             $this->constraint,
             $this->value,
-            $message,
+            $message
         );
     }
 }

@@ -1,18 +1,4 @@
 <?php return array (
-  'inertiajs/inertia-laravel' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Inertia\\ServiceProvider',
-    ),
-  ),
-  'laravel/breeze' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Laravel\\Breeze\\BreezeServiceProvider',
-    ),
-  ),
   'laravel/sail' => 
   array (
     'providers' => 
@@ -32,17 +18,6 @@
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    ),
-  ),
-  'maatwebsite/excel' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
     ),
   ),
   'nesbot/carbon' => 
@@ -66,22 +41,22 @@
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
     ),
   ),
-  'pragmarx/firewall' => 
+  'open-admin-ext/helpers' => 
   array (
     'providers' => 
     array (
-      0 => 'PragmaRX\\Firewall\\Vendor\\Laravel\\ServiceProvider',
+      0 => 'OpenAdmin\\Admin\\Helpers\\HelpersServiceProvider',
+    ),
+  ),
+  'open-admin-org/open-admin' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'OpenAdmin\\Admin\\AdminServiceProvider',
     ),
     'aliases' => 
     array (
-      'Firewall' => 'PragmaRX\\Firewall\\Vendor\\Laravel\\Facade',
-    ),
-  ),
-  'reliese/laravel' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Reliese\\Coders\\CodersServiceProvider',
+      'Admin' => 'OpenAdmin\\Admin\\Facades\\Admin',
     ),
   ),
   'spatie/laravel-ignition' => 
@@ -107,13 +82,6 @@
     'providers' => 
     array (
       0 => 'Spatie\\WebhookClient\\WebhookClientServiceProvider',
-    ),
-  ),
-  'tightenco/ziggy' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Tightenco\\Ziggy\\ZiggyServiceProvider',
     ),
   ),
 );
