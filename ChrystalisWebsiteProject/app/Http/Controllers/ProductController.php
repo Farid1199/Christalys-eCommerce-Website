@@ -91,7 +91,8 @@ class ProductController extends Controller
 
     function detail($id)
     {
-        $data = Product::where('id', $id)->orderBy('created_at', 'DESC')->first();;
+        $data = Product::where('id', $id)->orderBy('created_at', 'DESC')->first();
+        ;
         return view('ProductDetail', ['product' => $data]);
 
     }
@@ -655,6 +656,9 @@ class ProductController extends Controller
 
     public function addToWishlist(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect()->route('login');
+        }
         $wishlistItem = new Wishlist;
         $wishlistItem->user_id = Auth::id();
         $wishlistItem->product_id = $request->product_id;

@@ -45,11 +45,12 @@ CONTACT US CONTENT
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-outline-secondary text-dark py-5">
+                    <h2 class="mb-0 text-center">Contact Chrystalis!</h2>
+                </div>
                 <div class="card-body">
-                    <h1 class="my-2 text-center">Contact Chrystalis!</h1>
-
                     <!-- Display validation errors if any -->
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -72,24 +73,31 @@ CONTACT US CONTENT
                     <form action="{{ route('contact.submit') }}" method="POST" id="contactForm" name="contactForm">
                         @csrf
                         <!-- Form Fields -->
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required="">
+                        <div class="form-group mb-4">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required="">
                         </div>
-                      
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="5" required=""></textarea>
+
+                        <div class="form-group mb-4">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Leave us a message" required=""></textarea>
                         </div>
 
                         <!-- Submit Button -->
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
 
 <hr class="my-5">
 
