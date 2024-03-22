@@ -60,7 +60,6 @@ $total = ProductController::cartItem();
 
   {{-- ============================ Navigation bar =================== --}}
 
-
   <div class="head1">
     @yield('header')
     <header class="fixed-top">
