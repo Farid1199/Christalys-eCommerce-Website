@@ -1629,6 +1629,58 @@
             "install-path": "../hamcrest/hamcrest-php"
         },
         {
+            "name": "laravel/browser-kit-testing",
+            "version": "v1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/browser-kit-testing.git",
+                "reference": "442a9de17b5acc1a140c322f67ea4ee0f1c42688"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/browser-kit-testing/zipball/442a9de17b5acc1a140c322f67ea4ee0f1c42688",
+                "reference": "442a9de17b5acc1a140c322f67ea4ee0f1c42688",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "time": "2017-01-24T13:11:16+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\BrowserKitTesting\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Provides backwards compatibility for BrowserKit testing in Laravel 5.4.",
+            "keywords": [
+                "laravel",
+                "testing"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/browser-kit-testing/issues",
+                "source": "https://github.com/laravel/browser-kit-testing/tree/master"
+            },
+            "install-path": "../laravel/browser-kit-testing"
+        },
+        {
             "name": "laravel/framework",
             "version": "v10.48.3",
             "version_normalized": "10.48.3.0",
@@ -10260,6 +10312,7 @@
         "fakerphp/faker",
         "filp/whoops",
         "hamcrest/hamcrest-php",
+        "laravel/browser-kit-testing",
         "laravel/pint",
         "laravel/sail",
         "mockery/mockery",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b81fd872d515e7887a8b36d03fa9426",
+    "content-hash": "98413a414d415841b0233c91896c7f7a",
     "packages": [
         {
             "name": "brick/math",
@@ -7607,6 +7607,55 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "laravel/browser-kit-testing",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/browser-kit-testing.git",
+                "reference": "442a9de17b5acc1a140c322f67ea4ee0f1c42688"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/browser-kit-testing/zipball/442a9de17b5acc1a140c322f67ea4ee0f1c42688",
+                "reference": "442a9de17b5acc1a140c322f67ea4ee0f1c42688",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\BrowserKitTesting\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Provides backwards compatibility for BrowserKit testing in Laravel 5.4.",
+            "keywords": [
+                "laravel",
+                "testing"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/browser-kit-testing/issues",
+                "source": "https://github.com/laravel/browser-kit-testing/tree/master"
+            },
+            "time": "2017-01-24T13:11:16+00:00"
         },
         {
             "name": "laravel/pint",

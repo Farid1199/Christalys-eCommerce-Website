@@ -154,6 +154,7 @@ class ComposerStaticInita0144d843e65d923674fceea4f5c845d
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
             'Laravel\\Prompts\\' => 16,
+            'Laravel\\BrowserKitTesting\\' => 26,
         ),
         'I' => 
         array (
@@ -518,6 +519,10 @@ class ComposerStaticInita0144d843e65d923674fceea4f5c845d
         'Laravel\\Prompts\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/prompts/src',
+        ),
+        'Laravel\\BrowserKitTesting\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/browser-kit-testing/src',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -3293,6 +3298,32 @@ class ComposerStaticInita0144d843e65d923674fceea4f5c845d
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Laravel\\BrowserKitTesting\\Concerns\\ImpersonatesUsers' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Concerns/ImpersonatesUsers.php',
+        'Laravel\\BrowserKitTesting\\Concerns\\InteractsWithAuthentication' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Concerns/InteractsWithAuthentication.php',
+        'Laravel\\BrowserKitTesting\\Concerns\\InteractsWithConsole' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Concerns/InteractsWithConsole.php',
+        'Laravel\\BrowserKitTesting\\Concerns\\InteractsWithContainer' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Concerns/InteractsWithContainer.php',
+        'Laravel\\BrowserKitTesting\\Concerns\\InteractsWithDatabase' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Concerns/InteractsWithDatabase.php',
+        'Laravel\\BrowserKitTesting\\Concerns\\InteractsWithPages' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Concerns/InteractsWithPages.php',
+        'Laravel\\BrowserKitTesting\\Concerns\\InteractsWithSession' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Concerns/InteractsWithSession.php',
+        'Laravel\\BrowserKitTesting\\Concerns\\MakesHttpRequests' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Concerns/MakesHttpRequests.php',
+        'Laravel\\BrowserKitTesting\\Concerns\\MocksApplicationServices' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Concerns/MocksApplicationServices.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\FormFieldConstraint' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/FormFieldConstraint.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\HasElement' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/HasElement.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\HasInElement' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/HasInElement.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\HasLink' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/HasLink.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\HasSource' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/HasSource.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\HasText' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/HasText.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\HasValue' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/HasValue.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\IsChecked' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/IsChecked.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\IsSelected' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/IsSelected.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\PageConstraint' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/PageConstraint.php',
+        'Laravel\\BrowserKitTesting\\Constraints\\ReversePageConstraint' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/Constraints/ReversePageConstraint.php',
+        'Laravel\\BrowserKitTesting\\DatabaseMigrations' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/DatabaseMigrations.php',
+        'Laravel\\BrowserKitTesting\\DatabaseTransactions' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/DatabaseTransactions.php',
+        'Laravel\\BrowserKitTesting\\HttpException' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/HttpException.php',
+        'Laravel\\BrowserKitTesting\\TestCase' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/TestCase.php',
+        'Laravel\\BrowserKitTesting\\WithoutEvents' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/WithoutEvents.php',
+        'Laravel\\BrowserKitTesting\\WithoutMiddleware' => __DIR__ . '/..' . '/laravel/browser-kit-testing/src/WithoutMiddleware.php',
         'Laravel\\Prompts\\Concerns\\Colors' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Colors.php',
         'Laravel\\Prompts\\Concerns\\Cursor' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Cursor.php',
         'Laravel\\Prompts\\Concerns\\Erase' => __DIR__ . '/..' . '/laravel/prompts/src/Concerns/Erase.php',
