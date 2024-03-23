@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 
 <style>
     body {
-        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+        background-color: #f8f9fa; /* Slightly darker grey for the overall background */
     }
 
     .album {
@@ -22,7 +22,7 @@ use Illuminate\Support\Str;
     }
 
     .card {
-        background-color: #dee2e6; /* Grey card background for better content readability */
+        background-color: #f8f9fa; /* Grey card background for better content readability */
         border: none;
     }
     .card-img-center:hover {
@@ -61,8 +61,16 @@ use Illuminate\Support\Str;
         top: 0;
         z-index: 1020;
     }
+
+    #bg {
+            background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+            background-size: 100%; /* make the image smaller */
+        }
 </style>
-<div class="album bg-light py-5">
+
+
+
+<div class="album bg-light py-5" id="bg">
     <div class="container py-5">
         <div class="py-3 text-center"></div>
 
@@ -80,9 +88,10 @@ use Illuminate\Support\Str;
 
         <div class="row">
             <div class="col-md-4">
-                <div class="card sticky-sm-top mt-4">
+                <div class="card sticky-sm-top mt-4" style="border:3px solid gold" >
                     <div class="card-body">
-                        <h5 class="card-title">Search & Sort</h5>
+                    <h3 class="card-title text-center mb-2">Search & Sort Filters</h3>
+
                     <!-- Search form for category -->
                     <form>
 
@@ -123,11 +132,11 @@ use Illuminate\Support\Str;
 
                             <div class="col-md-8 border-lg ">
                                 @foreach ($products as $ring)
-                                <div class="card mb-4 box-shadow" style="border-radius: 10px; overflow: hidden; transition: transform .3s ease;">
-                                <div class="row g-0 d-flex align-items-center justify-content-center" style="background-color: #eaebf0">
-                                        <div class="col-md-4 d-flex align-items-center justify-content-center" style="background: #f8f9fa;">
+                                <div class="card mb-4 box-shadow" style="border-radius: 10px; overflow: hidden; transition: transform .3s ease; border:3px solid gold">
+                                <div class="row g-0 d-flex align-items-center justify-content-center" style="background-color: #ffffff">
+                                        <div class="col-md-4 d-flex align-items-center justify-content-center" style="background: #f8f9fa; border:1px solid grey; border-radius: 7px;">
                                         <a href="detail/{{$ring['id']}}" class="d-block w-100 h-100">
-                                            <img src="{{ $ring['gallery'] }}" class="card-img-center img-responsive img-fluid" alt="Card image cap" style="object-fit: cover; min-height: 100%; min-width: 100%;" />
+                                            <img src="{{ $ring['gallery'] }}" class="card-img-center img-responsive img-fluid" alt="Card image cap" style="object-fit: cover; height: 250px; min-width: 100%; border-radius: 10px;" />
                                         </a>
                                         </div>
                                         <div class="col-md-8 align-items-center justify-content-center d-flex flex-column "> 

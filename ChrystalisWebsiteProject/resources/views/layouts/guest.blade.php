@@ -17,24 +17,30 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gradient-to-r from-purple-500 to-pink-500 bg-opacity-80 animate-pulse">
         <div>
             <a href="/">
-                <div id="logo">
+                <div id="logo" class="animate-bounce">
                     <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="display: block;
                             margin-left: auto;
                             margin-right: auto;
-                            width:50%; 
+                            width:50%;
                             height:50%;" class="align-items-center img-fluid" />
                 </div>
 
             </a>
         </div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            {{ $slot }}
+        <div class="w-full sm:max-w-md mt-6 px-6 py-6 bg-opacity-90 bg-white/70 backdrop-blur-sm shadow-xl overflow-hidden sm:rounded-lg animate-zoom-in" style="border: 2px solid #DAA520;">
+            <div class="animate-fade-in-down">{{ $slot }}</div>
         </div>
     </div>
+<style>
+        body {
+            background-image: url('{{ asset("Images/HomePage/login.jpg") }}');
+            background-size: 100%; /* make the image smaller */
+        }
+</style>
 </body>
 
 </html>
