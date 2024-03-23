@@ -10,9 +10,9 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CsvFileController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CsvProductStatsController;
+use App\Http\Controllers\OrderController;
 
-
-//use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactController;
 
 use \App\Models\Order;
 
@@ -93,7 +93,15 @@ Route::get('/watches', function () {
     return view('watch');
 })->name('watches');
 
+# Privacy policy
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
 
+# terms and conditions
+Route::get('/terms', function () {
+    return view('terms');
+})->name('terms');
 
 
 
@@ -254,6 +262,9 @@ Route::get('/previousOrders', [ProductController::class, 'previousOrders'])->nam
 
 
 Route::get('/UserExport', [CsvFileController::class, 'export'])->name('UserExport');
+Route::get('/productExport', [CsvProductStatsController::class, 'export'])->name('productExport');
+
+
 
 
 
@@ -266,5 +277,24 @@ Route::post('/submit_review', [ReviewController::class, 'store'])->name('reviews
 // Startistics for the Products
 
 Route::get('/productExport', [CsvProductStatsController::class, 'export'])->name('productExport');
+
+
+//   Product Return
+
+Route::post('/orders/{order}/request-return', [OrderController::class, 'requestReturn'])->name('orders.requestReturn');
+
+Route::post('/my-returns/{order}', [OrderController::class, 'returnOrder'])->name('orders.myReturns');
+
+
+
+// Contact Us post
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
+
+Route::post('/review', [AboutUsController::class, 'submit'])->name('review.submit');
+
+
+
+
 
 

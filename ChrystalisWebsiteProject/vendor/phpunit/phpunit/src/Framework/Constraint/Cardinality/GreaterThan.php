@@ -9,16 +9,14 @@
  */
 namespace PHPUnit\Framework\Constraint;
 
-use PHPUnit\Util\Exporter;
-
 /**
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
 final class GreaterThan extends Constraint
 {
-    private readonly mixed $value;
+    private readonly float|int $value;
 
-    public function __construct(mixed $value)
+    public function __construct(float|int $value)
     {
         $this->value = $value;
     }
@@ -26,9 +24,9 @@ final class GreaterThan extends Constraint
     /**
      * Returns a string representation of the constraint.
      */
-    public function toString(bool $exportObjects = false): string
+    public function toString(): string
     {
-        return 'is greater than ' . Exporter::export($this->value, $exportObjects);
+        return 'is greater than ' . $this->exporter()->export($this->value);
     }
 
     /**

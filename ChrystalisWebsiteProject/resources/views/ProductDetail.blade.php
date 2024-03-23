@@ -161,7 +161,59 @@
             </div>
         </div>
 
+        
         @include('shared.comments-box')
+        
     </section>
+
+    <section id="featured-products" class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="fw-bolder mb-4">Featured products</h2>
+        <div class="row justify-content-center">
+            @php
+$featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
+
+            @endphp
+
+            @foreach ($featuredProducts as $product)
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                                    <a href = "/detail/{{$product->id}}"><img class="card-img-top" src="{{ asset($product->gallery) }}" alt="{{ $product->name }}" style="max-width: 100%; height: 300px;"></a>
+
+                        
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{ $product->name }}</h5>
+                                <!-- Product price-->
+                                <h6>Price: £{{ $product->price }}</h6>                            
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form action="/detail/{{$product->id}}" method="GET">
+                                    @csrf
+                                    <button class="btn btn-secondary" id="addToCartBtn">View Product</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
 
 @endsection

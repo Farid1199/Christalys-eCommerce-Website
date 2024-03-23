@@ -61,11 +61,14 @@
         @foreach($wishlistItems as $item)
         <div class="col-md-3 mb-4">
             <div class="card shadow">
-                <img src="{{ $item->product->gallery }}" class="card-img-top" alt="{{ $item->product->name }}">
+            <a href="/detail/{{$item->product->id}}"><img src="{{ $item->product->gallery }}" class="card-img-top" alt="{{ $item->product->name }}"></a>
                 <div class="card-body">
-                    <h5 class="card-title">{{ $item->product->name }}</h5>
-                    <p class="card-text">{{ $item->product->description }}</p>
-                    <form action="{{ route('wishlist.remove', $item->id) }}" method="POST">
+                    <h5 class="card-title"><a href="/detail/{{$item->product->id}}">{{ $item->product->name }}</a></h5>
+
+                
+
+                    <p class="card-text">Price: £{{ $item->product->price }}</p>
+                    <form action="{{ route('wishlist.remove', $item->id) }}" method="POST" class="text-center">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Remove from Wishlist</button>

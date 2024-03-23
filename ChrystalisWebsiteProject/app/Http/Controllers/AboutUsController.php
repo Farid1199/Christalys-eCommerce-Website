@@ -7,7 +7,7 @@ use App\Models\OverallReview;
 
 class AboutUsController extends Controller
 {
-    public function submitform(Request $request)
+    public function submit(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required',
