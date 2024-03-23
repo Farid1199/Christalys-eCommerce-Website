@@ -5,6 +5,8 @@
 @section('content')
 
 
+
+
 <link rel="stylesheet" href="{{ asset('assets/css/css-pages/homePage.css')}}" />
 <link rel="stylesheet" href="{{ asset('assets/css/css-pages/ministore.css')}}" />
 <!-----------------------------
@@ -34,6 +36,24 @@
   </symbol>
 </svg>
 
+
+<style>
+hr.gradient {
+  height: 3px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,   /* dark grey at 0% */
+    rgba(50, 50, 50, 1) 21%,  /* dark gull grey at 21% */
+    rgba(130, 130, 130, 1) 51%,  /* silver at 51% */
+    rgba(211, 211, 211, 1) 100%  /* light grey at 100% */
+  );
+}
+
+
+</style>
+
 <hr class="mb-3" />
 <hr class="mb-3" />
 <main role="main">
@@ -45,7 +65,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="first-slide" src="{{ asset('Images\HomePage\carosel1.png') }}" alt="First slide" />
+        <img class="first-slide" src="{{ asset('Images\HomePage\carosel1.jpg') }}" alt="First slide" />
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Welcome to Chrystalis</h1>
@@ -56,13 +76,13 @@
               collection that celebrates the artistry of adornment.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="{{route('aboutus')}}" role="button">About Us</a>
+              <a class="btn btn-lg btn-secondary" href="{{route('aboutus')}}" role="button">About Us</a>
             </p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="second-slide" src="{{ asset('Images\HomePage\carosel1.png') }}" alt="Second slide" />
+        <img class="second-slide" src="{{ asset('Images\HomePage\carosel2.jpg') }}" alt="Second slide" />
         <div class="container">
           <div class="carousel-caption">
             <h1>Discover Chrystalis</h1>
@@ -73,13 +93,13 @@
               enduring allure of graceful refinement.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#down" role="button">Discover Chrystalis</a>
+              <a class="btn btn-lg btn-secondary" href="#down" role="button">Discover Chrystalis</a>
             </p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="third-slide" src="{{ asset('Images\HomePage\carosel1.png') }}" alt="Third slide" />
+        <img class="third-slide" src="{{ asset('Images\HomePage\carosel3.jpg') }}" alt="Third slide" />
         <div class="container">
           <div class="carousel-caption text-right">
             <h1>Chrystalis Awaits You</h1>
@@ -91,7 +111,7 @@
               where every piece tells a story as unique as you are.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="{{route('products')}}" role="button">Browse Catalogue</a>
+              <a class="btn btn-lg btn-secondary" href="{{route('products')}}" role="button">Browse Catalogue</a>
             </p>
           </div>
         </div>
@@ -116,57 +136,70 @@
 
     <!-- START THE FEATURETTES -->
 
+    <!-- Services-->
+    <section class="content-section text-center my-5" style="background-color: #eaebf0" id="services">
+                <div class="container px-4 px-lg-5">
+                <div class="container mt-5 mb-3 text-center">
+                <h2 class="display-6 text-uppercase font-weight-bold mt-5 pt-5">Welcome to Chrystalis</h2>
+                  <div style="max-width: 90%; width: 100%; margin: auto; height: 0; position: relative; padding-top: 56.25%;">
+                          <iframe src="https://app.visla.us/embed/1221223709444964352" frameborder="0" allow="fullscreen *"
+                              style="border: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                          </iframe>
+                          </div>
+                          </div>
+                </div>
+            </section>
 
 
-    <div class="row featurette mt-5">
-      <div class="col-md-9">
-        <h2 class="featurette-heading">Rings</h2>
-        <p class="lead">Discover our exquisite collection of rings.</p>
-        <p>
-          <a class="btn btn-secondary" href="rings" role="button">Explore &raquo;</a>
-        </p>
-      </div>
-      <div class="col-md-3">
-        <img class="img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\gold-rings-.png') }}"
-          alt="Generic placeholder image" />
-      </div>
+
+            <section id="featured-products" class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 mt-5">
+    <div class="container mt-5 mb-3 text-center">
+                <h2 class="display-6 text-uppercase font-weight-bold my-4 py-3">Browse Our Products!</h2>
+            </div>
+        <div class="row justify-content-center">
+            @php
+$featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
+
+            @endphp
+
+            @foreach ($featuredProducts as $product)
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                                    <a href = "/detail/{{$product->id}}"><img class="card-img-top" src="{{ asset($product->gallery) }}" alt="{{ $product->name }}" style="max-width: 100%; height: 250px;"></a>
+
+                        
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder"> {{ Str::limit($product->name, 20, $end = '...') }}</h5>
+
+                               
+                                <!-- Product price-->
+                                <h6>Price: £{{ $product->price }}</h6>                            
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form action="/detail/{{$product->id}}" method="GET">
+                                    @csrf
+                                    <button class="btn btn-secondary" id="addToCartBtn">View Product</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
+</section>
 
-    <hr class="featurette-divider" />
 
-    <div class="row featurette text-right">
-      <div class="col-md-9 order-md-2">
-        <h2 class="featurette-heading">Watches</h2>
-        <p class="lead">Explore our timeless and elegant watches.</p>
-        <p>
-          <a class="btn btn-secondary" href="watches" role="button">Explore &raquo;</a>
-        </p>
-      </div>
-      <div class="col-md-3 order-md-1">
-        <img class="featurette-image img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\Watch-1.jpg') }}"
-          alt="Generic placeholder image" />
-      </div>
-    </div>
-
-    <hr class="featurette-divider" />
-
-    <div class="row featurette">
-      <div class="col-md-9">
-        <h2 class="featurette-heading">Necklaces</h2>
-        <p class="lead">
-          Adorn yourself with our stunning necklace collection
-        </p>
-        <p>
-          <a class="btn btn-secondary" href="necklaces" role="button">Explore &raquo;</a>
-        </p>
-      </div>
-      <div class="col-md-3">
-        <img class="featurette-image img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\Neckless1.jpeg') }}"
-          alt="Generic placeholder image" />
-      </div>
-    </div>
-
-    <hr class="featurette-divider" />
+    
+    <hr class="featurette-divider gradient" />
 
     <!-- 
 
@@ -200,15 +233,16 @@ TESTIMONIALS AND ENDINGS
 
 -->
 
-    <hr class="featurette-divider" />
-
-    <div class="row my-5">
-      <h1 class="mb-1 text-center">Hear from our Customers</h1>
+    <hr class="featurette-divider gradient" />
+  <section class="row my-5 py-5 bg-light">
+    <div class="text-center">
+        <h2 class="section-heading text-uppercase py-4 font-weight-bold">Hear from our Customers</h2>
+    </div>
       <div class="col-lg-4">
         <img class="rounded-circle my-4" src="{{ asset('Images\HomePage\2girl.jpg') }}" alt="Generic placeholder image"
           width="140" height="140" />
         <h2>Sarah M.</h2>
-        <p>
+        <p class="text-muted">
           "Absolutely in love with my new ring from Chrystalis! The craftsmanship is exceptional, and the attention to
           detail is superb. It's the perfect addition to my jewelry collection."
         </p>
@@ -219,7 +253,7 @@ TESTIMONIALS AND ENDINGS
         <img class="rounded-circle my-4" src="{{ asset('Images\HomePage\flavio.png') }}" alt="Generic placeholder image"
           width="140" height="140" />
         <h2>James L.</h2>
-        <p>
+        <p class="text-muted">
           "I had a fantastic experience shopping at Chrystalis. The website is easy to navigate, the customer service
           is
           top-notch, and my necklace arrived beautifully packaged!"
@@ -231,7 +265,7 @@ TESTIMONIALS AND ENDINGS
         <img class="rounded-circle my-4" src="{{ asset('Images\HomePage\emily.jpg') }}" alt="Generic placeholder image"
           width="140" height="140" />
         <h2>Emily R.</h2>
-        <p>
+        <p class="text-muted">
           "The earrings I purchased exceeded my expectations. They're elegant, comfortable to wear, and I've received
           so
           many compliments. I'll definitely be a returning customer!"
@@ -243,7 +277,7 @@ TESTIMONIALS AND ENDINGS
     <!-- /.row -->
 
     <!-- /END THE FEATURETTES -->
-  </div>
+</section>
   <!-- /.container -->
 
 

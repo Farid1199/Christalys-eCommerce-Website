@@ -21,10 +21,10 @@
                             <p class="lead fw-normal mb-0">Receipt</p>
                         </div>
 
-                        
+
                         <div class="card shadow-0 border mb-4">
                             <div class="card-body">
-                                 
+
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <p class="lead fw-normal mb-0">Order Status: <strong>{{ $order->process }}</strong></p>
                                 </div>
@@ -91,8 +91,8 @@
                                                     <div class="d-flex justify-content-around mb-1">
                                                         <p class="mt-1 mb-0 small ms-xl-5">You have returned your order</p>
                                                     </div>
-                                                @break                               
-                                        @endswitch           
+                                                @break                                          
+                                        @endswitch
 
                                     </div>
                                 </div>
@@ -124,17 +124,17 @@
                             <p>For any inquiries, please contact our customer support:</p>
 
 
-               
+
                             <form action="{{route('contactus')}}" method="GET">
                                 @csrf
-                                
+
                                 <button class="btn btn-secondary" type="submit">Customer Support</button>
                             </form>
 
 
                         </div>
                         <hr class="my-2">
-
+                        
                         <a class="btn btn-secondary btn-xl btn-block mt-3 my-3" href="{{route('previousOrders')}}">Order
                             History</a>
 
@@ -145,10 +145,54 @@
                             paid: <span class="h2 mb-0 ms-2">£{{ $order->total_price }}</span></h5>
                     </div>
                 </div>
+
+
+                @switch($order->process)
+                    @case('Received')
+                        <div class="text-center mt-4">
+                            <p>If you are you want to cancel the transaction, press the cancel button below</p>
+                            <form action="{{ route('orders.myReturns', $order) }}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger" type="submit">Cancel Order</button>
+                            </form>
+                        </div>
+                        @break
+                    @case('Processing')
+                    <div class="text-center mt-4">
+                        <p>If you are you want to cancel the transaction, press the cancel button below</p>
+                        <form action="{{ route('orders.myReturns', $order) }}" method="POST">
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Cancel Order</button>
+                        </form>
+                    </div>
+                        @break
+                    @case('Dispatched')
+                        <div class="text-center mt-4">
+                            <p>If you are you want to return the order, press the Return Order Below</p>
+                            <form action="{{ route('orders.myReturns', $order) }}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger" type="submit">Return Order</button>
+                            </form>
+                        </div>
+                        @break
+                    @case('Delivered')
+                    <div class="text-center mt-4">
+                        <p>If you are you want to return the order, press the Return Order Below</p>
+                        <form action="{{ route('orders.myReturns', $order) }}" method="POST">
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Return Order</button>
+                        </form>
+                    </div>
+                        @break
+                    @case('Returned')
+                    <div class="text-center mt-4">
+                        <p>You have successfully returned your order!</p>
+                    
+                    </div>
+                        @break
+                @endswitch
             </div>
         </div>
-
-
     </div>
 </section>
 

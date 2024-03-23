@@ -9,7 +9,6 @@
  */
 namespace PHPUnit\TextUI\Command;
 
-use const PHP_EOL;
 use function printf;
 use PHPUnit\TextUI\Configuration\CodeCoverageFilterRegistry;
 use PHPUnit\TextUI\Configuration\Configuration;
@@ -24,12 +23,10 @@ use SebastianBergmann\Timer\Timer;
 final class WarmCodeCoverageCacheCommand implements Command
 {
     private readonly Configuration $configuration;
-    private readonly CodeCoverageFilterRegistry $codeCoverageFilterRegistry;
 
-    public function __construct(Configuration $configuration, CodeCoverageFilterRegistry $codeCoverageFilterRegistry)
+    public function __construct(Configuration $configuration)
     {
-        $this->configuration              = $configuration;
-        $this->codeCoverageFilterRegistry = $codeCoverageFilterRegistry;
+        $this->configuration = $configuration;
     }
 
     /**
@@ -41,16 +38,16 @@ final class WarmCodeCoverageCacheCommand implements Command
         if (!$this->configuration->hasCoverageCacheDirectory()) {
             return Result::from(
                 'Cache for static analysis has not been configured' . PHP_EOL,
-                Result::FAILURE,
+                Result::FAILURE
             );
         }
 
-        $this->codeCoverageFilterRegistry->init($this->configuration, true);
+        CodeCoverageFilterRegistry::init($this->configuration);
 
-        if (!$this->codeCoverageFilterRegistry->configured()) {
+        if (!CodeCoverageFilterRegistry::configured()) {
             return Result::from(
                 'Filter for code coverage has not been configured' . PHP_EOL,
-                Result::FAILURE,
+                Result::FAILURE
             );
         }
 
@@ -63,13 +60,13 @@ final class WarmCodeCoverageCacheCommand implements Command
             $this->configuration->coverageCacheDirectory(),
             !$this->configuration->disableCodeCoverageIgnore(),
             $this->configuration->ignoreDeprecatedCodeUnitsFromCodeCoverage(),
-            $this->codeCoverageFilterRegistry->get(),
+            CodeCoverageFilterRegistry::get()
         );
 
         printf(
             '[%s]%s',
             $timer->stop()->asString(),
-            PHP_EOL,
+            \PHP_EOL
         );
 
         return Result::from();

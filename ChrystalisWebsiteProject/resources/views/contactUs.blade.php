@@ -8,6 +8,14 @@
 
 <!-- <link rel="stylesheet" href="{{ asset('assets/css/css-pages/contactus.css')}}" /-->
 
+<style>
+#contactFormSection{
+    height: 100%;
+    width: 100%;
+    background-image: url('{{ asset('Images/HomePage/map-image.png') }}');
+}
+</style>
+
 
 <!--
 CONTACT US CONTENT 
@@ -17,40 +25,13 @@ CONTACT US CONTENT
 <hr class="my-5">
 <hr class="my-5">
 
-
-<!-- <h1 class="my-5 text-center">Contact Chrystalis!</h1>
-
-Contact Form Section 
-<section class="Contact-us">
-    <form id="contactForm" onsubmit="return checkForm()" name="contactForm">
-        
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required="" />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required="" />
-
-        <label for="confirm-email">Confirm Email:</label>
-        <input type="email" id="confirm-email" name="confirm-email" required="" />
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required="" />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required=""></textarea>
-
-        
-        <input class="btn-outline-primary" type="submit" name="submit" value="Submit" />
-    </form>
-</section>
--->
-
 <div class="container">
-    <div class="row justify-content-center mt-5">
+    <div class="row justify-content-center my-5">
         <div class="col-md col-lg col-xl mx-auto mb-4">
             <!-- Contact Details -->
             <div class="text-center">
-                <h2 class="text-uppercase fw-bold">Contact Chrystalis!</h2>
-                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                <h1 class="text-uppercase fw-bold">Contact Us</h1>
+                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 150px; background-color: #7c4dff; height: 2px" />
                 <p><i class="fas fa-home mr-1"></i> 33 Road, Birmingham, B87 8HG</p>
                 <p><i class="fas fa-envelope mr-1"></i> chrystalis@example.com</p>
                 <p><i class="fas fa-phone mr-1"></i> +44 2345 678 098</p>
@@ -70,17 +51,16 @@ Contact Form Section
             </div>
         </div>
     </div>
-</div>
+</div> 
 
-
-
-<div class="container">
-    <div class="row justify-content-center mb-5">
-        <div class="col-md-6">
-            <div class="card shadow">
+<section class="container bg-dark m-5 p-5" id="contactFormSection">
+    <div class="row justify-content-center"> 
+        <div class="col-md-7" >
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-outline-secondary text-dark py-5">
+                    <h2 class="mb-0 text-center display-8 text-uppercase font-weight-bold">Contact Chrystalis!</h2>
+                </div>
                 <div class="card-body">
-                    <h3 class="my-2 text-center">Contact Us Here!</h3>
-
                     <!-- Display validation errors if any -->
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -99,12 +79,37 @@ Contact Form Section
                         </div>
                     @endif
 
-                    
+                    <!-- Contact Form Section -->
+                    <form action="{{ route('contact.submit') }}" method="POST" id="contactForm" name="contactForm">
+                        @csrf
+                        <!-- Form Fields -->
+                        <div class="form-group mb-4">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required="">
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Leave us a message" required=""></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+
+
+
+
+
+
+
+<hr class="my-5">
 
 
 
@@ -118,3 +123,6 @@ Contact Form Section
 
 
 @endsection
+
+
+

@@ -113,7 +113,7 @@ body, html {
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     @forelse($orders as $order)
                     <tr>
                         <td data-label="Order ID">{{ $order->order_id }}</td>
@@ -133,10 +133,16 @@ body, html {
                                     @break
                                 @case('Delivered')
                                     <span class="badge badge-success">Delivered</span>
+                                    @if($order->process === 'Delivered')
+                                        <!--form action="{{ route('orders.requestReturn', $order->order_id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-warning">Request Return</button>
+                                        </form-->
+                                    @endif
                                     @break
                                 @case('Returned')
                                     <span class="badge badge-danger">Returned</span>
-                                    @break                               
+                                    @break
                             @endswitch
                         </td>
                         <td data-label="Info">
@@ -147,7 +153,7 @@ body, html {
                             </a>
                         </span>
 
-     
+
                         </td>
                     </tr>
                     @empty

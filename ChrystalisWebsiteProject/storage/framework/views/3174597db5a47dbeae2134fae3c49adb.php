@@ -44,8 +44,8 @@
  
  
     <div>
-        <hr class="mb-3">
-        <h2 class="text-center my-3 py-2"> Welcome to your Dashboard, <?php echo e(Auth::user()->name, false); ?>!
+        <hr class="my-4">
+        <h2 class="text-center my-4 py-4"> Welcome to your Dashboard, <?php echo e(Auth::user()->name, false); ?>!
         </h2>
     </div>
  

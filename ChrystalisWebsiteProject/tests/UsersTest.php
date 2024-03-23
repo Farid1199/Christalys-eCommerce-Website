@@ -1,6 +1,7 @@
 <?php
 
 use OpenAdmin\Admin\Auth\Database\Administrator;
+use PHPunit\Framework\TestCase;
 
 class UsersTest extends TestCase
 {
