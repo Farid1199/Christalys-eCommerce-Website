@@ -121,7 +121,7 @@ use Illuminate\Support\Str;
                 </div>
             </div>
 
-                            <div class="col-md-8 ">
+                            <div class="col-md-8 border-lg ">
                                 @foreach ($products as $ring)
                                 <div class="card mb-4 box-shadow" style="border-radius: 10px; overflow: hidden; transition: transform .3s ease;">
                                 <div class="row g-0 d-flex align-items-center justify-content-center" style="background-color: #eaebf0">
