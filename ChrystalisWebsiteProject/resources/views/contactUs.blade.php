@@ -8,6 +8,14 @@
 
 <!-- <link rel="stylesheet" href="{{ asset('assets/css/css-pages/contactus.css')}}" /-->
 
+<style>
+#contactFormSection{
+    height: 100%;
+    width: 100%;
+    background-image: url('{{ asset('Images/HomePage/map-image.png') }}');
+}
+</style>
+
 
 <!--
 CONTACT US CONTENT 
@@ -22,8 +30,8 @@ CONTACT US CONTENT
         <div class="col-md col-lg col-xl mx-auto mb-4">
             <!-- Contact Details -->
             <div class="text-center">
-                <h6 class="text-uppercase fw-bold">Contact Us</h6>
-                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+                <h1 class="text-uppercase fw-bold">Contact Us</h1>
+                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 150px; background-color: #7c4dff; height: 2px" />
                 <p><i class="fas fa-home mr-1"></i> 33 Road, Birmingham, B87 8HG</p>
                 <p><i class="fas fa-envelope mr-1"></i> chrystalis@example.com</p>
                 <p><i class="fas fa-phone mr-1"></i> +44 2345 678 098</p>
@@ -43,9 +51,11 @@ CONTACT US CONTENT
             </div>
         </div>
     </div>
+</div> 
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<section class="container bg-dark m-5 p-5" id="contactFormSection">
+    <div class="row justify-content-center"> 
+        <div class="col-md-7" >
             <div class="card shadow-lg border-0">
                 <div class="card-header bg-outline-secondary text-dark py-5">
                     <h2 class="mb-0 text-center display-8 text-uppercase font-weight-bold">Contact Chrystalis!</h2>
@@ -90,7 +100,7 @@ CONTACT US CONTENT
             </div>
         </div>
     </div>
-</div>
+</section>
 
 
 

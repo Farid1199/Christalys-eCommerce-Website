@@ -54,7 +54,7 @@
 <div class="has-bg-img position-relative overflow-hidden p-3 p-md-5 text-center main-content"
   style="background-image:url('{{ asset('Images/HomePage/fluidbg.png') }}');">
 
-  <div class="col-md-5 p-lg-5 mx-auto my-5 bg-light rounded shadow">
+  <div class="col-md-6 p-lg-5 mx-auto my-5 bg-light rounded shadow">
     <h1 class="display-4 font-weight-normal">Discover Chrystalis</h1>
     <p class="lead font-weight-normal">
       Discover the perfect
@@ -122,7 +122,7 @@
       <h2 class="display-5">Watches</h2>
       <p class="lead">Explore our timeless and elegant watches</p>
       <p><a href="watches" class="btn btn-secondary my-2">Visit</a></p>
-      <img src="{{ asset('Images\CatalogueImg\Watch-1.jpg') }}" style="width: 50%; height: 50%;"
+      <img src="{{ asset('Images\CatalogueImg\Watch-1.jpg') }}" style="width: 60%; height: 60%;"
         class="my-2 img-thumbnail" alt="Watches" />
     </div>
   </div>

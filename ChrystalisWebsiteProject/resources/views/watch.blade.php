@@ -103,7 +103,7 @@
                             </div>
 
                         <div class="form-group">
-                            <label for="min_price">Search by Price</label>
+                            <label for="min_price" class="mt-3">Search by Price</label>
                             <input type="number" class="form-control" id="min_price" name="min_price"
                                 placeholder="Min Price" value="{{ request('min_price') }}">
                             <input type="number" class="form-control" id="max_price" name="max_price"
@@ -122,8 +122,8 @@
                             </div>
 
                         <div class="form-group mt-5 text-center">
-                            <button class="btn btn-outline-secondary text-center" type="submit" >Apply Filters</button>
-                            <button class="btn btn-outline-secondary ml-4" value="{{ request('reset_filters') }} ">Reset Filters</button>
+                            <button class="btn btn-secondary text-center" type="submit" >Apply Filters</button>
+                            <button class="btn btn-secondary ml-4" value="{{ request('reset_filters') }} ">Reset Filters</button>
                         </div>
                 
                     </form>
@@ -133,58 +133,44 @@
 
 
 
-            <div class="col-md-8">
+            <div class="col-md-8 ">
+                                @foreach ($products as $ring)
+                                <div class="card mb-4 box-shadow" style="border-radius: 10px; overflow: hidden; transition: transform .3s ease;">
+                                <div class="row g-0 d-flex align-items-center justify-content-center" style="background-color: #eaebf0">
+                                        <div class="col-md-4 d-flex align-items-center justify-content-center" style="background: #f8f9fa;">
+                                        <a href="detail/{{$ring['id']}}" class="d-block w-100 h-100">
+                                            <img src="{{ $ring['gallery'] }}" class="card-img-center img-responsive img-fluid" alt="Card image cap" style="object-fit: cover; min-height: 100%; min-width: 100%;" />
+                                        </a>
+                                        </div>
+                                        <div class="col-md-8 align-items-center justify-content-center d-flex flex-column "> 
+                                            <div class="card-body">
+                                                <h4 class="card-title">{{ $ring->name }}</h4>
+                                                <p class="card-text">{{ Str::limit($ring->description, $limit = 100, $end = '...') }}</p>
+                                                <p class="card-text font-weight-bold">Price: £{{ $ring->price }}</p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <form action="detail/{{$ring['id']}}" method="GET">
+                                                        @csrf
+                                                        <button class="btn btn-outline-dark" type="submit">View</button>
+                                                    </form>
 
-                @foreach ($products as $watch)
+                                                    <form action="/add_to_wishlist" method="POST">
+                                                        @csrf
+                                                        <button class="btn btn-outline-secondary" type="submit">Add to Wishlist</button>
+                                                        <input type="hidden" value="{{$ring->id}}" name="product_id">
+                                                    </form>
 
-                <div class="card mb-4 box-shadow item{{ $watch['id'] == 1 ? 'active' : '' }}">
-                    <div class="row align-items-center">
-                        <div class="col text-center">
-                        <a href="detail/{{$watch['id']}}" style="text-decoration: none;">
-                <img class="card-img-center img-fluid img-responsive" src="{{ $watch['gallery'] }}"
-                     style="width: 250px; height: 250px;" alt="Card image cap" />
-            </a>
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body text-left">
-                                <h4 class="text-left my-3">{{ $watch->name }}</h4>
-                                <p class="card-text">
-                                    {{ $watch->description }}
-                                </p>
-
-                                <p class="card-text font-weight-bold">
-                                    Price: £{{ $watch->price}}
-                                </p>
-
-                                <div class="d-flex justify-content-between align-items-center">
-
-                                    <form action="detail/{{$watch['id']}}" method="GET">
-                                        @csrf
-                                        <button class="btn btn-outline-secondary" id="addToCartBtn"> View </button>
-                                    </form>
-
-                                    <form action="/add_to_wishlist" method="POST">
-                                        @csrf
-                                        <button class="btn btn-outline-secondary" id="addToCartBtn"> Add to Wishlist
-                                        </button>
-                                        <input type="hidden" value="{{$watch->id}}" name="product_id" id="product_id">
-                                    </form>
-
-                                    <form action="/add_to_cart" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="product_id" value="{{$watch['id']}}">
-                                        <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
-                                    </form>
-
+                                                    <form action="/add_to_cart" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="product_id" value="{{$ring['id']}}">
+                                                        <button class="btn btn-secondary" type="submit">Add to Cart</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                @endforeach
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                @endforeach
-
-            </div>
         </div>
     </div>
 </div>

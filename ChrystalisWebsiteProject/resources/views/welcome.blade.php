@@ -136,56 +136,69 @@ hr.gradient {
 
     <!-- START THE FEATURETTES -->
 
+    <!-- Services-->
+    <section class="content-section text-center my-5" style="background-color: #eaebf0" id="services">
+                <div class="container px-4 px-lg-5">
+                <div class="container mt-5 mb-3 text-center">
+                <h2 class="display-6 text-uppercase font-weight-bold mt-5 pt-5">Welcome to Chrystalis</h2>
+                  <div style="max-width: 90%; width: 100%; margin: auto; height: 0; position: relative; padding-top: 56.25%;">
+                          <iframe src="https://app.visla.us/embed/1221223709444964352" frameborder="0" allow="fullscreen *"
+                              style="border: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                          </iframe>
+                          </div>
+                          </div>
+                </div>
+            </section>
 
 
-    <div class="row featurette mt-5">
-      <div class="col-md-9">
-        <h2 class="featurette-heading">Rings</h2>
-        <p class="lead">Discover our exquisite collection of rings.</p>
-        <p>
-          <a class="btn btn-secondary" href="rings" role="button">Explore &raquo;</a>
-        </p>
-      </div>
-      <div class="col-md-3">
-        <img class="img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\gold-rings-.png') }}"
-          alt="Generic placeholder image" />
-      </div>
+
+            <section id="featured-products" class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 mt-5">
+    <div class="container mt-5 mb-3 text-center">
+                <h2 class="display-6 text-uppercase font-weight-bold my-4 py-3">Browse Our Products!</h2>
+            </div>
+        <div class="row justify-content-center">
+            @php
+$featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
+
+            @endphp
+
+            @foreach ($featuredProducts as $product)
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                                    <a href = "/detail/{{$product->id}}"><img class="card-img-top" src="{{ asset($product->gallery) }}" alt="{{ $product->name }}" style="max-width: 100%; height: 250px;"></a>
+
+                        
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder"> {{ Str::limit($product->name, 20, $end = '...') }}</h5>
+
+                               
+                                <!-- Product price-->
+                                <h6>Price: £{{ $product->price }}</h6>                            
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form action="/detail/{{$product->id}}" method="GET">
+                                    @csrf
+                                    <button class="btn btn-secondary" id="addToCartBtn">View Product</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
+</section>
 
-    <hr class="featurette-divider gradient" />
 
-    <div class="row featurette text-right">
-      <div class="col-md-9 order-md-2">
-        <h2 class="featurette-heading">Watches</h2>
-        <p class="lead">Explore our timeless and elegant watches.</p>
-        <p>
-          <a class="btn btn-secondary" href="watches" role="button">Explore &raquo;</a>
-        </p>
-      </div>
-      <div class="col-md-3 order-md-1">
-        <img class="featurette-image img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\Watch-1.jpg') }}"
-          alt="Generic placeholder image" />
-      </div>
-    </div>
-
-    <hr class="featurette-divider gradient" />
-
-    <div class="row featurette">
-      <div class="col-md-9">
-        <h2 class="featurette-heading">Necklaces</h2>
-        <p class="lead">
-          Adorn yourself with our stunning necklace collection
-        </p>
-        <p>
-          <a class="btn btn-secondary" href="necklaces" role="button">Explore &raquo;</a>
-        </p>
-      </div>
-      <div class="col-md-3">
-        <img class="featurette-image img-fluid mx-auto" src="{{ asset('Images\CatalogueImg\Neckless1.jpeg') }}"
-          alt="Generic placeholder image" />
-      </div>
-    </div>
-
+    
     <hr class="featurette-divider gradient" />
 
     <!-- 
