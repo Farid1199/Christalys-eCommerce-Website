@@ -653,7 +653,6 @@ class ProductController extends Controller
         $wishlistItems = Wishlist::where('user_id', $userId)->with('product')->get();
         return view('wishlist', ['wishlistItems' => $wishlistItems]);
     }
-
     public function addToWishlist(Request $request)
     {
         if (Auth::guest()) {

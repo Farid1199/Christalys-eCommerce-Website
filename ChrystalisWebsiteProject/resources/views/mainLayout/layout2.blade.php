@@ -348,7 +348,7 @@ $total = ProductController::cartItem();
       © Copyright Chrystalis 2023-2024. All Rights Reserved
 
       <ul class="list-inline pt-2">
-        <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Privacy</a></li>
+        <li class="list-inline-item"><a href="{{ route('privacy') }}">Privacy</a></li>
         <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
         <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
         <li class="list-inline-item"><a href="#">Back to top</a></li>

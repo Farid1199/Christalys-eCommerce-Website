@@ -223,7 +223,7 @@ TESTIMONIALS AND ENDINGS
     <hr class="featurette-divider gradient" />
   <section class="row my-5 py-5 bg-light">
     <div class="text-center">
-        <h2 class="section-heading text-uppercase py-4">Hear from our Customers</h2>
+        <h2 class="section-heading text-uppercase py-4 font-weight-bold">Hear from our Customers</h2>
     </div>
       <div class="col-lg-4">
         <img class="rounded-circle my-4" src="{{ asset('Images\HomePage\2girl.jpg') }}" alt="Generic placeholder image"

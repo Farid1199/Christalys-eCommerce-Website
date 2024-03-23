@@ -48,7 +48,7 @@ CONTACT US CONTENT
         <div class="col-md-8">
             <div class="card shadow-lg border-0">
                 <div class="card-header bg-outline-secondary text-dark py-5">
-                    <h2 class="mb-0 text-center">Contact Chrystalis!</h2>
+                    <h2 class="mb-0 text-center display-8 text-uppercase font-weight-bold">Contact Chrystalis!</h2>
                 </div>
                 <div class="card-body">
                     <!-- Display validation errors if any -->

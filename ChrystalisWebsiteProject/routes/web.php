@@ -93,7 +93,10 @@ Route::get('/watches', function () {
     return view('watch');
 })->name('watches');
 
-
+# Privacy and terms
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
 
 
 

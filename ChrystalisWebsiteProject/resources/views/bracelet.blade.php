@@ -78,27 +78,50 @@
 
         <div class="row">
             <!-- Search Filters Column -->
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card sticky-sm-top mt-4">
                     <div class="card-body">
-                        <h5 class="card-title">Search Filters</h5>
-                        <form>
-                            <div class="form-group">
-                                <label for="min_price">Search by Price</label>
-                                <input type="number" class="form-control" id="min_price" name="min_price" placeholder="Min Price">
-                                <input type="number" class="form-control" id="max_price" name="max_price" placeholder="Max Price">
+                        <h5 class="card-title">Search & Sort</h5>
+                    <!-- Search form for category -->
+                    <form>
+
+                    <label for="category">Search Bar</label>
+                            <div class="d-flex mb-2 mb-lg-0" style="width: 100%;">
+                                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search" value="{{ request('search') }}" style="width: 100%;" />
+                                
                             </div>
-                            <div class="form-group mt-5 text-center">
-                                <button class="btn btn-outline-secondary" type="submit">Apply Filters</button>
-                                <button class="btn btn-outline-secondary ml-3" type="reset">Reset Filters</button>
+
+                        <div class="form-group">
+                            <label for="min_price">Search by Price</label>
+                            <input type="number" class="form-control" id="min_price" name="min_price"
+                                placeholder="Min Price" value="{{ request('min_price') }}">
+                            <input type="number" class="form-control" id="max_price" name="max_price"
+                                placeholder="Max Price" value="{{ request('max_price') }}">
+                        </div>
+
+                        <div class="form-group" style="width: 100%;">
+                        <label for="min_price">Sort Filters</label>
+                                <select class="form-control" id="sort" name="sort" value="{{ request('sort') }}" width= "100%">
+                                    <option disabled selected>-- Select Sort Type --</option>
+                                    <option value="name_asc">Name (Ascending)</option>
+                                    <option value="name_desc">Name (Descending)</option>
+                                    <option value="price_asc">Price (Low-to-High)</option>
+                                    <option value="price_desc">Price (High-to-Low)</option>
+                                </select>
                             </div>
-                        </form>
+
+                        <div class="form-group mt-5 text-center">
+                            <button class="btn btn-outline-secondary text-center" type="submit" >Apply Filters</button>
+                            <button class="btn btn-outline-secondary ml-4" value="{{ request('reset_filters') }} ">Reset Filters</button>
+                        </div>
+                
+                    </form>
                     </div>
                 </div>
             </div>
 
             <!-- Products Column -->
-            <div class="col-md-9">
+            <div class="col-md-8">
                 @foreach ($products as $bracelet)
                 <div class="card mb-4 box-shadow">
                     <div class="row align-items-center">

@@ -186,7 +186,7 @@ $featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">{{ $product->name }}</h5>
                                 <!-- Product price-->
-                                £{{ $product->price }}
+                                <h7>Price: £{{ $product->price }}</h7>                            
                             </div>
                         </div>
                         <!-- Product actions-->
