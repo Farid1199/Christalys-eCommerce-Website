@@ -80,11 +80,11 @@
         <div class="col-md-4">
             <div class="col">
                 <div class="row-md-6">
-                <img class="rounded my-4" src="{{ asset('Images\HomePage\hero.png') }}" alt="Generic placeholder image"
+                <img class="img-thumbnail rounded my-4 py-4" src="{{ asset('Images\HomePage\hero.png') }}" alt="Generic placeholder image"
                 width="100%" height="40%" />
                 </div>
                 <div class="row-md-6">
-                <img class="rounded my-4" src="{{ asset('Images\HomePage\img-2-2.jpg') }}" alt="Generic placeholder image"
+                <img class="img-thumbnail rounded my-4 py-4" src="{{ asset('Images\HomePage\img-2-2.jpg') }}" alt="Generic placeholder image"
                 width="100%" height="40%" />
                 </div>
 
@@ -127,7 +127,7 @@
 
 
 
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <!-- Backstory Section -->
                     <div class="container mt-5 mb-3 text-center">
                         <h2 class="display-8 text-uppercase font-weight-bold">Our Story</h2>
@@ -152,9 +152,9 @@
                     </p>
                     
                 </div>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="col text-center py-5"> <!-- Added text-center to center the image -->
-                             <img class="rounded my-4 py-5" src="{{ asset('Images\HomePage\hero2.png') }}" alt="Generic placeholder image"
+                             <img class=" rounded my-4 py-5" src="{{ asset('Images\HomePage\hero2.png') }}" alt="Generic placeholder image"
                                 width="100%" height="50%"/> <!-- Changed margin-top to style attribute -->
                         </div>
 
@@ -207,7 +207,7 @@
                 <textarea class="form-control form-control-lg" id="review" rows="4" name="review" required=""></textarea>
             </div>
 
-            <button type="submit" class="btn btn-secondary w-80 mt-3">Submit Review</button>
+            <button type="submit" class="btn btn-secondary w-100 mt-3">Submit Review</button>
         </form>
 
 

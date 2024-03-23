@@ -317,7 +317,7 @@ $total = ProductController::cartItem();
 
       <ul class="list-inline pt-2">
         <li class="list-inline-item"><a href="{{ route('privacy') }}">Privacy</a></li>
-        <li class="list-inline-item"><a href="{{ asset('Images\HomePage\privacyp.png') }}">Terms</a></li>
+        <li class="list-inline-item"><a href="{{  route('terms') }}">Terms</a></li>
         <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
         <li class="list-inline-item"><a href="#">Back to top</a></li>
       </ul>
