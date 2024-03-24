@@ -25,13 +25,19 @@ class ComposerStaticInita0144d843e65d923674fceea4f5c845d
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
+<<<<<<< HEAD
+=======
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
+>>>>>>> df37b38651b9c0829cf115f5067c12c8001d16f3
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f57d353b41eb2e234b26064d63d8c5dd' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+<<<<<<< HEAD
+=======
         'b46ad4fe52f4d1899a2951c7e6ea56b0' => __DIR__ . '/..' . '/voku/portable-utf8/bootstrap.php',
+>>>>>>> df37b38651b9c0829cf115f5067c12c8001d16f3
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '7bcfe2efd000a7f9b9468a883d43d975' => __DIR__ . '/..' . '/open-admin-org/open-admin/src/helpers.php',
@@ -126,11 +132,6 @@ class ComposerStaticInita0144d843e65d923674fceea4f5c845d
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
             'PhpOffice\\PhpSpreadsheet\\' => 25,
-        ),
-        'O' => 
-        array (
-            'OpenAdmin\\Admin\\Helpers\\' => 24,
-            'OpenAdmin\\Admin\\' => 16,
         ),
         'N' => 
         array (
@@ -452,10 +453,13 @@ class ComposerStaticInita0144d843e65d923674fceea4f5c845d
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
+<<<<<<< HEAD
+=======
         'PhpOffice\\PhpSpreadsheet\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
         ),
+>>>>>>> df37b38651b9c0829cf115f5067c12c8001d16f3
         'OpenAdmin\\Admin\\Helpers\\' => 
         array (
             0 => __DIR__ . '/..' . '/open-admin-ext/helpers/src',
