@@ -31,6 +31,11 @@ CONTACT US CONTENT
 
 <div class="container">
     <div class="row justify-content-center my-5">
+        <div class="col-md-4">
+            <!-- Image Column -->
+            <img src="{{ asset('Images/HomePage/contactus.jpg') }}" class="rounded img-fluid" alt="Responsive image">
+            <img src="{{ asset('Images/HomePage/contactus2.jpg') }}" class=" rounded img-fluid mt-2" alt="Responsive image">
+        </div>
         <div class="col-md col-lg col-xl mx-auto mb-4">
             <!-- Contact Details -->
             <div class="text-center">
@@ -41,7 +46,7 @@ CONTACT US CONTENT
                 <p><i class="fas fa-phone mr-1"></i> +44 2345 678 098</p>
                 <p><i class="fas fa-print mr-1"></i> +44 2342 567 389</p>
             </div>
-            <div class="text-center">
+            <div class="text-center mt-5">
                 <p>
                     Thank you for choosing Chrystalis. We are delighted to be a part of your special moments
                     and are committed to helping you express your unique style and individuality through our
@@ -55,7 +60,7 @@ CONTACT US CONTENT
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <section class="container bg-dark m-5 p-5" id="contactFormSection">
     <div class="row justify-content-center"> 
