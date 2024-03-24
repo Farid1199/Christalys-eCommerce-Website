@@ -15,12 +15,12 @@
     .album {
         border-radius: 0.25rem;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-        background-color: rgba(255, 215, 0, 0.03);
+        background-color: rgba(255, 255, 255, 0.2);
     }
 
     .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        background-color: rgba(255, 215, 0, 0.03);
+        background-color: rgba(255, 255, 255, 0.2);
     }
     .card-img-center:hover {
     transform: scale(1.05);
@@ -100,37 +100,32 @@
         }
     }
 </style>
-        <div class="row">
-
-
-        <!-- Search Filters Column -->
-        <div class="col-md-4">
-                <div class="card sticky-sm-top  mt-4" style="border:3px solid gold">
-                    <div class="card-body ">
-
-
-
+<div class="row">
+            <div class="col-md-4">
+                <div class="card sticky-sm-top mt-4" style="border:3px solid gold" >
+                    <div class="card-body">
                     <h3 class="card-title text-center mb-2">Search & Sort Filters</h3>
+
                     <!-- Search form for category -->
                     <form>
 
                     <label for="category">Search Bar</label>
                             <div class="d-flex mb-2 mb-lg-0" style="width: 100%;">
-                                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search" value="{{ request('search') }}" style="width: 100%;" />
+                                <input class="form-control border border-1 border-dark" type="text" placeholder="Search" aria-label="Search" name="search" value="{{ request('search') }}" style="width: 100%;" />
                                 
                             </div>
 
                         <div class="form-group">
                             <label for="min_price" class="mt-3">Search by Price</label>
-                            <input type="number" class="form-control" id="min_price" name="min_price"
+                            <input type="number" class="form-control border border-1 border-dark" id="min_price" name="min_price"
                                 placeholder="Min Price" value="{{ request('min_price') }}">
-                            <input type="number" class="form-control" id="max_price" name="max_price"
+                            <input type="number" class="form-control border border-1 border-dark mt-1" id="max_price" name="max_price"
                                 placeholder="Max Price" value="{{ request('max_price') }}">
                         </div>
 
                         <div class="form-group" style="width: 100%;">
-                        <label for="min_price" >Sort Filters</label>
-                                <select class="form-control" id="sort" name="sort" value="{{ request('sort') }}" width= "100%">
+                        <label for="min_price">Sort Filters</label>
+                                <select class="form-control border border-1 border-dark" id="sort" name="sort" value="{{ request('sort') }}" width= "100%">
                                     <option disabled selected>-- Select Sort Type --</option>
                                     <option value="name_asc">Name (Ascending)</option>
                                     <option value="name_desc">Name (Descending)</option>
@@ -148,6 +143,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="col-md-8 ">
                                 @foreach ($products as $ring)

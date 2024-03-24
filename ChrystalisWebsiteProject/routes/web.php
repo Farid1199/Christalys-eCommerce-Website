@@ -206,6 +206,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post("add_to_cart", [ProductController::class, 'addToCart']);
     Route::delete('/cart/{id}', [ProductController::class, 'removeCart'])->name('cart.remove');
+    Route::delete('/cart', [ProductController::class, 'removeAllCartItems'])->name('cart.removeAll');
 });
 
 require __DIR__ . '/auth.php';
@@ -294,7 +295,7 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::post('/review', [AboutUsController::class, 'submit'])->name('review.submit');
 
 
-
+Route::post('/cart/update', 'ProductController@updateCartQuantity')->name('cart.update');
 
 
 

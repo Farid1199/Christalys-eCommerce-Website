@@ -17,10 +17,10 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gradient-to-r from-purple-500 to-pink-500 bg-opacity-80 animate-pulse">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-opacity-80">
         <div>
             <a href="/">
-                <div id="logo" class="animate-bounce">
+                <div id="logo">
                     <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="display: block;
                             margin-left: auto;
                             margin-right: auto;
@@ -31,8 +31,8 @@
             </a>
         </div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-6 bg-opacity-90 bg-white/70 backdrop-blur-sm shadow-xl overflow-hidden sm:rounded-lg animate-zoom-in" style="border: 2px solid #DAA520;">
-            <div class="animate-fade-in-down">{{ $slot }}</div>
+        <div class="w-full sm:max-w-md mt-6 px-6 py-6 bg-opacity-20 bg-white/20 backdrop-blur-sm shadow-xl overflow-hidden sm:rounded-lg" style="border: 2px solid #DAA520;">
+            <div>{{ $slot }}</div>
         </div>
     </div>
 <style>
