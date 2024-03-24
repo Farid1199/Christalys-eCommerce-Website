@@ -601,6 +601,25 @@ class ProductController extends Controller
         return redirect()->route('cartlist')->with('success', 'Item removed from cart successfully.');
     }
 
+
+    public function removeAllCartItems()
+    {
+        // Retrieve all cart items for the authenticated user
+        $cartItems = CartItem::where('user_id', auth()->id())->get();
+
+        if ($cartItems->isEmpty()) {
+            // If the user's cart is already empty
+            return redirect()->route('cartlist')->with('error', 'Your cart is already empty.');
+        }
+
+        // If the user has cart items, proceed to remove them all
+        foreach ($cartItems as $cartItem) {
+            $cartItem->delete();
+        }
+
+        return redirect()->route('cartlist')->with('success', 'All items removed from cart successfully.');
+    }
+
     function checkoutList()
     {
         $userId = auth()->id();

@@ -7,7 +7,8 @@
   
 
     <style>
-   
+  
+    
         .zoomable-image-container {
         overflow: hidden;
         position: relative;
@@ -24,18 +25,21 @@
     }
 
     body {
-        background-color: #e9ecef; 
+      background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+            background-size: 100%; /* make the image smaller */
+            background-color: rgba(255, 215, 0, 0.03);
     }
 
     .album {
-        background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
         border-radius: 0.25rem;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        background-color: rgba(255, 215, 0, 0.03);
     }
 
+
     .card {
-        background-color: #dee2e6; /* Grey card background for better content readability */
-        border: none;
+        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+        background-color: rgba(255, 215, 0, 0.03);
     }
   
 
@@ -104,67 +108,72 @@
 
 
 <hr class="my-5" />
-<hr class="my-5" />
+
 
 
 <!-- Add this section for displaying flash messages -->
 @if(session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
+    <div class="text-center display-8 my-3" style="background-color: green; color: white; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('success') }}
+    </div>
 @endif
 
 @if(session('error'))
-<div class="alert alert-danger">
-    {{ session('error') }}
-</div>
+    <div class="text-center display-8 my-3" style="background-color: #B22222; color: #FFFFFF; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('error') }}
+    </div>
 @endif
 
-<section id="product-details" class="container my-4" style="padding-top: 20px;">
-        <div class="row">
-            <div class="col-md-5">
-                <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="zoomable-image-container shadow rounded">
-                                <img src="{{ asset($product['gallery']) }}" class="zoomable-image img-fluid img-thumbnail"
-                                    style="max-width: 450px; height: 450px;" alt="Product Image">
-                            </div>
+<style>
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<section id="product-details" class="container my-4" style="padding-top: 20px; ">
+    <div class="row py-4" style="border: 2px solid gold; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+        <div class="col-md-5" >
+            <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="zoomable-image-container shadow rounded">
+                            <img src="{{ asset($product['gallery']) }}" class="zoomable-image img-fluid img-thumbnail"
+                                 style="max-width: 450px; height: 450px;" alt="Product Image">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="watchesSeperate">
-                    <h2>{{ $product['name'] }}</h2>
-                    <p>{{ $product['description'] }}</p>
-                    <p><b>Category: {{ $product['category'] }}</b></p>
-                    <p><b>Price: £{{ $product['price'] }}</b></p>
-
-                    <form action="/add_to_cart" method="POST">
-                        @csrf
-                        <input type="hidden" name="product_id" value="{{ $product['id'] }}">
-                        
-                        <label for="quantity" class="form-label">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control mb-3" style="width: auto;">
-
-                        <button class="btn btn-success mb-3" id="addToCartBtn">Add to Cart</button>
-                    </form>
-                    <form action="/add_to_wishlist" method="POST">
-                        @csrf
-                        <button class="btn btn-outline-secondary" id="addToWishlistBtn"> Add to Wishlist
-                        </button>
-                        <input type="hidden" value="{{ $product['id'] }}" name="product_id">
-                    </form>
-                    
-                </div>
+        </div>
+        <div class="col-md-6">
+            <div class="product-details-content">
+                <h2>{{ $product['name'] }}</h2>
+                <p>{{ $product['description'] }}</p>
+                <p><b>Category: {{ $product['category'] }}</b></p>
+                <p><b>Price: £{{ $product['price'] }}</b></p>
+                <form action="/add_to_cart" method="POST" >
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product['id'] }}">
+                    <label for="quantity" class="form-label">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control mb-3" style="width: auto; border: 1px solid;">
+                    <button class="btn btn-warning mb-3" id="addToCartBtn" >Add to Cart</button>
+                </form>
+                <form action="/add_to_wishlist" method="POST">
+                    @csrf
+                    <button class="btn btn-outline-secondary" id="addToWishlistBtn">Add to Wishlist</button>
+                    <input type="hidden" value="{{ $product['id'] }}" name="product_id">
+                </form>
             </div>
         </div>
-
-        
-        @include('shared.comments-box')
-        
-    </section>
+    </div>
+    @include('shared.comments-box')
+</section>
 
     <section id="featured-products" class="py-5 bg-light">
     <div class="container px-4 px-lg-5 mt-5">
@@ -177,16 +186,16 @@ $featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
 
             @foreach ($featuredProducts as $product)
                 <div class="col mb-5">
-                    <div class="card h-100">
+                    <div class="card h-100" style="border:2px solid gold">
                         <!-- Product image-->
-                                    <a href = "/detail/{{$product->id}}"><img class="card-img-top" src="{{ asset($product->gallery) }}" alt="{{ $product->name }}" style="max-width: 100%; height: 300px;"></a>
+                                    <a href = "/detail/{{$product->id}}"><img class="card-img-top" src="{{ asset($product->gallery) }}" alt="{{ $product->name }}" style="max-width: 100%; height: 250px;"></a>
 
                         
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">{{ $product->name }}</h5>
+                                <h5 class="fw-bolder">{{ Str::limit($product->name, 20, $end = '...') }}</h5>
                                 <!-- Product price-->
                                 <h6>Price: £{{ $product->price }}</h6>                            
                             </div>

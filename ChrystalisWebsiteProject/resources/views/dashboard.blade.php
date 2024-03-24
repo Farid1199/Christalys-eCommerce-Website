@@ -21,13 +21,26 @@
             </div>
         </div>
     </div-->
- 
     <style>
-        a {
-            text-decoration: none;
-        }
- 
-    </style>
+       
+                        a {
+                            text-decoration: none;
+                            transition: color 0.3s ease;
+                            /* Making text larger on hover */
+                        }
+
+                        a:hover p {
+                            font-size: 20px;
+                        }
+
+                        #bg {
+                    background-image: url('{{ asset("Images/HomePage/login.jpg") }}');
+                    background-size: 100%; /* make the image smaller */
+                }
+                 
+
+            </style>
+
  
  
     <!-- Bootstrap icons -->
@@ -41,116 +54,223 @@
     <!-----------------------------
       User Account
 -------------------------------->
+
+
+    <section style="background-color: #eee;" id="bg">
  
- 
-    <div>
-        <hr class="my-4">
-        <h2 class="text-center my-4 py-4"> Welcome to your Dashboard, {{ Auth::user()->name }}!
-        </h2>
-    </div>
- 
-    <main class="user-main">
-        <section id="founders-profile">
-            <div class="text-founder1">
-                <ul>
-                    <li>
- 
-                        <div class="founder-box4-skills">
-                            <img src="{{ asset('Images\HomePage\user-pp.png') }}" alt="java-logo" class="lang-logos" />
-                            <div>
-                                <h3>{{ Auth::user()->name }}</h3>
-                            </div>
- 
-                            <section class="user-links">
-                                <a href="{{route('previousOrders')}}">
-                                    <h4>Order History</h4>
-                                </a>
-                            </section>
-                            <section class="user-links">
-                                <a href="{{route('cartlist')}}">
-                                    <h4>Cart</h4>
-                                </a>
-                            </section>
-                            <section class="user-links">
-                                <a href="{{route('wishlist')}}">
-                                    <h4>WishList</h4>
-                                </a>
-                            </section>
-                            <section class="user-links">
-                                <a href="{{ route('profile.edit') }}" class="styleless">
-                                    <h4>{{ __('Account Settings') }}</h4>
-                                </a>
-                            </section>
- 
-                            <section class="user-links">
- 
-                                <form method="POST" action="{{ route('logout') }}">
+    <div class="container py-5">
+
+    <div class="row">
+
+      <div class="col-lg-4">
+        <div class="card mb-4" style="border:3px solid gold">
+          <div class="card-body text-center">
+            <img src="{{ asset('Images\HomePage\pfp.png') }}" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px; display: block; margin-left: auto; margin-right: auto;">
+            <h5 class="my-3">{{ Auth::user()->name }}</h5>
+            <p class="text-muted mb-1">{{ Auth::user()->email }}</p>
+
+          </div>
+        </div>
+
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0" style="border:3px solid gold">
+            <ul class="list-group list-group-flush rounded-3">
+
+            
+            <a href="{{route('previousOrders')}}">
+              <li class="list-group-item d-flex justify-content-between align-items-center pt-4">
+                <i class="fas fa-history fa-lg text-dark"></i>
+                
+                <p class="mb-0">Order History</p>
+              </li>
+              </a>
+              <hr>
+              <a href="{{route('cartlist')}}">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <i class="fa fa-shopping-cart fa-lg" style="color: #333333;"></i>
+                
+                <p class="mb-0">Cart</p>
+   
+              </li>
+              </a>
+              <hr>
+              <a href="{{route('wishlist')}}">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <i class="fa fa-star fa-lg" style="color: #55acee;"></i>
+                
+                <p class="mb-0">Wish List</p>
+    
+              </li>
+              </a>
+              <hr>
+              <a href="{{route('profile.edit')}}">
+              <li class="list-group-item d-flex justify-content-between align-items-center pb-4">
+                <i class="fas fa-cog fa-lg text-secondary"></i>
+                
+                <p class="mb-0">Account Settings</p>
+    
+              </li>
+              </a>
+              
+            </ul>
+          </div>
+        </div>
+
+
+
+        <div class="card my-4 mb-lg-0">
+          <div class="card-body p-0" style="border:3px solid gold">
+            <ul class="list-group list-group-flush rounded-3">
+            <form method="POST" action="{{ route('logout') }}">
                                     @csrf
- 
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fas fa-sign-out-alt fa-lg text-danger"></i>
                                     <x-nav-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                        <h4>{{ __('Log Out') }}</h4>
-                                    </x-nav-link>
-                                </form>
- 
- 
-                            </section>
-                        </div>
-                    </li>
- 
-                    <li>
-                        <div class="founder-box4-skills">
-                            <h3 style="padding-top: 10px">Info and Support</h3>
-                            <section class="user-links">
-                                <a href="{{route('aboutus')}}" style="text-decoration:none;">
-                                    <h4>About Us</h4>
-                                </a>
-                            </section>
-                            <section class="user-links">
-                                <a href="{{route('contactus')}}" style="text-decoration:none;">
-                                    <h4>Contact Us</h4>
-                                </a>
-                            </section>
-                        </div>
-                    </li>
-                </ul>
- 
-                <div class="founder-box2">
-                    <h3>Account Details</h3>
- 
-                    <h4>Personal Details</h4>
-                    <section class="user-links">
-                        <p style="font-weight: 500"> Username: <b>{{ Auth::user()->name }}</b></p>
-                        <p>Email: <b>{{ Auth::user()->email }}</b></p>
-                        <p>Current Password:<b> *******</b></p>
-                        <h5 style="padding: 15px; color: black">
-                            <a href="{{ route('profile.edit') }}" class="styleless badge badge-light"> Edit Details </a>
-    </h5>
-                    </section>
- 
-                    <h4>Saved Addresses</h4>
-                    <section class="user-links">
-                        <p class="mt-2">Address Line: <b>35 London Road</b></p>
-                        <p>City: <b>Kingstonbury</b></p>
-                        <p class="mb-2">Postcode: <b>KT17 8BM</b></p>
-                    </section>
- 
-                    <h4>Saved Payment Details</h4>
-                    <section class="user-links">
-                        <p style="font-weight: 500">Card Name: User5</p>
-                        <p>Card Number: <span id="cardNumber">************</span></p>
-                        <p>Expiry date: <span id="expiryDate">**/**</span></p>
-                        <p>CVC: <span id="cvc">***</span></p>
-                        <h5 style="padding: 15px; color: black">
-                            <a href="#" class="styleless badge badge-light" id="showHideCardDetails">Show Card Details</a>
-    </h5>
-                    </section>
-                </div>
+                                        <p class="mb-0">Log Out</p>
+    </x-nav-link>
+              </li>
+              </form>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-8">
+        <div class="card mb-4" style="border:3px solid gold">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ Auth::user()->name }}</p>
+              </div>
             </div>
-        </section>
-    </main>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ Auth::user()->email }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Password</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">*********</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">35 London Road, Kingstonbury, KT17 8BM</p>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+              <a href="{{ route('profile.edit') }}" class="badge-light"><button type="button" class="btn btn-secondary ms-1">Edit Details</button></a>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6" >
+            <div class="card mb-4 mb-md-0" style="border:3px solid gold">
+              <div class="card-body">
+                <p class="mb-4" style="font-size: 1.2rem; font-weight: 500"> Saved Payment Details
+                <p class="mb-1" style="font-size: 1rem; font-weight: 500">Card Name: {{ Auth::user()->name }}</p>
+                
+                <p class="mt-4 mb-1" style="font-size: .9rem;">Card Number: <span id="cardNumber">************</span></p>
+                
+                <p class="mt-4 mb-1" style="font-size: .9rem;">Card Expiry: <span id="expiryDate">**/**</span></p>
+               
+                <p class="mt-4 mb-1" style="font-size: .9rem;">CVC: <span id="cvc">***</span></p>
+                
+                <h5 style="padding-top: 10px; color: black">
+                            <a href="#" class="styleless badge badge-secondary" id="showHideCardDetails">Show Card Details</a>
+                        </h5>
+                
+               
+                
+                
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+          <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0" style="border:3px solid gold">
+            <ul class="list-group list-group-flush rounded-3">
+
+            
+            <a href="{{route('aboutus')}}">
+              <li class="list-group-item d-flex justify-content-between align-items-center pt-4">
+                <i class="fa fa-info-circle fa-lg text-warning"></i>
+                
+                <p class="mb-0">About Us</p>
+    
+              </li>
+              </a>
+              <hr>
+              <a href="{{route('contactus')}}">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <i class="fas fa-id-card-alt fa-lg" style="color: #333333;"></i>
+                
+                <p class="mb-0">Contact Us</p>
+   
+              </li>
+              </a>
+              <hr>
+              <a href="{{route('privacy')}}">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <i class="fas fa-file-contract fa-lg" style="color: #55acee;"></i>
+                
+                <p class="mb-0">Privacy Policy</p>
+    
+              </li>
+              </a>
+
+              <hr>
+              <a href="{{route('terms')}}">
+              <li class="list-group-item d-flex justify-content-between align-items-center pb-4">
+                <i class="fas fa-file-signature fa-lg" style="color: #55acee;"></i>
+                
+                <p class="mb-0">Terms and Conditions</p>
+    
+              </li>
+              </a>
+              
+              
+            </ul>
+          </div>
+        </div>
+          </div>
+
+          
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
  
- 
+
+
  
     <script>
             const showHideButton = document.getElementById('showHideCardDetails');

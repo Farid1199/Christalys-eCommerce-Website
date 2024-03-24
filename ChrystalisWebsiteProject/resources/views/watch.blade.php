@@ -7,18 +7,20 @@
 
 <style>
     body {
-        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+            background-size: 100%; /* make the image smaller */
+            background-color: rgba(255, 215, 0, 0.03);
     }
 
     .album {
-        background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
         border-radius: 0.25rem;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        background-color: rgba(255, 255, 255, 0.2);
     }
 
     .card {
-        background-color: #dee2e6; /* Grey card background for better content readability */
-        border: none;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        background-color: rgba(255, 255, 255, 0.2);
     }
     .card-img-center:hover {
     transform: scale(1.05);
@@ -55,6 +57,11 @@
         top: 0;
         z-index: 1020;
     }
+
+    #bg {
+            background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+            background-size: 100%; /* make the image smaller */
+        }
 </style>
 
 
@@ -65,54 +72,63 @@
     MAIN CONTENT
 -------------------------------->
 
-<div class="album bg-light py-5">
+<div class="album bg-light py-5" id="bg">
     <div class="container py-5">
 
         <div class="py-3 text-center"></div>
 
 <!-- Add this section for displaying flash messages -->
 @if(session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
+    <div class="text-center display-8 my-3" style="background-color: green; color: white; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('success') }}
+    </div>
 @endif
 
 @if(session('error'))
-<div class="alert alert-danger">
-    {{ session('error') }}
-</div>
+    <div class="text-center display-8 my-3" style="background-color: #B22222; color: #FFFFFF; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('error') }}
+    </div>
 @endif
 
-        <div class="row">
+<style>
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
 
-      <!-- Search Filters Column -->
-      <div class="col-md-4">
-                <div class="card sticky-sm-top  mt-4">
-                    <div class="card-body ">
+<div class="row">
+            <div class="col-md-4">
+                <div class="card sticky-sm-top mt-4" style="border:3px solid gold" >
+                    <div class="card-body">
+                    <h3 class="card-title text-center mb-2">Search & Sort Filters</h3>
 
-
-
-                    <h5 class="card-title">Search & Sort</h5>
                     <!-- Search form for category -->
                     <form>
 
                     <label for="category">Search Bar</label>
                             <div class="d-flex mb-2 mb-lg-0" style="width: 100%;">
-                                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="search" value="{{ request('search') }}" style="width: 100%;" />
+                                <input class="form-control border border-1 border-dark" type="text" placeholder="Search" aria-label="Search" name="search" value="{{ request('search') }}" style="width: 100%;" />
                                 
                             </div>
 
                         <div class="form-group">
                             <label for="min_price" class="mt-3">Search by Price</label>
-                            <input type="number" class="form-control" id="min_price" name="min_price"
+                            <input type="number" class="form-control border border-1 border-dark" id="min_price" name="min_price"
                                 placeholder="Min Price" value="{{ request('min_price') }}">
-                            <input type="number" class="form-control" id="max_price" name="max_price"
+                            <input type="number" class="form-control border border-1 border-dark mt-1" id="max_price" name="max_price"
                                 placeholder="Max Price" value="{{ request('max_price') }}">
                         </div>
 
                         <div class="form-group" style="width: 100%;">
                         <label for="min_price">Sort Filters</label>
-                                <select class="form-control" id="sort" name="sort" value="{{ request('sort') }}" width= "100%">
+                                <select class="form-control border border-1 border-dark" id="sort" name="sort" value="{{ request('sort') }}" width= "100%">
                                     <option disabled selected>-- Select Sort Type --</option>
                                     <option value="name_asc">Name (Ascending)</option>
                                     <option value="name_desc">Name (Descending)</option>
@@ -135,11 +151,11 @@
 
             <div class="col-md-8 ">
                                 @foreach ($products as $ring)
-                                <div class="card mb-4 box-shadow" style="border-radius: 10px; overflow: hidden; transition: transform .3s ease;">
-                                <div class="row g-0 d-flex align-items-center justify-content-center" style="background-color: #eaebf0">
-                                        <div class="col-md-4 d-flex align-items-center justify-content-center" style="background: #f8f9fa;">
+                                <div class="card mb-4 box-shadow" style="border-radius: 10px; overflow: hidden; transition: transform .3s ease; border:3px solid gold">
+                                <div class="row g-0 d-flex align-items-center justify-content-center">
+                                        <div class="col-md-4 d-flex align-items-center justify-content-center" style=" border:1px solid grey; border-radius: 7px;">
                                         <a href="detail/{{$ring['id']}}" class="d-block w-100 h-100">
-                                            <img src="{{ $ring['gallery'] }}" class="card-img-center img-responsive img-fluid" alt="Card image cap" style="object-fit: cover; min-height: 100%; min-width: 100%;" />
+                                            <img src="{{ $ring['gallery'] }}" class="card-img-center img-responsive img-fluid" alt="Card image cap" style="object-fit: cover; height: 250px; min-width: 100%; border-radius: 10px;" />
                                         </a>
                                         </div>
                                         <div class="col-md-8 align-items-center justify-content-center d-flex flex-column "> 
@@ -162,7 +178,7 @@
                                                     <form action="/add_to_cart" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="product_id" value="{{$ring['id']}}">
-                                                        <button class="btn btn-secondary" type="submit">Add to Cart</button>
+                                                        <button class="btn btn-warning" type="submit">Add to Cart</button>
                                                     </form>
                                                 </div>
                                             </div>

@@ -6,11 +6,24 @@
 
 <hr class="mb-3">
 
-<section class="h-100 gradient-custom mt-5">
+<style>
+                a {
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+                }
+
+                #bg {
+            background-image: url('{{ asset("Images/HomePage/login.jpg") }}');
+            background-size: 100%; /* make the image smaller */
+        }
+
+            </style>
+
+<section class="h-100 gradient-custom mt-3" id="bg">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-10 col-xl-8">
-                <div class="card" style="border-radius: 10px;">
+                <div class="card" style="border-radius: 10px; border:3px solid gold">
                     <div class="card-header px-4 py-5">
                         <h5 class="text-muted mb-0">Thanks for your Order, <span class="text-dark">{{
     Auth::user()->name }}</span>!

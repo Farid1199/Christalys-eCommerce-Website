@@ -1,14 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen flex flex-col justify-center py-12 bg-gray-50 sm:px-6 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <img class="mx-auto h-12 w-auto" src="{{ asset('assets/Images/Homepage/favicon.png') }}" alt="Logo">
-            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                Register 
-            </h2>
-        </div>
 
-        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
 
@@ -50,7 +41,5 @@
                         </x-primary-button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
+
 </x-guest-layout>
