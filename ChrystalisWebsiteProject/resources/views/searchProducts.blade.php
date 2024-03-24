@@ -57,12 +57,12 @@
  
                     <label for="category">Search Bar</label>
                             <div class="d-flex mb-2 mb-lg-0" style="width: 100%;">
-                                <input class="form-control border border-1 border-dark" type="text" placeholder="Search" aria-label="Search" name="search" value="{{ request('search') }}" style="width: 100%;" />
+                                <input class="form-control border border-1 border-warning" type="text" placeholder="Search" aria-label="Search" name="search" value="{{ request('search') }}" style="width: 100%;" />
                                
                             </div>
                         <div class="form-group mt-2">
                             <label for="category">Search by Category</label>
-                            <select class="form-control border border-1 border-dark" id="category" name="category" value="{{ request('category') }}">
+                            <select class="form-control border border-1 border-warning" id="category" name="category" value="{{ request('category') }}">
                                 <!-- Loop through categories and display options -->
                                 <option value="all" disabled selected>-- Select Category --</option>
                                 <option value="Ring">Rings</option>
@@ -77,15 +77,15 @@
  
                         <div class="form-group">
                             <label for="min_price">Search by Price</label>
-                            <input type="number" class="form-control border border-1 border-dark" id="min_price" name="min_price"
+                            <input type="number" class="form-control border border-1 border-warning" id="min_price" name="min_price"
                                 placeholder="Min Price" value="{{ request('min_price') }}">
-                            <input type="number" class="form-control border border-1 border-dark mt-1" id="max_price" name="max_price"
+                            <input type="number" class="form-control border border-1 border-warning mt-1" id="max_price" name="max_price"
                                 placeholder="Max Price" value="{{ request('max_price') }}">
                         </div>
  
                         <div class="form-group" style="width: 100%;">
                         <label for="min_price">Sort Filters</label>
-                                <select class="form-control border border-1 border-dark" id="sort" name="sort" value="{{ request('sort') }}" width= "100%">
+                                <select class="form-control border border-1 border-warning" id="sort" name="sort" value="{{ request('sort') }}" width= "100%">
                                     <option disabled selected>-- Select Sort Type --</option>
                                     <option value="name_asc">Name (Ascending)</option>
                                     <option value="name_desc">Name (Descending)</option>
