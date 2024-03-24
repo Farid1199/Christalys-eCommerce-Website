@@ -148,7 +148,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
             <div class="product-details-content">
                 <h2>{{ $product['name'] }}</h2>
                 <p>{{ $product['description'] }}</p>
