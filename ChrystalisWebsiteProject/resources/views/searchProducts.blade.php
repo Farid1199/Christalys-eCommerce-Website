@@ -20,7 +20,11 @@
             background-image: url('{{ asset("Images/HomePage/texture.png") }}');
             background-size: 100%; /* make the image smaller */
         }
- 
+        .card-img-center:hover {
+    transform: scale(1.05);
+    transition: transform .3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
         .album {
         border-radius: 0.25rem;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
