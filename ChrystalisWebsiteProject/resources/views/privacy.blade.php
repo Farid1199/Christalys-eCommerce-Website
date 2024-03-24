@@ -47,6 +47,8 @@ word-break: break-word !important;
             height: 100%;
             margin-left: 10%;
             padding: 0;
+
+            
         }
 
 </style>

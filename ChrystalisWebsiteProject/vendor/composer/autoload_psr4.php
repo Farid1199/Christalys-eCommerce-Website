@@ -63,6 +63,10 @@ return array(
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
+<<<<<<< HEAD
+=======
+    'PhpOffice\\PhpSpreadsheet\\' => array($vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet'),
+>>>>>>> 8d08b899c83ab4d340eccbfe28d58e89ee4d66ab
     'OpenAdmin\\Admin\\Helpers\\' => array($vendorDir . '/open-admin-ext/helpers/src'),
     'OpenAdmin\\Admin\\' => array($vendorDir . '/open-admin-org/open-admin/src'),
     'NunoMaduro\\Collision\\' => array($vendorDir . '/nunomaduro/collision/src'),

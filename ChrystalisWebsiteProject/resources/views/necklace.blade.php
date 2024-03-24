@@ -7,18 +7,20 @@
 
 <style>
     body {
-        background-color: #f8f9fa; /* Slightly darker grey for the overall background */
+        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+            background-size: 100%; /* make the image smaller */
+            background-color: rgba(255, 215, 0, 0.03);
     }
 
     .album {
-        background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
         border-radius: 0.25rem;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        background-color: rgba(255, 215, 0, 0.03);
     }
 
     .card {
-        background-color: #f8f9fa; /* Grey card background for better content readability */
-        border: none;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        background-color: rgba(255, 215, 0, 0.03);
     }
     .card-img-center:hover {
     transform: scale(1.05);
@@ -75,16 +77,29 @@
 
 <!-- Add this section for displaying flash messages -->
 @if(session('success'))
-<div class="alert alert-success">
-    {{ session('success') }}
-</div>
+    <div class="text-center display-8 my-3" style="background-color: green; color: white; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('success') }}
+    </div>
 @endif
 
 @if(session('error'))
-<div class="alert alert-danger">
-    {{ session('error') }}
-</div>
+    <div class="text-center display-8 my-3" style="background-color: #B22222; color: #FFFFFF; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('error') }}
+    </div>
 @endif
+
+<style>
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
         <div class="row">
 
 
@@ -137,8 +152,8 @@
             <div class="col-md-8 ">
                                 @foreach ($products as $ring)
                                 <div class="card mb-4 box-shadow" style="border-radius: 10px; overflow: hidden; transition: transform .3s ease; border:3px solid gold">
-                                <div class="row g-0 d-flex align-items-center justify-content-center" style="background-color: #ffffff">
-                                        <div class="col-md-4 d-flex align-items-center justify-content-center" style="background: #f8f9fa; border:1px solid grey; border-radius: 7px;">
+                                <div class="row g-0 d-flex align-items-center justify-content-center" >
+                                        <div class="col-md-4 d-flex align-items-center justify-content-center" style=" border:1px solid grey; border-radius: 7px;">
                                         <a href="detail/{{$ring['id']}}" class="d-block w-100 h-100">
                                             <img src="{{ $ring['gallery'] }}" class="card-img-center img-responsive img-fluid" alt="Card image cap" style="object-fit: cover; height: 250px; min-width: 100%; border-radius: 10px;" />
                                         </a>
@@ -163,7 +178,7 @@
                                                     <form action="/add_to_cart" method="POST">
                                                         @csrf
                                                         <input type="hidden" name="product_id" value="{{$ring['id']}}">
-                                                        <button class="btn btn-secondary" type="submit">Add to Cart</button>
+                                                        <button class="btn btn-warning" type="submit">Add to Cart</button>
                                                     </form>
                                                 </div>
                                             </div>
