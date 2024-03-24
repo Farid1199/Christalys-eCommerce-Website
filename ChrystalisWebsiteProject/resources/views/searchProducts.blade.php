@@ -176,7 +176,7 @@
 
                                                     <form action="/addOneToCart" method="POST">
                                                         @csrf
-                                                        <input type="hidden" name="product_id" value="{{ $product['id'] }}">
+                                                        <input type="hidden" name="product_id" value="{{ $ring['id'] }}">
                                                         <button class="btn btn-success mb-3" id="addToCartBtn">Add to Cart</button>
                                                     </form>
                                                 </div>
