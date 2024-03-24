@@ -8,15 +8,21 @@
 
 
 <style>
+    body {
+        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+            background-size: 100%; /* make the image smaller */
+            background-color: rgba(255, 215, 0, 0.03);
+    }
+
     .album {
-        background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
         border-radius: 0.25rem;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        background-color: rgba(255, 215, 0, 0.03);
     }
 
     .card {
-        background-color: #dee2e6; /* Grey card background for better content readability */
-        border: none;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        background-color: rgba(255, 215, 0, 0.03);
     }
 
     .btn-outline-secondary, .btn-grey, .btn-outline-grey {
@@ -75,17 +81,17 @@
 
 -->
 <hr class="gradient">
-<section class="container mt-5 px-5 bg-light">
+<section class="container mt-5 px-5 bg-light" style="border: 2px solid gold; border-radius: 10px">
     <div class="row">
         <div class="col-md-4">
             <div class="col">
                 <div class="row-md-6">
-                <img class="img-thumbnail rounded my-4 py-4" src="{{ asset('Images\HomePage\hero.png') }}" alt="Generic placeholder image"
-                width="100%" height="40%" />
+                <img class=" rounded my-4 py-4" src="{{ asset('Images\HomePage\hero.png') }}" alt="Generic placeholder image"
+                width="100%" height="40%" style="border-radius: 10px"/>
                 </div>
                 <div class="row-md-6">
-                <img class="img-thumbnail rounded my-4 py-4" src="{{ asset('Images\HomePage\img-2-2.jpg') }}" alt="Generic placeholder image"
-                width="100%" height="40%" />
+                <img class=" rounded my-4 py-4" src="{{ asset('Images\HomePage\img-2-2.jpg') }}" alt="Generic placeholder image"
+                width="100%" height="40%" style="border-radius: 10px"/>
                 </div>
 
             </div>
@@ -129,7 +135,7 @@
 
             <div class="col-md-7">
                 <!-- Backstory Section -->
-                    <div class="container mt-5 mb-3 text-center">
+                    <div class="container mb-3 text-center">
                         <h2 class="display-8 text-uppercase font-weight-bold">Our Story</h2>
                     </div>
                     <p>
@@ -153,9 +159,9 @@
                     
                 </div>
                     <div class="col-md-5">
-                        <div class="col text-center py-5"> <!-- Added text-center to center the image -->
+                        <div class="col text-center py-3"> <!-- Added text-center to center the image -->
                              <img class=" rounded my-4 py-5" src="{{ asset('Images\HomePage\hero2.png') }}" alt="Generic placeholder image"
-                                width="100%" height="50%"/> <!-- Changed margin-top to style attribute -->
+                                width="100%" height="50%" style="border-radius: 10px"/> <!-- Changed margin-top to style attribute -->
                         </div>
 
                     </div>
@@ -196,18 +202,18 @@
                     <h6 class="display-15 text-muted">It will help us meet your requirements as well as reach every jewellery enthusiast's soul</h6>
                 </div>
 
-        <form action="{{ route('review.submit') }}" method="POST" id="aboutusForm" name="aboutusForm" class="p-4 shadow-sm border border-2 border-primary rounded-3">
+        <form action="{{ route('review.submit') }}" method="POST" id="aboutusForm" name="aboutusForm" class="p-4 shadow-sm border border-2 border-warning rounded-3">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label h5">Your Name</label>
-                <input type="text" class="form-control form-control-lg" id="name" name="name" required=""/>
+                <label for="name" class="form-label h5 ">Your Name</label>
+                <input type="text" class="form-control form-control-lg border border-1 border-dark" id="name" name="name" required=""/>
             </div>
             <div class="mb-3">
                 <label for="review" class="form-label h5">Your Review</label>
-                <textarea class="form-control form-control-lg" id="review" rows="4" name="review" required=""></textarea>
+                <textarea class="form-control form-control-lg border border-1 border-dark" id="review" rows="4" name="review" required=""></textarea>
             </div>
 
-            <button type="submit" class="btn btn-secondary w-100 mt-3">Submit Review</button>
+            <button type="submit" class="btn btn-warning w-100 mt-3">Submit Review</button>
         </form>
 
 
@@ -216,13 +222,13 @@
 
 <hr class="featurette-divider gradient" />
 
-<section class="container mt-5 px-5 text-center">
+<section class="container mt-5 px-5 text-center " >
 <div class="container mt-5 mb-3 text-center">
                 <h2 class="display-8 text-uppercase font-weight-bold">Reach Us Out!</h2>
                     <h6 class="display-15 text-muted">Find us on Google Maps!</h6>
                 </div>
     <!-- Map-->
-    <div class="map" id="contact">
+    <div class="map border border-1 border-dark" id="contact">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.5860758422164!2d-1.8924319241335055!3d52.486629872052355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bd2e9cf474ef%3A0xb48a787296dbcd89!2sAston%20University%20Main%20Building!5e0!3m2!1sen!2suk!4v1711146356847!5m2!1sen!2suk" width="100%" height="400px" style="border:2px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     </section>

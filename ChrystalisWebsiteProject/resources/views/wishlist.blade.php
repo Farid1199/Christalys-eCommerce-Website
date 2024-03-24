@@ -6,7 +6,8 @@
 
 <style>
     body {
-        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+      background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+            background-size: 100%; /* make the image smaller */
     }
 
     .album {
@@ -16,7 +17,7 @@
     }
 
     .card {
-        background-color: #dee2e6; /* Grey card background for better content readability */
+                                background-color: rgba(255, 215, 0, 0.05); /* Golden translucent background for better content readability */
         border: none;
     }
 
@@ -53,14 +54,37 @@
 <hr class="my-2">
 
 <div class="container py-5">
-    <h1 class="my-5">Wishlist</h1>
-    @if(session('success'))
-    <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+<div class="container mb-3 ">
+                        <h2 class="display-6 font-weight-bold">Your WishList</h2>
+                    </div>
+@if(session('success'))
+    <div class="text-center display-8 my-3" style="background-color: green; color: white; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="text-center display-8 my-3" style="background-color: #B22222; color: #FFFFFF; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
+
+<style>
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
     <div class="row">
         @foreach($wishlistItems as $item)
         <div class="col-md-3 mb-4">
-            <div class="card shadow">
+            <div class="card" style="border: 2px solid gold">
             <a href="/detail/{{$item->product->id}}"><img src="{{ $item->product->gallery }}" class="card-img-top" alt="{{ $item->product->name }}"></a>
                 <div class="card-body">
                     <h5 class="card-title"><a href="/detail/{{$item->product->id}}">{{ $item->product->name }}</a></h5>
@@ -68,11 +92,19 @@
                 
 
                     <p class="card-text">Price: £{{ $item->product->price }}</p>
-                    <form action="{{ route('wishlist.remove', $item->id) }}" method="POST" class="text-center">
+                    <form action="/add_to_cart" method="POST"  class=" text-center">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{$item['id']}}">
+                        <button class="btn btn-warning" type="submit">Add to Cart</button>
+                    </form>
+
+                    <form action="{{ route('wishlist.remove', $item->id) }}" method="POST" class=" mt-3  text-center">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Remove from Wishlist</button>
                     </form>
+
+
                 </div>
             </div>
         </div>

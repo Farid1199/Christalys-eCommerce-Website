@@ -8,7 +8,8 @@
 
 <style>
     body {
-        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+      background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+            background-size: 100%; /* make the image smaller */
     }
 
     .album {
@@ -18,7 +19,7 @@
     }
 
     .card {
-        background-color: #dee2e6; /* Grey card background for better content readability */
+        background-color: #f8f9fa; /* Grey card background for better content readability */
         border: none;
     }
 
@@ -60,14 +61,16 @@ $total = ProductController::cartItem();
 ?>
 
 <div class="container py-5">
-  <div class="py-5 text-center"></div>
-  <div class="row">
+  <div class=" text-center"></div>
+  <div class="row" >
     <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
+        <div class="container  ">
+                        <h3 class="display-13 text-muted font-weight-bold">Your Cart</h3>
+                    </div>
             <span class="badge badge-secondary badge-pill">{{$total}}</span>
         </h4>
-        <ul class="list-group mb-3">
+        <ul class="list-group mb-3" style="border: 2px solid gold">
             @foreach($cartItems as $item)
             <li class="list-group-item cart-item">
                 <div class="row">
@@ -90,7 +93,7 @@ $total = ProductController::cartItem();
                 @endforeach
             </li>
 
-            <li class="list-group-item cart-item bg-light border">
+            <li class="list-group-item cart-item bg-light border" style="border: 2px solid gold">
                 <div class="row">
                     <div class="col-6 text-left">
                         <div>
@@ -115,11 +118,34 @@ $index = 0; // Initialize an index variable
 
 
     <div class="col-md-8 order-md-1">
-      <h2 class="mb-3">Shopping Cart</h2>
+    <div class="container mb-3">
+        <h2 class="display-8 font-uppercase font-weight-bold">Shopping Cart</h2>
+    </div>
 
-      @if(session('success'))
-      <div class="alert alert-success">{{ session('success') }}</div>
-      @endif
+@if(session('success'))
+    <div class="text-center display-8 my-3" style="background-color: green; color: white; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="text-center display-8 my-3" style="background-color: #B22222; color: #FFFFFF; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
+
+<style>
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
 
       @if($cartItems->isEmpty())
 
@@ -133,7 +159,7 @@ $index = 0; // Initialize an index variable
 
       <div class="row">
         @foreach($cartItems as $item)
-        <div class="card rounded-3 mb-4 shadow border-lg">
+        <div class="card rounded-3 mb-4 shadow border-lg" style="border: 2px solid gold">
 
           <div class="card-body ">
             <div class="row d-flex justify-content-between align-items-center">
@@ -149,17 +175,16 @@ $index = 0; // Initialize an index variable
                 </a>
               </div>
 
-          <form action="/add_to_cart" method="POST" style="width: 20%;">
+          <form action="/add_to_cart" method="POST" style="width: 20%;  ">
               @csrf
-              <label for="quantity" class="form-label">Quantity:</label>
-              <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%;">
+              <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%; border: 1px solid">
             </form>
 
 
 
               
               <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">£{{$item->price}}</h5>
+                <h5 class="mb-0 fw-bold">£{{$item->price}}</h5>
   
               </div>
               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
@@ -199,7 +224,7 @@ $index = 0; // Initialize an index variable
 
       <div class="row ">
 
-        <div class="card rounded-3 mb-4 bg-light">
+        <div class="card rounded-3 mb-4 bg-light" style="border: 2px solid gold">
 
           <div class="card-body bg-light">
             <div class="row d-flex justify-content-between align-items-center">
@@ -231,7 +256,7 @@ $index = 0; // Initialize an index variable
 
       <div class="row">
 
-        <a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-secondary btn-block btn-lg">Proceed to
+        <a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-warning btn-block btn-lg">Proceed to
             Checkout</button></a>
 
       </div>

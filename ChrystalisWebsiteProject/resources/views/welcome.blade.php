@@ -51,6 +51,12 @@ hr.gradient {
   );
 }
 
+main{
+
+  background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+            background-size: 100%; /* make the image smaller */
+            background-color: rgba(255, 215, 0, 0.03);
+}
 
 </style>
 
@@ -141,26 +147,24 @@ hr.gradient {
     <!-- START THE FEATURETTES -->
 
     <!-- Services-->
-    <section class="content-section text-center my-5" style="background-color: #eaebf0" id="services">
+    <section class="content-section text-center my-5" style="background-color: #eaebf0; border: 2px solid gold">
                 <div class="container px-4 px-lg-5">
-                <div class="container mt-5 mb-3 text-center">
-                <h2 class="display-6 text-uppercase font-weight-bold mt-5 pt-5">Welcome to Chrystalis</h2>
+                <div class="container3 text-center">
+                <h2 class="display-6 text-uppercase font-weight-bold pt-5">Welcome to Chrystalis</h2>
                   <div style="max-width: 90%; width: 100%; margin: auto; height: 0; position: relative; padding-top: 56.25%;">
                           <iframe src="https://app.visla.us/embed/1221223709444964352" frameborder="0" allow="fullscreen *"
                               style="border: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
                           </iframe>
-                          </div>
-                          </div>
+                    </div>
+                  </div>
                 </div>
             </section>
 
+            
 
-
-            <section id="featured-products" class="py-5 bg-light">
-    <div class="container px-4 px-lg-5 mt-5">
-    <div class="container mt-5 mb-3 text-center">
-                <h2 class="display-6 text-uppercase font-weight-bold my-4 py-3">Browse Our Products!</h2>
-            </div>
+            <section id="featured-products" class="py-5 bg-light" style="border: 2px solid gold">
+    <div class="container px-4 px-lg-5">
+    <h3 class="display-8 text-uppercase font-weight-bold mb-4 pb-3 text-center">Browse Our Products!</h3>
         <div class="row justify-content-center">
             @php
 $featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
@@ -169,7 +173,7 @@ $featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
 
             @foreach ($featuredProducts as $product)
                 <div class="col mb-5">
-                    <div class="card h-100">
+                    <div class="card h-100" style="border:2px solid gold">
                         <!-- Product image-->
                                     <a href = "/detail/{{$product->id}}"><img class="card-img-top" src="{{ asset($product->gallery) }}" alt="{{ $product->name }}" style="max-width: 100%; height: 250px;"></a>
 
@@ -178,9 +182,7 @@ $featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder"> {{ Str::limit($product->name, 20, $end = '...') }}</h5>
-
-                               
+                                <h5 class="fw-bolder">{{ Str::limit($product->name, 20, $end = '...') }}</h5>
                                 <!-- Product price-->
                                 <h6>Price: £{{ $product->price }}</h6>                            
                             </div>
@@ -238,9 +240,9 @@ TESTIMONIALS AND ENDINGS
 -->
 
     <hr class="featurette-divider gradient" />
-  <section class="row my-5 py-5 bg-light">
+  <section class="row my-5 py-5 bg-light" style="border: 2px solid gold">
     <div class="text-center">
-        <h2 class="section-heading text-uppercase py-4 font-weight-bold">Hear from our Customers</h2>
+        <h3 class="section-heading text-uppercase py-4 font-weight-bold">Hear from our Customers</h3>
     </div>
       <div class="col-lg-4">
         <img class="rounded-circle my-4" src="{{ asset('Images\HomePage\2girl.jpg') }}" alt="Generic placeholder image"

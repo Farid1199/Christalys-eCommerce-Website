@@ -32,6 +32,19 @@
             background-size: 100%; /* make the image smaller */
         }
 
+                          a {
+                              text-decoration: none;
+                              transition: color 0.3s ease;
+                          }
+                          a li p:hover {
+                              font-size: 1.4em;
+                          }
+                          #bg {
+                      background-image: url('{{ asset("Images/HomePage/login.jpg") }}');
+                      background-size: 100%; /* make the image smaller */
+                  }
+
+
             </style>
 
  
@@ -205,52 +218,52 @@
           </div>
 
           <div class="col-md-6">
-          <div class="card mb-4 mb-lg-0">
-          <div class="card-body p-0" style="border:3px solid gold">
-            <ul class="list-group list-group-flush rounded-3">
+            <div class="card mb-4 mb-lg-0">
+              <div class="card-body p-0" style="border:3px solid gold">
+                <ul class="list-group list-group-flush rounded-3">
 
-            
-            <a href="{{route('aboutus')}}">
-              <li class="list-group-item d-flex justify-content-between align-items-center pt-4">
-                <i class="fa fa-info-circle fa-lg text-warning"></i>
                 
-                <p class="mb-0">About Us</p>
-    
-              </li>
-              </a>
-              <hr>
-              <a href="{{route('contactus')}}">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <i class="fas fa-id-card-alt fa-lg" style="color: #333333;"></i>
-                
-                <p class="mb-0">Contact Us</p>
-   
-              </li>
-              </a>
-              <hr>
-              <a href="{{route('privacy')}}">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <i class="fas fa-file-contract fa-lg" style="color: #55acee;"></i>
-                
-                <p class="mb-0">Privacy Policy</p>
-    
-              </li>
-              </a>
+                <a href="{{route('aboutus')}}">
+                  <li class="list-group-item d-flex justify-content-between align-items-center pt-4">
+                    <i class="fa fa-info-circle fa-lg text-warning"></i>
+                    
+                    <p class="mb-0">About Us</p>
+        
+                  </li>
+                  </a>
+                  <hr>
+                  <a href="{{route('contactus')}}">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <i class="fas fa-id-card-alt fa-lg" style="color: #333333;"></i>
+                    
+                    <p class="mb-0">Contact Us</p>
+      
+                  </li>
+                  </a>
+                  <hr>
+                  <a href="{{route('privacy')}}">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <i class="fas fa-file-contract fa-lg" style="color: #55acee;"></i>
+                    
+                    <p class="mb-0">Privacy Policy</p>
+        
+                  </li>
+                  </a>
 
-              <hr>
-              <a href="{{route('terms')}}">
-              <li class="list-group-item d-flex justify-content-between align-items-center pb-4">
-                <i class="fas fa-file-signature fa-lg" style="color: #55acee;"></i>
-                
-                <p class="mb-0">Terms and Conditions</p>
-    
-              </li>
-              </a>
-              
-              
-            </ul>
+                  <hr>
+                  <a href="{{route('terms')}}">
+                  <li class="list-group-item d-flex justify-content-between align-items-center pb-4">
+                    <i class="fas fa-file-signature fa-lg" style="color: #55acee;"></i>
+                    
+                    <p class="mb-0">Terms and Conditions</p>
+        
+                  </li>
+                  </a>
+                  
+                  
+                </ul>
+              </div>
           </div>
-        </div>
           </div>
 
           
@@ -262,6 +275,7 @@
   </div>
 </section>
  
+
 
 
  
