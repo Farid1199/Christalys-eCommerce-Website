@@ -499,90 +499,61 @@ class ProductController extends Controller
      *   ###############    This is a fuction for the cart table  ##################################
      */
 
-
-
-    public function addToCart(Request $request)
-    {
-        try {
-            // Retrieve product ID and quantity from the form submission
-            Log::info('Worked ');
-            echo 'Worked';
-            $productId = $request->input('product_id');
-
-            if (!is_null($request->input('quantity'))) {
-                echo 'Worked1';
-                Log::info('Worked1 ');
-                $quantity = $request->input('quantity');
-            } else {
-                $quantity = 1;
-            }
-            Log::info($productId);
-
-            // Retrieve the product from the database
-            $product = Product::find($productId);
-            Log::info('Worked2dfgdfgd ');
-
-            // Check if the inventory count is more than 0
-            if ($product->inventory_count <= 0) {
-                // If not, redirect back with an error message
-                return redirect()->back()->with('error', 'This product is currently out of stock.');
-            }
-
-            $price = $product->price;
-
-
-            $cartItem = CartItem::where('product_id', $product)
-                ->where('user_id', Auth::id())->first();
-            // Create or update cart item
-            session()->flash('success', 'Product added successfully');
-            Log::info('Worked3 ');
-
-
-            if ($cartItem) {
-                Log::info('Worked3 ');
-                // If the product is already in the cart, update its quantity and total price
-                $cartItem->quantity += $quantity;
-                // Ensure that updating the cart item doesn't exceed the inventory count
-                if ($cartItem->quantity > $product->inventory_count) {
-                    // Adjust the cart item quantity to the maximum available inventory or handle as needed
-                    return redirect()->back()->with('error', 'Unable to add the desired quantity to cart. Limited stock available.');
-                }
-                // $cartItem->total_price += $totalPrice;
-            } else {
-                // Otherwise, add a new item to the cart
-                Log::info('Worked4');
-                $cartItem = new CartItem([
-                    'user_id' => Auth::id(),
-                    'product_id' => $productId,
-                    'quantity' => $quantity,
-                    'total_amount' => number_format($quantity * $price, 2)
-
-                ]);
-            }
-
-            // Save the cart item to the database
-            $cartItem->save();
-
-            // Redirect back to the product page or wherever you want
-            return redirect()->back()->with('success', 'Product added to cart successfully.');
-        } catch (\Exception $e) {
-            // Log the exception for debugging
-            Log::error('Error adding product to cart: ' . $e->getMessage());
-
-            // Redirect back with an error message
-            echo 'Fail';
-            return redirect()->back()->with('error', 'An error occurred while adding the product to cart. Please try again later.');
-
-        }
-
-        // Fetch the quantity from the database
-        $quantity = DB::table('cart_items')->value('quantity');
-
-        // Pass the quantity value to the view
-        return view('cartlist', ['quantity' => $quantity]);
-    }
-
-
+     public function addToCart(Request $request)
+     {
+         // Start by validating the request data for product ID and quantity
+       
+     
+         try {
+             $productId = $request->input('product_id');
+             $quantity = $request->input('quantity');
+             $action = $request->input('action');
+             
+             $product = Product::find($productId);
+             if (!$product) {
+                 return back()->with('error', 'Product not found.');
+             }
+     
+             if ($product->inventory_count < $quantity) {
+                 return back()->with('error', 'Insufficient stock available.');
+             }
+     
+             $cartItem = CartItem::where('product_id', $productId)
+                                 ->where('user_id', Auth::id())
+                                 ->first();
+     
+             if ($action == 'update_quantity') {
+                 // Handle quantity update
+                 if ($cartItem) {
+                     $cartItem->quantity = $quantity; // Set the new quantity
+                     $cartItem->total_amount = number_format($quantity * $product->price, 2);
+                     $cartItem->save();
+                     return back()->with('success', 'Cart updated successfully.');
+                 }
+             } else {
+                 // Handle adding a new item
+                 if ($cartItem) {
+                     // If item already exists, add to its quantity
+                     $cartItem->quantity = $quantity;
+                 } else {
+                     // If new item, create a new cart item
+                     $cartItem = new CartItem([
+                         'user_id' => Auth::id(),
+                         'product_id' => $productId,
+                         'quantity' => $quantity,
+                         'total_amount' => number_format($quantity * $product->price, 2),
+                     ]);
+                 }
+                 $cartItem->save();
+                 return back()->with('success', 'Product added to cart successfully.');
+             }
+         } catch (\Exception $e) {
+             Log::error('Error updating cart: ' . $e->getMessage());
+             return back()->with('error', 'An error occurred while updating the cart.');
+         }
+     }
+    
+     
 
     static function cartItem()
     {

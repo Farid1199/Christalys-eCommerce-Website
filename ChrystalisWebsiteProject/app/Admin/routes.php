@@ -25,5 +25,6 @@ $router->resource('orders', OrderController::class);
 $router->resource('item-orders', OrderItemController::class);
 $router->resource('transactions', TransactionController::class);
 $router->resource('reviews', ReviewController::class);
+$router->resource('overall-reviews', OverallReviewController::class);
 
 });

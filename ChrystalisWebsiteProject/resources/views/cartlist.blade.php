@@ -58,6 +58,8 @@ use App\Http\Controllers\ProductController;
 
 $total = ProductController::cartItem();
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 <div class="container py-5">
   <div class="py-5 text-center"></div>
@@ -86,6 +88,8 @@ $total = ProductController::cartItem();
                             <span class="text-muted">Total: £{{$item->total_amount}}</span>
                         </div>
                     </div>
+
+                    
                 </div>
                 @endforeach
             </li>
@@ -132,7 +136,7 @@ $index = 0; // Initialize an index variable
 
 
       <div class="row">
-        @foreach($cartItems as $item)
+        @foreach($cartItems as $index => $item)
         <div class="card rounded-3 mb-4 shadow border-lg">
 
           <div class="card-body ">
@@ -149,11 +153,14 @@ $index = 0; // Initialize an index variable
                 </a>
               </div>
 
-          <form action="/add_to_cart" method="POST" style="width: 20%;">
+          <form action="/add_to_cart" id= "myForm{{ $index }}" method="POST" style="width: 20%;">
               @csrf
               <label for="quantity" class="form-label">Quantity:</label>
-              <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%;">
+              <input type="number" id="quantity{{ $index }}" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%;">
+              <input type="hidden" value="{{$item->id}}" name="product_id">
             </form>
+
+           
 
 
 
@@ -187,6 +194,17 @@ $index = 0; // Initialize an index variable
           </div>
 
         </div>
+
+        <script>
+          // Get the input field
+          var inputField = document.getElementById('quantity{{ $index }}');
+         
+          // Add event listener for input change
+          inputField.addEventListener('input', function() {
+            // Submit the form
+            document.getElementById('myForm{{ $index }}').submit();
+          });
+        </script>
 
         @php
     $index++; // Increment the index for the next iteration
