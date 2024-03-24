@@ -295,7 +295,7 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::post('/review', [AboutUsController::class, 'submit'])->name('review.submit');
 
 
-
+Route::post('/cart/update', 'ProductController@updateCartQuantity')->name('cart.update');
 
 
 
