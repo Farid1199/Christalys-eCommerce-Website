@@ -206,6 +206,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post("add_to_cart", [ProductController::class, 'addToCart']);
     Route::delete('/cart/{id}', [ProductController::class, 'removeCart'])->name('cart.remove');
+    Route::delete('/cart', [ProductController::class, 'removeAllCartItems'])->name('cart.removeAll');
 });
 
 require __DIR__ . '/auth.php';

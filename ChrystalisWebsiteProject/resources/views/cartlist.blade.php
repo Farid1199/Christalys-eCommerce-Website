@@ -49,54 +49,66 @@ use App\Http\Controllers\ProductController;
 $total = ProductController::cartItem();
 ?>
 
-<div class="container py-5">
+<div class="container pb-5">
   <div class="py-5 text-center"></div>
-  <div class="row">
-    <div class="col-md-4 order-md-2 mb-4">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">{{$total}}</span>
-        </h4>
-        <ul class="list-group mb-3">
-            @foreach($cartItems as $item)
-            <li class="list-group-item cart-item">
-                <div class="row">
-                    <div class="col-5">
-                        <a href="detail/{{$item->id}}" style="text-decoration:none;">
-                            <h6 class="my-0">{{$item->name}}</h6>
-                        </a>
-                    </div>
-                    <div class="col-3 text-center">
-                        <div>
-                            <span class="text-muted">Q: {{$item->quantity}}</span>
-                        </div>
-                    </div>
-                    <div class="col-4 text-right">
-                        <div>
-                            <span class="text-muted">Total: £{{$item->total_amount}}</span>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </li>
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4"  >
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted dipslay-8">Your cart</span>
+              <span class="badge badge-secondary badge-pill">{{$total}}</span>
+          </h4>
+          <ul class="list-group mb-3" style="border: 2px solid gold;">
+              @foreach($cartItems as $item)
+              <li class="list-group-item cart-item">
+                  <div class="row">
+                      <div class="col-5">
+                          <a href="detail/{{$item->id}}" style="text-decoration:none;">
+                              <h6 class="my-0">{{$item->name}}</h6>
+                          </a>
+                      </div>
+                      <div class="col-3 text-center">
+                          <div>
+                              <span class="text-muted">Q: {{$item->quantity}}</span>
+                          </div>
+                      </div>
+                      <div class="col-4 text-right">
+                          <div>
+                              <span class="text-muted">Total: £{{$item->total_amount}}</span>
+                          </div>
+                      </div>
+                  </div>
+                  @endforeach
+              </li>
 
-            <li class="list-group-item cart-item bg-light border">
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <div>
-                            <span class="text-dark">Total Amount:</span>
-                        </div>
-                    </div> 
-                    <div class="col-6 text-right">
-                        <div>
-                            <span class="text-dark"> £{{$totalPrice}}</span>
-                        </div>
-                    </div> 
-                </div>
-            </li>
-            
-        </ul>
-    </div>
+              <li class="list-group-item cart-item bg-light border">
+                  <div class="row">
+                      <div class="col-6 text-left">
+                          <div>
+                              <span class="text-dark">Total Amount:</span>
+                          </div>
+                      </div> 
+                      <div class="col-6 text-right">
+                          <div>
+                              <span class="text-dark"> £{{$totalPrice}}</span>
+                          </div>
+                      </div> 
+    </div>  
+              </li>
+              
+          </ul>
+      
+          
+      <div class="row">
+
+<a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-block btn-warning ">Proceed to
+    Checkout</button></a>
+
+</div>
+      </div>
+
+       
+
+    
 
     @php
 $index = 0; // Initialize an index variable
@@ -105,11 +117,32 @@ $index = 0; // Initialize an index variable
 
 
     <div class="col-md-8 order-md-1">
-      <h2 class="mb-3">Shopping Cart</h2>
+      <h2 class="mb-3 display-6 fw-bold">Shopping Cart</h2>
 
-      @if(session('success'))
-      <div class="alert alert-success">{{ session('success') }}</div>
-      @endif
+@if(session('success'))
+    <div class="text-center display-8 my-3" style="background-color: green; color: white; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="text-center display-8 my-3" style="background-color: #B22222; color: #FFFFFF; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
+
+<style>
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
 
       @if($cartItems->isEmpty())
 
@@ -123,7 +156,7 @@ $index = 0; // Initialize an index variable
 
       <div class="row">
         @foreach($cartItems as $item)
-        <div class="card rounded-3 mb-4 shadow border-lg">
+        <div class="card rounded-3 mb-4 shadow border-lg" style="border: 2px solid gold;">
 
           <div class="card-body ">
             <div class="row d-flex justify-content-between align-items-center">
@@ -141,9 +174,11 @@ $index = 0; // Initialize an index variable
 
           <form action="/add_to_cart" method="POST" style="width: 20%;">
               @csrf
+              <input type="hidden" name="product_id" value="{{$item->id}}">
               <label for="quantity" class="form-label">Quantity:</label>
-              <input type="number" id="quantity" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%;">
+              <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control mb-3" style="width: 100%;">
             </form>
+
 
 
 
@@ -170,6 +205,8 @@ $index = 0; // Initialize an index variable
                   padding: 0;">
                     <img type="submit" src="{{ asset('Images\HomePage\cart-remove.png') }}" class="img-fluid"></button>
                 </form>
+
+               
               </div>
 
 
@@ -184,52 +221,23 @@ $index = 0; // Initialize an index variable
         @endforeach
 
         
-       
-    <div class="container ">
+        <div class="row text-center">
 
-      <div class="row ">
+<form action="{{ route('cart.removeAll') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-block btn-danger py-2 mb-2 btn-lg" style="background-color: #ff3e3e; color: white;"> Remove All Items</button>
+                          </form>
 
-        <div class="card rounded-3 mb-4 bg-light">
 
-          <div class="card-body bg-light">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-sm text-left">
-
-                <h4 class="d-flex justify-content-between align-items-center ">
-                  <span class="mb-0">Total Price:</span>
-                </h4>
-                
-              </div>
-
-              <div class="col-sm text-right">
-
-                <h3 class="align-items-center ">
-                  <span class="mb-0">£{{$totalPrice}}</span>
-                </h3>
-
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-      </div>
-
-    </div>
-
-      <div class="row">
-
-        <a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-secondary btn-block btn-lg">Proceed to
-            Checkout</button></a>
-
-      </div>
+</div>
+    
 
       @endif
+ 
 
-    </div>
-
+      
+  </div>
 
 
 

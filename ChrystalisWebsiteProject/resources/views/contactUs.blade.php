@@ -11,6 +11,11 @@
 <style>
    body {
         background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+        background-size: 100%; /* Ensure full cover of the background */
+    }
+
+    #contactFormSection {
+        background-image: url('{{ asset("Images/HomePage/map-image.png") }}');
         background-size: cover; /* Ensure full cover of the background */
     }
 
@@ -22,7 +27,6 @@ CONTACT US CONTENT
 
 -->
 
-<hr class="my-5">
 <hr class="my-5">
 
 <div class="container">
@@ -57,10 +61,10 @@ CONTACT US CONTENT
     <div class="row justify-content-center"> 
         <div class="col-md-7" >
             <div class="card shadow-lg border-0">
-                <div class="card-header bg-outline-secondary text-dark py-5">
+                <div class="card-header bg-outline-secondary text-dark py-5"  >
                     <h2 class="mb-0 text-center display-8 text-uppercase font-weight-bold">Contact Chrystalis!</h2>
                 </div>
-                <div class="card-body">
+                <div class="card-body" >
                     <!-- Display validation errors if any -->
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -72,12 +76,30 @@ CONTACT US CONTENT
                         </div>
                     @endif
 
-                    <!-- Display success message if any -->
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+@if(session('success'))
+    <div class="text-center display-8 my-3" style="background-color: green; color: white; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="text-center display-8 my-3" style="background-color: #B22222; color: #FFFFFF; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
+
+<style>
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
 
                     <!-- Contact Form Section -->
                     <form action="{{ route('contact.submit') }}" method="POST" id="contactForm" name="contactForm">
@@ -85,16 +107,16 @@ CONTACT US CONTENT
                         <!-- Form Fields -->
                         <div class="form-group mb-4">
                             <label for="name" class="form-label">Your Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required="">
+                            <input type="text" class="form-control border border-1 border-dark" id="name" name="name" placeholder="Enter your name" required="">
                         </div>
 
                         <div class="form-group mb-4">
                             <label for="message" class="form-label">Your Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Leave us a message" required=""></textarea>
+                            <textarea class="form-control border border-1 border-dark" id="message" name="message" rows="5" placeholder="Leave us a message" required=""></textarea>
                         </div>
 
                         <!-- Submit Button -->
-                        <button type="submit" class="btn btn-secondary btn-lg btn-block">Send Message</button>
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -105,11 +127,6 @@ CONTACT US CONTENT
 
 
 
-
-
-
-
-<hr class="my-5">
 
 
 

@@ -22,17 +22,23 @@
         </div>
     </div-->
     <style>
-                a {
-                    text-decoration: none;
-                    transition: color 0.3s ease;
-                }
+       
+                        a {
+                            text-decoration: none;
+                            transition: color 0.3s ease;
+                            /* Making text larger on hover */
+                        }
 
-                #bg {
-            background-image: url('{{ asset("Images/HomePage/login.jpg") }}');
-            background-size: 100%; /* make the image smaller */
-        }
-        body {
-     
+                        a:hover p {
+                            font-size: 20px;
+                        }
+
+                        #bg {
+                    background-image: url('{{ asset("Images/HomePage/login.jpg") }}');
+                    background-size: 100%; /* make the image smaller */
+                }
+                 
+
             </style>
 
  
