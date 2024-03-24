@@ -79,7 +79,7 @@
 
 -->
 <hr class="gradient">
-<section class="container mt-5 px-5 bg-light" style="border: 2px solid gold">
+<section class="container mt-5 px-5 bg-light" style="border: 1px solid gold">
     <div class="row">
         <div class="col-md-4">
             <div class="col">

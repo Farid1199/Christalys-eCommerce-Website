@@ -22,21 +22,21 @@ $total = ProductController::cartItem();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-<div class="container py-5">
-  <div class="py-5 text-center"></div>
-  <div class="row">
-    <div class="col-md-4 order-md-2 mb-4">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
+<div class="container py-5" >
+  <div class=" text-center"></div>
+  <div class="row" >
+    <div class="col-md-4 order-md-2 mb-4" >
+        <h4 class="d-flex justify-content-between align-items-center mb-3" >
+            <span class="text-muted display-10">Your cart</span>
             <span class="badge badge-secondary badge-pill">{{$total}}</span>
         </h4>
-        <ul class="list-group mb-3">
+        <ul class="list-group mb-3" style="border: 1px solid gold;">
             @foreach($cartItems as $item)
             <li class="list-group-item cart-item">
                 <div class="row">
                     <div class="col-5">
                         <a href="detail/{{$item->id}}" style="text-decoration:none;">
-                            <h6 class="my-0">{{$item->name}}</h6>
+                            <h6 class="my-0">{{ Str::limit($item->name, 20, $end = '...') }}</h6>
                         </a>
                     </div>
                     <div class="col-3 text-center">
@@ -69,9 +69,22 @@ $total = ProductController::cartItem();
                     </div> 
                 </div>
             </li>
+
+
             
         </ul>
+
+
+        
+        <div class="row">
+
+<a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-warning btn-block btn-lg">Proceed to
+    Checkout</button></a>
+
+</div>
     </div>
+
+    
 
     @php
 $index = 0; // Initialize an index variable
@@ -80,11 +93,33 @@ $index = 0; // Initialize an index variable
 
 
     <div class="col-md-8 order-md-1">
-      <h2 class="mb-3">Shopping Cart</h2>
+      <h2 class="mb-3 display-6">Shopping Cart</h2>
 
-      @if(session('success'))
-      <div class="alert alert-success">{{ session('success') }}</div>
-      @endif
+<!-- Add this section for displaying flash messages -->
+@if(session('success'))
+    <div class="text-center display-8 my-3" style="background-color: green; color: white; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="text-center display-8 my-3" style="background-color: #B22222; color: #FFFFFF; padding: 15px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); animation: slideIn 0.5s ease-out forwards;" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
+
+<style>
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
 
       @if($cartItems->isEmpty())
 
@@ -98,9 +133,9 @@ $index = 0; // Initialize an index variable
 
       <div class="row">
         @foreach($cartItems as $index => $item)
-        <div class="card rounded-3 mb-4 shadow border-lg">
+        <div class="card rounded-3 mb-4 shadow border-lg" style="border: 1px solid gold;">
 
-          <div class="card-body ">
+          <div class="card-body " >
             <div class="row d-flex justify-content-between align-items-center">
               <div class="col-md-2 col-lg-2 col-xl-2">
 
@@ -117,7 +152,7 @@ $index = 0; // Initialize an index variable
           <form action="/add_to_cart" id= "myForm{{ $index }}" method="POST" style="width: 20%;">
               @csrf
               <label for="quantity" class="form-label">Quantity:</label>
-              <input type="number" id="quantity{{ $index }}" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%;">
+              <input type="number" id="quantity{{ $index }}" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3 border border-1 border-dark" style="width: 100%;">
               <input type="hidden" value="{{$item->product_id}}" name="product_id">
               <input type="hidden" value="{{$item->cart_id}}" name="cart_item_id">
             </form>
@@ -174,47 +209,17 @@ $index = 0; // Initialize an index variable
         @endforeach
 
         
-       
-    <div class="container ">
+      
 
-      <div class="row ">
 
-        <div class="card rounded-3 mb-4 bg-light">
 
-          <div class="card-body bg-light">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-sm text-left">
 
-                <h4 class="d-flex justify-content-between align-items-center ">
-                  <span class="mb-0">Total Price:</span>
-                </h4>
-                
-              </div>
+      <form action="{{ route('cart.removeAll') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-block btn-danger py-2 mb-2 btn-lg" style="background-color: #ff3e3e; color: white;"> Remove All Items</button>
+                          </form>
 
-              <div class="col-sm text-right">
-
-                <h3 class="align-items-center ">
-                  <span class="mb-0">£{{$totalPrice}}</span>
-                </h3>
-
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-      </div>
-
-    </div>
-
-      <div class="row">
-
-        <a href="{{ route('stripe.checkout', ['price' => 10, 'product' => 'silver'])}}"><button type="button" class="btn btn-secondary btn-block btn-lg">Proceed to
-            Checkout</button></a>
-
-      </div>
 
       @endif
 

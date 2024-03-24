@@ -87,11 +87,6 @@
                                                 <input type="hidden" value="{{$bracelet->id}}" name="product_id"
                                                     id="product_id">
                                             </form>
-                                            <form action="/add_to_cart" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="product_id" value="{{$bracelet['id']}}">
-                                                <button class="btn btn-success" id="addToCartBtn"> Add to Cart </button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>

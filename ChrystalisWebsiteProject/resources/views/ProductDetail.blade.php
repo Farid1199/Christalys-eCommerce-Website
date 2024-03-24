@@ -37,10 +37,7 @@
     }
 
 
-    .card {
-        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
-        background-color: rgba(255, 215, 0, 0.03);
-    }
+
   
 
     .btn-outline-secondary, .btn-grey, .btn-outline-grey {
@@ -138,7 +135,7 @@
 </style>
 
 <section id="product-details" class="container my-4" style="padding-top: 20px; ">
-    <div class="row py-4" style="border: 2px solid gold; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+    <div class="row py-4" style="border: 1px solid gold; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  background-color: rgba(245, 245, 245, 0.4);">
         <div class="col-md-5" >
             <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
                 <div class="carousel-inner">
@@ -186,7 +183,7 @@ $featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
 
             @foreach ($featuredProducts as $product)
                 <div class="col mb-5">
-                    <div class="card h-100" style="border:2px solid gold">
+                    <div class="card h-100" style="border:1px solid gold">
                         <!-- Product image-->
                                     <a href = "/detail/{{$product->id}}"><img class="card-img-top" src="{{ asset($product->gallery) }}" alt="{{ $product->name }}" style="max-width: 100%; height: 250px;"></a>
 

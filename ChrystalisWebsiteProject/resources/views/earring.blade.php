@@ -18,10 +18,10 @@
         background-color: rgba(255, 255, 255, 0.2);
     }
 
-    .card {
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        background-color: rgba(255, 255, 255, 0.2);
-    }
+                .card {
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                    background-color: rgba(245, 245, 245, 0.65); /* 20% opacity changed to full opacity for white background */
+                }
     .card-img-center:hover {
     transform: scale(1.05);
     transition: transform .3s ease-in-out;
@@ -106,7 +106,7 @@
 
 <div class="row">
             <div class="col-md-4">
-                <div class="card sticky-sm-top mt-4" style="border:3px solid gold" >
+                <div class="card sticky-sm-top mt-4" style="border:1px solid gold" >
                     <div class="card-body">
                     <h3 class="card-title text-center mb-2">Search & Sort Filters</h3>
 
@@ -152,9 +152,9 @@
 
                 <div class="col-md-8 " >
                                 @foreach ($products as $ring)
-                                <div class="card mb-4 box-shadow-lg" style="border-radius: 10px; overflow: hidden; transition: transform .3s ease; border:3px solid gold">
+                                <div class="card mb-4 box-shadow-lg" style="border-radius: 10px; overflow: hidden; transition: transform .3s ease; border:1px solid gold">
                                     <div class="row g-0 d-flex align-items-center justify-content-center">
-                                        <div class="col-md-4 d-flex align-items-center justify-content-center" style=" border:1px solid grey; border-radius: 7px;">
+                                        <div class="col-md-4 d-flex align-items-center justify-content-center" style=" ">
                                         <a href="detail/{{$ring['id']}}" class="d-block w-100 h-100">
                                             <img src="{{ $ring['gallery'] }}" class="card-img-center img-responsive img-fluid" alt="Card image cap" style="object-fit: cover; height: 250px; min-width: 100%; border-radius: 10px;" />
                                         </a>
@@ -167,7 +167,7 @@
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <form action="detail/{{$ring['id']}}" method="GET">
                                                         @csrf
-                                                        <button class="btn btn-outline-dark" type="submit">View</button>
+                                                        <button class="btn btn-outline-dark" type="submit">View Product</button>
                                                     </form>
 
                                                     <form action="/add_to_wishlist" method="POST">
@@ -176,11 +176,7 @@
                                                         <input type="hidden" value="{{$ring->id}}" name="product_id">
                                                     </form>
 
-                                                    <form action="/add_to_cart" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="product_id" value="{{$ring['id']}}">
-                                                        <button class="btn btn-warning" type="submit">Add to Cart</button>
-                                                    </form>
+                                        
                                                 </div>
                                             </div>
                                         </div>

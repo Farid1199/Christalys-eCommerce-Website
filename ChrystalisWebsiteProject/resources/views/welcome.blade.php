@@ -144,7 +144,7 @@ body {
     <!-- START THE FEATURETTES -->
 
     <!-- Services-->
-    <section class="content-section text-center my-5" style="background-color: #eaebf0; border: 2px solid gold" id="services">
+    <section class="content-section text-center my-5" style="background-color: #eaebf0; border: 1px solid gold; border-radius: 10px;" id="services">
                 <div class="container px-4 px-lg-5">
                 <div class="container mb-3 text-center">
                 <h2 class="display-6 text-uppercase font-weight-bold  pt-5">Welcome to Chrystalis</h2>
@@ -159,7 +159,7 @@ body {
 
 
 
-            <section id="featured-products" class="py-5 bg-light" style="border: 2px solid gold">
+            <section id="featured-products" class="py-5 bg-light" style="border: 1px solid gold; border-radius: 10px;">
     <div class="container px-4 px-lg-5 ">
     <div class="container mb-3 text-center">
                 <h2 class="display-6 text-uppercase font-weight-bold   py-3">Browse Our Products!</h2>
@@ -172,7 +172,7 @@ $featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
 
             @foreach ($featuredProducts as $product)
                 <div class="col mb-5">
-                    <div class="card h-100" style="border: 2px solid gold">
+                    <div class="card h-100" style="border: 1px solid gold">
                         <!-- Product image-->
                                     <a href = "/detail/{{$product->id}}"><img class="card-img-top" src="{{ asset($product->gallery) }}" alt="{{ $product->name }}" style="max-width: 100%; height: 250px;"></a>
 
@@ -241,7 +241,7 @@ TESTIMONIALS AND ENDINGS
 -->
 
     <hr class="featurette-divider gradient" />
-  <section class="row my-5 py-5 bg-light " style="border: 2px solid gold">
+  <section class="row my-5 py-5 bg-light " style="border: 1px solid gold; border-radius: 10px;">
     <div class="text-center">
         <h2 class="section-heading text-uppercase py-4 font-weight-bold">Hear from our Customers</h2>
     </div>

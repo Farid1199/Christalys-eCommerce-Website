@@ -24,8 +24,8 @@
                     <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="display: block;
                             margin-left: auto;
                             margin-right: auto;
-                            width:50%;
-                            height:50%;" class="align-items-center img-fluid" />
+                            width:40%;
+                            height:40%;" class="align-items-center img-fluid" />
                 </div>
 
             </a>
