@@ -144,7 +144,7 @@ body {
     <!-- START THE FEATURETTES -->
 
     <!-- Services-->
-    <section class="content-section text-center my-5" style="background-color: #eaebf0; border: 2px solid gold" id="services">
+    <section class="content-section text-center my-5" style="background-color: #eaebf0; border: 1px solid gold; border-radius: 10px;" id="services">
                 <div class="container px-4 px-lg-5">
                 <div class="container mb-3 text-center">
                 <h2 class="display-6 text-uppercase font-weight-bold  pt-5">Welcome to Chrystalis</h2>
@@ -159,47 +159,149 @@ body {
 
 
 
-            <section id="featured-products" class="py-5 bg-light" style="border: 2px solid gold">
+  <section id="featured-products" class="py-5 bg-light" style="border: 1px solid gold; border-radius: 10px;">
     <div class="container px-4 px-lg-5 ">
     <div class="container mb-3 text-center">
-                <h2 class="display-6 text-uppercase font-weight-bold   py-3">Browse Our Products!</h2>
+                <h2 class="display-6 text-uppercase font-weight-bold   py-3">Browse Our Categories!</h2>
             </div>
         <div class="row justify-content-center">
-            @php
-$featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
 
-            @endphp
-
-            @foreach ($featuredProducts as $product)
-                <div class="col mb-5">
-                    <div class="card h-100" style="border: 2px solid gold">
+                <div class="col mb-2">
+                    <div class="card h-100" style="border: 1px solid gold">
                         <!-- Product image-->
-                                    <a href = "/detail/{{$product->id}}"><img class="card-img-top" src="{{ asset($product->gallery) }}" alt="{{ $product->name }}" style="max-width: 100%; height: 250px;"></a>
+                                    <a href = "rings"><img class="card-img-top" src=" {{ asset('Images\CatalogueImg\gold-rings-.png') }}" alt="" style="max-width: 100%; height: 200px;"></a>
 
                         
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder"> {{ Str::limit($product->name, 20, $end = '...') }}</h5>
-
-                               
-                                <!-- Product price-->
-                                <h6>Price: £{{ $product->price }}</h6>                            
+                                <h5 class="fw-bolder">Rings</h5>                          
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <form action="/detail/{{$product->id}}" method="GET">
+                                <form action="rings" method="GET">
                                     @csrf
-                                    <button class="btn btn-secondary" id="addToCartBtn">View Product</button>
+                                    <button class="btn btn-secondary" id="addToCartBtn">Explore >></button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
+
+
+
+                <div class="col mb-2">
+                    <div class="card h-100" style="border: 1px solid gold">
+                        <!-- Product image-->
+                                    <a href = "necklaces"><img class="card-img-top" src=" {{ asset('Images\CatalogueImg\Neckless1.jpeg') }}" alt="" style="max-width: 100%; height: 200px;"></a>
+
+                        
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Necklace</h5>
+
+                                                      
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form action="necklaces" method="GET">
+                                    @csrf
+                                    <button class="btn btn-secondary" id="addToCartBtn">  Explore >></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col mb-2">
+                    <div class="card h-100" style="border: 1px solid gold">
+                        <!-- Product image-->
+                                    <a href = "bracelets"><img class="card-img-top" src=" {{ asset('Images\CatalogueImg\bracelet - 2.jpg') }}" alt="" style="max-width: 100%; height: 200px;"></a>
+
+                        
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Bracelets</h5>
+                         
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form action=" bracelets" method="GET">
+                                    @csrf
+                                    <button class="btn btn-secondary" id="addToCartBtn">Explore >></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col mb-2">
+                    <div class="card h-100" style="border: 1px solid gold">
+                        <!-- Product image--> 
+                                    <a href = "earrings "><img class="card-img-top" src=" {{ asset('Images\CatalogueImg\earrings - 1.jpg') }}" alt="" style="max-width: 100%; height: 200px;"></a>
+
+                        
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Earrings</h5>
+                    
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form action= "earrings" method="GET">
+                                    @csrf
+                                    <button class="btn btn-secondary" id="addToCartBtn">Explore >></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col mb-2">
+                    <div class="card h-100" style="border: 1px solid gold">
+                        <!-- Product image-->
+                                    <a href = "watches"><img class="card-img-top" src=" {{ asset('Images\CatalogueImg\Watch-1.jpg') }}" alt="" style="max-width: 100%; height: 200px;"></a>
+
+                        
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Watches</h5>
+
+                           
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <form action=" watches" method="GET">
+                                    @csrf
+                                    <button class="btn btn-secondary" id="addToCartBtn">Explore >></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
         </div>
     </div>
 </section>
@@ -241,7 +343,7 @@ TESTIMONIALS AND ENDINGS
 -->
 
     <hr class="featurette-divider gradient" />
-  <section class="row my-5 py-5 bg-light " style="border: 2px solid gold">
+  <section class="row my-5 py-5 bg-light " style="border: 1px solid gold; border-radius: 10px;">
     <div class="text-center">
         <h2 class="section-heading text-uppercase py-4 font-weight-bold">Hear from our Customers</h2>
     </div>

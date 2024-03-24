@@ -92,19 +92,17 @@
     <div class="row">
         @foreach($wishlistItems as $item)
         <div class="col-md-3 mb-4">
-            <div class="card">
+            <div class="card" style="border: 1px solid gold">
                 <a href="/detail/{{$item->product->id}}"><img src="{{ $item->product->gallery }}" class="card-img-top" alt="{{ $item->product->name }}"></a>
                 <div class="card-body">
                     <h5 class="card-title"><a href="/detail/{{$item->product->id}}">{{ $item->product->name }}</a></h5>
                     <p class="card-text">Price: £{{ $item->product->price }}</p>
                     <div class="row">
                         <div class="col-md-6">
-                            <form action="/add_to_cart"
-                            method="POST" class="text-center">
-                                @csrf
-                                <input type="hidden" name="product_id" value="{{$item->id}}">
-                                <button class="btn btn-warning" type="submit">Add to Cart</button>
-                            </form>
+                        <form action="detail/{{$item['id']}}" method="GET">
+                                                        @csrf
+                                                        <button class="btn btn-outline-dark" type="submit">View Product</button>
+                                                    </form>
                         </div>
                         <div class="col-md-6">
                             <form action="{{ route('wishlist.remove', $item->id) }}" method="POST" class="text-center">

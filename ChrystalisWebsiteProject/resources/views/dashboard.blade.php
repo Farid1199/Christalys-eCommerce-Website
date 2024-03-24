@@ -61,9 +61,9 @@
     <div class="container py-5">
 
     <div class="row">
-
+   
       <div class="col-lg-4">
-        <div class="card mb-4" style="border:3px solid gold">
+        <div class="card mb-4" style="border: 1px solid gold; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
           <div class="card-body text-center">
             <img src="{{ asset('Images\HomePage\pfp.png') }}" alt="avatar"
               class="rounded-circle img-fluid" style="width: 150px; display: block; margin-left: auto; margin-right: auto;">
@@ -73,9 +73,9 @@
           </div>
         </div>
 
-        <div class="card mb-4 mb-lg-0">
-          <div class="card-body p-0" style="border:3px solid gold">
-            <ul class="list-group list-group-flush rounded-3">
+        <div class="card mb-4 mb-lg-0" style=" border-radius: 10px;">
+          <div class="card-body p-0" style="border: 1px solid gold; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+            <ul class="list-group list-group-flush rounded">
 
             
             <a href="{{route('previousOrders')}}">
@@ -120,7 +120,7 @@
 
 
         <div class="card my-4 mb-lg-0">
-          <div class="card-body p-0" style="border:3px solid gold">
+          <div class="card-body p-0" style="border: 1px solid gold; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
             <ul class="list-group list-group-flush rounded-3">
             <form method="POST" action="{{ route('logout') }}">
                                     @csrf
@@ -140,7 +140,7 @@
 
 
       <div class="col-lg-8">
-        <div class="card mb-4" style="border:3px solid gold">
+        <div class="card mb-4" style="border: 1px solid gold; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
@@ -188,7 +188,7 @@
 
         <div class="row">
           <div class="col-md-6" >
-            <div class="card mb-4 mb-md-0" style="border:3px solid gold">
+            <div class="card mb-4 mb-md-0" style="border: 1px solid gold; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
               <div class="card-body">
                 <p class="mb-4" style="font-size: 1.2rem; font-weight: 500"> Saved Payment Details
                 <p class="mb-1" style="font-size: 1rem; font-weight: 500">Card Name: {{ Auth::user()->name }}</p>
@@ -213,7 +213,7 @@
 
           <div class="col-md-6">
           <div class="card mb-4 mb-lg-0">
-          <div class="card-body p-0" style="border:3px solid gold">
+          <div class="card-body p-0" style="border: 1px solid gold; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
             <ul class="list-group list-group-flush rounded-3">
 
             
