@@ -17,25 +17,30 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-opacity-80">
         <div>
             <a href="/">
                 <div id="logo">
                     <img src="<?php echo e(asset('Images\CatalogueImg\logo-tp.png'), false); ?>" alt="TopLeft Logo" style="display: block;
                             margin-left: auto;
                             margin-right: auto;
-                            width:50%; 
+                            width:50%;
                             height:50%;" class="align-items-center img-fluid" />
                 </div>
 
             </a>
         </div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            <?php echo e($slot, false); ?>
-
+        <div class="w-full sm:max-w-md mt-6 px-6 py-6 bg-opacity-20 bg-white/20 backdrop-blur-sm shadow-xl overflow-hidden sm:rounded-lg" style="border: 2px solid #DAA520;">
+            <div><?php echo e($slot, false); ?></div>
         </div>
     </div>
+<style>
+        body {
+            background-image: url('<?php echo e(asset("Images/HomePage/login.jpg"), false); ?>');
+            background-size: 100%; /* make the image smaller */
+        }
+</style>
 </body>
 
 </html><?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/layouts/guest.blade.php ENDPATH**/ ?>

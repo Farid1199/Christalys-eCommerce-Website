@@ -18,6 +18,7 @@ class CsvProductStatsController extends Controller
 
     public function export()
     {
+        ob_start(); // Start output buffering
         $handle = fopen('php://output', 'w');
 
         // Headers for CSV
@@ -41,6 +42,8 @@ class CsvProductStatsController extends Controller
 
         fclose($handle);
 
-        return Response::make('', 200, $this->getHeaders());
+        $csv = ob_get_clean(); // Get what has been output and clean the buffer
+
+        return Response::make($csv, 200, $this->getHeaders());
     }
 }
