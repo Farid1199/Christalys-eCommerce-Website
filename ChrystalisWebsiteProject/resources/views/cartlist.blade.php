@@ -7,51 +7,41 @@
 @section('content')
 
 <style>
+    /* Apply the same background texture */
     body {
-        background-color: #e9ecef; /* Slightly darker grey for the overall background */
+        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+        background-size: cover; /* Ensure full cover of the background */
     }
-
-    .album {
-        background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
-        border-radius: 0.25rem;
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    }
-
     .card {
-        background-color: #dee2e6; /* Grey card background for better content readability */
+        margin-bottom: 8px; /* Decrease the bottom margin to bring cards closer */
+    }
+    .card-body {
+        padding: 10px; /* Reduce padding to decrease card height */
+    }
+    .btn-danger {
         border: none;
+        cursor: pointer;
+        appearance: none;
+        background-color: inherit;
+        margin: 0;
+        padding: 0;
+    }
+    
+
+    /* Ensure the quantity input and buttons are aligned and compact */
+    form[action="/add_to_cart"] {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    input[type="number"] {
+        max-width: 80px; /* Adjust width of quantity input */
+        padding: .375rem .75rem; /* Standard padding for input */
     }
 
-    .btn-outline-secondary, .btn-grey, .btn-outline-grey {
-        color: #6c757d; /* Adjusting for consistency */
-        border-color: #6c757d; /* Grey border for buttons */
-    }
 
-    .btn-outline-secondary:hover, .btn-grey:hover, .btn-outline-grey:hover {
-        color: #fff; /* White text on hover */
-        background-color: #5a6268; /* Darker grey background on hover */
-        border-color: #545b62; /* Darker grey border on hover */
-    }
-
-    .btn-success, .btn-primary {
-        background-color: #6c757d; /* Adjusting primary and success buttons to match grey scheme */
-        border-color: #6c757d; /* Consistent border color */
-    }
-
-    .btn-success:hover, .btn-primary:hover {
-        background-color: #5a6268; /* Darker grey on hover */
-        border-color: #545b62; /* Darker border color on hover */
-    }
-
-    .form-control {
-        border-radius: 0.25rem;
-    }
-
-    .sticky-sm-top {
-        top: 0;
-        z-index: 1020;
-    }
 </style>
+
 
 <?php
 use App\Http\Controllers\ProductController;

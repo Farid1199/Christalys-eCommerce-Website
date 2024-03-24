@@ -5,56 +5,7 @@
 @section('content')
 
 <style>
-    body {
-        background-color: #f8f9fa; /* Slightly darker grey for the overall background */
-    }
-
-    .album {
-        background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
-        border-radius: 0.25rem;
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    }
-
-    .card {
-        background-color: #f8f9fa; /* Grey card background for better content readability */
-        border: none;
-    }
-    .card-img-center:hover {
-    transform: scale(1.05);
-    transition: transform .3s ease-in-out;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-
-    .btn-outline-secondary, .btn-grey, .btn-outline-grey {
-        color: #6c757d; /* Adjusting for consistency */
-        border-color: #6c757d; /* Grey border for buttons */
-    }
-
-    .btn-outline-secondary:hover, .btn-grey:hover, .btn-outline-grey:hover {
-        color: #fff; /* White text on hover */
-        background-color: #5a6268; /* Darker grey background on hover */
-        border-color: #545b62; /* Darker grey border on hover */
-    }
-
-    .btn-success, .btn-primary {
-        background-color: #6c757d; /* Adjusting primary and success buttons to match grey scheme */
-        border-color: #6c757d; /* Consistent border color */
-    }
-
-    .btn-success:hover, .btn-primary:hover {
-        background-color: #5a6268; /* Darker grey on hover */
-        border-color: #545b62; /* Darker border color on hover */
-    }
-
-    .form-control {
-        border-radius: 0.25rem;
-    }
-
-    .sticky-sm-top {
-        top: 0;
-        z-index: 1020;
-    }
+  
 </style>
 
 <link rel="stylesheet" href="{{ asset('assets/css/css-pages/style.css')}}" />

@@ -50,7 +50,10 @@ hr.gradient {
     rgba(211, 211, 211, 1) 100%  /* light grey at 100% */
   );
 }
-
+body {
+        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+        background-size: cover; /* Ensure full cover of the background */
+    }
 
 </style>
 

@@ -5,9 +5,11 @@
 @section('content')
 
 <style>
-  body {
-    background-color: #f5f5f5; /* Light grey background */
-  }
+     body {
+        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+        background-size: cover; 
+    }
+    
 
   .category-box {
     background-color: #e0e0e0; /* Darker grey for more contrast against the light grey background */

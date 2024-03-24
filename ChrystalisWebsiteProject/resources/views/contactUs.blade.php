@@ -9,11 +9,11 @@
 <!-- <link rel="stylesheet" href="{{ asset('assets/css/css-pages/contactus.css')}}" /-->
 
 <style>
-#contactFormSection{
-    height: 100%;
-    width: 100%;
-    background-image: url('{{ asset('Images/HomePage/map-image.png') }}');
-}
+   body {
+        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+        background-size: cover; /* Ensure full cover of the background */
+    }
+
 </style>
 
 

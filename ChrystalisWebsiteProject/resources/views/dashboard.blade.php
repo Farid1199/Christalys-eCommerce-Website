@@ -31,7 +31,8 @@
             background-image: url('{{ asset("Images/HomePage/login.jpg") }}');
             background-size: 100%; /* make the image smaller */
         }
-
+        body {
+     
             </style>
 
  

@@ -7,7 +7,8 @@
   
 
     <style>
-   
+  
+    
         .zoomable-image-container {
         overflow: hidden;
         position: relative;

@@ -8,6 +8,10 @@
 
 
 <style>
+      body {
+        background-image: url('{{ asset("Images/HomePage/texture.png") }}');
+        background-size: cover; /* Ensure full cover of the background */
+    }
     .album {
         background-color: #f8f9fa; /* Slightly lighter grey to contrast against the body */
         border-radius: 0.25rem;
