@@ -48,82 +48,89 @@ hr.gradient {
     rgba(211, 211, 211, 1) 100%  /* light grey at 100% */
   );
 }
-
+body {
+        background-image: url('<?php echo e(asset("Images/HomePage/texture.png"), false); ?>');
+        background-size: 100%; /* Ensure full cover of the background */
+    }
 
 </style>
 
 <hr class="mb-3" />
 <hr class="mb-3" />
 <main role="main">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="first-slide" src="<?php echo e(asset('Images\HomePage\carosel1.jpg'), false); ?>" alt="First slide" />
-        <div class="container">
-          <div class="carousel-caption text-left">
-            <h1>Welcome to Chrystalis</h1>
-            <p>
-              Welcome to Chrystalis, where elegance meets craftsmanship in
-              the world of fine jewelry. Our passion for beauty and
-              attention to detail are reflected in every piece, creating a
-              collection that celebrates the artistry of adornment.
-            </p>
-            <p>
-              <a class="btn btn-lg btn-secondary" href="<?php echo e(route('aboutus'), false); ?>" role="button">About Us</a>
-            </p>
+  <style>
+  </style>
+
+  <main role="main">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="first-slide" src="<?php echo e(asset('Images\HomePage\carosel1.jpg'), false); ?>" alt="First slide" />
+          <div class="container">
+            <div class="carousel-caption text-left">
+              <h1>Welcome to Chrystalis</h1>
+              <p>
+                Welcome to Chrystalis, where elegance meets craftsmanship in
+                the world of fine jewelry. Our passion for beauty and
+                attention to detail are reflected in every piece, creating a
+                collection that celebrates the artistry of adornment.
+              </p>
+              <p>
+                <a class="btn btn-lg btn-secondary" href="<?php echo e(route('aboutus'), false); ?>" role="button">About Us</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="second-slide" src="<?php echo e(asset('Images\HomePage\carosel2.jpg'), false); ?>" alt="Second slide" />
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Discover Chrystalis</h1>
+              <p>
+                Whether you're seeking a statement piece or a cherished gift,
+                Chrystalis invites you to immerse yourself in a world of
+                captivating jewelry that transcends trends and embraces the
+                enduring allure of graceful refinement.
+              </p>
+              <p>
+                <a class="btn btn-lg btn-secondary" href="#down" role="button">Discover Chrystalis</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="third-slide" src="<?php echo e(asset('Images\HomePage\carosel3.jpg'), false); ?>" alt="Third slide" />
+          <div class="container">
+            <div class="carousel-caption text-right">
+              <h1>Chrystalis Awaits You</h1>
+              <p>
+                Explore our curated selection of exquisite rings, necklaces,
+                bracelets, and more, each intricately designed to capture the
+                essence of timeless sophistication. Discover the perfect
+                expression of your style and individuality with Chrystalis –
+                where every piece tells a story as unique as you are.
+              </p>
+              <p>
+                <a class="btn btn-lg btn-secondary" href="<?php echo e(route('products'), false); ?>" role="button">Browse Catalogue</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <img class="second-slide" src="<?php echo e(asset('Images\HomePage\carosel2.jpg'), false); ?>" alt="Second slide" />
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Discover Chrystalis</h1>
-            <p>
-              Whether you're seeking a statement piece or a cherished gift,
-              Chrystalis invites you to immerse yourself in a world of
-              captivating jewelry that transcends trends and embraces the
-              enduring allure of graceful refinement.
-            </p>
-            <p>
-              <a class="btn btn-lg btn-secondary" href="#down" role="button">Discover Chrystalis</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img class="third-slide" src="<?php echo e(asset('Images\HomePage\carosel3.jpg'), false); ?>" alt="Third slide" />
-        <div class="container">
-          <div class="carousel-caption text-right">
-            <h1>Chrystalis Awaits You</h1>
-            <p>
-              Explore our curated selection of exquisite rings, necklaces,
-              bracelets, and more, each intricately designed to capture the
-              essence of timeless sophistication. Discover the perfect
-              expression of your style and individuality with Chrystalis –
-              where every piece tells a story as unique as you are.
-            </p>
-            <p>
-              <a class="btn btn-lg btn-secondary" href="<?php echo e(route('products'), false); ?>" role="button">Browse Catalogue</a>
-            </p>
-          </div>
-        </div>
-      </div>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
@@ -135,10 +142,10 @@ hr.gradient {
     <!-- START THE FEATURETTES -->
 
     <!-- Services-->
-    <section class="content-section text-center my-5" style="background-color: #eaebf0" id="services">
+    <section class="content-section text-center my-5" style="background-color: #eaebf0; border: 2px solid gold" id="services">
                 <div class="container px-4 px-lg-5">
-                <div class="container mt-5 mb-3 text-center">
-                <h2 class="display-6 text-uppercase font-weight-bold mt-5 pt-5">Welcome to Chrystalis</h2>
+                <div class="container mb-3 text-center">
+                <h2 class="display-6 text-uppercase font-weight-bold  pt-5">Welcome to Chrystalis</h2>
                   <div style="max-width: 90%; width: 100%; margin: auto; height: 0; position: relative; padding-top: 56.25%;">
                           <iframe src="https://app.visla.us/embed/1221223709444964352" frameborder="0" allow="fullscreen *"
                               style="border: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
@@ -150,10 +157,10 @@ hr.gradient {
 
 
 
-            <section id="featured-products" class="py-5 bg-light">
-    <div class="container px-4 px-lg-5 mt-5">
-    <div class="container mt-5 mb-3 text-center">
-                <h2 class="display-6 text-uppercase font-weight-bold my-4 py-3">Browse Our Products!</h2>
+            <section id="featured-products" class="py-5 bg-light" style="border: 2px solid gold">
+    <div class="container px-4 px-lg-5 ">
+    <div class="container mb-3 text-center">
+                <h2 class="display-6 text-uppercase font-weight-bold   py-3">Browse Our Products!</h2>
             </div>
         <div class="row justify-content-center">
             <?php
@@ -163,7 +170,7 @@ $featuredProducts = DB::table('products')->inRandomOrder()->take(4)->get();
 
             <?php $__currentLoopData = $featuredProducts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col mb-5">
-                    <div class="card h-100">
+                    <div class="card h-100" style="border: 2px solid gold">
                         <!-- Product image-->
                                     <a href = "/detail/<?php echo e($product->id, false); ?>"><img class="card-img-top" src="<?php echo e(asset($product->gallery), false); ?>" alt="<?php echo e($product->name, false); ?>" style="max-width: 100%; height: 250px;"></a>
 
@@ -232,7 +239,7 @@ TESTIMONIALS AND ENDINGS
 -->
 
     <hr class="featurette-divider gradient" />
-  <section class="row my-5 py-5 bg-light">
+  <section class="row my-5 py-5 bg-light " style="border: 2px solid gold">
     <div class="text-center">
         <h2 class="section-heading text-uppercase py-4 font-weight-bold">Hear from our Customers</h2>
     </div>

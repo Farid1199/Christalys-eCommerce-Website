@@ -157,7 +157,8 @@ $index = 0; // Initialize an index variable
               @csrf
               <label for="quantity" class="form-label">Quantity:</label>
               <input type="number" id="quantity{{ $index }}" name="quantity" value="{{$item->quantity}}" min="1" class="form-control mb-3" style="width: 100%;">
-              <input type="hidden" value="{{$item->id}}" name="product_id">
+              <input type="hidden" value="{{$item->product_id}}" name="product_id">
+              <input type="hidden" value="{{$item->cart_id}}" name="cart_item_id">
             </form>
 
            

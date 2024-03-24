@@ -506,8 +506,11 @@ class ProductController extends Controller
      
          try {
              $productId = $request->input('product_id');
+             $cartItemid = $request->input('cart_item_id');
              $quantity = $request->input('quantity');
              $action = $request->input('action');
+
+           
              
              $product = Product::find($productId);
              if (!$product) {
@@ -518,7 +521,7 @@ class ProductController extends Controller
                  return back()->with('error', 'Insufficient stock available.');
              }
      
-             $cartItem = CartItem::where('product_id', $productId)
+             $cartItem = CartItem::where('id', $cartItemid)->where('product_id', $productId)
                                  ->where('user_id', Auth::id())
                                  ->first();
      
@@ -529,12 +532,16 @@ class ProductController extends Controller
                      $cartItem->total_amount = number_format($quantity * $product->price, 2);
                      $cartItem->save();
                      return back()->with('success', 'Cart updated successfully.');
+                     
                  }
              } else {
                  // Handle adding a new item
                  if ($cartItem) {
                      // If item already exists, add to its quantity
                      $cartItem->quantity = $quantity;
+                     $cartItem->total_amount = $quantity * $product->price;
+                    
+                     
                  } else {
                      // If new item, create a new cart item
                      $cartItem = new CartItem([
@@ -542,16 +549,20 @@ class ProductController extends Controller
                          'product_id' => $productId,
                          'quantity' => $quantity,
                          'total_amount' => number_format($quantity * $product->price, 2),
+                                                 
                      ]);
+                   
                  }
                  $cartItem->save();
                  return back()->with('success', 'Product added to cart successfully.');
+                 echo "esd" ;
              }
          } catch (\Exception $e) {
              Log::error('Error updating cart: ' . $e->getMessage());
              return back()->with('error', 'An error occurred while updating the cart.');
          }
      }
+
     
      
 
@@ -574,7 +585,7 @@ class ProductController extends Controller
         $cartItems = DB::table('cart_items')
             ->join('products', 'cart_items.product_id', '=', 'products.id')
             ->where('cart_items.user_id', $userId)
-            ->select('products.*', 'cart_items.id as cart_id', 'cart_items.quantity', 'cart_items.total_amount')
+            ->select('products.*', 'cart_items.id as cart_id','cart_items.product_id', 'cart_items.quantity', 'cart_items.total_amount')
             ->get();
 
         $totalPrice = $cartItems->sum('total_amount');
