@@ -240,10 +240,10 @@ Sign Up
 
 
     <!-- Section: Social media -->
-    <section id="conclusion" class="d-flex justify-content-between p-4 text-white" style="background-color: #969696; font-size: 20px;">
+    <section id="conclusion" class="d-flex justify-content-between p-4 text-dark border-top border-2 border-warning" style="background-color: #252525; background-size: 50%; font-size: 20px;">
 
       <!-- Left -->
-      <div class="me-5">
+      <div class="me-5 text-white">
         <span>Get connected with us on social networks:</span>
       </div>
       <!-- Left -->
@@ -353,7 +353,7 @@ Sign Up
 
       <ul class="list-inline pt-2">
         <li class="list-inline-item"><a href="{{ route('privacy') }}">Privacy</a></li>
-        <li class="list-inline-item"><a href="{{ route('terms') }}">Terms</a></li>
+        <li class="list-inline-item"><a href="{{  route('terms') }}">Terms</a></li>
         <li class="list-inline-item"><a href="{{route('contactus')}}">Support</a></li>
         <li class="list-inline-item"><a href="#">Back to top</a></li>
       </ul>

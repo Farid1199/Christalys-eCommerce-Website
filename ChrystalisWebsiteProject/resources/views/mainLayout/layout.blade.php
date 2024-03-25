@@ -73,7 +73,7 @@ $total = ProductController::cartItem();
               <a href="#!" class="d-flex align-items-center my-2 text-decoration-none">
                 <div id="logo" class="ml-5">
                   <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo"
-                    style="width: 30%; height: 30%" />
+                    style="width: 30%; height: 20%" />
                 </div>
 
 
@@ -208,10 +208,10 @@ $total = ProductController::cartItem();
 
 
     <!-- Section: Social media -->
-    <section id="conclusion" class="d-flex justify-content-between p-4 text-white" style="background-color: #969696; font-size: 20px;">
+    <section id="conclusion" class="d-flex justify-content-between p-4 text-dark border-top border-2 border-warning" style="background-color: #252525; background-size: 50%; font-size: 20px;">
 
       <!-- Left -->
-      <div class="me-5">
+      <div class="me-5 text-white">
         <span>Get connected with us on social networks:</span>
       </div>
       <!-- Left -->
