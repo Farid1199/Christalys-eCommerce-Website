@@ -59,7 +59,7 @@ class StripePaymentController extends Controller
         if (!empty($lineItems)) {
             $session = \Stripe\Checkout\Session::create([
                 'shipping_address_collection' => ['allowed_countries' => ['GB']],
-                'success_url' => route('cartlist'),
+                'success_url' => route('previousOrders'),
                 'cancel_url' => route('cartlist'), // You should provide a cancel_url as well
                 'payment_method_types' => ['card'], // 'link' is not a standard payment method type for Stripe
                 "metadata" => array("cus_id" => isset($customer) ? $customer->id : null,"userid" =>auth()->user() ? auth()->user()->id : null),
