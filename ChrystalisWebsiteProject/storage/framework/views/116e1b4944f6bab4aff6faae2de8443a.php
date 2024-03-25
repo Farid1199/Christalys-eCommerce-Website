@@ -16,12 +16,12 @@
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased" >
     <div class="min-h-screen bg-gray-100">
 
 
         <!-- Page Heading -->
-        <?php if(isset($header)): ?>
+        <?php if(isset ($header)): ?>
         <header class="bg-white shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 <?php echo e($header, false); ?>
@@ -38,5 +38,6 @@
         <?php echo $__env->make('mainLayout.layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>
 </body>
+
 
 </html><?php /**PATH C:\xampp\htdocs\Christalys-eCommerce-Website\ChrystalisWebsiteProject\resources\views/layouts/app.blade.php ENDPATH**/ ?>

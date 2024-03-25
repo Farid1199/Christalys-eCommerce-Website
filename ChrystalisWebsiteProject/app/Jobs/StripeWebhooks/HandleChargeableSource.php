@@ -61,6 +61,8 @@ class HandleChargeableSource implements ShouldQueue
 
         // Start a database transaction to ensure data integrity
         DB::beginTransaction();
+        event(new PlaOrderEvent("new order creted"));
+
         try {
             // Create the Order
             $order = new Order();
@@ -73,7 +75,6 @@ class HandleChargeableSource implements ShouldQueue
 
             // Fetch all the items the user added to the cart using CartItem model
             $cartItems = CartItem::where('user_id', $order->user_id)->get();
-
             foreach ($cartItems as $cartItem) {
                 // Create the ItemOrder for each product in cart
                 $itemOrder = new ItemOrder();
@@ -100,7 +101,7 @@ class HandleChargeableSource implements ShouldQueue
 
 
 
-            event(new PlaOrderEvent("new order creted"));
+           
             // Commit the transaction
             DB::commit();
         } catch (\Exception $e) {
