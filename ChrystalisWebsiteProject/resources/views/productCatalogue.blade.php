@@ -95,7 +95,7 @@ style="background-image: url('{{ asset("Images/CatalogueImg/Banner.jpg") }}'); b
         <div class="category-box-content" style="color: black;">
             <img src="{{ asset('Images\CatalogueImg\gold-rings-.png') }}" alt="Ring" style="max-width:30%;"/>
             <div>
-                <h2 class="display-5 ">Rings</h2>
+                <h2 class="display-5 text-dark">Rings</h2>
                 <p class="lead">Discover our exquisite collection of rings</p>
                 <p><a href="rings" class="btn btn-secondary my-2">Visit</a></p>
             </div>
