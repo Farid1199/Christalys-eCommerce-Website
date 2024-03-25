@@ -90,7 +90,7 @@ $total = ProductController::cartItem();
 
   <li>
     <a href="{{route('products')}}" class="nav-link text-secondary">
-      <i class="fa fa-shopping-bag d-block mx-auto mb-1 fa-2x text-center"> </i>
+      <i class="fa fa-gem  d-block mx-auto mb-1 fa-2x text-center"> </i>
       Products
     </a>
   </li>
@@ -103,7 +103,7 @@ $total = ProductController::cartItem();
   <li>
 
     <a href="{{route('wishlist')}}" class="nav-link text-secondary">
-      <i class="fa fa-star d-block mx-auto mb-1 fa-2x text-center"> </i>
+      <i class="fa fa-heart d-block mx-auto mb-1 fa-2x text-center"> </i>
       Wish List
     </a>
   </li>
@@ -150,7 +150,7 @@ Login
 <li>
 
 <a href="{{ route('register') }}" class="nav-link text-secondary">
-<i class="fa fa-users d-block mx-auto mb-1 fa-2x text-center"> </i>
+<i class="fa fa-user-plus d-block mx-auto mb-1 fa-2x text-center"> </i>
 Sign Up
 </a>
 </li>

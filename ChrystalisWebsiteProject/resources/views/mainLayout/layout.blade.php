@@ -64,109 +64,95 @@ $total = ProductController::cartItem();
 
   {{-- ============================ Navigation bar =================== --}}
 
-    <div class="head1">
-      @yield('header')
-      <header class="fixed-top" style="border-bottom: 2px solid gold">
-        <div class="px-3 py-2 border-bottom" style="background-color: #f8f9fa;">
-            <div class="container d-flex justify-content-between align-items-center ">
+<div class="head1">
+  @yield('header')
+  <header class="fixed-top" style="border-bottom: 2px solid gold">
+    <div class="px-3 py-2 border-bottom" style="background-color: #f8f9fa;">
+      <div class="container d-flex justify-content-between align-items-center">
 
-              <a href="#!" class="d-flex align-items-center my-2 text-decoration-none">
-                <div id="logo" class="ml-5">
-                  <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo"
-                    style="width: 30%; height: 20%" />
-                </div>
+        <a href="#!" class="d-flex align-items-center my-2 text-decoration-none">
+          <div id="logo" class="ml-5">
+            <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="width: 30%; height: 20%" />
+          </div>
+        </a>
 
-
-              </a>
-
-              <ul class="nav col-12 col-lg-auto my-2 mr-5 justify-content-center my-md-0 text-small">
-                <li>
-                  <a href="/" class="nav-link text-dark">
-                    <i class="fa fa-home d-block mx-auto mb-1 fa-2x text-center"> </i>
-                    Home
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{route('products')}}" class="nav-link text-secondary">
-                    <i class="fa fa-shopping-bag d-block mx-auto mb-1 fa-2x text-center"> </i>
-                    Products
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ route('cartlist') }}" class="nav-link text-secondary">
-                    <i class="fa fa-shopping-cart d-block mx-auto mb-1 fa-2x text-center"> </i>
-                    Cart({{ $total }})
-                  </a>
-                </li>
-                <li>
-
-                  <a href="{{route('wishlist')}}" class="nav-link text-secondary">
-                    <i class="fa fa-star d-block mx-auto mb-1 fa-2x text-center"> </i>
-                    Wish List
-                  </a>
-                </li>
-                <li>
-
-                  <a href="{{route('aboutus')}}" class="nav-link text-secondary mr-5">
-                    <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
-                    About Us
-                  </a>
-                </li>
-            </ul>
-
-
-            <ul class="nav col-12 col-lg-auto my-2 justify-content-end my-md-0 text-small ml-5">
-                      @if (Auth::check())
-                        <li>
-                            <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
-                              <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
-                              {{ __('Dashboard') }}
-                            </a>
-                          </li>
-
-                          <li>
-
-            <form method="POST" action="{{ route('logout') }}">
-              @csrf
-              <a href="{{route('logout')}}" onclick="event.preventDefault();
-                                            this.closest('form').submit();" class="nav-link text-secondary">
-                <i class="fas fa-sign-out-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
-                {{ __('Log Out') }}
-              </a>
-            </form>
-
-            </li>
-                      @else
-                      <li>
-
-            <a href="{{ route('login') }}" class="nav-link text-secondary">
-              <i class="fas fa-sign-in-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
-              Login
+        <ul class="nav col-12 col-lg-auto my-2 mr-5 justify-content-center my-md-0 text-small">
+          <li>
+            <a href="/" class="nav-link text-dark">
+              <i class="fa fa-home d-block mx-auto mb-1 fa-2x text-center"> </i>
+              Home
             </a>
+          </li>
+
+          <li>
+            <a href="{{route('products')}}" class="nav-link text-secondary">
+              <i class="fa fa-gem d-block mx-auto mb-1 fa-2x text-center"> </i>
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('cartlist') }}" class="nav-link text-secondary">
+              <i class="fa fa-shopping-cart d-block mx-auto mb-1 fa-2x text-center"> </i>
+              Cart({{ $total }})
+            </a>
+          </li>
+          <li>
+            <a href="{{route('wishlist')}}" class="nav-link text-secondary">
+              <i class="fa fa-heart d-block mx-auto mb-1 fa-2x text-center"> </i>
+              Wishlist
+            </a>
+          </li>
+          <li>
+            <a href="{{route('aboutus')}}" class="nav-link text-secondary mr-5">
+              <i class="fa fa-info-circle d-block mx-auto mb-1 fa-2x text-center"> </i>
+              About Us
+            </a>
+          </li>
+        </ul>
+
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-end my-md-0 text-small ml-5">
+          @if (Auth::check())
+            <li>
+              <a href="{{ route('dashboard') }}" class="nav-link text-secondary">
+                <i class="fa fa-user d-block mx-auto mb-1 fa-2x text-center"> </i>
+                {{ __('Dashboard') }}
+              </a>
             </li>
 
             <li>
-
-            <a href="{{ route('register') }}" class="nav-link text-secondary">
-              <i class="fa fa-users d-block mx-auto mb-1 fa-2x text-center"> </i>
-              Sign Up
-            </a>
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();"
+                  class="nav-link text-secondary">
+                  <i class="fas fa-sign-out-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
+                  {{ __('Log Out') }}
+                </a>
+              </form>
+            </li>
+          @else
+            <li>
+              <a href="{{ route('login') }}" class="nav-link text-secondary">
+                <i class="fas fa-sign-in-alt d-block mx-auto mb-1 fa-2x text-center"> </i>
+                Login
+              </a>
             </li>
 
-            @endif
-          </ul>
-
-
-
-          </div>
-
+            <li>
+              <a href="{{ route('register') }}" class="nav-link text-secondary">
+                <i class="fa fa-user-plus d-block mx-auto mb-1 fa-2x text-center"> </i>
+                Sign Up
+              </a>
+            </li>
+          @endif
+        </ul>
+      </div>
     </div>
+  </header>
+</div>
 
 
-    </header>
 
-
+    
   <!--    <div
       class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
       @if (Route::has('login'))
@@ -189,7 +175,6 @@ $total = ProductController::cartItem();
     </div>
 -->
 
-  </div>
 
 
 
