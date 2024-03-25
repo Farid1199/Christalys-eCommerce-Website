@@ -14,6 +14,7 @@ use App\Models\CartItem;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Events\PlaOrderEvent;
+use App\Models\Product;
 
 class HandleChargeableSource implements ShouldQueue
 {
@@ -82,6 +83,12 @@ class HandleChargeableSource implements ShouldQueue
                 // Check if total_price is null or not, and set it accordingly
                 $itemOrder->total_price = $cartItem->total_price ? $cartItem->total_price : 0; // Ensure total_price is not null
                 $itemOrder->save();
+
+                // Decrease the inventory for the product
+                $product = Product::find($cartItem->product_id);
+                $product->inventory_count -= $cartItem->quantity;
+                $product->save();
+
                 $cartItem->delete();
             }
 

@@ -537,9 +537,16 @@ class ProductController extends Controller
             } else {
                 // Handle adding a new item
                 if ($cartItem) {
+
                     // If item already exists, add to its quantity
-                    $cartItem->quantity = $quantity;
-                    $cartItem->total_amount = $quantity * $product->price;
+                    if ($quantity < $product->inventory_count){
+
+                        $cartItem->quantity = $quantity;
+                        $cartItem->total_amount = $quantity * $product->price;
+                    }
+                    else {
+                        return back()->with('error', 'Insufficient stock available.');
+                }
 
 
                 } else {
