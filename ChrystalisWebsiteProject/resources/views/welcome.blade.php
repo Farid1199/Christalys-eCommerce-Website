@@ -57,7 +57,8 @@ body {
 
 </style>
 
-
+<hr class="mb-3" />
+<hr class="mb-3" />
 <main role="main">
   <style>
   </style>
