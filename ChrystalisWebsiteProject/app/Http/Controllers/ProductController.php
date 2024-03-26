@@ -12,7 +12,7 @@ use App\Models\CartItem;
 use App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
-use App\Models\Wishlist;
+use App\Models\WishList;
 use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\Log;
 use Illuminate\Support\Facades\Log;
@@ -658,7 +658,7 @@ class ProductController extends Controller
     public function wishlist()
     {
         $userId = Auth::id();
-        $wishlistItems = Wishlist::where('user_id', $userId)->with('product')->get();
+        $wishlistItems = WishList::where('user_id', $userId)->with('product')->get();
         return view('wishlist', ['wishlistItems' => $wishlistItems]);
     }
     public function addToWishlist(Request $request)

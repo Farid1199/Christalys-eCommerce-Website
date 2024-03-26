@@ -72,7 +72,7 @@ $total = ProductController::cartItem();
 
         <a href="#!" class="d-flex align-items-center my-2 text-decoration-none">
           <div id="logo" class="ml-5">
-            <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="width: 30%; height: 20%" />
+            <img src="{{ asset('Images\CatalogueImg\logo-tp.png') }}" alt="TopLeft Logo" style="width: 20%; height: 20%" />
           </div>
         </a>
 
