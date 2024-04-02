@@ -96,6 +96,18 @@ In the second terminal, after you are provided with the following link
 Press **CTRL + Click** on the link to run the website on your web browser. 
 To stop the server, press **CTRL+C** in the terminal. 
 
+## Additional Instructions 
+
+- To log in as Admin, use the following credentials
+  - **Username**: admin
+  - **Password**: admin
+ 
+- To change the status of the orders via the admin panel, utilise the following 5 keywords:
+      - Received
+      - Processing
+      - Dispatched
+      - Delivered
+      - Returned 
 
 ## Credits 
 - [220090483 - Mikidam Farid](https://github.com/Farid1199) - Project Manager | Backend Lead | Full Stack Developer
