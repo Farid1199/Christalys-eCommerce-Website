@@ -10,7 +10,7 @@ In addition, the website administrators can track user activity, inventory level
 
 Our tech stack includes HTML5, CSS, JavaScript, Tailwind CSS, Blade and Bootstrap for frontend development, whereas PHP in Laravel framework manages backend tasks, ensuring scalability. Additionally, we integrated Stripe for secure and efficient transaction processing, and Laravel Breeze for secure user registration, login and forgot password features. For the admin panel, the OpenAdmin framework has been utilised to organise our database functionalities and ensure seamless user, inventory and order management. 
 
-## Website Deployment + Trello board 
+## Website URL + Trello board 
 The website has been deployed on Aston University’s domain, whereas we successfully utilised Trello to allocate and manage tasks and roles. 
 
 * Website URL: https://220090483.cs2410-web01pvm.aston.ac.uk/ 
