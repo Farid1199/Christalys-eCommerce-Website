@@ -1,3 +1,6 @@
+![chrystalis; logo](https://github.com/Farid1199/Christalys-eCommerce-Website/blob/main/ChrystalisWebsiteProject/public/Images/CatalogueImg/logo.png?raw=true)
+![chrystalis; img](https://github.com/Farid1199/Christalys-eCommerce-Website/blob/main/ChrystalisWebsiteProject/public/Images/HomePage/Hero2.png?raw=true)
+
 # Chrystalis eCommerce Website
 Welcome to the Christalis-eCommerce-Website repository. It contains the year-long team project for the CS2TP module at Aston University. The following guide will cover general information about the projects, a user guide and instruction manual, project deployment and local run, and further information about the project. 
 
