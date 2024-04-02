@@ -103,11 +103,11 @@ To stop the server, press **CTRL+C** in the terminal.
   - **Password**: admin
  
 - To change the status of the orders via the admin panel, utilise the following 5 keywords:
-      - Received
-      - Processing
-      - Dispatched
-      - Delivered
-      - Returned 
+  - Received
+  - Processing
+  - Dispatched
+  - Delivered
+  - Returned 
 
 ## Credits 
 - [220090483 - Mikidam Farid](https://github.com/Farid1199) - Project Manager | Backend Lead | Full Stack Developer
