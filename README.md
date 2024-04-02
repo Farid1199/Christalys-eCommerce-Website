@@ -45,12 +45,12 @@ Before running the website, you need to install the following clients and librar
     cd .\Christalys-eCommerce-Website\
     ```
 
-5. Lastly, in the directory install composer and run it using the following commands: 
+5. Lastly, in the directory install composer and npm node.js with the following commands:  
     ```powershell
-    composer install 
+    composer i 
     ```
     ```powershell
-    composer update
+    npm i
     ```
     
 ### XAMPP local run
